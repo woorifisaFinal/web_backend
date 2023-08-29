@@ -1,5 +1,7 @@
 package com.woorifis.demo.model.dto;
 
+import com.woorifis.demo.model.entity.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,4 +22,14 @@ public class UserDTO {
 	private String password;
 	private String type;
 	
+	
+	public static UserDTO toUserDTO(User user) {
+		UserDTO userDTO = new UserDTO();
+		userDTO.setUserId(user.getUserId());
+		userDTO.setUserName(user.getUserName());
+		userDTO.setUserEmail(user.getUserEmail());
+		userDTO.setPassword(user.getPassword());
+		userDTO.setType(user.getType());
+		return userDTO;
+	}
 }
