@@ -28,16 +28,16 @@ public class Board {
 	private String content;
 	//private String user_id; 이거아님
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	User user;
+//	@ManyToOne
+//	@JoinColumn(name = "user_id")
+//	User user;
 	
 	public BoardDTO toDto() {
 		BoardDTO dto = new BoardDTO();
-		dto.setNo(this.getNo());
+		dto.setBoardid(this.getNo());
 		dto.setTitle(this.getTitle());
 		dto.setContent(this.getContent());
-		dto.setUser_No(this.getUser().getUserNo());
+//		dto.setUser_No(this.getUser().getUserNo());
 		return dto;
 
 	

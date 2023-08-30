@@ -1,5 +1,7 @@
 package com.woorifis.demo.controller;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,10 +22,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BoardController {
 
-	private BoardService service;
+	private BoardService boardservice;
 	
 	public BoardController(BoardService service) {
-		this.service = service;
+		this.boardservice = service;
 	}
 	
 	@GetMapping("/regist")
@@ -33,27 +35,38 @@ public class BoardController {
 		
 	@PostMapping("/regist")
 	public String registBoard(@ModelAttribute BoardDTO board) {
-		service.writeBoard(board);
+		boardservice.write(board);
 		return "redirect:/board/list";
 		
 	}
 	
 	@GetMapping("/list")
-	public String list(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { //int의 레포타입인 인티저로 해야함 없을수도 있으니까 객체로?
+	public String listBoard(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { //int의 레포타입인 인티저로 해야함 없을수도 있으니까 객체로?
 		// 페이징 처리 - 한페이지에 10 개씩만 보 여주자
 		page--;
-		Page<Board> pageInfo = service.listboard(page);
+		Page<Board> pageInfo = boardservice.list(page);
 		model.addAttribute("pageInfo", pageInfo);
 		
 		//log.debug("page: {}",page);
 		return "board/list";
 
 	}
+	
+	@GetMapping("/search")
+	public String searchBoard(@RequestParam(required = false) String keyword, Model model) {
+	    if (keyword != null && !keyword.isEmpty()) {
+	        // 검색어를 이용하여 검색 처리를 수행
+	        List<Board> searchResults = boardservice.search(keyword);
+	        model.addAttribute("searchResults", searchResults);
+	    }
+	    return "board/search_results"; // 검색 결과를 보여줄 뷰 페이지 이름
+	}
+	
 	@GetMapping("/detail")
-	public String detail(@RequestParam int no, Model model)	{
+	public String detailBoard(@RequestParam int no, Model model)	{
 		log.debug("no :{}",no);
 		try {
-			Board board = service.detailBoard(no);
+			Board board = boardservice.detail(no);
 			model.addAttribute("board", board);
 			return "board/detail";
 		}catch(RuntimeException e) {
@@ -62,17 +75,17 @@ public class BoardController {
 	}
 	// a 링크 타고오면 get 매핑
 	@GetMapping("/delete")
-	public String delete(@RequestParam int no) {
+	public String deleteBoard(@RequestParam int no) {
 		log.debug("board no:{}", no);
-		service.deleteBoard(no);
+		boardservice.delete(no);
 		
 		return"redirect:/board/list";
 	}
 	
 	@PostMapping("/update")
-	public String update(@ModelAttribute BoardDTO dto,Model model) {
+	public String updateBoard(@ModelAttribute BoardDTO dto,Model model) {
 		log.debug("board 수정: {}", dto);
-		service.writeBoard(dto);
-		return "redirect:/board/detail?no=" +dto.getNo();
+		boardservice.write(dto);
+		return "redirect:/board/detail?no=" +dto.getBoardid();
 	}
 }
