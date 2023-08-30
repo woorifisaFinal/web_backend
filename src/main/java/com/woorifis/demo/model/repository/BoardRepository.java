@@ -1,5 +1,9 @@
 package com.woorifis.demo.model.repository;
 
-public class BoardRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.woorifis.demo.model.entity.Board;
+
+public interface BoardRepository extends JpaRepository<Board, Integer>{
 
 }

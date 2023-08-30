@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.model.dto.BoardDto;
-import com.example.demo.model.entity.Board;
+import com.woorifis.demo.model.dto.BoardDTO;
+import com.woorifis.demo.model.entity.Board;
 import com.woorifis.demo.model.service.BoardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +32,7 @@ public class BoardController {
 	}
 		
 	@PostMapping("/regist")
-	public String registBoard(@ModelAttribute BoardDto board) {
+	public String registBoard(@ModelAttribute BoardDTO board) {
 		service.writeBoard(board);
 		return "redirect:/board/list";
 		
@@ -70,7 +70,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/update")
-	public String update(@ModelAttribute BoardDto dto,Model model) {
+	public String update(@ModelAttribute BoardDTO dto,Model model) {
 		log.debug("board 수정: {}", dto);
 		service.writeBoard(dto);
 		return "redirect:/board/detail?no=" +dto.getNo();
