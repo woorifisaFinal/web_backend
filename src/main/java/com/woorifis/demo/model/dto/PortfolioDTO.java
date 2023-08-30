@@ -20,8 +20,7 @@ public class PortfolioDTO {
 	@Getter
 	@Setter
     public static class UserResponse {
-    	
-    	    private Long id;
+  
     		
     		private String datetime; 
     		
