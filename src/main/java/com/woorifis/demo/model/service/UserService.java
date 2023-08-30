@@ -19,20 +19,28 @@ public class UserService {
 	public void save(UserDTO userDTO) {
 		// repository의 save 메서드 호출 (entity 객체 넘겨줘야 함)
 		// 1. dto -> entity 변환
-		// 2. repository의 save 메서드 호출
-		
 		User user = User.toUser(userDTO);
+		// 2. repository의 save 메서드 호출
 		userRepository.save(user);
 	}
 	
 	public UserDTO login(UserDTO userDTO) {
-		// 1. 회원이 입력한 이메일로 DB 조회
-		// 2. DB 비밀번호가 사용자가 입력한 비밀번호와 일치하는지 판단
+		// 1. 회원이 입력한 이메일(dto)로 DB(entity) 조회
+		// 2. DB 비밀번호가 사용자가 입력한 비밀번호와 일치하는지 판단해서 결과 리턴
+		User user = userRepository.findByEmail(UserEmail);
+		 if (user != null && user.getPassword().equals(userDTO.getPassword())) 
+		 {
+		
+			 return UserDTO.fromUser(user);
+		 }
+		
+		
 	}
 	
 	@Transactional
 	public void update(String userId, String type) {
 		// 1. 회원 아이디(기본 키) 가져오기 -> session 값
+		String loggedInUserId = (String) session.getAttribute("loginUser");
 		// 2. 회원의 성향 테이블에 update
 		
 	    User user = userRepository.findById(userId).get();

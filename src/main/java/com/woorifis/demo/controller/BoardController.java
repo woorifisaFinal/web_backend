@@ -13,6 +13,7 @@ import com.woorifis.demo.model.dto.BoardDTO;
 import com.woorifis.demo.model.entity.Board;
 import com.woorifis.demo.model.service.BoardService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
