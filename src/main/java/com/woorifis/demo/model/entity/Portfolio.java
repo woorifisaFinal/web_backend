@@ -71,16 +71,16 @@ public class Portfolio{
         portfolio.setDatetime(userResponse.getDatetime());
         portfolio.setType(userResponse.getType());
         portfolio.setKS(userResponse.getKS());
-        portfolio.setJP(userResponse.getNA());
-        portfolio.setJP(userResponse.getBZ());
-        portfolio.setJP(userResponse.getEU());
-        portfolio.setJP(userResponse.getIN());
-        portfolio.setJP(userResponse.getTW());
-        portfolio.setJP(userResponse.getUK());
-        portfolio.setJP(userResponse.getGOLD());
+        portfolio.setNA(userResponse.getNA());
+        portfolio.setBZ(userResponse.getBZ());
+        portfolio.setEU(userResponse.getEU());
+        portfolio.setIN(userResponse.getIN());
+        portfolio.setTW(userResponse.getTW());
+        portfolio.setUK(userResponse.getUK());
+        portfolio.setGOLD(userResponse.getGOLD());
         portfolio.setJP(userResponse.getJP());
-        portfolio.setJP(userResponse.getKRBondLong());
-        portfolio.setJP(userResponse.getKRBondShort());
+        portfolio.setKRBondLong(userResponse.getKRBondLong());
+        portfolio.setKRBondShort(userResponse.getKRBondShort());
         return portfolio;
     }
 
