@@ -1,5 +1,6 @@
 package com.woorifis.demo.model.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,36 +18,33 @@ import com.woorifis.demo.model.repository.UserRepository;
 import jakarta.transaction.Transactional;
 
 public class BoardService {
-	private UserRepository urepo;
-	private BoardRepository brepo; 
+	private UserRepository userRepository;
+	private BoardRepository boardRepository; 
 	
 	@Autowired
 	public BoardService(UserRepository urepo, BoardRepository brepo) {
-		this.urepo = urepo;
-		this.brepo = brepo;
+		this.userRepository = urepo;
+		this.boardRepository = brepo;
 	}
-	
 	
 	@Transactional
-	public void writeBoard(BoardDTO dto) {
-		Long userId = dto.getUser_No();
-		User user = urepo.getReferenceById(userId);
+	public void write(BoardDTO dto) {
+//		Long userId = dto.getUser_No();
+//		User user = urepo.getReferenceById(userId);
 		Board board = dto.toEntity();
 		// user는 방금 생김..
-		board.setUser(user);
-		brepo.saveAndFlush(board);
+//		board.setUser(user);
+		boardRepository.saveAndFlush(board);
 	}
 
-	public Page<Board> listboard(int page) {
+	public Page<Board> list(int page) {
 		Pageable pageable = PageRequest.of(page, 5, Direction.DESC,"no");
-		Page<Board> pageInfo = brepo.findAll(pageable);
+		Page<Board> pageInfo = boardRepository.findAll(pageable);
 		return pageInfo;
 	}
-		
-	
-	
-	public Board detailBoard(int no) {
-		Optional<Board> option = brepo.findById(no);
+			
+	public Board detail(int no) {
+		Optional<Board> option = boardRepository.findById(no);
 		if(option.isPresent()) {
 			return option.get();
 		}else {
@@ -54,8 +52,18 @@ public class BoardService {
 		}
 	}
 	
-	public void deleteBoard(int no) {
-		brepo.deleteById(no);
+	public void delete(int no) {
+		boardRepository.deleteById(no);
 	}
+	
+	
+    public List<Board> search(String keyword) {
+        // 키워드를 이용하여 검색 처리를 수행하고, 검색 결과를 반환하는 메서드를 작성해야 합니다.
+        // 검색 조건에 따라 boardRepository에서 검색을 수행하고 결과를 리턴하면 됩니다.
+        List<Board> searchResults = boardRepository.findByTitleContaining(keyword);
+        return searchResults;
+    }
+    
+
 }
 
