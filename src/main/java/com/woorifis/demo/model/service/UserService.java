@@ -27,15 +27,14 @@ public class UserService {
 	public UserDTO login(UserDTO userDTO) {
 		// 1. 회원이 입력한 이메일(dto)로 DB(entity) 조회
 		// 2. DB 비밀번호가 사용자가 입력한 비밀번호와 일치하는지 판단해서 결과 리턴
-		User user = userRepository.findByEmail(UserEmail);
+		User user = userRepository.findByEmail(userDTO.getUserEmail()).get();
 		 if (user != null && user.getPassword().equals(userDTO.getPassword())) 
 		 {
-		
-			 return UserDTO.fromUser(user);
-		 }
-		
-		
+			 return userDTO;
+	} else{
+		return null;
 	}
+}
 	
 	@Transactional
 	public void update(String userId, String type) {

@@ -52,9 +52,9 @@ public class UserController {
 			// login 성공
 			 session.setAttribute("loginUser", loginResult); 
 			 // 로그인 유저 정보를 세션에 저장
-			// login이 성공을 했으면 login된 유저는 session에 id 값을 넣어줘서 session을 종료할때까지 유지시켜준다
+			// login이 성공을 했으면 login된 유저는99 session에 id 값을 넣어줘서 session을 종료할때까지 유지시켜준다
 				// 해서 맞으면 로그인 시켜주고 
-			 session.setMaxInactiveInterval(-1); //무한대
+			
 			 
 			 return "redirect:/";		
 			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
