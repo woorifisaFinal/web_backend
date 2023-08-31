@@ -34,7 +34,7 @@ public class Board {
 	
 	public BoardDTO toDto() {
 		BoardDTO dto = new BoardDTO();
-		dto.setBoardid(this.getNo());
+		dto.setBoardId(this.getNo());
 		dto.setTitle(this.getTitle());
 		dto.setContent(this.getContent());
 //		dto.setUser_No(this.getUser().getUserNo());

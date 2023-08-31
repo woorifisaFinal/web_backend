@@ -13,14 +13,14 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BoardDTO {
 	//제너레이트 안씀 화면에서만 가져와서?
-	private int boardid;
+	private int boardId;
 	private String title;
 	private String content;
 //	private Long user_No;
 	
 	public Board toEntity() {
 		Board board = new Board();
-		board.setNo(this.getBoardid());
+		board.setNo(this.getBoardId());
 		board.setTitle(this.getTitle());
 		board.setContent(this.getContent());
 		return board;

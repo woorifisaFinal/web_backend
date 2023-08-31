@@ -86,6 +86,6 @@ public class BoardController {
 	public String updateBoard(@ModelAttribute BoardDTO dto,Model model) {
 		log.debug("board 수정: {}", dto);
 		boardservice.write(dto);
-		return "redirect:/board/detail?no=" +dto.getBoardid();
+		return "redirect:/board/detail?no=" +dto.getBoardId();
 	}
 }

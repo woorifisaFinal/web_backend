@@ -57,6 +57,7 @@ public class BoardService {
 	}
 	
 	
+	@Transactional
     public List<Board> search(String keyword) {
         // 키워드를 이용하여 검색 처리를 수행하고, 검색 결과를 반환하는 메서드를 작성해야 합니다.
         // 검색 조건에 따라 boardRepository에서 검색을 수행하고 결과를 리턴하면 됩니다.
