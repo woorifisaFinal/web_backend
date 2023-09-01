@@ -6,23 +6,29 @@ import com.woorifis.demo.model.entity.Board;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-@Data
+import lombok.Setter;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class BoardDTO {
-	//제너레이트 안씀 화면에서만 가져와서?
-	private int boardid;
+
+	private Long no;
 	private String title;
 	private String content;
-//	private Long user_No;
-	
-	public Board toEntity() {
-		Board board = new Board();
-		board.setNo(this.getBoardid());
-		board.setTitle(this.getTitle());
-		board.setContent(this.getContent());
-		return board;
 
-}}
+
+	public static BoardDTO toBoardDTO(Board board) {
+		BoardDTO dto = new BoardDTO();
+		dto.setNo(board.getNo());
+		dto.setTitle(board.getTitle());
+		dto.setContent(board.getContent());
+//		dto.setUser_No(this.getUser().getUserNo());
+		return dto;
+
+	
+}
+}

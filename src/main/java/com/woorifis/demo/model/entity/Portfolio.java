@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 
 
+
 import com.woorifis.demo.model.dto.PortfolioDTO;
 
 import jakarta.persistence.Column;
@@ -22,9 +23,9 @@ import lombok.Setter;
 
 public class Portfolio{
 
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//    @Id
-//    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    private Long id;
 	
 	@Column
 	private String datetime; 
@@ -55,7 +56,7 @@ public class Portfolio{
     private Long TW;
   
     @Column(nullable = false)
-    private Long IN;
+    private Long IA;
  
     @Column(nullable = false)
     private Long GOLD;
@@ -74,7 +75,7 @@ public class Portfolio{
         portfolio.setNA(userResponse.getNA());
         portfolio.setBZ(userResponse.getBZ());
         portfolio.setEU(userResponse.getEU());
-        portfolio.setIN(userResponse.getIN());
+        portfolio.setIA(userResponse.getIA());
         portfolio.setTW(userResponse.getTW());
         portfolio.setUK(userResponse.getUK());
         portfolio.setGOLD(userResponse.getGOLD());

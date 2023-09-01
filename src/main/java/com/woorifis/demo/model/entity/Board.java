@@ -8,39 +8,36 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+
+@Getter
+@Setter
 @Entity
 @ToString
+@Table(name="board")
 public class Board {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int no;
+	private Long no;
 	private String title;
 	private String content;
-	//private String user_id; 이거아님
-
-//	@ManyToOne
-//	@JoinColumn(name = "user_id")
-//	User user;
-	
-	public BoardDTO toDto() {
-		BoardDTO dto = new BoardDTO();
-		dto.setBoardid(this.getNo());
-		dto.setTitle(this.getTitle());
-		dto.setContent(this.getContent());
-//		dto.setUser_No(this.getUser().getUserNo());
-		return dto;
 
 	
+	public static Board toBoard(BoardDTO boardDTO) {
+		Board board = new Board();
+		board.setNo(boardDTO.getNo());
+		board.setTitle(boardDTO.getTitle());
+		board.setContent(boardDTO.getContent());
+		return board;
+
 }
 	}
 

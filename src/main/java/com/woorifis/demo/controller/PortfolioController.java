@@ -27,7 +27,7 @@ public class PortfolioController {
 
 	
 	private final PortfolioService portfolioService;
-	private final UserService userService;
+//	private final UserService userService;
 
 	
 	
@@ -35,14 +35,14 @@ public class PortfolioController {
 	@GetMapping("/gettype")
 	public String getTypeForm() {return "/portfolio/gettype";}
 	/* 프론트에서 로그인 확인 해서 시작하기 가능 */
-	
-	@PostMapping("/gettype")
-	public String getType(@SessionAttribute(name = "userId", required = false) String userId,
-			@ModelAttribute String type) {
-		userService.update(userId, type);
-		return "redirect:/portfolio/gettype";
-		// return "/getportfolio";
-	}
+//	
+//	@PostMapping("/gettype")
+//	public String getType(@SessionAttribute(name = "userId", required = false) String userId,
+//			@ModelAttribute String type) {
+//		userService.update(userId, type);
+//		return "redirect:/portfolio/gettype";
+//		// return "/getportfolio";
+//	}
 	
 	
 	 // 포트폴리오 추론을 위한 엔드포인트

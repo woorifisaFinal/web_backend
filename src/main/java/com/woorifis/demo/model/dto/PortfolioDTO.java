@@ -40,7 +40,7 @@ public class PortfolioDTO {
     	
     	    private Long TW;
     	 
-    	    private Long IN;
+    	    private Long IA;
     	    
     	    private Long GOLD;
  
