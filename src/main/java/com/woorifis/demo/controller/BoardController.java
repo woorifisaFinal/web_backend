@@ -35,7 +35,7 @@ public class BoardController {
 		
 	@PostMapping("/regist")
 	public String registBoard(@ModelAttribute BoardDTO board) {
-		boardservice.write(board);
+		boardservice.registBoard(board);
 		return "redirect:/board/list";
 		
 	}
@@ -44,7 +44,7 @@ public class BoardController {
 	public String listBoard(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { //int의 레포타입인 인티저로 해야함 없을수도 있으니까 객체로?
 		// 페이징 처리 - 한페이지에 10 개씩만 보 여주자
 		page--;
-		Page<Board> pageInfo = boardservice.list(page);
+		Page<Board> pageInfo = boardservice.listBoard(page);
 		model.addAttribute("pageInfo", pageInfo);
 		
 		//log.debug("page: {}",page);
@@ -56,17 +56,17 @@ public class BoardController {
 	public String searchBoard(@RequestParam(required = false) String keyword, Model model) {
 	    if (keyword != null && !keyword.isEmpty()) {
 	        // 검색어를 이용하여 검색 처리를 수행
-	        List<Board> searchResults = boardservice.search(keyword);
+	        List<Board> searchResults = boardservice.searchBoard(keyword);
 	        model.addAttribute("searchResults", searchResults);
 	    }
 	    return "board/search_results"; // 검색 결과를 보여줄 뷰 페이지 이름
 	}
 	
 	@GetMapping("/detail")
-	public String detailBoard(@RequestParam int no, Model model)	{
+	public String showBoard(@RequestParam int no, Model model)	{
 		log.debug("no :{}",no);
 		try {
-			Board board = boardservice.detail(no);
+			Board board = boardservice.showBoard(no);
 			model.addAttribute("board", board);
 			return "board/detail";
 		}catch(RuntimeException e) {
@@ -77,7 +77,7 @@ public class BoardController {
 	@GetMapping("/delete")
 	public String deleteBoard(@RequestParam int no) {
 		log.debug("board no:{}", no);
-		boardservice.delete(no);
+		boardservice.deleteBoard(no);
 		
 		return"redirect:/board/list";
 	}
@@ -85,7 +85,7 @@ public class BoardController {
 	@PostMapping("/update")
 	public String updateBoard(@ModelAttribute BoardDTO dto,Model model) {
 		log.debug("board 수정: {}", dto);
-		boardservice.write(dto);
+		boardservice.registBoard(dto);
 		return "redirect:/board/detail?no=" +dto.getBoardId();
 	}
 }

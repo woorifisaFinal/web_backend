@@ -7,20 +7,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
 
 import com.woorifis.demo.model.dto.BoardDTO;
 import com.woorifis.demo.model.entity.Board;
 import com.woorifis.demo.model.repository.BoardRepository;
 import com.woorifis.demo.model.repository.UserRepository;
 import com.woorifis.demo.model.service.BoardService;
+
 
 public class BoardServiceTest {
 
@@ -39,65 +47,61 @@ public class BoardServiceTest {
     }
 
     @Test
-    public void testWrite() {
+    public void testRegistBoard() {
         BoardDTO boardDTO = new BoardDTO();
         boardDTO.setTitle("Test Title");
         boardDTO.setContent("Test Content");
 
-        boardService.write(boardDTO);
+        boardService.registBoard(boardDTO);
 
         verify(boardRepository).saveAndFlush(any(Board.class));
     }
 
     @Test
-    public void testList() {
-        Pageable pageable = Pageable.ofSize(5);
-        List<Board> boardList = new ArrayList<>();
-        boardList.add(new Board());
-        Page<Board> page = new PageImpl<>(boardList);
-
-        when(boardRepository.findAll(pageable)).thenReturn(page);
-
-        Page<Board> result = boardService.list(0);
-
-        assertEquals(boardList.size(), result.getContent().size());
+    public void testListBoard() {
+		Pageable pageable = PageRequest.of(0, 5,Direction.DESC, "no");//no를 기준으로
+		//페이지는 제로베이스 0페이지(1부터) 5까지
+		Page<Board> boards = boardRepository.findAll(pageable);
+		List<Board> boardList = boards.getContent();
+		Assertions.assertEquals(boardList.get(0).getTitle(),"오늘은 화요일!!");
+		Assertions.assertEquals(boards.getTotalPages(),2);
     }
 
     @Test
-    public void testDetailWithValidId() {
+    public void testShowBoardWithValidId() {
         int boardId = 1;
         Board board = new Board();
         when(boardRepository.findById(boardId)).thenReturn(Optional.of(board));
 
-        Board result = boardService.detail(boardId);
+        Board result = boardService.showBoard(boardId);
 
         assertNotNull(result);
     }
 
     @Test
-    public void testDetailWithInvalidId() {
+    public void testShowBoardWithInvalidId() {
         int boardId = 1;
         when(boardRepository.findById(boardId)).thenReturn(Optional.empty());
 
-        assertThrows(RuntimeException.class, () -> boardService.detail(boardId));
+        assertThrows(RuntimeException.class, () -> boardService.showBoard(boardId));
     }
 
     @Test
-    public void testDelete() {
+    public void testDeleteBoard() {
         int boardId = 1;
 
-        boardService.delete(boardId);
+        boardService.deleteBoard(boardId);
 
         verify(boardRepository).deleteById(boardId);
     }
 
     @Test
-    public void testSearch() {
+    public void testSearchBoard() {
         String keyword = "Test";
         List<Board> searchResults = new ArrayList<>();
         when(boardRepository.findByTitleContaining(keyword)).thenReturn(searchResults);
 
-        List<Board> result = boardService.search(keyword);
+        List<Board> result = boardService.searchBoard(keyword);
 
         assertEquals(searchResults.size(), result.size());
     }
