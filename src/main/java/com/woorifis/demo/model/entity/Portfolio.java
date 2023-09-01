@@ -2,6 +2,8 @@ package com.woorifis.demo.model.entity;
 
 import java.time.LocalDateTime;
 
+
+
 import com.woorifis.demo.model.dto.PortfolioDTO;
 
 import jakarta.persistence.Column;
@@ -18,15 +20,15 @@ import lombok.Setter;
 @Setter
 @Table(name="portfolio")
 
-public class Portfolio extends DateTime {
+public class Portfolio{
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
-    @Id
-    private Long id;
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    private Long id;
 	
 	@Column
 	private String datetime; 
-	// extends DateTime
+	// flask가 생성해줌
 	
 	@Column
 	private String type;
@@ -36,7 +38,6 @@ public class Portfolio extends DateTime {
     
     @Column(nullable = false)
     private Long NA;
-    
     
     @Column(nullable = false)
     private Long JP;
@@ -55,8 +56,6 @@ public class Portfolio extends DateTime {
   
     @Column(nullable = false)
     private Long IN;
-   
-    
  
     @Column(nullable = false)
     private Long GOLD;
@@ -69,20 +68,19 @@ public class Portfolio extends DateTime {
     
     public static Portfolio toPortfolio(PortfolioDTO.UserResponse userResponse) {
     	Portfolio portfolio = new Portfolio();
-        portfolio.setId(userResponse.getId());
         portfolio.setDatetime(userResponse.getDatetime());
         portfolio.setType(userResponse.getType());
         portfolio.setKS(userResponse.getKS());
-        portfolio.setJP(userResponse.getNA());
-        portfolio.setJP(userResponse.getBZ());
-        portfolio.setJP(userResponse.getEU());
-        portfolio.setJP(userResponse.getIN());
-        portfolio.setJP(userResponse.getTW());
-        portfolio.setJP(userResponse.getUK());
-        portfolio.setJP(userResponse.getGOLD());
+        portfolio.setNA(userResponse.getNA());
+        portfolio.setBZ(userResponse.getBZ());
+        portfolio.setEU(userResponse.getEU());
+        portfolio.setIN(userResponse.getIN());
+        portfolio.setTW(userResponse.getTW());
+        portfolio.setUK(userResponse.getUK());
+        portfolio.setGOLD(userResponse.getGOLD());
         portfolio.setJP(userResponse.getJP());
-        portfolio.setJP(userResponse.getKRBondLong());
-        portfolio.setJP(userResponse.getKRBondShort());
+        portfolio.setKRBondLong(userResponse.getKRBondLong());
+        portfolio.setKRBondShort(userResponse.getKRBondShort());
         return portfolio;
     }
 
