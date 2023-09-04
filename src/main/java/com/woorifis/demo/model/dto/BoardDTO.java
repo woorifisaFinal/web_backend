@@ -15,10 +15,25 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoardDTO {
+<<<<<<< HEAD
 
 	private Long no;
 	private String title;
 	private String content;
+=======
+	//제너레이트 안씀 화면에서만 가져와서?
+	private Long no;
+	private String title;
+	private String content;
+//	private Long user_No;
+	
+	public Board toEntity() {
+		Board board = new Board();
+		board.setNo(this.getNo());
+		board.setTitle(this.getTitle());
+		board.setContent(this.getContent());
+		return board;
+>>>>>>> 94ad6dce03095de5d3a463aafacb1624be83c38d
 
 
 	public static BoardDTO toBoardDTO(Board board) {

@@ -38,10 +38,15 @@ public class BoardController {
 	}
 		
 	@PostMapping("/regist")
+<<<<<<< HEAD
 	public String registBoard(@ModelAttribute BoardDTO boardDTO) {
 		System.out.println("regist");
 		System.out.println("BoardDTO = "+ boardDTO);
 		boardservice.registBoard(boardDTO);
+=======
+	public String registBoard(@ModelAttribute BoardDTO board) {
+		boardservice.registBoard(board);
+>>>>>>> 94ad6dce03095de5d3a463aafacb1624be83c38d
 		return "redirect:/board/list";
 		
 	}
@@ -51,8 +56,11 @@ public class BoardController {
 	public String listBoard(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) {
 		page--;
 		Page<Board> pageInfo = boardservice.listBoard(page);
+<<<<<<< HEAD
 //		addAttribute(name, value) value 객체를 name 이라는 이름으로 추가해줌 
 		// view 에서 name 으로 지정된 value 를 사용하기 위함
+=======
+>>>>>>> 94ad6dce03095de5d3a463aafacb1624be83c38d
 		model.addAttribute("pageInfo", pageInfo);
 		return "board/list";
 	}
@@ -68,10 +76,16 @@ public class BoardController {
 	    return "board/search"; // 검색 결과를 보여줄 뷰 페이지 이름
 	}
 	
+<<<<<<< HEAD
 	@GetMapping("/show")
 	public String showBoard(@RequestParam Long no, Model model)	{
 //  search()에서 no를 데려오고 그 no에 맞는 데이터를 가져옴
 //	 db에서 종목별 no 이 있어야 함을 전제
+=======
+	@GetMapping("/detail")
+	public String showBoard(@RequestParam int no, Model model)	{
+		log.debug("no :{}",no);
+>>>>>>> 94ad6dce03095de5d3a463aafacb1624be83c38d
 		try {
 			Board board = boardservice.showBoard(no);
 			model.addAttribute("board", board);
@@ -90,10 +104,19 @@ public class BoardController {
 		return"redirect:/board/list";
 	}
 	
+<<<<<<< HEAD
 //	@PostMapping("/update")
 //	public String updateBoard(@ModelAttribute BoardDTO dto,Model model) {
 //		log.debug("board 수정: {}", dto);
 //		boardservice.registBoard(dto);
 //		return "redirect:/board/detail?no=" +dto.getNo();
 //	}
+=======
+	@PostMapping("/update")
+	public String updateBoard(@ModelAttribute BoardDTO dto,Model model) {
+		log.debug("board 수정: {}", dto);
+		boardservice.registBoard(dto);
+		return "redirect:/board/detail?no=" +dto.getBoardId();
+	}
+>>>>>>> 94ad6dce03095de5d3a463aafacb1624be83c38d
 }
