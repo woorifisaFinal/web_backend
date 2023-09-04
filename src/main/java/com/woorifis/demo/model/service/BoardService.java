@@ -22,34 +22,46 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class BoardService {
-	private BoardRepository boardRepository; 
+	private BoardRepository brepo; 
 	
+	@Autowired
+	public BoardService(BoardRepository brepo) {
+		this.brepo = brepo;
+	}
 	
 	@Transactional
 	public void registBoard(BoardDTO dto) {
 		Board board = Board.toBoard(dto);
-		boardRepository.saveAndFlush(board);
+		brepo.saveAndFlush(board);
 	}
+
 
 	public Page<Board> listBoard(int page) {
 		Pageable pageable = PageRequest.of(page, 5, Direction.DESC,"no");
-		Page<Board> pageInfo = boardRepository.findAll(pageable);
+		Page<Board> pageInfo = brepo.findAll(pageable);
 		return pageInfo;
 	}
-	
+		
 	@Transactional
     public List<Board> searchBoard(String keyword) {
         // 키워드를 이용하여 검색 처리를 수행하고, 검색 결과를 반환하는 메서드를 작성해야 합니다.
         // 검색 조건에 따라 boardRepository에서 검색을 수행하고 결과를 리턴하면 됩니다.
-        List<Board> searchResults = boardRepository.findByTitleContaining(keyword);
+        List<Board> searchResults = brepo.findByTitleContaining(keyword);
         return searchResults;
     }
 	
 	public void deleteBoard(Long no) {
-		boardRepository.deleteById(no);
+		brepo.deleteById(no);
 	}
 	
-	
+	public Board showBoard(Long no) {
+		Optional<Board> option = brepo.findById((long) no);
+		if(option.isPresent()) {
+			return option.get();
+		}else {
+			throw new RuntimeException(no+"글은 지워졌나봐요");
+		}
+	}
     
 
 }

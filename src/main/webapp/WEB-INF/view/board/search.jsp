@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+서치 페이지입니다.
 </body>
 </html>

@@ -11,8 +11,8 @@ import com.woorifis.demo.model.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	
-	Optional<User> findById(String id);
+//	Optional<User> findByUserNo(String id);
 	
-	Optional<User> findByEmail(String email);
+	Optional<User> findByUserEmail(String email);
 	
 }

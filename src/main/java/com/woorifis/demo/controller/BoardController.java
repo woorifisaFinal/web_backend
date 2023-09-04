@@ -2,6 +2,7 @@ package com.woorifis.demo.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,10 @@ public class BoardController {
 
 	private BoardService boardservice;
 	
+	@Autowired
+	public BoardController(BoardService service) {
+		this.boardservice = service;
+	}
 	
 	@GetMapping("/regist")
 	public String registForm() {
@@ -41,17 +46,17 @@ public class BoardController {
 		
 	}
 	
-//	@GetMapping("/list")
-//	public String listBoard(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { //int의 레포타입인 인티저로 해야함 없을수도 있으니까 객체로?
-//		// 페이징 처리 - 한페이지에 10 개씩만 보 여주자
-//		page--;
-//		Page<Board> pageInfo = boardservice.list(page);
-//		model.addAttribute("pageInfo", pageInfo);
-//		
-//		//log.debug("page: {}",page);
-//		return "board/list";
-//
-//	}
+	
+	@GetMapping("/list")
+	public String listBoard(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) {
+		page--;
+		Page<Board> pageInfo = boardservice.listBoard(page);
+//		addAttribute(name, value) value 객체를 name 이라는 이름으로 추가해줌 
+		// view 에서 name 으로 지정된 value 를 사용하기 위함
+		model.addAttribute("pageInfo", pageInfo);
+		return "board/list";
+	}
+
 	
 	@GetMapping("/search")
 	public String searchBoard(@RequestParam(required = false) String keyword, Model model) {
@@ -63,11 +68,18 @@ public class BoardController {
 	    return "board/search"; // 검색 결과를 보여줄 뷰 페이지 이름
 	}
 	
-//	@GetMapping("/show")
-//	public String showBoard(@RequestParam Long no, Model model)	{
+	@GetMapping("/show")
+	public String showBoard(@RequestParam Long no, Model model)	{
 //  search()에서 no를 데려오고 그 no에 맞는 데이터를 가져옴
-	// db에서 종목별 no 이 있어야 함을 전제
-//	}
+//	 db에서 종목별 no 이 있어야 함을 전제
+		try {
+			Board board = boardservice.showBoard(no);
+			model.addAttribute("board", board);
+			return "board/show";
+		}catch(RuntimeException e) {
+			return "/board/list";
+		}
+	}	
 
 	
 	@GetMapping("/delete")
