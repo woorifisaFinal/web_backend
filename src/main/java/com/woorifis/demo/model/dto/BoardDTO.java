@@ -26,9 +26,8 @@ public class BoardDTO {
 		dto.setNo(board.getNo());
 		dto.setTitle(board.getTitle());
 		dto.setContent(board.getContent());
-//		dto.setUser_No(this.getUser().getUserNo());
 		return dto;
 
 	
-}
+	}
 }

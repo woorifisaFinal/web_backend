@@ -44,7 +44,16 @@ public class BoardService {
         List<Board> searchResults = boardRepository.findByTitleContaining(keyword);
         return searchResults;
     }
-	
+
+	public Board detailBoard(long no){
+		Optional<Board> option = boardRepository.findById(no);
+		if(option.isPresent()){
+			return option.get();
+		}
+		else{
+			throw new RuntimeException(no+"번 글 지워짐");
+		}
+	}
 	public void deleteBoard(Long no) {
 		boardRepository.deleteById(no);
 	}
