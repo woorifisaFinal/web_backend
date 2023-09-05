@@ -1,15 +1,18 @@
 package com.woorifis.demo.controller;
 
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.woorifis.demo.model.dto.UserDTO;
 import com.woorifis.demo.model.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
@@ -61,10 +64,93 @@ public class UserController {
 		}
 	} 
 	
+	  @GetMapping("/user/mypage")
+	    public String getUserInfo(Model model, HttpSession session) {
+	        // HttpSession을 사용하여 현재 로그인한 사용자의 정보를 가져옴
+	        
+	        // HttpSession에서 저장된 로그인 사용자의 ID를 가져옴
+	        Long userId = (Long) session.getAttribute("userId");
+
+	        if (userId != null) {
+	            // UserService를 통해 사용자 정보를 가져옴
+	            UserDTO userDTO = userService.getUserInfo(userId);
+
+	            if (userDTO != null) {
+	                // 사용자 정보를 모델에 추가해서 프론트 전달
+	                model.addAttribute("name", userDTO.getUserName());
+	                model.addAttribute("email", userDTO.getUserEmail());
+	                model.addAttribute("userType", userDTO.getType());
+	            } else {
+	                // 사용자 정보를 찾을 수 없는 경우에 대한 예외 처리
+	                // 예를 들어, 사용자가 존재하지 않는 경우 등
+	           
+	                return "redirect:";
+	            }
+	        } else {
+	            // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
+	            // 예를 들어, 로그인하지 않은 사용자가 접근한 경우 등
+	           
+	            return "redirect:";
+	        }
+
+	        return "user/mypage"; // 사용자 정보가 존재하는 경우 마이페이지 뷰로 이동
+	    }
+
+	
+	    @GetMapping("/user/changeinfo")
+	    public String changeInfo() {
+	        return "user/mypage"; // 사용자 정보 수정 페이지로 이동
+	    }
+
+	    @PostMapping("/user/updateinfo")
+	    public String updateInfo(@RequestParam("password") String password,
+	            @RequestParam("newName") String newName,
+	            @RequestParam("newEmail") String newEmail,
+	            @SessionAttribute(name = "userId", required = false) Long userId) {
+	    	 if (userId != null) {
+	             // 비밀번호 검증을 수행 (비밀번호가 맞는지 확인하는 로직을 구현해야 함)
+	             if (userService.isPasswordCorrect(userId, password)) {
+	                 // 비밀번호가 올바른 경우, 사용자 정보를 수정
+	                 userService.updateInfo(userId, newName, newEmail);
+	                 return "redirect:/user/mypage";
+	             } else {
+	                 // 비밀번호가 올바르지 않은 경우
+	                 return "redirect:";
+	             }
+	         } else {
+	             // userId가 세션에 없는 경우에 대한 예외 처리
+	             return "redirect:";
+	         }
+	     }
+
+	
 	
     @PostMapping("/user/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/user/login"; 
     }
+    
+    @GetMapping("/user/withdrawal")
+    public String showWithdrawalPage() {
+        return "user/withdrawal"; // 사용자 탈퇴 페이지로 이동
+    }
+
+    @PostMapping("/user/withdrawal")
+    public String withdrawal(@SessionAttribute(name = "userId", required = false) Long userId, HttpSession session) {
+        if (userId != null) {
+            // 사용자 정보를 삭제 (UserService를 통해 구현)
+            userService.deleteUser(userId);
+
+            // 세션에서 사용자 정보 삭제
+            session.removeAttribute("userId");
+            return "redirect:/"; // 탈퇴 완료 후 홈 페이지로 리다이렉트
+        } else {
+            // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
+           
+            return "redirect:";
+        }
+    }
+    
+    
 }
