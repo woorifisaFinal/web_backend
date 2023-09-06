@@ -1,6 +1,10 @@
 package com.woorifis.demo.controller;
 
 import com.woorifis.demo.model.entity.Symbol;
+import com.woorifis.demo.model.entity.SymbolDetail;
+import com.woorifis.demo.model.entity.SymbolKeyword;
+import com.woorifis.demo.model.service.SymbolDetailService;
+import com.woorifis.demo.model.service.SymbolKeywordService;
 import com.woorifis.demo.model.service.SymbolService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,11 +22,13 @@ import java.util.List;
 public class SymbolController {
 
     private final SymbolService symbolService;
+    private final SymbolKeywordService symbolKeywordService;
+    private final SymbolDetailService symbolDetailService;
 
     @GetMapping("/symbol/list")
     public String listSymbol(@RequestParam(required=false, defaultValue="1")Integer page, Model model){
         page--;
-        Page<Symbol> pageInfo = symbolService.listSymbol(page);
+        Page<SymbolDetail> pageInfo = symbolDetailService.listSymbol(page);
         model.addAttribute("pageInfo", pageInfo);
         return "symbol/list";
     }
@@ -30,21 +36,20 @@ public class SymbolController {
     @GetMapping("/symbol/search")
     public String searchSymbol(@RequestParam(required=false) String keyword, Model model){
         if (keyword!=null && !keyword.isEmpty()){
-            List<Symbol> searchResults = symbolService.searchSymbol(keyword);
+            List<String> searchResults = symbolKeywordService.searchSymbol(keyword);
             model.addAttribute("searchResults", searchResults);
-
+//            검색된 종목들의 name(ex. KOSPI, NASDAQ)만 list로 반환합니다
         }
         return "symbol/search/return";
 
     }
 
     @GetMapping("/symbol/detail")
-    public String detailSymbol(@RequestParam Long something, Model model ){
-//        something = somethingIcanDistinguish
-        log.debug("something: {}", something);
+    public String detailSymbol(@RequestParam Long id, Model model ){
+        log.debug("something: {}", id);
         try {
-            Symbol symbol = symbolService.detailSymbol(something);
-            model.addAttribute("symbol", symbol);
+            SymbolDetail symbolDetail = symbolDetailService.detailSymbol(id);
+            model.addAttribute("symbolDetail", symbolDetail);
             return "symbol/detail";
         }
         catch(RuntimeException e){

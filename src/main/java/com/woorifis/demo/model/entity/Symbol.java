@@ -11,7 +11,7 @@ import org.hibernate.annotations.Immutable;
 @Getter
 @Setter
 //table 명 = view 명8
-@Table(name = "symbol")
+@Table(name = "symbolview")
 public class Symbol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
