@@ -1,11 +1,5 @@
 package com.woorifis.demo.model.entity;
 
-import java.time.LocalDateTime;
-
-
-
-
-import com.woorifis.demo.model.dto.PortfolioDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,66 +17,40 @@ import lombok.Setter;
 
 public class Portfolio{
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Long id;
-	
-	@Column
-	private String datetime; 
-	// flask가 생성해줌
-	
-	@Column
-	private String type;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long no;
+    @Column(nullable=false)
+    private String date;
+    @Column(nullable=false)
+    private String type;
+    @Column(nullable=false)
+    private Float us;
+    @Column(nullable=false)
+    private Float uk;
+    @Column(nullable=false)
+    private Float jp;
+    @Column(nullable=false)
+    private Float euro;
+    @Column(nullable=false)
+    private Float kor;
+    @Column(nullable=false)
+    private Float ind;
+    @Column(nullable=false)
+    private Float tw;
+    @Column(nullable=false)
+    private Float br;
+    @Column(nullable=false)
+    private Float kor3y;
+    @Column(nullable=false)
+    private Float kor10y;
+    @Column(nullable=false)
+    private Float us3y;
+    @Column(nullable=false)
+    private Float us10y;
+    @Column(nullable=false)
+    private Float gold;
+    
 
-    @Column(nullable = false)
-    private Long KS;
-    
-    @Column(nullable = false)
-    private Long NA;
-    
-    @Column(nullable = false)
-    private Long JP;
-    
-    @Column(nullable = false)
-    private Long UK;
-    
-    @Column(nullable = false)
-    private Long EU;
-    
-    @Column(nullable = false)
-    private Long BZ;
-    
-    @Column(nullable = false)
-    private Long TW;
-  
-    @Column(nullable = false)
-    private Long IA;
  
-    @Column(nullable = false)
-    private Long GOLD;
-    
-    @Column(nullable = false , name= "KRBond_long")
-    private Long KRBondLong;
-    
-    @Column(nullable = false , name = "KRBond_short")
-    private Long KRBondShort;
-    
-    public static Portfolio toPortfolio(PortfolioDTO.UserResponse userResponse) {
-    	Portfolio portfolio = new Portfolio();
-        portfolio.setDatetime(userResponse.getDatetime());
-        portfolio.setType(userResponse.getType());
-        portfolio.setKS(userResponse.getKS());
-        portfolio.setNA(userResponse.getNA());
-        portfolio.setBZ(userResponse.getBZ());
-        portfolio.setEU(userResponse.getEU());
-        portfolio.setIA(userResponse.getIA());
-        portfolio.setTW(userResponse.getTW());
-        portfolio.setUK(userResponse.getUK());
-        portfolio.setGOLD(userResponse.getGOLD());
-        portfolio.setJP(userResponse.getJP());
-        portfolio.setKRBondLong(userResponse.getKRBondLong());
-        portfolio.setKRBondShort(userResponse.getKRBondShort());
-        return portfolio;
-    }
-
 }

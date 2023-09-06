@@ -28,7 +28,7 @@ public class UserService {
 	public UserDTO login(UserDTO userDTO) {
 		// 1. 회원이 입력한 이메일(dto)로 DB(entity) 조회
 		// 2. DB 비밀번호가 사용자가 입력한 비밀번호와 일치하는지 판단해서 결과 리턴
-		User user = userRepository.findByEmail(userDTO.getUserEmail()).get();
+		User user = userRepository.findByUserEmail(userDTO.getUserEmail()).get();
 		 if (user != null && user.getPassword().equals(userDTO.getPassword())) 
 		 {
 			 return userDTO;
@@ -49,10 +49,10 @@ public class UserService {
 	}*/
 
 
-	 public UserDTO getUserInfo(Long userId) {
+	 public UserDTO getUserInfo(String userId) {
 	        // 여기서는 예시로 UserRepository를 사용하여 사용자 정보를 조회합니다.
 
-	        User user = userRepository.findById(userId).orElse(null); // 예시로 사용자 ID가 1인 사용자 정보를 가져옴
+	        User user = userRepository.findByUserId(userId).orElse(null); // 예시로 사용자 ID가 1인 사용자 정보를 가져옴
 
 	        if (user != null) {
 	            UserDTO userDTO = new UserDTO();
@@ -68,16 +68,16 @@ public class UserService {
 	
 
 	    // 비밀번호 검증
-	    public boolean isPasswordCorrect(Long userId, String password) {
-	        User user = userRepository.findById(userId).orElse(null);
+	    public boolean isPasswordCorrect(String userId, String password) {
+	        User user = userRepository.findByUserId(userId).orElse(null);
 
 	        // 사용자가 존재하고 비밀번호가 일치하는지 여부를 확인
 	        return user != null && user.getPassword().equals(password);
 	    }
 
 	    // 사용자 정보 업데이트
-	    public void updateInfo(Long userId, String newName, String newEmail) {
-	        User user = userRepository.findById(userId).orElse(null);
+	    public void updateInfo(String userId, String newName, String newEmail) {
+	        User user = userRepository.findByUserId(userId).orElse(null);
 
 	        if (user != null) {
 	            // 새로운 이름과 이메일로 사용자 정보 업데이트
@@ -88,7 +88,7 @@ public class UserService {
 	    }
 	    
 	    // 사용자 삭제 함수
-	    public void deleteUser(Long userId) {
-	        userRepository.deleteById(userId);
+	    public void deleteUser(Long userNo) {
+	        userRepository.deleteById(userNo);
 	    }
 }

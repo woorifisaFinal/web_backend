@@ -24,11 +24,12 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
 	private BoardRepository boardRepository; 
 	
+
 	
 	@Transactional
 	public void registBoard(BoardDTO dto) {
 		Board board = Board.toBoard(dto);
-		boardRepository.saveAndFlush(board);
+		boardRepository.save(board);
 	}
 
 	public Page<Board> listBoard(int page) {

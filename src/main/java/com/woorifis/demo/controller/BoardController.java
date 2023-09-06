@@ -2,6 +2,7 @@ package com.woorifis.demo.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,14 +20,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequestMapping("/board")
+@RequestMapping("board")
 @Slf4j
 @RequiredArgsConstructor
 public class BoardController {
 
 	private BoardService boardService;
-	
-	
+
 	@GetMapping("/regist")
 	public String registForm() {
 		return "board/regist";

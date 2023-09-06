@@ -1,6 +1,7 @@
 package com.woorifis.demo.model.dto;
 
 
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,44 +10,22 @@ import lombok.Setter;
 public class PortfolioDTO {
 
 	
-	@Getter
-	@Setter
-    public static class UserRequest {
-		
-	    private String type;
-}
-
+    private Long no;
+    private String date;
+    private String type;
+    private Float us;
+    private Float uk;
+    private Float jp;
+    private Float euro;
+    private Float kor;
+    private Float ind;
+    private Float tw;
+    private Float br;
+    private Float kor3y;
+    private Float kor10y;
+    private Float us3y;
+    private Float us10y;
+    private Float gold;
     
-	@Getter
-	@Setter
-    public static class UserResponse {
-  
-    		
-    		private String datetime; 
-    		
-    	    private String type;
-
-    	    private Long KS;
-    	    	
-    	    private Long NA;
-    	    
-    	    private Long JP;
-    	
-    	    private Long UK;
-    	    
-    	    private Long EU;
- 
-    	    private Long BZ;
-    	
-    	    private Long TW;
-    	 
-    	    private Long IA;
-    	    
-    	    private Long GOLD;
- 
-    	    private Long KRBondLong;
-    	    
-    	    private Long KRBondShort;
-    }
 }
 
