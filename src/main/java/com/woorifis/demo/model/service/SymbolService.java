@@ -19,13 +19,13 @@ public class SymbolService {
         Page<Symbol> pageInfo = symbolRepository.findAll(pageable);
         return pageInfo;
     }
-    public Symbol detailSymbol(long no){
-        Optional<Symbol> option = symbolRepository.findById(no);
+    public Symbol detailSymbol(long id){
+        Optional<Symbol> option = symbolRepository.findById(id);
         if(option.isPresent()){
             return option.get();
         }
         else{
-            throw new RuntimeException(no+"번 detail페이지 없음");
+            throw new RuntimeException(id+"번 detail페이지 없음");
         }
     }
 }

@@ -13,52 +13,33 @@ import org.hibernate.annotations.Immutable;
 public class Symbol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long no;
+    private Long id;
     @Column(nullable=false)
     private String date;
     @Column(nullable=false)
-    private Float us;
+    private Float usclose;
     @Column(nullable=false)
-    private Float uk;
+    private Float ukclose;
     @Column(nullable=false)
-    private Float jp;
+    private Float jpclose;
     @Column(nullable=false)
-    private Float euro;
+    private Float euroclose;
     @Column(nullable=false)
-    private Float kor;
+    private Float korclose;
     @Column(nullable=false)
-    private Float ind;
+    private Float indclose;
     @Column(nullable=false)
-    private Float tw;
+    private Float twclose;
     @Column(nullable=false)
-    private Float br;
+    private Float brclose;
     @Column(nullable=false)
-    private Float kor3y;
+    private Float kor3yclose;
     @Column(nullable=false)
-    private Float kor10y;
+    private Float kor10yclose;
     @Column(nullable=false)
-    private Float us3y;
+    private Float us3yclose;
     @Column(nullable=false)
-    private Float us10y;
+    private Float us10yclose;
     @Column(nullable=false)
-    private Float gold;
-    public static Symbol toSymbol(SymbolDTO symbolDTO) {
-        Symbol symbol = new Symbol();
-        symbol.setNo(symbolDTO.getNo());
-        symbol.setDate(symbolDTO.getDate());
-        symbol.setUs(symbolDTO.getUs());
-        symbol.setUk(symbolDTO.getUk());
-        symbol.setJp(symbolDTO.getJp());
-        symbol.setEuro(symbolDTO.getEuro());
-        symbol.setKor(symbolDTO.getKor());
-        symbol.setInd(symbolDTO.getInd());
-        symbol.setTw(symbolDTO.getTw());
-        symbol.setBr(symbolDTO.getBr());
-        symbol.setKor3y(symbolDTO.getKor3y());
-        symbol.setKor10y(symbolDTO.getKor10y());
-        symbol.setUs3y(symbolDTO.getUs3y());
-        symbol.setUs10y(symbolDTO.getUs10y());
-        symbol.setGold(symbolDTO.getGold());
-        return symbol;
-    }
+    private Float goldclose;
 }
