@@ -23,8 +23,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BoardService {
 	private BoardRepository boardRepository; 
-	
-
+//문병근 수정
+	@Autowired
+	public BoardService(BoardRepository brepo) {
+		this.boardRepository = brepo;
+	}
 	
 	@Transactional
 	public void registBoard(BoardDTO dto) {
@@ -33,7 +36,7 @@ public class BoardService {
 	}
 
 	public Page<Board> listBoard(int page) {
-		Pageable pageable = PageRequest.of(page, 5, Direction.DESC,"no");
+		Pageable pageable = PageRequest.of(page, 5, Direction.ASC,"no");
 		Page<Board> pageInfo = boardRepository.findAll(pageable);
 		return pageInfo;
 	}

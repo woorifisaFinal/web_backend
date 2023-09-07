@@ -26,6 +26,11 @@ import lombok.extern.slf4j.Slf4j;
 public class BoardController {
 
 	private BoardService boardService;
+	
+	@Autowired
+	public BoardController(BoardService service) {
+		this.boardService = service;
+	}
 
 	@GetMapping("/regist")
 	public String registForm() {
