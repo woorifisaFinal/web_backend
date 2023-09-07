@@ -19,7 +19,7 @@ public class SymbolDetail {
 
 
 //    연관관계의 주인이 symbolDetail에 있음 -> mappedBy='symdetail'
-    @OneToOne(mappedBy = "symdetail")
+    @OneToOne(mappedBy = "symid")
     private SymbolKeyword symbolKeyword;
 
     public static SymbolDetail toSymbolDetail(SymbolDetailDTO symbolDetailDTO){

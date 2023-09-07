@@ -21,7 +21,7 @@ public class SymbolKeywordService {
         List<SymbolKeyword> searchResults_ = symbolKeywordRepository.findByKeywordContaining(keyword);
         List<String> searchResults = new ArrayList<>();
         for(SymbolKeyword sk : searchResults_){
-            searchResults.add(symbolDetailService.getNameById(sk.getSymid()));
+            searchResults.add(symbolDetailService.getNameById(sk.getSymid().getId()));
         }
         return searchResults;
     }

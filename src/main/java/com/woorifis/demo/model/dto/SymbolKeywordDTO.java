@@ -1,5 +1,6 @@
 package com.woorifis.demo.model.dto;
 
+import com.woorifis.demo.model.entity.SymbolDetail;
 import com.woorifis.demo.model.entity.SymbolKeyword;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SymbolKeywordDTO {
     private Long Id;
-    private Long symid;
+    private SymbolDetail symid;
     private String keyword;
 
 

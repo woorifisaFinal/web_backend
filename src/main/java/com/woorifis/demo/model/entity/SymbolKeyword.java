@@ -13,14 +13,14 @@ import lombok.Setter;
 public class SymbolKeyword {
         @Id
         private Long Id;
-        @Column(nullable=false)
-        private Long symid;
+//        @Column(nullable=false)
+//        private Long symid;
         @Column(nullable=false)
         private String keyword;
 
         @OneToOne(fetch=FetchType.LAZY)
         @JoinColumn(name="symid", referencedColumnName="id")
-        private SymbolDetail symbolDetail;
+        private SymbolDetail symid;
 
         public static SymbolKeyword toSymbolKeyword(SymbolKeywordDTO symbolKeywordDTO){
                 SymbolKeyword symbolKeyword = new SymbolKeyword();
