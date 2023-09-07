@@ -28,7 +28,9 @@ public class UserController {
 	
 	// 회원가입 페이지 출력 요청
 	@GetMapping("/signup")
-	public String signUpForm() {return "user/signup";}
+	public String signUpForm() {
+		return "user/signup";
+	}
 	
 	@PostMapping("/signup")
 	public String signUp(@ModelAttribute UserDTO userDTO) {

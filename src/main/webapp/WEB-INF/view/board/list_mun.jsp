@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -19,17 +20,20 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-	<link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/vendor/quill/quill.snow.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/vendor/quill/quill.bubble.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/vendor/remixicon/remixicon.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="${pageContext.request.contextPath}css/style.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: May 30 2023 with Bootstrap v5.3.0
@@ -168,93 +172,55 @@
     </ul>
 
 </aside><!-- End Sidebar-->
+  
+<!-- 메인자리임 -->
+<br />
+<br />
+<br />
+<br />
+<main id="main" class="main">
+  
+  
 
-  <main id="main" class="main">
-
-    <div id="body" class="pagetitle">
-      <h1>Home</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-    
-          <div id="body" class="col-10" style="background-color: white">
-            <div
-              id="index-textbox"
-              style="
-                background-color: white;
-                padding-top: 15px;
-                padding-left: 30px;
-                padding-right: 30px;
-              "
-            >
-              <!-- <h3>나누리 (NanWoori)</h3> -->
-              <!-- 메인 창 넘어가는 부분 -->
-              <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="${pageContext.request.contextPath}img/index캐러셀.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="${pageContext.request.contextPath}img/searchstock.png" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-
-
-
-
-
-
-
-
-
-              <!--  <메인 창 넘어가는 부분 끝>-->
-              <!-- <img class="mb-3" id="square" src="${pageContext.request.contextPath}img/아이유.png" alt="이미지 교체중입니다."> -->
-              <br />
-              <p>
-                금융 및 공공데이터를 활용해 최적의 투자 포트폴리오 추천 전략을
-                수립해드립니다.
-              </p>
-              <p>
-                고객의 투자성향에 따라 여러 자산에 대한 종목별 투자비율을
-                효율적으로 배분할 수 있는 모델을 구축하여 향후 은행권상품 추천
-                서비스와 연계할 수 있는 확장된 서비스를 제공하고자 합니다.
-              </p>
-              <br />
-              <div class="d-flex justify-content-center">
-                <button class="btn btn-primary">나누리 시작하기</button>
-              </div>
-            </div>
-          </div>
+        
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>우리 어드바이저 서비스를 오픈하였습니다!</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>우리 어드바이저 서비스 오픈 기념 이벤트 공지사항입니다.</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>우리 어드바이저 점검 예정시간 공지사항입니다.</td>
+            </tr>
+        </tbody>
+</main>
 
     
+</main>
+</div>
+</div>
 
-  </main><!-- End #main -->
-    	<!-- ======= Footer ======= -->
-	<footer class="footer">
-		<div class="copyright">
-			&copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-		</div>
-		<div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		</div>
-  	</footer>
-	<!-- End Footer -->
+  	<!-- ======= Footer ======= -->
+    <footer class="footer">
+      <div class="copyright">
+        &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+      </footer>
+    <!-- End Footer -->
+
+  <!-- ======= Footer ======= -->
+  
   <!-- Vendor JS Files -->
   <script src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -269,5 +235,8 @@
   <script src="${pageContext.request.contextPath}/js/main.js"></script>
 
 
+
 </body>
+
 </html>
+
