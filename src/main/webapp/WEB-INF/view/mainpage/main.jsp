@@ -92,81 +92,118 @@
   
 
 <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
+<aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+  <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link " href="dashboard.html">
-          <i class="bi bi-grid"></i>
-          <span>대시보드</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+    <li class="nav-item">
+      <a class="nav-link " href="dashboard.html">
+        <i class="bi bi-grid"></i>
+        <span>대시보드</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i>
-            <span>종목</span>
-          <i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="item.html">
-              <i class="bi bi-circle"></i>
-              <span>종목 상세페이지</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i>
-              <span>주식</span>
-            </a>
-          </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-menu-button-wide"></i><span>종목</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>코스피</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>나스닥</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>유로 스탁스</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>영국</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>니케이</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>국채 3년</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>국채 10년</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>미국채 3년</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>미국채 10년</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>금</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>브라질</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>대만</span>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <i class="bi bi-circle"></i><span>인도</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Components Nav -->
 
 
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i>
-              <span>채권</span>
-            </a>
-          </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-layout-text-window-reverse"></i><span>상품비교함</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="tables-general.html">
+            <i class="bi bi-circle"></i><span>첫번째 자산</span>
+          </a>
+        </li>
+        <li>
+          <a href="tables-data.html">
+            <i class="bi bi-circle"></i><span>두번째 자산</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Tables Nav -->
 
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i>
-              <span>안전자산</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>상품비교함</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>첫번째 자산</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>두번째 자산</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="notice.html">
-            <i class="bi bi-bar-chart"></i><span>공지사항</span>
-        </a>
-    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="notice.html">
+          <i class="bi bi-bar-chart"></i><span>공지사항</span>
+      </a>
+  </li>
 
 
-    </ul>
+  </ul>
 
 </aside><!-- End Sidebar-->
 
