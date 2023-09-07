@@ -3,6 +3,7 @@ package com.woorifis.demo.controller;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,15 +32,13 @@ public class UserController {
 	
 	@PostMapping("/signup")
 	public String signUp(@ModelAttribute UserDTO userDTO) {
-		System.out.println("signup");
-		System.out.println("UserDTO = "+ userDTO);
 		userService.save(userDTO);
 		return "index";
 	}
 
 	// 로그인 페이지 출력 요청
-	@GetMapping("/login")
-	public String logInForm() {return "user/login";}
+
+
 	
 	@PostMapping("/login") 
 	public String logIn(@ModelAttribute UserDTO userDTO, HttpSession session) {
@@ -47,19 +46,15 @@ public class UserController {
 		UserDTO loginResult =  userService.login(userDTO);
 		if(loginResult == null) {
 			// login 실패
-			
 			 session.setAttribute("msg", "로그인 실패");
 	         return "user/login"; 
 	            // 로그인 페이지로 다시 이동		
-//			model.addAttribute("msg", "로그인실패");
-//			return "login/loginForm";	
 		}else {
 			// login 성공
 			 session.setAttribute("loginUser", loginResult); 
 			 // 로그인 유저 정보를 세션에 저장
 			// login이 성공을 했으면 login된 유저는99 session에 id 값을 넣어줘서 session을 종료할때까지 유지시켜준다
-				// 해서 맞으면 로그인 시켜주고 
-			
+				// 해서 맞으면 로그인 시켜주고
 			 
 			 return "redirect:/";		
 			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
@@ -85,14 +80,13 @@ public class UserController {
 	            } else {
 	                // 사용자 정보를 찾을 수 없는 경우에 대한 예외 처리
 	                // 예를 들어, 사용자가 존재하지 않는 경우 등
-	           
-	                return "redirect:";
+	            	throw new RuntimeException("사용자 정보를 찾을 수 없습니다.");
 	            }
 	        } else {
 	            // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
 	            // 예를 들어, 로그인하지 않은 사용자가 접근한 경우 등
 	           
-	            return "redirect:";
+	        	throw new RuntimeException("사용자를 찾을 수 없습니다.");
 	        }
 
 	        return "user/mypage"; // 사용자 정보가 존재하는 경우 마이페이지 뷰로 이동
@@ -149,8 +143,7 @@ public class UserController {
             return "redirect:/"; // 탈퇴 완료 후 홈 페이지로 리다이렉트
         } else {
             // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
-           
-            return "redirect:";
+        	throw new RuntimeException("사용자를 찾을 수 없습니다.");
         }
     }
     
