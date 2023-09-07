@@ -62,9 +62,10 @@ public class PortfolioController {
 	        return "portfolio/comparePortfolios";
 	    }
 
-
-
-
+	@GetMapping("/dashboard")
+	public String showDashboard(){
+		return "portfolio/showDashboard";
+	}
 	
 
 }	

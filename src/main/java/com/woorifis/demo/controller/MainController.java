@@ -12,4 +12,11 @@ public class MainController {
     public String please(){
         return "mainpage/main";
     }
+
+    @GetMapping("/survey")
+    public String startSurvey(){
+        return "portfolio/gettype";
+    }
+
+//    @GetMapping("/")
 }

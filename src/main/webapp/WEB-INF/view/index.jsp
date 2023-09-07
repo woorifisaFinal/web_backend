@@ -144,7 +144,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="" class="logo d-flex align-items-center">
+      <a href="main" class="logo d-flex align-items-center">
         <img src="${pageContext.request.contextPath}img/logo.png" alt="">
         <span class="d-none d-lg-block">우리FISA</span>
       </a>
@@ -180,10 +180,7 @@
           <div class="mt-3">
             <a href="survey" class="btn-get-started scrollto">나누리 시작하기</a>
             <a href="main" class="btn-get-started scrollto">홈페이지</a>
-<%--            <form action="index2" method="get" >--%>
-<%--              <button type="submit" class="btn-get-started scrollto">홈페이지</button>--%>
-<%--            </form>--%>
-<%--            <a href="main.jsp">[게시글 등록]</a> --%>
+
           </div>
 
         </div>

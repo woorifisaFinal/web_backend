@@ -55,7 +55,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <i class="bi bi-list toggle-sidebar-btn" style="float: left; margin-right: 30px;"></i>
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="main" class="logo d-flex align-items-center">
         <img src="${pageContext.request.contextPath}img/logo.png" alt="">
         <span class="d-none d-lg-block">우리FISA</span>
       </a>
@@ -75,10 +75,10 @@
           <div class="col-4 text-end"></div>
         </div>
         <div class="d-flex custom-button-group">
-          <a href="login.html" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
+          <a href="user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
             로그인
           </a>
-          <a href="signup.html" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
+          <a href="user/signup" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
             회원가입        
           </a>
         </div>
@@ -97,21 +97,21 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="dashboard.html">
+        <a class="nav-link " href="portfolio/dashboard">
           <i class="bi bi-grid"></i>
           <span>대시보드</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="symbol/list">
           <i class="bi bi-menu-button-wide"></i>
             <span>종목</span>
           <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="item.html">
+            <a href="symbol/detail">
               <i class="bi bi-circle"></i>
               <span>종목 상세페이지</span>
             </a>
