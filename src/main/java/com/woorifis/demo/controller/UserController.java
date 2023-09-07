@@ -39,7 +39,8 @@ public class UserController {
 	}
 
 	// 로그인 페이지 출력 요청
-
+	@GetMapping("/login")
+	public String logInForm() {return "user/login";}
 
 	
 	@PostMapping("/login") 
