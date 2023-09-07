@@ -26,7 +26,7 @@ import com.woorifis.demo.model.service.UserService;
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequestMapping("portfolio")
+@RequestMapping("/portfolio")
 @RequiredArgsConstructor
 public class PortfolioController {
 
