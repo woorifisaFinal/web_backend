@@ -22,13 +22,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class BoardService {
-	private BoardRepository boardRepository; 
-//문병근 수정
-	@Autowired
-	public BoardService(BoardRepository brepo) {
-		this.boardRepository = brepo;
-	}
-	
+	private final BoardRepository boardRepository; 
+
 	@Transactional
 	public void registBoard(BoardDTO dto) {
 		Board board = Board.toBoard(dto);

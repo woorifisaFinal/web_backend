@@ -20,7 +20,6 @@ public class UserService {
 		// repository의 save 메서드 호출 (entity 객체 넘겨줘야 함)
 		// 1. dto -> entity 변환
 		// 2. repository의 save 메서드 호출
-		
 		User user = User.toUser(userDTO);
 		userRepository.save(user);
 	}
@@ -70,10 +69,10 @@ public class UserService {
 	    // 비밀번호 검증
 	    public boolean isPasswordCorrect(String userId, String password) {
 	        User user = userRepository.findByUserId(userId).orElse(null);
-
 	        // 사용자가 존재하고 비밀번호가 일치하는지 여부를 확인
-	        return user != null && user.getPassword().equals(password);
-	    }
+	        if (user != null) {
+	        return  user.getPassword().equals(password);
+	    } else{return false;}}
 
 	    // 사용자 정보 업데이트
 	    public void updateInfo(String userId, String newName, String newEmail) {
