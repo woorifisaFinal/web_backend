@@ -11,7 +11,7 @@ public class AuditingTest {
         user.setUserId("test");
         user.setUserName("testname");
         user.setUserEmail("test@email.com");
-        user.setPassword("testpw");
+        user.setPassword("testpw")
         user.setType("안정");
 
         User savedUser = UserRepository.save(user);
