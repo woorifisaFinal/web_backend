@@ -25,12 +25,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class BoardController {
 
-	private BoardService boardService;
+	private final BoardService boardService;
 	
-	@Autowired
-	public BoardController(BoardService service) {
-		this.boardService = service;
-	}
 
 	@GetMapping("/regist")
 	public String registForm() {
@@ -39,8 +35,6 @@ public class BoardController {
 		
 	@PostMapping("/regist")
 	public String registBoard(@ModelAttribute BoardDTO boardDTO) {
-		System.out.println("regist");
-		System.out.println("BoardDTO = "+ boardDTO);
 		boardService.registBoard(boardDTO);
 		return "redirect:/board/list";
 		
@@ -51,12 +45,14 @@ public class BoardController {
 		// 페이징 처리 - 한페이지에 10 개씩만 보 여주자
 		page--;
 		Page<Board> pageInfo = boardService.listBoard(page);
+		if (pageInfo == null) {
+			return "redirect:/"; //홈화면으로 보내기
+		}else {
 		model.addAttribute("pageInfo", pageInfo);
-
 		//log.debug("page: {}",page);
 		return "board/list";
 
-	}
+	}}
 	
 	@GetMapping("/search")
 	public String searchBoard(@RequestParam(required = false) String keyword, Model model) {

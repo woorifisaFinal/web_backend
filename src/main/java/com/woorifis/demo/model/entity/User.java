@@ -24,11 +24,11 @@ public class User extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userNo;
-	@Column(nullable=false)
+	@Column(nullable=false, unique = true)
 	private String userId;
 	@Column(nullable=false)
 	private String userName;
-	@Column(nullable=false)
+	@Column(nullable=false, unique = true)
 	private String userEmail;
 	@Column(nullable=false)
 	private String password;
