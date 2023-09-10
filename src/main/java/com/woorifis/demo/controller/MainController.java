@@ -15,8 +15,11 @@ public class MainController {
 
     @GetMapping("/survey")
     public String startSurvey(){
-        return "portfolio/gettype";
+        return "portfolio/survey";
     }
 
-//    @GetMapping("/")
+    @GetMapping("/result")
+    public String showResultOfSurvey(){
+        return "portfolio/result";
+    }
 }

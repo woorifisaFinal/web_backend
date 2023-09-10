@@ -98,7 +98,7 @@ public class UserController {
 	
 	    @GetMapping("/changeinfo")
 	    public String changeInfo() {
-	        return "user/mypage"; // 사용자 정보 수정 페이지로 이동
+	        return "user/changeinfo"; // 사용자 정보 수정 페이지로 이동
 	    }
 
 	    @PostMapping("/updateinfo")
@@ -149,6 +149,12 @@ public class UserController {
         	throw new RuntimeException("사용자를 찾을 수 없습니다.");
         }
     }
-    
-    
+    @GetMapping("/checkpw")
+	public String showCheckpwPage(){
+		return "user/checkpw";
+	}
+    @PostMapping("/checkpw")
+	public String checkPassword(String pw){
+		return "user/changeinfo";
+	}
 }

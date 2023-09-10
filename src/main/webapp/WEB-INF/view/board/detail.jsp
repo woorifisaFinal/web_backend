@@ -1,264 +1,82 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%> <%@page import="java.util.*"%>
+
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Final Project</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
   <!-- Favicons -->
-  <link href="${pageContext.request.contextPath}/img/favicon.png" rel="icon">
-  <link href="${pageContext.request.contextPath}/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link
+          href="${pageContext.request.contextPath}/img/favicon.png"
+          rel="icon"
+  />
+  <link
+          href="${pageContext.request.contextPath}/img/apple-touch-icon.png"
+          rel="apple-touch-icon"
+  />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet"
+  />
 
   <!-- Vendor CSS Files -->
-  <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link
+          href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet"
+  />
+  <link
+          href="${pageContext.request.contextPath}/vendor/bootstrap-icons/bootstrap-icons.css"
+          rel="stylesheet"
+  />
+  <link
+          href="${pageContext.request.contextPath}/vendor/boxicons/css/boxicons.min.css"
+          rel="stylesheet"
+  />
+  <link
+          href="${pageContext.request.contextPath}/vendor/quill/quill.snow.css"
+          rel="stylesheet"
+  />
+  <link
+          href="${pageContext.request.contextPath}/vendor/quill/quill.bubble.css"
+          rel="stylesheet"
+  />
+  <link
+          href="${pageContext.request.contextPath}/vendor/remixicon/remixicon.css"
+          rel="stylesheet"
+  />
+  <link
+          href="${pageContext.request.contextPath}/vendor/simple-datatables/style.css"
+          rel="stylesheet"
+  />
 
   <!-- Template Main CSS File -->
-  <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+  <link
+          href="${pageContext.request.contextPath}/css/style.css"
+          rel="stylesheet"
+  />
 
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
+* Template Name: NiceAdmin
+* Updated: May 30 2023 with Bootstrap v5.3.0
+* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+======================================================== -->
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-
-    <div class="d-flex align-items-center justify-content-between">
-      <i class="bi bi-list toggle-sidebar-btn" style="float: left; margin-right: 30px;"></i>
-      <a href="index.html" class="logo d-flex align-items-center">
-      <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
-      <span class="d-none d-lg-block">øÏ∏ÆFISA</span>
-      </a>
-      
-    
-     
-
-
-    </div><!-- End Logo -->
-  
-    <div class="col-10">
-      <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <div class="search-bar d-flex justify-content-start">
-            <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="¡æ∏Ò¿ª ∞Àªˆ«œººø‰" title="Enter search keyword" class="form-control form-control-sm">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-          </div><!-- End Search Bar -->
-        </div>
-        <div class="col-4 text-end">
-      </div>
-      </div>
-      <div class="d-flex custom-button-group">
-        <a href="login.html" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: gray; font-size: 14px;">
-          ∑Œ±◊¿Œ
-        </a>
-        <a href="signup.html" class="btn btn" style="height: 45px; color: gray; font-size: 14px;">
-            »∏ø¯∞°¿‘        
-        </a>
-      </div>
-    </div>
-        
-    </div>
-    <style>
-      .custom-button-group {
-          display: flex;
-          justify-content: flex-end;
-          margin-top: -40px; /* πˆ∆∞¿ª ¿ß∑Œ ø√∏Æ¥¬ ø©πÈ ¡∂¡§ */
-      }
-    </style>
-
-    
-  </header><!-- End Header -->
-  
-
-
-
-<!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
-
-  <ul class="sidebar-nav" id="sidebar-nav">
-
-    <li class="nav-item">
-      <a class="nav-link " href="dashboard.html">
-        <i class="bi bi-grid"></i>
-        <span>¥ÎΩ√∫∏µÂ</span>
-      </a>
-    </li><!-- End Dashboard Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span>¡æ∏Ò</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>ƒ⁄Ω∫««</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>≥™Ω∫¥⁄</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>¿Ø∑Œ Ω∫≈πΩ∫</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>øµ±π</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>¥œƒ…¿Ã</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>±π√§ 3≥‚</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>±π√§ 10≥‚</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>πÃ±π√§ 3≥‚</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>πÃ±π√§ 10≥‚</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>±›</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>∫Í∂Û¡˙</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>¥Î∏∏</span>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <i class="bi bi-circle"></i><span>¿Œµµ</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Components Nav -->
-
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>ªÛ«∞∫Ò±≥«‘</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="tables-general.html">
-            <i class="bi bi-circle"></i><span>√ππ¯¬∞ ¿⁄ªÍ</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-data.html">
-            <i class="bi bi-circle"></i><span>µŒπ¯¬∞ ¿⁄ªÍ</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Tables Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="notice.html">
-          <i class="bi bi-bar-chart"></i><span>∞¯¡ˆªÁ«◊</span>
-      </a>
-  </li>
-
-
-  </ul>
-
-</aside><!-- End Sidebar-->
-
-<main id="main" class="main">
-	<div class="col-10">
-	    <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
-	      <div><img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="¿ÃπÃ¡ˆ ±≥√º¡ﬂ¿‘¥œ¥Ÿ.">&nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >${board.title}</h2> </div>
-	      <div id="board-search" class="search-bar">
-	        <form class="search-form d-flex align-items-center" method="POST" action="#">
-	            <input type="text" name="query" placeholder="¡¶∏Ò¿ª ∞Àªˆ«œººø‰" title="Enter search keyword" class="form-control form-control-sm">
-	            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-	        </form>
-	      </div><!-- End Search Bar -->
-	    </div>
-	 </div>  
-
-    <div>
-        <p class="fs-2 fw-bold"">πÿø° ≥ªøÎ</p> 
-        
-        <p class="font-size:">${board.content}</p>
-    </div>
-	
-	<a href="/board/list">Back to List</a>
-	<!-- Back to List Button -->
-    <!-- Delete Button -->
-    <form action="/board/delete" method="post">
-        <input type="hidden" name="no" value="${board.no}">
-        <input type="submit" value="Delete">
-    </form>
-</main>
-<!-- ======= Footer ======= -->
-   <footer class="footer">
-     <div class="copyright">
-       &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-     </div>
-     <div class="credits">
-       <!-- All the links in the footer should remain intact. -->
-       <!-- You can delete the links only if you purchased the pro version. -->
-       <!-- Licensing information: https://bootstrapmade.com/license/ -->
-       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-       Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-     </div>
-     </footer>
-   <!-- End Footer -->
-
-  <!-- ======= Footer ======= -->
-  
+  <title>Final Project</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+  <style>
+    .custom-button-group {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: -40px; /* Î≤ÑÌäºÏùÑ ÏúÑÎ°ú Ïò¨Î¶¨Îäî Ïó¨Î∞± Ï°∞Ï†ï */
+    }
+  </style>
   <!-- Vendor JS Files -->
   <script src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -271,7 +89,223 @@
 
   <!-- Template Main JS File -->
   <script src="${pageContext.request.contextPath}/js/main.js"></script>
+</head>
 
-   
+<body>
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <i
+            class="bi bi-list toggle-sidebar-btn"
+            style="float: left; margin-right: 30px"
+    ></i>
+    <a href="main" class="logo d-flex align-items-center">
+      <img src="${pageContext.request.contextPath}img/logo.png" alt="" />
+      <span class="d-none d-lg-block">Ïö∞Î¶¨FISA</span>
+    </a>
+  </div>
+  <!-- End Logo -->
+
+  <div class="col-10">
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <%-- Search Bar--%>
+          <div class="search-bar d-flex justify-content-start">
+            <form
+                    class="search-form d-flex align-items-center"
+                    method="post"
+                    action="symbol/search"
+            >
+              <%-- nameÏúºÎ°ú Ï§Ä keywordÏóê Îã¥ÏïÑÏÑú ÏÑúÎ≤ÑÎ°ú Ï†ÑÎã¨ÌïúÎã§--%>
+              <input
+                      type="text"
+                      name="keyword"
+                      placeholder="Ï¢ÖÎ™©ÏùÑ Í≤ÄÏÉâÌïòÏÑ∏Ïöî"
+                      title="Enter search keyword"
+                      class="form-control form-control-sm"
+              />
+              <button type="submit" title="Search">
+                <i class="bi bi-search"></i>
+              </button>
+            </form>
+          </div>
+          <!-- End Search Bar -->
+        </div>
+        <div class="col-4 text-end"></div>
+      </div>
+      <div class="d-flex custom-button-group">
+        <a
+                href="user/login"
+                class="btn btn-custom"
+                style="
+								height: 45px;
+								margin-right: 10px;
+								color: grey;
+								font-size: 14px;
+							"
+        >
+          Î°úÍ∑∏Ïù∏
+        </a>
+        <a
+                href="user/signup"
+                class="btn btn"
+                style="height: 45px; color: grey; font-size: 14px"
+        >
+          ÌöåÏõêÍ∞ÄÏûÖ
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Header -->
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="portfolio/dashboard">
+        <i class="bi bi-grid"></i>
+        <span>ÎåÄÏãúÎ≥¥Îìú</span>
+      </a>
+    </li>
+    <!-- End Dashboard Nav -->
+
+    <li class="nav-item">
+      <a
+              class="nav-link collapsed"
+              data-bs-target="#components-nav"
+              data-bs-toggle="collapse"
+              href="#"
+      >
+        <i class="bi bi-graph-up"></i><span>Ï¢ÖÎ™©</span
+      ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+              id="components-nav"
+              class="nav-content collapse"
+              data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>ÏΩîÏä§Ìîº</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>ÎÇòÏä§Îã•</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>Ïú†Î°ú Ïä§ÌÉÅÏä§</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>ÏòÅÍµ≠</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>ÎãàÏºÄÏù¥</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>Íµ≠Ï±Ñ 3ÎÖÑ</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>Íµ≠Ï±Ñ 10ÎÖÑ</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>ÎØ∏Íµ≠Ï±Ñ 3ÎÖÑ</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>ÎØ∏Íµ≠Ï±Ñ 10ÎÖÑ</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>Í∏à</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>Î∏åÎùºÏßà</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>ÎåÄÎßå</span>
+          </a>
+        </li>
+        <li>
+          <a href="symbol/detail">
+            <i class="bi bi-circle"></i><span>Ïù∏ÎèÑ</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- End Components Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="portfolio/comparePortfolios">
+        <i class="bi bi-layout-text-window-reverse"></i
+        ><span>ÏÉÅÌíàÎπÑÍµêÌï®</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="board/list">
+        <i class="bi bi-bar-chart"></i><span>Í≥µÏßÄÏÇ¨Ìï≠</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="survey">
+        <i class="bi bi-card-checklist"></i><span>Ìà¨Ïûê ÏÑ±Ìñ• ÏÑ§Î¨∏Ï°∞ÏÇ¨</span>
+      </a>
+    </li>
+  </ul>
+</aside>
+<!-- End Sidebar-->
+
+<!-- Main -->
+<div id="main" class="container">
+
+
+</div>
+<!-- Main (div id=main) ÎÅù -->
+
+<!-- ======= Footer ======= -->
+<footer class="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span>NiceAdmin</span></strong
+  >. All Rights Reserved
+  </div>
+  <div class="credits">
+    <!-- All the links in the footer should remain intact. -->
+    <!-- You can delete the links only if you purchased the pro version. -->
+    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+  </div>
+</footer>
+<!-- End Footer -->
 </body>
 </html>
+
+<!--
+${pageContext.request.contextPath}
+
+
+
+
+
+-->

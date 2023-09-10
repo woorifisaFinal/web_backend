@@ -59,12 +59,12 @@ public class PortfolioController {
 	        model.addAttribute("resultB", resultB);
 
 	        // 뷰 페이지 이름을 반환합니다.
-	        return "portfolio/comparePortfolios";
+	        return "portfolio/compare";
 	    }
 
 	@GetMapping("/dashboard")
 	public String showDashboard(){
-		return "portfolio/showDashboard";
+		return "portfolio/dashboard";
 	}
 	
 

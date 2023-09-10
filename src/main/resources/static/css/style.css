@@ -14,13 +14,13 @@
 }
 
 .body .copyright {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   background: #f6f9ff;
   color: #444444;
 }
 
-/* 
+/*
 .square {
   margin-bottom: 15px;
   margin-left: 10px;
@@ -43,7 +43,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -161,7 +161,7 @@ h6 {
 
 @media (min-width: 768px) {
   .dropdown-menu-arrow::before {
-    content: "";
+    content: '';
     width: 13px;
     height: 13px;
     background: #fff;
@@ -245,7 +245,7 @@ h6 {
   font-size: 18px;
   font-weight: 500;
   color: #012970;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .card-title span {
@@ -265,7 +265,7 @@ h6 {
 /* Alerts */
 .alert-heading {
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
 }
 
@@ -314,7 +314,7 @@ h6 {
 /* Breadcrumbs */
 .breadcrumb {
   font-size: 14px;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: #899bbd;
   font-weight: 600;
 }
@@ -381,7 +381,7 @@ h6 {
   font-size: 26px;
   font-weight: 700;
   color: #012970;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .header {
@@ -469,7 +469,7 @@ h6 {
   list-style: none;
 }
 
-.header-nav>ul {
+.header-nav > ul {
   margin: 0;
   padding: 0;
 }
@@ -638,7 +638,6 @@ h6 {
 }
 
 @media (min-width: 1200px) {
-
   #main,
   #footer {
     margin-left: 300px;
@@ -652,14 +651,15 @@ h6 {
 }
 
 @media (min-width: 1200px) {
-
   .toggle-sidebar #main,
   .toggle-sidebar #footer {
     margin-left: 0;
   }
 
   .toggle-sidebar .sidebar {
-    left: -300px;
+    /* left: -300px; */
+    left: -100%;
+    transition: left 0.9s ease-in-out;
   }
 }
 
@@ -693,7 +693,7 @@ h6 {
   font-size: 15px;
   font-weight: 600;
   color: #4154f1;
-  transition: 0.3;
+  transition: all 0.3s;
   background: #f6f9ff;
   padding: 10px 15px;
   border-radius: 4px;
@@ -744,7 +744,7 @@ h6 {
   font-size: 14px;
   font-weight: 600;
   color: #012970;
-  transition: 0.3;
+  transition: all 0.3s;
   padding: 10px 0 10px 40px;
   transition: 0.3s;
 }
@@ -857,7 +857,7 @@ h6 {
 }
 
 .dashboard .activity .activity-item .activite-label::before {
-  content: "";
+  content: '';
   position: absolute;
   right: -11px;
   width: 4px;
@@ -891,7 +891,7 @@ h6 {
 }
 
 /* News & Updates */
-.dashboard .news .post-item+.post-item {
+.dashboard .news .post-item + .post-item {
   margin-top: 15px;
 }
 
@@ -1125,7 +1125,7 @@ h6 {
 }
 
 .contact .php-email-form .loading:before {
-  content: "";
+  content: '';
   display: inline-block;
   border-radius: 50%;
   width: 24px;
@@ -1157,7 +1157,7 @@ h6 {
   padding: 12px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type='submit'] {
   background: #4154f1;
   border: 0;
   padding: 10px 30px;
@@ -1166,7 +1166,7 @@ h6 {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type='submit']:hover {
   background: #5969f3;
 }
 
@@ -1179,7 +1179,6 @@ h6 {
     transform: rotate(360deg);
   }
 }
-
 
 /*--------------------------------------------------------------
 # Footer
@@ -1208,7 +1207,6 @@ h6 {
   color: #012970;
 }
 
-
 /*
 * demo.css
 * File include item demo only specific css only
@@ -1232,7 +1230,9 @@ h6 {
 
 /* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
 /* Detached navbar */
-.layout-navbar-fixed .layout-wrapper:not(.layout-horizontal):not(.layout-without-menu) .layout-page {
+.layout-navbar-fixed
+.layout-wrapper:not(.layout-horizontal):not(.layout-without-menu)
+.layout-page {
   padding-top: 76px !important;
 }
 /* Default navbar */
@@ -1317,27 +1317,26 @@ h6 {
   margin-top: 1rem;
 }
 
-#survey-inside {
+.survey-inside {
   font-size: 19px;
   margin-left: 60px;
 }
 
-#survey-title-inside {
-    color: blue;
-    display: inline;
-    margin-bottom: 10px;
+.survey-title-inside {
+  color: blue;
+  display: inline;
+  margin-bottom: 10px;
 }
 
-#survey-num{
+#survey-num {
   font-size: 20px;
   display: inline;
   color: blue;
-
 }
 
 /* productcompare */
 /* 박스 글씨 */
-#productcompare-box{
+#productcompare-box {
   font-family: fantasy;
   font-size: 24px;
   font-weight: bold;
@@ -1357,9 +1356,9 @@ h6 {
   flex-direction: column; /* Display the sections vertically */
   justify-content: flex-start; /* Distribute space evenly between sections */
 }
-  .product-box:hover {
-      background-color: #e0e0e0;
-  }
+.product-box:hover {
+  background-color: #e0e0e0;
+}
 
 .top-section,
 .bottom-section {
@@ -1368,7 +1367,7 @@ h6 {
 }
 
 /* .top-section {
-  background-color: ; 
+  background-color: ;
 } */
 
 .bottom-section {
@@ -1377,13 +1376,107 @@ h6 {
   padding-top: 10px; /* Add padding to maintain spacing */
 }
 
-
 /* end of productcompare */
 
 /* result-body */
-#result-container{
+#result-container {
   font-family: fantasy;
   font-size: 24px;
   font-weight: bold;
 }
 /* result-body-end */
+
+/* mid menu */
+
+#mid_cont_menu {
+  background-color: rgba(17, 113, 193);
+  width: 764px;
+  height: 76px;
+  border-radius: 60px;
+  display: flex; /* Use flexbox to create a row layout */
+  font-size: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  margin-left: 90px;
+}
+
+#mid_cont_menu a {
+  flex: 1; /* Each link takes up an equal amount of space */
+  display: flex; /* Nested flex containers for centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  border-left: 2px solid white; /* Add white border to separate columns */
+}
+
+#mid_cont_menu a:first-child {
+  border-left: none; /* Remove border from the first column */
+}
+
+/* Add styles for the links if needed */
+#mid_cont_menu a {
+  text-decoration: none; /* Remove underlines from links */
+  color: white; /* Text color for links */
+  font-weight: bold; /* Bold font for links */
+}
+
+/* end mid menu */
+
+/* mid table */
+table {
+  margin-top: 40px;
+  border-collapse: collapse;
+  width: 90%;
+  font-weight: bold;
+  font-family: fantasy;
+  font-size: 25px;
+}
+th,
+td {
+  border-left: 2px solid rgb(228, 224, 224);
+  border-right: 2px solid rgb(228, 224, 224);
+  padding: 8px;
+  text-align: center;
+}
+/* Merge columns 1 through 8 in row 1 */
+th:nth-child(1),
+th:nth-child(2),
+th:nth-child(3),
+th:nth-child(4),
+th:nth-child(5),
+th:nth-child(6),
+th:nth-child(7),
+th:nth-child(8) {
+  background-color: white;
+  font-weight: bold;
+  text-align: left;
+}
+/* Merge columns 9 through 12 in row 1 */
+th:nth-child(9),
+th:nth-child(10),
+th:nth-child(11),
+th:nth-child(12) {
+  background-color: lightblue;
+  font-weight: bold;
+}
+/* Set row 1 height */
+tr:nth-child(1) {
+  height: 40px;
+}
+
+/* end mid table */
+
+head,
+body,
+footer,
+.sidebar,
+.header,
+header {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+/* .toggle-sidebar .sidebar 이부분 수정함 */
+
+/* {
+  margin-left: 400px;
+} */

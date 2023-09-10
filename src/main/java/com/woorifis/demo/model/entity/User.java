@@ -16,10 +16,10 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
+//@ToString(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @Table(name="user")
-public class User extends BaseEntity {
+public class User  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
