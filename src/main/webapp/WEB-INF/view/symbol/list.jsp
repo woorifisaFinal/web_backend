@@ -123,15 +123,15 @@
 <%--            </c:if>--%>
             <c:forEach items="${pageInfo.content}" var ="symbol">
                 <tr>
-                    <td><a href="symbol/detail?id=${symbol.id}">${symbol.id}</a></td>
-                    <td>${symbol.name}</td>
+                    <td><a href="/symbol/detail?id=${symbol.id}">${symbol.id}</a></td>
+                    <td><a href="/symbol/detail?id=${symbol.id}">${symbol.name}</a></td>
                 </tr>
             </c:forEach>
 
             </tr>
             </tbody>
         </table>
-        <form action="symbol/list" method="get">
+        <form action="/symbol/list" method="get">
             <input type="text" name="page" value="${pageInfo.number+1 }" > / ${pageInfo.totalPages }
             <input type="submit" value="이동">
         </form>

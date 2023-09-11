@@ -51,8 +51,8 @@ public class PortfolioController {
 	        Model model) {
 
 	        
-		 List<Portfolio> resultA = portfolioService.getComparisonResult(nameA, typeA);
-		 List<Portfolio> resultB = portfolioService.getComparisonResult(nameB, typeB);
+			List<Portfolio> resultA = portfolioService.getComparisonResult(nameA, typeA);
+			List<Portfolio> resultB = portfolioService.getComparisonResult(nameB, typeB);
 
 	        // Model에 데이터를 추가하여 뷰로 전달합니다.
 	        model.addAttribute("resultA", resultA);

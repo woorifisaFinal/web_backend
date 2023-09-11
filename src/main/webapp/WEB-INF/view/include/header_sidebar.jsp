@@ -84,7 +84,7 @@
   <%--            Search Bar--%>
               <div class="search-bar d-flex justify-content-start">
 
-                <form class="search-form d-flex align-items-center" method="post" action="symbol/search">
+                <form class="search-form d-flex align-items-center" method="post" action="/symbol/search">
 <%--                    name으로 준 keyword에 담아서 서버로 전달한다--%>
                     <input type="text" name="keyword" placeholder="종목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
                     <button type="submit" title="Search"><i class="bi bi-search"></i></button>
@@ -129,69 +129,69 @@
           </a>
           <ul  id="components-nav" class=" nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>코스피</span>
+              <a href="/symbol/detail?id=100">
+                <i class="bi bi-circle"></i><span>NASDAQ</span>
               </a>
             </li>
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>나스닥</span>
+              <a href="/symbol/detail?id=101">
+                <i class="bi bi-circle"></i><span>FTSE</span>
               </a>
             </li>
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>유로 스탁스</span>
+              <a href="/symbol/detail?id=102">
+                <i class="bi bi-circle"></i><span>NIKKEI</span>
               </a>
             </li>
 
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>영국</span>
+              <a href="/symbol/detail?id=103">
+                <i class="bi bi-circle"></i><span>EURO STOXX</span>
               </a>
             </li>
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>니케이</span>
+              <a href="/symbol/detail?id=104">
+                <i class="bi bi-circle"></i><span>KOSPI</span>
               </a>
             </li>
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>국채 3년</span>
+              <a href="/symbol/detail?id=105">
+                <i class="bi bi-circle"></i><span>NIFTY</span>
               </a>
             </li>
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>국채 10년</span>
+              <a href="/symbol/detail?id=106">
+                <i class="bi bi-circle"></i><span>TWII</span>
               </a>
             </li>
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>미국채 3년</span>
+              <a href="/symbol/detail?id=107">
+                <i class="bi bi-circle"></i><span>BOVESPA</span>
               </a>
             </li>
             <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>미국채 10년</span>
+              <a href="/symbol/detail?id=108">
+                <i class="bi bi-circle"></i><span>한국3년채권</span>
               </a>
             </li>
             <li>
-              <a href="/symbol/detail">
+              <a href="/symbol/detail?id=109">
+                <i class="bi bi-circle"></i><span>한국10년채권</span>
+              </a>
+            </li>
+            <li>
+              <a href="/symbol/detail?id=110">
+                <i class="bi bi-circle"></i><span>미국3년채권</span>
+              </a>
+            </li>
+            <li>
+              <a href="/symbol/detail?id=111">
+                <i class="bi bi-circle"></i><span>미국10년채권</span>
+              </a>
+            </li>
+            <li>
+              <a href="/symbol/detail?id=112">
                 <i class="bi bi-circle"></i><span>금</span>
-              </a>
-            </li>
-            <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>브라질</span>
-              </a>
-            </li>
-            <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>대만</span>
-              </a>
-            </li>
-            <li>
-              <a href="/symbol/detail">
-                <i class="bi bi-circle"></i><span>인도</span>
               </a>
             </li>
 

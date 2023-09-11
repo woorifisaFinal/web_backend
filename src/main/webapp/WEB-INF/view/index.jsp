@@ -144,8 +144,8 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="main" class="logo d-flex align-items-center">
-        <img src="${pageContext.request.contextPath}img/logo.png" alt="">
+      <a href="/main" class="logo d-flex align-items-center">
+        <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
         <span class="d-none d-lg-block">우리FISA</span>
       </a>
     </div><!-- End Logo -->
@@ -178,14 +178,14 @@
             <li><i class="ri-check-line"></i> 향후 은행권 상품 추천 서비스와 연계할 수 있는 확장된 서비스</li>
           </ul>
           <div class="mt-3">
-            <a href="survey" class="btn-get-started scrollto">나누리 시작하기</a>
-            <a href="main" class="btn-get-started scrollto">홈페이지</a>
+            <a href="/survey" class="btn-get-started scrollto">나누리 시작하기</a>
+            <a href="/main" class="btn-get-started scrollto">홈페이지</a>
 
           </div>
 
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="${pageContext.request.contextPath}img/hero-img.png" class="img-fluid" alt="">
+          <img src="${pageContext.request.contextPath}/img/hero-img.png" class="img-fluid" alt="">
         </div>
       </div>
     </div>
