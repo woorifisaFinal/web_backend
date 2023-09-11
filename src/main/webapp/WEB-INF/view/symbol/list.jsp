@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%> <%@page import="java.util.*"%>
@@ -281,7 +282,7 @@
     <div id="body" class="col-10" style="background-color: white">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
             <div>
-                <img class="mb-3" id="square" src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다.">
+                <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
                 &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >검색결과</h2>
             </div>
             <div id="board-search" class="search-bar">
@@ -290,37 +291,30 @@
         </div>
         <br />
         <table class="table">
-            <thead class="table-info">
+            <thead>
             <tr>
-                <th scope="col">종목 이름</th>
-                <th scope="col">종목 설명</th>
-                <th scope="col"></th>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">국내주식-KOSPI</th>
-                <td>KOSPI는 국내 주식 지표입니다</td>
-                <td><button class="btn btn-outline-primary" type="button" onClick="location.href='symbol/detail'">자세히보기</button></td>
+<%--            <c:if test="${empty pageInfo}">--%>
+<%--                <p>No results found.</p>--%>
+<%--            </c:if>--%>
+            <c:forEach items="${pageInfo.content}" var ="symbol">
+                <tr>
+                    <td><a href="symbol/detail?id=${symbol.id}">${symbol.id}</a></td>
+                    <td>${symbol.name}</td>
+                </tr>
+            </c:forEach>
 
-            </tr>
-            <tr>
-                <th scope="row">해외주식-NASDAQ</th>
-                <td>나스닥은 미국의 장외 주식거래시장이다.</td>
-                <td><button class="btn btn-outline-primary">자세히보기</button></td>
-            </tr>
-            <tr>
-                <th scope="row">해외주식-EURO_STOXX</th>
-                <td>안전자산은 위험이 없다고 해서 무위험자산이라고도 한다.</td>
-                <td><button class="btn btn-outline-primary">자세히보기</button></td>
-            </tr>
-            <tr>
-                <th scope="row">해외주식-FTSE</th>
-                <td>안전자산은 위험이 없다고 해서 무위험자산이라고도 한다.</td>
-                <td><button class="btn btn-outline-primary">자세히보기</button></td>
             </tr>
             </tbody>
         </table>
+        <form action="symbol/list" method="get">
+            <input type="text" name="page" value="${pageInfo.number+1 }" > / ${pageInfo.totalPages }
+            <input type="submit" value="이동">
+        </form>
     </div>
 
 </div>

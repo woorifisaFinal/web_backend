@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%> <%@page import="java.util.*"%>
@@ -281,7 +282,7 @@
   <div class="col-10">
     <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
       <div>
-        <img class="mb-3" id="square" src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다.">
+        <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
         &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >공지사항</h2>
       </div>
       <div id="board-search" class="search-bar">
@@ -297,26 +298,26 @@
 
     <table class="table">
       <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-      </tr>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>우리 어드바이저</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>우리 어드바이저 공지사항입니다.</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>공지사항입니다.</td>
-      </tr>
+        <c:forEach items="${pageInfo.content}" var ="board">
+          <tr>
+            <td><a href="board/detail?no=${board.no }">${board.no}</a></td>
+            <td>${board.title }</td>
+          </tr>
+        </c:forEach>
+
+        </tr>
       </tbody>
     </table>
+    <form action="/board/list" method="get">
+      <input type="text" name="page" value="${pageInfo.number+1 }" > / ${pageInfo.totalPages }
+      <input type="submit" value="이동">
+    </form>
   </div>
 
 </div>

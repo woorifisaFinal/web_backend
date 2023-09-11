@@ -14,7 +14,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class SymbolDetailService {
-    private SymbolDetailRepository symbolDetailRepository;
+    private final SymbolDetailRepository symbolDetailRepository;
     public String getNameById(Long id){
         Optional<SymbolDetail> symbolDetail = symbolDetailRepository.findById(id);
         return symbolDetail.orElse(null).getName();
@@ -24,7 +24,7 @@ public class SymbolDetailService {
         return symbolDetail.orElse(null);
     }
     public Page<SymbolDetail> listSymbol(int page){
-        Pageable pageable = PageRequest.of(page, 5, Sort.Direction.DESC, "no");
+        Pageable pageable = PageRequest.of(page, 5, Sort.Direction.DESC, "id");
         Page<SymbolDetail> pageInfo = symbolDetailRepository.findAll(pageable);
         return pageInfo;
     }
