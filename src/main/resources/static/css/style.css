@@ -1337,7 +1337,7 @@ h6 {
 /* productcompare */
 /* 박스 글씨 */
 #productcompare-box {
-  font-family: fantasy;
+  font-family: "Nunito", sans-serif;
   font-size: 24px;
   font-weight: bold;
 }
@@ -1380,7 +1380,7 @@ h6 {
 
 /* result-body */
 #result-container {
-  font-family: fantasy;
+  font-family: "Nunito", sans-serif;
   font-size: 24px;
   font-weight: bold;
 }
@@ -1395,7 +1395,7 @@ h6 {
   border-radius: 60px;
   display: flex; /* Use flexbox to create a row layout */
   font-size: 25px;
-  font-family: fantasy;
+  font-family: "Nunito", sans-serif;
   font-weight: bold;
   margin-left: 90px;
 }
@@ -1427,7 +1427,7 @@ table {
   border-collapse: collapse;
   width: 90%;
   font-weight: bold;
-  font-family: fantasy;
+  font-family: "Nunito", sans-serif;
   font-size: 25px;
 }
 th,
