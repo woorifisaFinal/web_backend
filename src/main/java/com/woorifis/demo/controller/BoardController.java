@@ -35,13 +35,13 @@ public class BoardController {
 		page--;
 		Page<Board> pageInfo = boardService.listBoard(page);
 		if (pageInfo == null) {
-			return "redirect:/"; //홈화면으로 보내기
-		}else {
-		model.addAttribute("pageInfo", pageInfo);
-		//log.debug("page: {}",page);
-		return "board/list";
-
-	}}
+			return "redirect:/main"; //홈화면으로 보내기
+		} else {
+			model.addAttribute("pageInfo", pageInfo);
+			//log.debug("page: {}",page);
+			return "board/list";
+		}
+	}
 	
 	@GetMapping("/search")
 	public String searchBoard(@RequestParam(required = false) String keyword, Model model) {
