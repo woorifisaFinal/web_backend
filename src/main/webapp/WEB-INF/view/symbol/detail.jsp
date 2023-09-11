@@ -97,8 +97,11 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div class="container">
+    <div class="container">
     <div id="body" class="col-10" style="background-color: white">
+        <br>
+        <br>
+        <br>
         <h3>${symbolDetail.name}</h3>
         <br />
         <div id="item-explanation" class="col-10">

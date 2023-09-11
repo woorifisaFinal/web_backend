@@ -125,15 +125,12 @@
                   <h5 class="card-title text-center pb-0 fs-4">로그인</h5>
                 </div>
 
-                <form class="row g-3 needs-validation" novalidate action="user/login">
+                <form class="row g-3 needs-validation" novalidate method="post" action="/user/login">
                   <div class="col-12">
                     <label for="yourUsername" class="form-label"
                     >아이디</label
                     >
                     <div class="input-group has-validation">
-                                                      <span class="input-group-text" id="inputGroupPrepend"
-                                                      >@</span
-                                                      >
                       <input
                               type="text"
                               name="userId"
@@ -153,7 +150,7 @@
                     >
                     <input
                             type="password"
-                            name="userPw"
+                            name="password"
                             class="form-control"
                             id="yourPassword"
                             required
@@ -185,7 +182,7 @@
                   <div class="col-12">
                     <p class="small mb-0">
                       아이디가 없으신가요?
-                      <a href="user/signup">회원가입하기</a>
+                      <a href="/user/signup">회원가입하기</a>
                     </p>
                   </div>
                 </form>

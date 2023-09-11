@@ -805,7 +805,7 @@
 <!-- Main (div id=main) 끝 -->
 
     <!-- ======= Footer ======= -->
-    	<%@include file = "/WEB-INF/view/include/footer.jsp" %>
+<%@include file = "/WEB-INF/view/include/footer.jsp" %>
 	<!-- End Footer -->
 </body>
 </html>
