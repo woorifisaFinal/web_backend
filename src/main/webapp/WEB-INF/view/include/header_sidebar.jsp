@@ -70,7 +70,7 @@
 
       <div class="d-flex align-items-center justify-content-between">
         <i class="bi bi-list toggle-sidebar-btn" style="float: left; margin-right: 30px;"></i>
-        <a href="main" class="logo d-flex align-items-center">
+        <a href="/main" class="logo d-flex align-items-center">
           <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
           <span class="d-none d-lg-block">우리FISA</span>
         </a>
