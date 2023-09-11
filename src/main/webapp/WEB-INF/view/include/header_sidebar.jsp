@@ -95,10 +95,10 @@
             <div class="col-4 text-end"></div>
           </div>
           <div class="d-flex custom-button-group">
-            <a href="user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
+            <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
               로그인
             </a>
-            <a href="user/signup" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
+            <a href="/user/signup" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
               회원가입
             </a>
           </div>
@@ -111,7 +111,7 @@
     <aside id="sidebar" class="sidebar">
       <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-          <a class="nav-link " href="/portfolio/dashboard" href="/portfolio/dashboard">
+          <a class="nav-link " href="/portfolio/dashboard" >
             <i class="bi bi-grid"></i>
             <span>대시보드</span>
           </a>
@@ -122,75 +122,75 @@
                   class="nav-link collapsed"
                   data-bs-target="#components-nav"
                   data-bs-toggle="collapse"
-                  href="#"
+                  href="/symbol/list"
           >
             <i class="bi bi-graph-up"></i><span>종목</span
           ><i class="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul  id="components-nav" class=" nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>코스피</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>나스닥</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>유로 스탁스</span>
               </a>
             </li>
 
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>영국</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>니케이</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>국채 3년</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>국채 10년</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>미국채 3년</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>미국채 10년</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>금</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>브라질</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>대만</span>
               </a>
             </li>
             <li>
-              <a href="symbol/detail">
+              <a href="/symbol/detail">
                 <i class="bi bi-circle"></i><span>인도</span>
               </a>
             </li>
@@ -200,7 +200,7 @@
         <!-- End Components Nav -->
         <li class="nav-item">
           <a class="nav-link collapsed" href="/portfolio/comparePortfolios">
-            <i class="bi bi-layout-text-window-reverse"></i><span>상품비교함</span>
+            <i class="bi bi-layout-text-window-reverse"></i><span>상품비교하기</span>
           </a>
         </li>
 
@@ -210,7 +210,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="survey">
+          <a class="nav-link collapsed" href="/survey">
             <i class="bi bi-card-checklist"></i><span>투자 성향 설문조사</span>
           </a>
         </li>

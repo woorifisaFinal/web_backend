@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%> <%@page import="java.util.*"%>
@@ -98,7 +99,16 @@
 
 <!-- Main -->
 <div class="container">
+  <h1>게시글 상세</h1>
+  <form action="#" method="post">
+    <input type="text" value="${board.no }" readonly="readonly" name="no">
+    <br>
+    <input type="text" value="${board.title }" name="title">
+    <br>
+    <textarea rows="10" cols="100" name="content"> ${board.content }</textarea>
+    <br>
 
+  </form>
 
 </div>
 <!-- Main (div id=main) 끝 -->

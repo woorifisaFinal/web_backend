@@ -28,6 +28,7 @@ public class SymbolController {
     @GetMapping("/symbol/list")
     public String listSymbol(@RequestParam(required=false, defaultValue="1")Integer page, Model model){
         page--;
+        log.debug("page: {}", page);
         Page<SymbolDetail> pageInfo = symbolDetailService.listSymbol(page);
         model.addAttribute("pageInfo", pageInfo);
         return "symbol/list";
@@ -36,9 +37,8 @@ public class SymbolController {
     @GetMapping("/symbol/search")
     public String searchSymbol(@RequestParam(required=false) String keyword, Model model){
         if (keyword!=null && !keyword.isEmpty()){
-            List<String> searchResults = symbolKeywordService.searchSymbol(keyword);
+            List<SymbolDetail> searchResults = symbolKeywordService.searchSymbol(keyword);
             model.addAttribute("searchResults", searchResults);
-//            검색된 종목들의 name(ex. KOSPI, NASDAQ)만 list로 반환합니다
         }
         return "symbol/search/return";
 

@@ -14,14 +14,17 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SymbolKeywordService {
-    private SymbolKeywordRepository symbolKeywordRepository;
-    private SymbolDetailService symbolDetailService;
-
-    public List<String> searchSymbol(String keyword){
+    private final SymbolKeywordRepository symbolKeywordRepository;
+    private final SymbolDetailService symbolDetailService;
+    private final  SymbolDetailRepository symbolDetailRepository;
+    public List<SymbolDetail> searchSymbol(String keyword){
         List<SymbolKeyword> searchResults_ = symbolKeywordRepository.findByKeywordContaining(keyword);
-        List<String> searchResults = new ArrayList<>();
+        List<SymbolDetail> searchResults = new ArrayList<>();
         for(SymbolKeyword sk : searchResults_){
-            searchResults.add(symbolDetailService.getNameById(sk.getSymid().getId()));
+//            searchResults에는 symbolDetail의 name만 들어감 : list of name(string)임
+//            searchResults = ['KOSPI', '']
+            searchResults.add(sk.getSymid());
+//            searchResults = symbolDetailRepository.findById(sk.getSymid().);
         }
         return searchResults;
     }

@@ -28,17 +28,6 @@ public class BoardController {
 	private final BoardService boardService;
 	
 
-	@GetMapping("/regist")
-	public String registForm() {
-		return "board/regist";
-	}
-		
-	@PostMapping("/regist")
-	public String registBoard(@ModelAttribute BoardDTO boardDTO) {
-		boardService.registBoard(boardDTO);
-		return "redirect:/board/list";
-		
-	}
 	
 	@GetMapping("/list")
 	public String listBoard(@RequestParam(required = false, defaultValue =  "1") Integer page, Model model) { //int의 레포타입인 인티저로 해야함 없을수도 있으니까 객체로?
@@ -59,6 +48,7 @@ public class BoardController {
 	    if (keyword != null && !keyword.isEmpty()) {
 	        // 검색어를 이용하여 검색 처리를 수행
 	        List<Board> searchResults = boardService.searchBoard(keyword);
+			// board 리스트로 반환
 	        model.addAttribute("searchResults", searchResults);
 	    }
 	    return "board/search"; // 검색 결과를 보여줄 뷰 페이지 이름
@@ -79,14 +69,26 @@ public class BoardController {
 		}
 	}
 
-	
-	@GetMapping("/delete")
-	public String deleteBoard(@RequestParam Long no) {
-		log.debug("board no:{}", no);
-		boardService.deleteBoard(no);
-		
-		return"redirect:/board/list";
-	}
+
+//	@GetMapping("/regist")
+//	public String registForm() {
+//		return "board/regist";
+//	}
+//
+//	@PostMapping("/regist")
+//	public String registBoard(@ModelAttribute BoardDTO boardDTO) {
+//		boardService.registBoard(boardDTO);
+//		return "redirect:/board/list";
+//
+//	}
+
+//	@GetMapping("/delete")
+//	public String deleteBoard(@RequestParam Long no) {
+//		log.debug("board no:{}", no);
+//		boardService.deleteBoard(no);
+//
+//		return"redirect:/board/list";
+//	}
 	
 //	@PostMapping("/update")
 //	public String updateBoard(@ModelAttribute BoardDTO dto,Model model) {
