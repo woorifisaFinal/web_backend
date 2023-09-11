@@ -97,7 +97,7 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
+<div class="container">
 
     <div class="container" id="productcompare-box">
         <div class="row">

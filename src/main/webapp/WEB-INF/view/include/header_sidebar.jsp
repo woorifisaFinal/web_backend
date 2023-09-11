@@ -47,6 +47,7 @@
       }
       body {
       	padding : 0 430px;
+      <!-- 	min-width: 200px; -->
       }
     </style>
     <!-- Vendor JS Files -->
@@ -70,7 +71,7 @@
 
       <div class="d-flex align-items-center justify-content-between">
         <i class="bi bi-list toggle-sidebar-btn" style="float: left; margin-right: 30px;"></i>
-        <a href="main" class="logo d-flex align-items-center">
+        <a href="/main" class="logo d-flex align-items-center">
           <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
           <span class="d-none d-lg-block">우리FISA</span>
         </a>
@@ -110,7 +111,7 @@
     <aside id="sidebar" class="sidebar">
       <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-          <a class="nav-link " href="portfolio/dashboard" href="portfolio/dashboard">
+          <a class="nav-link " href="/portfolio/dashboard" href="/portfolio/dashboard">
             <i class="bi bi-grid"></i>
             <span>대시보드</span>
           </a>
@@ -198,13 +199,13 @@
         </li>
         <!-- End Components Nav -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="portfolio/comparePortfolios">
+          <a class="nav-link collapsed" href="/portfolio/comparePortfolios">
             <i class="bi bi-layout-text-window-reverse"></i><span>상품비교함</span>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="board/list">
+          <a class="nav-link collapsed" href="/board/list">
               <i class="bi bi-bar-chart"></i><span>공지사항</span>
           </a>
         </li>

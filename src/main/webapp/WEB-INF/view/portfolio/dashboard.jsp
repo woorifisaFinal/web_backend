@@ -65,7 +65,7 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
+<div class="container">
 
     <!-- 원래는 col-lg-6이엇는데 일단 걍 늘려놓음 -->
     <div class="col-lg">

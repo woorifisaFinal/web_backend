@@ -97,7 +97,7 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
+<div class="container">
     <div id="body" class="col-10" style="background-color: white">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
             <div>

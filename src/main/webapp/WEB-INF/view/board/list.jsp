@@ -95,7 +95,7 @@
 <br />
 <br />
 <div class="container">
-  <div class="col-10">
+  <div class="col-30">
     <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
       <div>
         <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
@@ -110,7 +110,7 @@
       <!-- End Search Bar -->
     </div>
   </div>
-  <div id="body" class="col-10" style="background-color: white">
+  <div id="body" class="col-30" style="background-color: white">
 
     <table class="table">
       <thead>

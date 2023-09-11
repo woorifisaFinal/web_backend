@@ -97,7 +97,7 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
+<div class="container">
     <div id="body" class="col-10" style="background-color: white">
         <h3>종목 상세페이지 - (해당 종목 이름)</h3>
         <br />
