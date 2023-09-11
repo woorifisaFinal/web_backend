@@ -99,17 +99,16 @@
 <!-- Main -->
 <div id="main" class="container">
     <div id="body" class="col-10" style="background-color: white">
-        <h3>종목 상세페이지 - (해당 종목 이름)</h3>
+        <h3>${symbolDetail.name}</h3>
         <br />
         <div id="item-explanation" class="col-10">
             <p>
-                종목설명~~~ 코스피는 또는 한국종합주가지수는 한국거래소의
-                유가증권시장에 상장된 회사들의 주식에 대한 총합인 시가총액의
-                기준시점과 비교시점을 비교하여 나타낸 지표이다.
+                아래는 symbolDetail테이블에서 가져온 detail <br> 
+                ${symbolDetail.detail}
             </p>
         </div>
         <div class="forAPI" style="background-color: white">
-            외부 API들이 들어올 자리입니다
+
             <p>...</p>
             <p>...</p>
             <p>...</p>
