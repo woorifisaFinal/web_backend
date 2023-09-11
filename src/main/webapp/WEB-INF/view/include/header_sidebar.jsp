@@ -43,7 +43,10 @@
       .custom-button-group {
         display: flex;
         justify-content: flex-end;
-        margin-top: -40px; /* 버튼을 위로 올리는 여백 조정 */
+        margin-top: -30px; /* 버튼을 위로 올리는 여백 조정 */
+      }
+      body {
+      	padding : 0 430px;
       }
     </style>
     <!-- Vendor JS Files -->
@@ -68,7 +71,7 @@
       <div class="d-flex align-items-center justify-content-between">
         <i class="bi bi-list toggle-sidebar-btn" style="float: left; margin-right: 30px;"></i>
         <a href="main" class="logo d-flex align-items-center">
-          <img src="${pageContext.request.contextPath}img/logo.png" alt="">
+          <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
           <span class="d-none d-lg-block">우리FISA</span>
         </a>
       </div><!-- End Logo -->

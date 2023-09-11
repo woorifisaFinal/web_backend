@@ -1465,16 +1465,6 @@ tr:nth-child(1) {
 
 /* end mid table */
 
-head,
-body,
-footer,
-.sidebar,
-.header,
-header {
-  margin-left: 200px;
-  margin-right: 200px;
-}
-
 /* .toggle-sidebar .sidebar 이부분 수정함 */
 
 /* {

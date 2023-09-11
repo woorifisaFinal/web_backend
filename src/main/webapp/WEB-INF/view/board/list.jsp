@@ -70,13 +70,7 @@
   <title>Final Project</title>
   <meta content="" name="description" />
   <meta content="" name="keywords" />
-  <style>
-    .custom-button-group {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: -40px; /* 버튼을 위로 올리는 여백 조정 */
-    }
-  </style>
+
   <!-- Vendor JS Files -->
   <script src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -97,11 +91,14 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
+<br />
+<br />
+<br />
+<div class="container">
   <div class="col-10">
     <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
       <div>
-        <img class="mb-3" id="square" src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다.">
+        <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
         &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >공지사항</h2>
       </div>
       <div id="board-search" class="search-bar">
