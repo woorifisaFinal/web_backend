@@ -125,7 +125,8 @@
 <body>
     <div style="border-bottom: 2px solid blue;" class="d-flex align-items-center">
         <img class="mb-3 square"  src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다.">
-        <h2 class="mb-4" style="display: inline-block; margin-left: 8px; font-weight: bold;">종목</h2>
+        <h2 class="mb-4" style="display: inline-block; margin-left: 8px; font-weight: bold;">${symbolDetail.name}</h2>
+        <p>${symbolDetail.detail}</p>
     </div>
 
  <div class="card">
@@ -161,7 +162,7 @@
 </table>
                 <!-- End Primary Color Bordered Table -->
             </div>
-        
+
             <!-- Website Traffic Chart -->
 <div class="card-body pb-0">
     <div class="d-flex justify-content-between align-items-center">
@@ -225,7 +226,26 @@
     </script>
 </div>
             <!-- End Website Traffic Chart -->
-            
+
+    <div class="container">
+    <div id="body" class="col-10" style="background-color: white">
+        <br>
+        <br>
+        <br>
+        <h3>${symbolDetail.name}</h3>
+        <br />
+        <div id="item-explanation" class="col-10">
+            <p>
+                아래는 symbolDetail테이블에서 가져온 detail <br>
+                ${symbolDetail.detail}
+            </p>
+        </div>
+        <div class="forAPI" style="background-color: white">
+
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
         </div>
                     <div style="flex: 1;">
                 <!-- End Website Traffic Chart -->

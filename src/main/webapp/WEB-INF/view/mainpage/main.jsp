@@ -61,10 +61,8 @@
   </head>
 
   <body>
+   <%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
 
-    <!-- ======= Header ======= -->
-   	<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
-    <!-- End Sidebar-->
     <div class="container">
       <div id="body" class="col-10" style="background-color: white">
         <div

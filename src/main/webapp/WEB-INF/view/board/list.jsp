@@ -92,9 +92,6 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<br />
-<br />
-<br />
 <div class="container">
   <div class="col-30">
     <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
@@ -103,8 +100,8 @@
         &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >공지사항</h2>
       </div>
       <div id="board-search" class="search-bar">
-        <form class="search-form d-flex align-items-center" method="POST" action="/board/search">
-          <input type="text" name="query" placeholder="제목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
+        <form class="search-form d-flex align-items-center" method="get" action="/board/search">
+          <input type="text" name="keyword" placeholder="제목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
           <button type="submit" title="Search"><i class="bi bi-search"></i></button>
         </form>
       </div>

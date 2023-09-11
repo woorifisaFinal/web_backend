@@ -35,7 +35,7 @@ public class UserController {
 	@PostMapping("/signup")
 	public String signUp(@ModelAttribute UserDTO userDTO) {
 		userService.save(userDTO);
-		return "index";
+		return "redirect:/user/login";
 	}
 
 	// 로그인 페이지 출력 요청
@@ -59,7 +59,7 @@ public class UserController {
 			// login이 성공을 했으면 login된 유저는99 session에 id 값을 넣어줘서 session을 종료할때까지 유지시켜준다
 				// 해서 맞으면 로그인 시켜주고
 			 
-			 return "redirect:/";		
+			 return "redirect:/main";
 			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 		}
 	} 

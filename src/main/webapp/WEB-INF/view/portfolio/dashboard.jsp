@@ -558,18 +558,18 @@
           document.addEventListener("DOMContentLoaded", () => {
             // 원래 데이터
             const originalData = [50,40,30,80,60,70,90,55,44,66,77,55,33,44];
-      
+
             // 데이터의 합계 계산
             const total = originalData.reduce((acc, value) => acc + value, 0);
-      
+
             // 데이터가 전체 비중의 10% 미만인 경우 기타로 묶음
             const threshold = total * 0.08;
             const data = originalData.map((value, index) => (value < threshold) ? 0 : value);
-      
+
             // 기타 항목 추가
             const other = total - data.reduce((acc, value) => acc + value, 0);
             data.push(other);
-      
+
             new Chart(document.querySelector('#doughnutChart'), {
               type: 'doughnut',
               data: {
@@ -587,7 +587,7 @@
                   '브라질',
                   '대만',
                   '인도',
-                  
+
 
                 ],
                 datasets: [{
@@ -718,11 +718,11 @@
 
 						<div class="col-lg-15">
                 <div class="card">
-                  <div class="card-body">      
+                  <div class="card-body">
                     <!-- ECharts Pie Chart 1 -->
                     <div id="echartsPieChart1"
 									style="min-height: 400px;" class="echart"></div>
-          
+
                     <script>
                       document.addEventListener("DOMContentLoaded", () => {
                         const chartData = [
@@ -740,12 +740,12 @@
                           { value: 33, name: 'us10y' },
                           { value: 14, name: 'gold' }
                         ];
-        
+
                         // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
                         const threshold = 5;
                         let filteredData = [];
                         let otherData = 0;
-        
+
                         chartData.forEach(item => {
                           if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
                             filteredData.push(item);
@@ -753,12 +753,12 @@
                             otherData += item.value;
                           }
                         });
-        
+
                         // 남은 항목들을 더해서 "기타" 항목 생성
                         if (otherData > 0) {
                           filteredData.push({ value: otherData, name: '기타' });
                         }
-        
+
                         // ECharts를 사용하여 Pie 차트 생성
                         const chart1 = echarts.init(document.querySelector("#echartsPieChart1"));
                         chart1.setOption({
@@ -791,14 +791,14 @@
                       });
                     </script>
                     <!-- End ECharts Pie Chart 1 -->
-          
+
                   </div>
                 </div>
               </div>
 
               설명
             </p>
-            
+
           </div>
     </div>
 
@@ -807,14 +807,14 @@
             <span class="close" id="closeModal-블-위험">&times;</span>
             <p id="modalContent-블-위험">
 
-              
+
 					<div class="col-lg-15">
                 <div class="card">
-                  <div class="card-body">  
+                  <div class="card-body">
                     <!-- ECharts Pie Chart 2 -->
                     <div id="echartsPieChart2"
 									style="min-height: 400px;" class="echart"></div>
-            
+
                     <script>
                       document.addEventListener("DOMContentLoaded", () => {
                         const chartData = [
@@ -832,12 +832,12 @@
                           { value: 33, name: 'us10y' },
                           { value: 14, name: 'gold' }
                         ];
-        
+
                         // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
                         const threshold = 5;
                         let filteredData = [];
                         let otherData = 0;
-        
+
                         chartData.forEach(item => {
                           if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
                             filteredData.push(item);
@@ -845,12 +845,12 @@
                             otherData += item.value;
                           }
                         });
-        
+
                         // 남은 항목들을 더해서 "기타" 항목 생성
                         if (otherData > 0) {
                           filteredData.push({ value: otherData, name: '기타' });
                         }
-        
+
                         // ECharts를 사용하여 Pie 차트 생성
                         const chart2 = echarts.init(document.querySelector("#echartsPieChart2"));
                         chart2.setOption({
@@ -883,7 +883,7 @@
                       });
                     </script>
                     <!-- End ECharts Pie Chart 2 -->
-          
+
                   </div>
                 </div>
               </div>
@@ -897,15 +897,15 @@
             <span class="close" id="closeModal-알-안전">&times;</span>
             <p id="modalContent-알-안전">
 
-              
+
 					<div class="col-lg-15">
                 <div class="card">
                   <div class="card-body">
-    
+
                     <!-- ECharts Pie Chart 3 -->
                     <div id="echartsPieChart3"
 									style="min-height: 400px;" class="echart"></div>
-        
+
                     <script>
                       document.addEventListener("DOMContentLoaded", () => {
                         const chartData = [
@@ -923,12 +923,12 @@
                           { value: 33, name: 'us10y' },
                           { value: 14, name: 'gold' }
                         ];
-        
+
                         // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
                         const threshold = 5;
                         let filteredData = [];
                         let otherData = 0;
-        
+
                         chartData.forEach(item => {
                           if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
                             filteredData.push(item);
@@ -936,12 +936,12 @@
                             otherData += item.value;
                           }
                         });
-        
+
                         // 남은 항목들을 더해서 "기타" 항목 생성
                         if (otherData > 0) {
                           filteredData.push({ value: otherData, name: '기타' });
                         }
-        
+
                         // ECharts를 사용하여 Pie 차트 생성
                         const chart3 = echarts.init(document.querySelector("#echartsPieChart3"));
                         chart3.setOption({
@@ -974,7 +974,7 @@
                       });
                     </script>
                     <!-- End ECharts Pie Chart 3 -->
-          
+
                   </div>
                 </div>
               </div>
@@ -988,14 +988,14 @@
             <span class="close" id="closeModal-알-위험">&times;</span>
             <p id="modalContent-알-위험">
 
-              
+
 					<div class="col-lg-15">
                 <div class="card">
                   <div class="card-body">
                     <!-- ECharts Pie Chart 4 -->
                     <div id="echartsPieChart4"
 									style="min-height: 400px;" class="echart"></div>
-        
+
                     <script>
                       document.addEventListener("DOMContentLoaded", () => {
                         const chartData = [
@@ -1013,12 +1013,12 @@
                           { value: 33, name: 'us10y' },
                           { value: 14, name: 'gold' }
                         ];
-        
+
                         // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
                         const threshold = 5;
                         let filteredData = [];
                         let otherData = 0;
-        
+
                         chartData.forEach(item => {
                           if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
                             filteredData.push(item);
@@ -1026,12 +1026,12 @@
                             otherData += item.value;
                           }
                         });
-        
+
                         // 남은 항목들을 더해서 "기타" 항목 생성
                         if (otherData > 0) {
                           filteredData.push({ value: otherData, name: '기타' });
                         }
-        
+
                         // ECharts를 사용하여 Pie 차트 생성
                         const chart4 = echarts.init(document.querySelector("#echartsPieChart4"));
                         chart4.setOption({
@@ -1064,7 +1064,7 @@
                       });
                     </script>
                     <!-- End ECharts Pie Chart 4 -->
-          
+
                   </div>
                 </div>
               </div>
@@ -1078,7 +1078,7 @@
             <span class="close" id="closeModal-나-안전">&times;</span>
             <p id="modalContent-나-안전">
 
-              
+
 					<div class="col-lg-15">
                 <div class="card">
                   <div class="card-body">
@@ -1102,12 +1102,12 @@
                           { value: 33, name: 'us10y' },
                           { value: 14, name: 'gold' }
                         ];
-        
+
                         // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
                         const threshold = 5;
                         let filteredData = [];
                         let otherData = 0;
-        
+
                         chartData.forEach(item => {
                           if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
                             filteredData.push(item);
@@ -1115,12 +1115,12 @@
                             otherData += item.value;
                           }
                         });
-        
+
                         // 남은 항목들을 더해서 "기타" 항목 생성
                         if (otherData > 0) {
                           filteredData.push({ value: otherData, name: '기타' });
                         }
-        
+
                         // ECharts를 사용하여 Pie 차트 생성
                         const chart5 = echarts.init(document.querySelector("#echartsPieChart5"));
                         chart5.setOption({
@@ -1166,7 +1166,7 @@
             <span class="close" id="closeModal-나-위험">&times;</span>
             <p id="modalContent-나-위험">
 
-              
+
 					<div class="col-lg-15">
                 <div class="card">
                   <div class="card-body">
@@ -1190,12 +1190,12 @@
                           { value: 33, name: 'us10y' },
                           { value: 14, name: 'gold' }
                         ];
-        
+
                         // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
                         const threshold = 5;
                         let filteredData = [];
                         let otherData = 0;
-        
+
                         chartData.forEach(item => {
                           if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
                             filteredData.push(item);
@@ -1203,12 +1203,12 @@
                             otherData += item.value;
                           }
                         });
-        
+
                         // 남은 항목들을 더해서 "기타" 항목 생성
                         if (otherData > 0) {
                           filteredData.push({ value: otherData, name: '기타' });
                         }
-        
+
                         // ECharts를 사용하여 Pie 차트 생성
                         const chart6 = echarts.init(document.querySelector("#echartsPieChart6"));
                         chart6.setOption({

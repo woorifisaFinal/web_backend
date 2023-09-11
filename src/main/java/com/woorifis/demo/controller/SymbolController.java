@@ -35,12 +35,13 @@ public class SymbolController {
     }
 
     @GetMapping("/symbol/search")
-    public String searchSymbol(@RequestParam(required=false) String keyword, Model model){
+    public String searchSymbol(@RequestParam(required=true) String keyword, Model model){
         if (keyword!=null && !keyword.isEmpty()){
             List<SymbolDetail> searchResults = symbolKeywordService.searchSymbol(keyword);
             model.addAttribute("searchResults", searchResults);
+            model.addAttribute("keyword", keyword);
         }
-        return "symbol/search/return";
+        return "symbol/search";
 
     }
 
