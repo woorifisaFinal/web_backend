@@ -120,7 +120,7 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
+<div class="container">
 
     <div class="col-10">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">

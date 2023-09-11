@@ -97,7 +97,7 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
+<div class="container">
     <div id="body" class="col-10" style="background-color: white">
         <h3>${symbolDetail.name}</h3>
         <br />

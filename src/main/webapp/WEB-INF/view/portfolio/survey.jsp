@@ -124,7 +124,7 @@
       // ...
 
       // Redirect to result -> 점수랑 유형은 어떻게 보내나??
-      window.location.href = 'result';
+      window.location.href = '/result';
     }
   </script>
 </head>
@@ -135,7 +135,7 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
+<div class="container">
 
   <div id="body" class="col-10" style="background-color: white; padding-bottom: 150px;">
     <div class="container mt-5">

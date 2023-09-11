@@ -47,6 +47,7 @@
       }
       body {
       	padding : 0 430px;
+      <!-- 	min-width: 200px; -->
       }
     </style>
     <!-- Vendor JS Files -->
