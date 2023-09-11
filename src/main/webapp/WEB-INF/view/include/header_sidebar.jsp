@@ -199,7 +199,7 @@
         </li>
         <!-- End Components Nav -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="/portfolio/comparePortfolios">
+          <a class="nav-link collapsed" href="/portfolio/compare">
             <i class="bi bi-layout-text-window-reverse"></i><span>상품비교하기</span>
           </a>
         </li>

@@ -89,6 +89,84 @@
 
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const productBoxes = document.querySelectorAll(".product-box");
+        const compareBtn = document.getElementById("compareBtn");
+        const comparisonContent = document.getElementById("comparisonContent");
+
+        let selectedProducts = [];
+
+        // Add click event listeners to product boxes
+        productBoxes.forEach(function (box) {
+            box.addEventListener("click", function () {
+                if (selectedProducts.includes(box.id)) {
+                    // If already selected, deselect it
+                    selectedProducts = selectedProducts.filter((product) => product !== box.id);
+                    box.classList.remove("bg-primary", "text-white");
+                } else if (selectedProducts.length < 2) {
+                    // If not selected and less than 2 items are already selected, select it
+                    selectedProducts.push(box.id);
+                    box.classList.add("bg-primary", "text-white");
+                } else {
+                    // If not selected and 2 items are already selected, deselect the oldest one
+                    const oldestSelection = selectedProducts.shift();
+                    const oldestBox = document.getElementById(oldestSelection);
+                    oldestBox.classList.remove("bg-primary", "text-white");
+
+                    // Now select the new item
+                    selectedProducts.push(box.id);
+                    box.classList.add("bg-primary", "text-white");
+                }
+            });
+        });
+		
+        function sendComparisonRequest(product1ID, product2ID) {
+            // 데이터를 서버로 전송
+            fetch('/comparePortfolios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json' // 전송하는 데이터의 형식에 따라 변경 가능
+                },
+                body: JSON.stringify({
+                    typeA: product1ID,
+                    dateA: '2023-08-29', // 날짜 데이터 추가
+                    typeB: product2ID,
+                    dateB: '2023-08-29' // 날짜 데이터 추가
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 서버로부터 응답을 처리하는 로직을 여기에 추가
+                // 예: 결과 데이터를 화면에 표시하는 등
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+        
+        // Add click event listener to Compare button
+        compareBtn.addEventListener("click", function () {
+            if (selectedProducts.length === 2) {
+                // Display selected product names in the modal
+                const product1ID = selectedProducts[0];
+		        const product2ID = selectedProducts[1];
+		        sendComparisonRequest(product1ID, product2ID);
+                $("#comparisonModal").modal("show");
+            } else if (selectedProducts.length > 2) {
+                // Display an error modal if more than 2 products are selected
+                comparisonContent.innerHTML = '<p>You must select 2 items.</p>';
+                // Show the error modal
+                $("#comparisonModal").modal("show");
+            } else {
+                // Inform the user to select exactly 2 products
+                alert("Please select exactly 2 products for comparison.");
+            }
+        });
+      });
+  </script>
 </head>
 
 <body>
@@ -102,7 +180,7 @@
     <div class="container" id="productcompare-box">
         <div class="row">
             <div class="col-md-3">
-                <div class="product-box" id="product1">
+                <div class="product-box" id="A/안정형">
                     <div class="top-section">
                         <p>블랙 리터만 / 안정형</p>
                     </div>
@@ -113,7 +191,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="product-box" id="product2">
+                <div class="product-box" id="A/공격형">
                     <div class="top-section">
                         <p>블랙 리터만 / 위험형</p>
                     </div>
@@ -124,7 +202,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="product-box" id="product3">
+                <div class="product-box" id="B/안정형">
                     <div class="top-section">
                         <p>블랙 리터만 알파 / 안정형</p>
                     </div>
@@ -137,7 +215,7 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <div class="product-box" id="product4">
+                <div class="product-box" id="B/공격형">
                     <div class="top-section">
                         <p>블랙 리터만 알파 / 위험형</p>
                     </div>
@@ -148,7 +226,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="product-box" id="product5">
+                <div class="product-box" id="C/안정형">
                     <div class="top-section">
                         <p>금융 '나누리' 상품 / 안정형</p>
                     </div>
@@ -159,7 +237,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="product-box" id="product6">
+                <div class="product-box" id="C/공격형">
                     <div class="top-section">
                         <p>금융 '나누리' 상품 / 위험형</p>
                     </div>
@@ -182,7 +260,43 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
                 </div>
                 <div class="modal-body" id="comparisonContent">
-                    <!-- 내용은 여기에 표시됩니다 -->
+                     <h1>Portfolio Comparison</h1>
+					
+					    <h2>Results for Portfolio A</h2>
+					    <table>
+					        <thead>
+					            <tr>
+					                <th>Portfolio Name</th>
+					                <th>Other Data Fields</th>
+					            </tr>
+					        </thead>
+					        <tbody>
+					            <c:forEach items="${resultA}" var="portfolio">
+					                <tr>
+					                    <td>${resultA.type}</td> <!-- Replace with the actual property name -->
+					                    <td>${resultA.date}</td> <!-- Replace with other property names -->
+					                </tr>
+					            </c:forEach>
+					        </tbody>
+					    </table>
+					
+					    <h2>Results for Portfolio B</h2>
+					    <table>
+					        <thead>
+					            <tr>
+					                <th>Portfolio Name</th>
+					                <th>Other Data Fields</th>
+					            </tr>
+					        </thead>
+					        <tbody>
+					            <c:forEach items="${resultB}" var="portfolio">
+					                <tr>
+					                    <td>${resultB.type}</td> <!-- Replace with the actual property name -->
+					                    <td>${resultB.date}</td> <!-- Replace with other property names -->
+					                </tr>
+					            </c:forEach>
+					        </tbody>
+					    </table>		
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
