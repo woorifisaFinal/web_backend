@@ -99,10 +99,16 @@
 
 <!-- Main -->
 <div id="main" class="container">
-  <h1>#${board.no}  ${board. title}</h1>
+  <h1>게시글 상세</h1>
+  <form action="#" method="post">
+    <input type="text" value="${board.no }" readonly="readonly" name="no">
     <br>
-    <p>${board.content}</p>
+    <input type="text" value="${board.title }" name="title">
     <br>
+    <textarea rows="10" cols="100" name="content"> ${board.content }</textarea>
+    <br>
+
+  </form>
 
 </div>
 <!-- Main (div id=main) 끝 -->
@@ -114,3 +120,11 @@
 </body>
 </html>
 
+<!--
+${pageContext.request.contextPath}
+
+
+
+
+
+-->
