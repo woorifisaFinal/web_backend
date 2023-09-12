@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.woorifis.demo.model.entity.Portfolio;
 
-public interface PortfolioRepository extends JpaRepository<Portfolio, Long> {
+public interface PortfolioRepository extends JpaRepository<Portfolio, String> {
 
 	
     // 특정 날짜(date)에 해당하는 모든 포트폴리오 가져오기

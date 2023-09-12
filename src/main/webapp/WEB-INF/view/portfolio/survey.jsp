@@ -147,13 +147,13 @@
       <div class="survey-page page1"d>
         </br>
         <div style="border-bottom: 2px solid blue;">
-          <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
+          <img class="mb-3 square"  src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다.">
           <h2 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" >   투자성향 설문조사 1/2</h2>
         </div>
         </br>
         <p class="survey-inside" style="font-weight: bold;">응답시 버튼을 더블클릭하면 취소할 수 있습니다.</p>
         <div class="survey-inside">
-          <form>
+          <form action='user/survey'>
             <p>
             <h1 style="display: inline-block; color: blueviolet;">1.</h1>
             <p class="survey-title-inside">

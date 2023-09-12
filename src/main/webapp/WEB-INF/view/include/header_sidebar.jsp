@@ -144,7 +144,7 @@
           </a>
           <ul  id="components-nav" class=" nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-              <a href="/symbol/detail?id=100">
+              <a href="/symbol/nasdaq">
                 <i class="bi bi-circle"></i><span>NASDAQ</span>
               </a>
             </li>

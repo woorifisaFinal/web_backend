@@ -1,3 +1,4 @@
+
 package com.woorifis.demo.controller;
 
 import com.woorifis.demo.model.entity.Symbol;
@@ -57,5 +58,12 @@ public class SymbolController {
             return "symbol/list";
         }
     }
-
+    
+    @GetMapping("/symbol/nasdaq")
+    public String nasdaqPage(Model model) {
+        List<Symbol> nasdaqList = symbolService.getAllNasdaqData();
+        model.addAttribute("nasdaqList", nasdaqList);
+        return "symbol/nasdaq"; 
+    }
 }
+
