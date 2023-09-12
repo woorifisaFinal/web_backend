@@ -110,8 +110,8 @@
                 <tbody>
                 <c:forEach items="${searchResults}" var="symbol">
                     <tr>
-                        <td><a href="/symbol/detail?no=${symbol.id}">${symbol.id}</a></td>
-                        <td><a href="/symbol/detail?no=${symbol.id}">${symbol.name}</a></td>
+                        <td><a href="/symbol/detail?id=${symbol.id}">${symbol.id}</a></td>
+                        <td><a href="/symbol/detail?id=${symbol.id}">${symbol.name}</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

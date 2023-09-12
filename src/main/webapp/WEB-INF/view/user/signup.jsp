@@ -95,9 +95,7 @@
   <%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
 
 <!-- Main -->
-    <div id="main" class="container">
-
-
+    <div class="container">
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
@@ -135,7 +133,7 @@
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">ID</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+<%--                        <span class="input-group-text" id="inputGroupPrepend">@</span>--%>
                         <input type="text" name="userId" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">아이디를 입력하세요.</div>
                       </div>
@@ -158,7 +156,7 @@
                       <button class="btn btn-primary w-100" type="submit">확인</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">이미 계정이 있으신가요? <a href="user/login">로그인</a></p>
+                      <p class="small mb-0">이미 계정이 있으신가요? <a href="/user/login">로그인</a></p>
                     </div>
                   </form>
 
