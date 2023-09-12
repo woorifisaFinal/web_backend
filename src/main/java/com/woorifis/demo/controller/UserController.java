@@ -44,7 +44,7 @@ public class UserController {
 
 	
 	@PostMapping("/login") 
-	public String logIn(@ModelAttribute UserDTO userDTO, HttpSession session) {
+	public String logIn(@ModelAttribute UserDTO userDTO, HttpSession session, Model model) {
 		// 유저서비스의 loginresult를 이용
 		UserDTO loginResult =  userService.login(userDTO);
 		if(loginResult == null) {
@@ -69,22 +69,13 @@ public class UserController {
 	        // HttpSession을 사용하여 현재 로그인한 사용자의 정보를 가져옴
 	        
 	        // HttpSession에서 저장된 로그인 사용자의 ID를 가져옴
-	        String userId = (String) session.getAttribute("userId");
+	        UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
 
-	        if (userId != null) {
-	            // UserService를 통해 사용자 정보를 가져옴
-	            UserDTO userDTO = userService.getUserInfo(userId);
-
-	            if (userDTO != null) {
-	                // 사용자 정보를 모델에 추가해서 프론트 전달
-	                model.addAttribute("name", userDTO.getUserName());
-	                model.addAttribute("email", userDTO.getUserEmail());
-	                model.addAttribute("userType", userDTO.getType());
-	            } else {
-	                // 사용자 정보를 찾을 수 없는 경우에 대한 예외 처리
-	                // 예를 들어, 사용자가 존재하지 않는 경우 등
-	            	throw new RuntimeException("사용자 정보를 찾을 수 없습니다.");
-	            }
+	        if (loginUser != null) {
+	                model.addAttribute("name", loginUser.getUserName());
+	                model.addAttribute("email", loginUser.getUserEmail());
+	                model.addAttribute("userType", loginUser.getType());
+				return "user/mypage"; // 사용자 정보가 존재하는 경우 마이페이지 뷰로 이동
 	        } else {
 	            // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
 	            // 예를 들어, 로그인하지 않은 사용자가 접근한 경우 등
@@ -92,7 +83,7 @@ public class UserController {
 	        	throw new RuntimeException("사용자를 찾을 수 없습니다.");
 	        }
 
-	        return "user/mypage"; // 사용자 정보가 존재하는 경우 마이페이지 뷰로 이동
+
 	    }
 
 	
@@ -114,20 +105,20 @@ public class UserController {
 	                 return "redirect:/user/mypage";
 	             } else {
 	                 // 비밀번호가 올바르지 않은 경우
-	                 return "redirect:";
+	                 return "redirect:/";
 	             }
 	         } else {
 	             // userId가 세션에 없는 경우에 대한 예외 처리
-	             return "redirect:";
+	             return "redirect:/";
 	         }
 	     }
 
 	
 	
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/user/login"; 
+        return "redirect:/";
     }
     
     @GetMapping("/withdrawal")

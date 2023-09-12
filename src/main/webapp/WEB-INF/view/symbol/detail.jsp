@@ -124,7 +124,7 @@
 <br /> <br /><br />
 <body>
     <div style="border-bottom: 2px solid blue;" class="d-flex align-items-center">
-        <img class="mb-3 square"  src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다.">
+        <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
         <h2 class="mb-4" style="display: inline-block; margin-left: 8px; font-weight: bold;">${symbolDetail.name}</h2>
         <p>${symbolDetail.detail}</p>
     </div>
