@@ -59,7 +59,6 @@
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.2.2/echarts.min.js"></script>
-  	<script src="${pageContext.request.contextPath}/js/echarts.min.js"></script>
   </head>
 <body>
     <!-- ======= Header ======= -->
@@ -70,75 +69,107 @@
     </br>
     </br>
     </br>
-    <!-- 파이차트 -->
-    <div class="container">
-    	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		
-		<div>
-		  <canvas id="myChart"></canvas>
-		</div>
+<!-- test pie chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<div style="display: flex; justify-content: space-around;">
+        <!-- First Pie Chart -->
+        <div>
+            <h2>Type ${resultA.type}</h2>
+            <canvas id="chartA" width="300" height="300"></canvas>
+        </div>
+
+        <!-- Second Pie Chart -->
+        <div>
+            <h2>Type ${resultB.type}</h2>
+            <canvas id="chartB" width="300" height="300"></canvas>
+        </div>
     </div>
-		
-		
 		<script>
-		  const ctx = document.getElementById('myChart');
-		
-		  new Chart(ctx, {
-		    type: 'bar',
+		  // First Pie Chart Data
+		  const ctxA = document.getElementById('chartA');
+		  new Chart(ctxA, {
+		    type: 'pie',
 		    data: {
-		      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+		      labels: ['br', 'euro', 'gold', 'ind', 'jp', 'kor', 'kor10y', 'kor3y', 'tw', 'uk', 'us', 'us10y', 'us3y'],
 		      datasets: [{
 		        label: '# of Votes',
-		        data: [12, 19, 3, 5, 2, 3],
+		        data: [
+		          ${resultA.br},
+		          ${resultA.euro},
+		          ${resultA.gold},
+		          ${resultA.ind},
+		          ${resultA.jp},
+		          ${resultA.kor},
+		          ${resultA.kor10y},
+		          ${resultA.kor3y},
+		          ${resultA.tw},
+		          ${resultA.uk},
+		          ${resultA.us},
+		          ${resultA.us10y},
+		          ${resultA.us3y}
+		        ],
 		        borderWidth: 1
 		      }]
 		    },
 		    options: {
+		      responsive: false,
 		      scales: {
 		        y: {
 		          beginAtZero: true
 		        }
+		      },
+		      plugins: {
+		        title: {
+		          display: true,
+		          text: 'Pie Chart A Title' // First Pie Chart Title
+		        }
 		      }
 		    }
 		  });
-		</script>	
-    <!-- 파이차트 끝 -->
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-	   <h2>type ${resultA.type}</h2>
-	   <p>br ${resultA.br}</p>
-	   <p>euro ${resultA.euro}</p>
-	   <p>gold ${resultA.gold}</p>
-	   <p>ind ${resultA.ind}</p>
-	   <p>jp ${resultA.jp}</p>
-	   <p>kor ${resultA.kor}</p>
-	   <p>kor10y ${resultA.kor10y}</p>
-	   <p>kor3y ${resultA.kor3y}</p>
-	   <p>tw ${resultA.tw}</p>
-	   <p>uk ${resultA.uk}</p>
-	   <p>us ${resultA.us}</p>
-	   <p>us10y ${resultA.us10y}</p>
-	   <p>us3y ${resultA.us3y}</p>
-	   
-	   <h2>type ${resultB.type}</h2>
-	   <p>br ${resultB.br}</p>
-	   <p>euro ${resultB.euro}</p>
-	   <p>gold ${resultB.gold}</p>
-	   <p>ind ${resultB.ind}</p>
-	   <p>jp ${resultB.jp}</p>
-	   <p>kor ${resultB.kor}</p>
-	   <p>kor10y ${resultB.kor10y}</p>
-	   <p>kor3y ${resultB.kor3y}</p>
-	   <p>tw ${resultB.tw}</p>
-	   <p>uk ${resultB.uk}</p>
-	   <p>us ${resultB.us}</p>
-	   <p>us10y ${resultB.us10y}</p>
-	   <p>us3y ${resultB.us3y}</p>
 		
+		  // Second Pie Chart Data
+		  const ctxB = document.getElementById('chartB');
+		  new Chart(ctxB, {
+		    type: 'pie',
+		    data: {
+		      labels: ['br', 'euro', 'gold', 'ind', 'jp', 'kor', 'kor10y', 'kor3y', 'tw', 'uk', 'us', 'us10y', 'us3y'],
+		      datasets: [{
+		        label: '# of Votes',
+		        data: [
+		          ${resultB.br},
+		          ${resultB.euro},
+		          ${resultB.gold},
+		          ${resultB.ind},
+		          ${resultB.jp},
+		          ${resultB.kor},
+		          ${resultB.kor10y},
+		          ${resultB.kor3y},
+		          ${resultB.tw},
+		          ${resultB.uk},
+		          ${resultB.us},
+		          ${resultB.us10y},
+		          ${resultB.us3y}
+		        ],
+		        borderWidth: 1
+		      }]
+		    },
+		    options: {
+		      responsive: false,
+		      scales: {
+		        y: {
+		          beginAtZero: true
+		        }
+		      },
+		      plugins: {
+		        title: {
+		          display: true,
+		          text: 'Pie Chart B Title' // Second Pie Chart Title
+		        }
+		      }
+		    }
+		  });
+		</script>
+<!-- test pie chart end -->
 	
 	<!-- ======= Footer ======= -->
     	<%@include file = "/WEB-INF/view/include/footer.jsp" %>

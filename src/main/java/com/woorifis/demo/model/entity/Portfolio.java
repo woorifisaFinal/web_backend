@@ -20,9 +20,9 @@ public class Portfolio{
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long no;
-	@Id
     @Column(nullable=false)
     private String date;
+	@Id
     @Column(nullable=false)
     private String type;
     @Column(nullable=false)

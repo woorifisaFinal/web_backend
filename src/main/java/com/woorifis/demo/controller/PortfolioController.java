@@ -62,7 +62,8 @@ public class PortfolioController {
 			Portfolio resultA = portfolioService.getComparisonResult(typeA, dateA);
 			Portfolio resultB = portfolioService.getComparisonResult(typeB, dateB);
 			
-//			System.out.println(resultB);
+			System.out.println(resultA);
+			System.out.println(resultB);
 			
 	        // Model에 데이터를 추가하여 뷰로 전달합니다.
 	        model.addAttribute("resultA", resultA);

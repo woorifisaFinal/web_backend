@@ -134,7 +134,8 @@
                 success: function(data) {
                     // Write logic to process data received from the server
                     // In this example, the received data is printed on the current page.
-                    document.body.innerHTML = data;
+                     window.location.href = url;
+                   //  document.body.innerHTML = data;
                 },
                 error: function() {
                     console.error('Error');
@@ -264,36 +265,7 @@
         </div>
     </div>
 </div>
-<!-- 파이차트 -->
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		
-		<div>
-		  <canvas id="myChart"></canvas>
-		</div>
 
-		<script>
-		  const ctx = document.getElementById('myChart');
-		
-		  new Chart(ctx, {
-		    type: 'bar',
-		    data: {
-		      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-		      datasets: [{
-		        label: '# of Votes',
-		        data: [12, 19, 3, 5, 2, 3],
-		        borderWidth: 1
-		      }]
-		    },
-		    options: {
-		      scales: {
-		        y: {
-		          beginAtZero: true
-		        }
-		      }
-		    }
-		  });
-		</script>	
-    <!-- 파이차트 끝 -->
 <!-- Main (div id=main) 끝 -->
 
     <!-- ======= Footer ======= -->
