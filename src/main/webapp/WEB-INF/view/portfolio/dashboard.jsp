@@ -66,25 +66,7 @@
 }
 </style>
 <!-- Vendor JS Files -->
-<script
-	src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/vendor/chart.js/chart.umd.js"></script>
-<script
-	src="${pageContext.request.contextPath}/vendor/echarts/echarts.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/vendor/quill/quill.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/vendor/simple-datatables/simple-datatables.js"></script>
-<script
-	src="${pageContext.request.contextPath}/vendor/tinymce/tinymce.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/vendor/php-email-form/validate.js"></script>
 
-<!-- Template Main JS File -->
-<script src="${pageContext.request.contextPath}/js/main.js"></script>
 </head>
 
 <body>
@@ -606,8 +588,6 @@
 
 			<!-- Column Chart -->
 			<div id="columnChart"></div>
-
-			<!-- "자세히보기" 버튼 추가 -->
 			<div class="details-button">
 				<button class="detail-button" data-category="블-안전">블-안전</button>
 				<button class="detail-button" data-category="블-위험">블-위험</button>
@@ -616,6 +596,7 @@
 				<button class="detail-button" data-category="나-안전">나-안전</button>
 				<button class="detail-button" data-category="나-위험">나-위험</button>
 			</div>
+
 
 			<!-- 각각의 모달 -->
 			<div class="modal" id="modal-블-안전">
@@ -711,541 +692,458 @@
           </div>
     </div>
 
-    <div class="modal" id="modal-블-위험">
-        <div class="modal-content">
-            <span class="close" id="closeModal-블-위험">&times;</span>
-            <p id="modalContent-블-위험">
+			<div class="modal" id="modal-블-위험">
+				<div class="modal-content">
+					<span class="close" id="closeModal-블-위험">&times;</span>
+					<p id="modalContent-블-위험">
 
 
-					<div class="col-lg-15">
-                <div class="card">
-                  <div class="card-body">
-                    <!-- ECharts Pie Chart 2 -->
-                    <div id="echartsPieChart2"
-									style="min-height: 400px;" class="echart"></div>
+						<div class="col-lg-15">
+							<div class="card">
+								<div class="card-body">
+							<!-- ECharts Pie Chart 2 -->
+							<div id="echartsPieChart2"
+											style="min-height: 400px;" class="echart"></div>
 
-                    <script>
-                      document.addEventListener("DOMContentLoaded", () => {
-                        const chartData = [
-                          { value: 10, name: 'us' },
-                          { value: 30, name: 'uk' },
-                          { value: 25, name: 'jp' },
-                          { value: 15, name: 'euro' },
-                          { value: 20, name: 'kor' },
-                          { value: 30, name: 'ind' },
-                          { value: 45, name: 'tw' },
-                          { value: 80, name: 'br' },
-                          { value: 90, name: 'kor3y' },
-                          { value: 14, name: 'kor10y' },
-                          { value: 19, name: 'us3y' },
-                          { value: 33, name: 'us10y' },
-                          { value: 14, name: 'gold' }
-                        ];
+							<script>
+							  document.addEventListener("DOMContentLoaded", () => {
+								const chartData = [
+								  { value: 10, name: 'us' },
+								  { value: 30, name: 'uk' },
+								  { value: 25, name: 'jp' },
+								  { value: 15, name: 'euro' },
+								  { value: 20, name: 'kor' },
+								  { value: 30, name: 'ind' },
+								  { value: 45, name: 'tw' },
+								  { value: 80, name: 'br' },
+								  { value: 90, name: 'kor3y' },
+								  { value: 14, name: 'kor10y' },
+								  { value: 19, name: 'us3y' },
+								  { value: 33, name: 'us10y' },
+								  { value: 14, name: 'gold' }
+								];
 
-                        // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
-                        const threshold = 5;
-                        let filteredData = [];
-                        let otherData = 0;
+								// 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
+								const threshold = 5;
+								let filteredData = [];
+								let otherData = 0;
 
-                        chartData.forEach(item => {
-                          if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
-                            filteredData.push(item);
-                          } else {
-                            otherData += item.value;
-                          }
-                        });
+								chartData.forEach(item => {
+								  if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
+									filteredData.push(item);
+								  } else {
+									otherData += item.value;
+								  }
+								});
 
-                        // 남은 항목들을 더해서 "기타" 항목 생성
-                        if (otherData > 0) {
-                          filteredData.push({ value: otherData, name: '기타' });
-                        }
+								// 남은 항목들을 더해서 "기타" 항목 생성
+								if (otherData > 0) {
+								  filteredData.push({ value: otherData, name: '기타' });
+								}
 
-                        // ECharts를 사용하여 Pie 차트 생성
-                        const chart2 = echarts.init(document.querySelector("#echartsPieChart2"));
-                        chart2.setOption({
-                          title: {
-                            text: '안전형',
-                            subtext: 'Data',
-                            left: 'center'
-                          },
-                          tooltip: {
-                            trigger: 'item'
-                          },
-                          legend: {
-                            orient: 'vertical',
-                            left: 'left'
-                          },
-                          series: [{
-                            name: 'Access From',
-                            type: 'pie',
-                            radius: '50%',
-                            data: filteredData,
-                            emphasis: {
-                              itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                              }
-                            }
-                          }]
-                        });
-                      });
-                    </script>
-                    <!-- End ECharts Pie Chart 2 -->
+								// ECharts를 사용하여 Pie 차트 생성
+								const chart2 = echarts.init(document.querySelector("#echartsPieChart2"));
+								chart2.setOption({
+								  title: {
+									text: '안전형',
+									subtext: 'Data',
+									left: 'center'
+								  },
+								  tooltip: {
+									trigger: 'item'
+								  },
+								  legend: {
+									orient: 'vertical',
+									left: 'left'
+								  },
+								  series: [{
+									name: 'Access From',
+									type: 'pie',
+									radius: '50%',
+									data: filteredData,
+									emphasis: {
+									  itemStyle: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)'
+									  }
+									}
+								  }]
+								});
+							  });
+							</script>
+							<!-- End ECharts Pie Chart 2 -->
 
-                  </div>
-                </div>
-              </div>
-              설명
-            </p>
-        </div>
+						  </div>
+							</div>
+						</div>
+					  설명
+					</p>
+				</div>
+			</div>
+
+			<div class="modal" id="modal-알-안전">
+				<div class="modal-content">
+					<span class="close" id="closeModal-알-안전">&times;</span>
+					<p id="modalContent-알-안전">
+
+
+						<div class="col-lg-15">
+							<div class="card">
+								<div class="card-body">
+
+								<!-- ECharts Pie Chart 3 -->
+									<div id="echartsPieChart3"
+												style="min-height: 400px;" class="echart"></div>
+										<script  th:inline="javascript">
+											let list = [[{$list}]];
+											const p1 = list[0];
+
+											document.addEventListener("DOMContentLoaded", () => {
+											const chartData = [
+											  { value: 30, name: 'us' },
+											  { value: 20, name: 'uk' },
+											  { value: 40, name: 'jp' },
+											  { value: 10, name: 'euro' },
+											  { value: 50, name: 'kor' },
+											  { value: 30, name: 'ind' },
+											  { value: 45, name: 'tw' },
+											  { value: 80, name: 'br' },
+											  { value: 90, name: 'kor3y' },
+											  { value: 14, name: 'kor10y' },
+											  { value: 19, name: 'us3y' },
+											  { value: 33, name: 'us10y' },
+											  { value: 14, name: 'gold' }
+											];
+
+											// 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
+											const threshold = 5;
+											let filteredData = [];
+											let otherData = 0;
+
+											chartData.forEach(item => {
+											  if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
+												filteredData.push(item);
+											  } else {
+												otherData += item.value;
+											  }
+											});
+
+											// 남은 항목들을 더해서 "기타" 항목 생성
+											if (otherData > 0) {
+											  filteredData.push({ value: otherData, name: '기타' });
+											}
+
+											// ECharts를 사용하여 Pie 차트 생성
+											const chart3 = echarts.init(document.querySelector("#echartsPieChart3"));
+											chart3.setOption({
+											  title: {
+												text: '위험형',
+												subtext: 'Data',
+												left: 'center'
+											  },
+											  tooltip: {
+												trigger: 'item'
+											  },
+											  legend: {
+												orient: 'vertical',
+												left: 'left'
+											  },
+											  series: [{
+												name: 'Access From',
+												type: 'pie',
+												radius: '50%',
+												data: filteredData,
+												emphasis: {
+												  itemStyle: {
+													shadowBlur: 10,
+													shadowOffsetX: 0,
+													shadowColor: 'rgba(0, 0, 0, 0.5)'
+												  }
+												}
+											  }]
+											});
+										  });
+										</script>
+								<!-- End ECharts Pie Chart 3 -->
+
+								</div>
+							</div>
+						</div>
+					  설명
+					</p>
+				</div>
+			</div>
+
+			<div class="modal" id="modal-알-위험">
+				<div class="modal-content">
+					<span class="close" id="closeModal-알-위험">&times;</span>
+					<p id="modalContent-알-위험">
+
+
+						<div class="col-lg-15">
+							<div class="card">
+								<div class="card-body">
+							<!-- ECharts Pie Chart 4 -->
+									<div id="echartsPieChart4"
+											style="min-height: 400px;" class="echart"></div>
+
+										<script>
+										  document.addEventListener("DOMContentLoaded", () => {
+											const chartData = [
+											  { value: 44, name: 'us' },
+											  { value: 55, name: 'uk' },
+											  { value: 13, name: 'jp' },
+											  { value: 43, name: 'euro' },
+											  { value: 22, name: 'kor' },
+											  { value: 30, name: 'ind' },
+											  { value: 45, name: 'tw' },
+											  { value: 80, name: 'br' },
+											  { value: 90, name: 'kor3y' },
+											  { value: 14, name: 'kor10y' },
+											  { value: 19, name: 'us3y' },
+											  { value: 33, name: 'us10y' },
+											  { value: 14, name: 'gold' }
+											];
+
+											// 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
+											const threshold = 5;
+											let filteredData = [];
+											let otherData = 0;
+
+											chartData.forEach(item => {
+											  if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
+												filteredData.push(item);
+											  } else {
+												otherData += item.value;
+											  }
+											});
+
+											// 남은 항목들을 더해서 "기타" 항목 생성
+											if (otherData > 0) {
+											  filteredData.push({ value: otherData, name: '기타' });
+											}
+
+											// ECharts를 사용하여 Pie 차트 생성
+											const chart4 = echarts.init(document.querySelector("#echartsPieChart4"));
+											chart4.setOption({
+											  title: {
+												text: '안전형',
+												subtext: 'Data',
+												left: 'center'
+											  },
+											  tooltip: {
+												trigger: 'item'
+											  },
+											  legend: {
+												orient: 'vertical',
+												left: 'left'
+											  },
+											  series: [{
+												name: 'Access From',
+												type: 'pie',
+												radius: '50%',
+												data: filteredData,
+												emphasis: {
+												  itemStyle: {
+													shadowBlur: 10,
+													shadowOffsetX: 0,
+													shadowColor: 'rgba(0, 0, 0, 0.5)'
+												  }
+												}
+											  }]
+											});
+										  });
+										</script>
+							<!-- End ECharts Pie Chart 4 -->
+								</div>
+							</div>
+						</div>
+					  설명
+					</p>
+				</div>
+			</div>
+
+			<div class="modal" id="modal-나-안전">
+				<div class="modal-content">
+					<span class="close" id="closeModal-나-안전">&times;</span>
+					<p id="modalContent-나-안전">
+
+
+						<div class="col-lg-15">
+							<div class="card">
+								<div class="card-body">
+							<!-- ECharts Pie Chart 5 -->
+									<div id="echartsPieChart5"
+											style="min-height: 400px;" class="echart"></div>
+										<script>
+										  document.addEventListener("DOMContentLoaded", () => {
+											const chartData = [
+											  { value: 10, name: 'us' },
+											  { value: 30, name: 'uk' },
+											  { value: 25, name: 'jp' },
+											  { value: 15, name: 'euro' },
+											  { value: 20, name: 'kor' },
+											  { value: 30, name: 'ind' },
+											  { value: 45, name: 'tw' },
+											  { value: 80, name: 'br' },
+											  { value: 90, name: 'kor3y' },
+											  { value: 14, name: 'kor10y' },
+											  { value: 19, name: 'us3y' },
+											  { value: 33, name: 'us10y' },
+											  { value: 14, name: 'gold' }
+											];
+
+											// 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
+											const threshold = 5;
+											let filteredData = [];
+											let otherData = 0;
+
+											chartData.forEach(item => {
+											  if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
+												filteredData.push(item);
+											  } else {
+												otherData += item.value;
+											  }
+											});
+
+											// 남은 항목들을 더해서 "기타" 항목 생성
+											if (otherData > 0) {
+											  filteredData.push({ value: otherData, name: '기타' });
+											}
+
+											// ECharts를 사용하여 Pie 차트 생성
+											const chart5 = echarts.init(document.querySelector("#echartsPieChart5"));
+											chart5.setOption({
+											  title: {
+												text: '위험형',
+												subtext: 'Data',
+												left: 'center'
+											  },
+											  tooltip: {
+												trigger: 'item'
+											  },
+											  legend: {
+												orient: 'vertical',
+												left: 'left'
+											  },
+											  series: [{
+												name: 'Access From',
+												type: 'pie',
+												radius: '50%',
+												data: filteredData,
+												emphasis: {
+												  itemStyle: {
+													shadowBlur: 10,
+													shadowOffsetX: 0,
+													shadowColor: 'rgba(0, 0, 0, 0.5)'
+												  }
+												}
+											  }]
+											});
+										  });
+										</script>
+							<!-- End ECharts Pie Chart 5 -->
+								</div>
+							</div>
+						</div>
+					  설명
+					</p>
+				</div>
+			</div>
+
+			<div class="modal" id="modal-나-위험">
+				<div class="modal-content">
+					<span class="close" id="closeModal-나-위험">&times;</span>
+					<p id="modalContent-나-위험">
+
+
+						<div class="col-lg-15">
+							<div class="card">
+								<div class="card-body">
+							<!-- ECharts Pie Chart 6 -->
+									<div id="echartsPieChart6"
+											style="min-height: 400px;" class="echart"></div>
+										<script>
+										  document.addEventListener("DOMContentLoaded", () => {
+											const chartData = [
+											  { value: 60, name: 'us' },
+											  { value: 15, name: 'uk' },
+											  { value: 10, name: 'jp' },
+											  { value: 5, name: 'euro' },
+											  { value: 20, name: 'kor' },
+											  { value: 30, name: 'ind' },
+											  { value: 45, name: 'tw' },
+											  { value: 80, name: 'br' },
+											  { value: 90, name: 'kor3y' },
+											  { value: 14, name: 'kor10y' },
+											  { value: 19, name: 'us3y' },
+											  { value: 33, name: 'us10y' },
+											  { value: 14, name: 'gold' }
+											];
+
+											// 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
+											const threshold = 5;
+											let filteredData = [];
+											let otherData = 0;
+
+											chartData.forEach(item => {
+											  if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
+												filteredData.push(item);
+											  } else {
+												otherData += item.value;
+											  }
+											});
+
+											// 남은 항목들을 더해서 "기타" 항목 생성
+											if (otherData > 0) {
+											  filteredData.push({ value: otherData, name: '기타' });
+											}
+
+											// ECharts를 사용하여 Pie 차트 생성
+											const chart6 = echarts.init(document.querySelector("#echartsPieChart6"));
+											chart6.setOption({
+											  title: {
+												text: '안전형',
+												subtext: 'Data',
+												left: 'center'
+											  },
+											  tooltip: {
+												trigger: 'item'
+											  },
+											  legend: {
+												orient: 'vertical',
+												left: 'left'
+											  },
+											  series: [{
+												name: 'Access From',
+												type: 'pie',
+												radius: '50%',
+												data: filteredData,
+												emphasis: {
+												  itemStyle: {
+													shadowBlur: 10,
+													shadowOffsetX: 0,
+													shadowColor: 'rgba(0, 0, 0, 0.5)'
+												  }
+												}
+											  }]
+											});
+										  });
+										</script>
+							<!-- End ECharts Pie Chart 6 -->
+								</div>
+							</div>
+						</div>
+					</div>
+					설명
+					</p>
+				</div>
+
+			<!-- "자세히보기" 버튼 추가 -->
+
     </div>
 
-    <div class="modal" id="modal-알-안전">
-        <div class="modal-content">
-            <span class="close" id="closeModal-알-안전">&times;</span>
-            <p id="modalContent-알-안전">
-
-
-					<div class="col-lg-15">
-                <div class="card">
-                  <div class="card-body">
-
-                    <!-- ECharts Pie Chart 3 -->
-                    <div id="echartsPieChart3"
-									style="min-height: 400px;" class="echart"></div>
-
-                    <script>
-                      document.addEventListener("DOMContentLoaded", () => {
-                        const chartData = [
-                          { value: 30, name: 'us' },
-                          { value: 20, name: 'uk' },
-                          { value: 40, name: 'jp' },
-                          { value: 10, name: 'euro' },
-                          { value: 50, name: 'kor' },
-                          { value: 30, name: 'ind' },
-                          { value: 45, name: 'tw' },
-                          { value: 80, name: 'br' },
-                          { value: 90, name: 'kor3y' },
-                          { value: 14, name: 'kor10y' },
-                          { value: 19, name: 'us3y' },
-                          { value: 33, name: 'us10y' },
-                          { value: 14, name: 'gold' }
-                        ];
-
-                        // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
-                        const threshold = 5;
-                        let filteredData = [];
-                        let otherData = 0;
-
-                        chartData.forEach(item => {
-                          if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
-                            filteredData.push(item);
-                          } else {
-                            otherData += item.value;
-                          }
-                        });
-
-                        // 남은 항목들을 더해서 "기타" 항목 생성
-                        if (otherData > 0) {
-                          filteredData.push({ value: otherData, name: '기타' });
-                        }
-
-                        // ECharts를 사용하여 Pie 차트 생성
-                        const chart3 = echarts.init(document.querySelector("#echartsPieChart3"));
-                        chart3.setOption({
-                          title: {
-                            text: '위험형',
-                            subtext: 'Data',
-                            left: 'center'
-                          },
-                          tooltip: {
-                            trigger: 'item'
-                          },
-                          legend: {
-                            orient: 'vertical',
-                            left: 'left'
-                          },
-                          series: [{
-                            name: 'Access From',
-                            type: 'pie',
-                            radius: '50%',
-                            data: filteredData,
-                            emphasis: {
-                              itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                              }
-                            }
-                          }]
-                        });
-                      });
-                    </script>
-                    <!-- End ECharts Pie Chart 3 -->
-
-                  </div>
-                </div>
-              </div>
-              설명
-            </p>
-        </div>
-    </div>
-
-    <div class="modal" id="modal-알-위험">
-        <div class="modal-content">
-            <span class="close" id="closeModal-알-위험">&times;</span>
-            <p id="modalContent-알-위험">
-
-
-					<div class="col-lg-15">
-                <div class="card">
-                  <div class="card-body">
-                    <!-- ECharts Pie Chart 4 -->
-                    <div id="echartsPieChart4"
-									style="min-height: 400px;" class="echart"></div>
-
-                    <script>
-                      document.addEventListener("DOMContentLoaded", () => {
-                        const chartData = [
-                          { value: 44, name: 'us' },
-                          { value: 55, name: 'uk' },
-                          { value: 13, name: 'jp' },
-                          { value: 43, name: 'euro' },
-                          { value: 22, name: 'kor' },
-                          { value: 30, name: 'ind' },
-                          { value: 45, name: 'tw' },
-                          { value: 80, name: 'br' },
-                          { value: 90, name: 'kor3y' },
-                          { value: 14, name: 'kor10y' },
-                          { value: 19, name: 'us3y' },
-                          { value: 33, name: 'us10y' },
-                          { value: 14, name: 'gold' }
-                        ];
-
-                        // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
-                        const threshold = 5;
-                        let filteredData = [];
-                        let otherData = 0;
-
-                        chartData.forEach(item => {
-                          if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
-                            filteredData.push(item);
-                          } else {
-                            otherData += item.value;
-                          }
-                        });
-
-                        // 남은 항목들을 더해서 "기타" 항목 생성
-                        if (otherData > 0) {
-                          filteredData.push({ value: otherData, name: '기타' });
-                        }
-
-                        // ECharts를 사용하여 Pie 차트 생성
-                        const chart4 = echarts.init(document.querySelector("#echartsPieChart4"));
-                        chart4.setOption({
-                          title: {
-                            text: '안전형',
-                            subtext: 'Data',
-                            left: 'center'
-                          },
-                          tooltip: {
-                            trigger: 'item'
-                          },
-                          legend: {
-                            orient: 'vertical',
-                            left: 'left'
-                          },
-                          series: [{
-                            name: 'Access From',
-                            type: 'pie',
-                            radius: '50%',
-                            data: filteredData,
-                            emphasis: {
-                              itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                              }
-                            }
-                          }]
-                        });
-                      });
-                    </script>
-                    <!-- End ECharts Pie Chart 4 -->
-
-                  </div>
-                </div>
-              </div>
-              설명
-            </p>
-        </div>
-    </div>
-
-    <div class="modal" id="modal-나-안전">
-        <div class="modal-content">
-            <span class="close" id="closeModal-나-안전">&times;</span>
-            <p id="modalContent-나-안전">
-
-
-					<div class="col-lg-15">
-                <div class="card">
-                  <div class="card-body">
-                    <!-- ECharts Pie Chart 5 -->
-                    <div id="echartsPieChart5"
-									style="min-height: 400px;" class="echart"></div>
-                    <script>
-                      document.addEventListener("DOMContentLoaded", () => {
-                        const chartData = [
-                          { value: 10, name: 'us' },
-                          { value: 30, name: 'uk' },
-                          { value: 25, name: 'jp' },
-                          { value: 15, name: 'euro' },
-                          { value: 20, name: 'kor' },
-                          { value: 30, name: 'ind' },
-                          { value: 45, name: 'tw' },
-                          { value: 80, name: 'br' },
-                          { value: 90, name: 'kor3y' },
-                          { value: 14, name: 'kor10y' },
-                          { value: 19, name: 'us3y' },
-                          { value: 33, name: 'us10y' },
-                          { value: 14, name: 'gold' }
-                        ];
-
-                        // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
-                        const threshold = 5;
-                        let filteredData = [];
-                        let otherData = 0;
-
-                        chartData.forEach(item => {
-                          if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
-                            filteredData.push(item);
-                          } else {
-                            otherData += item.value;
-                          }
-                        });
-
-                        // 남은 항목들을 더해서 "기타" 항목 생성
-                        if (otherData > 0) {
-                          filteredData.push({ value: otherData, name: '기타' });
-                        }
-
-                        // ECharts를 사용하여 Pie 차트 생성
-                        const chart5 = echarts.init(document.querySelector("#echartsPieChart5"));
-                        chart5.setOption({
-                          title: {
-                            text: '위험형',
-                            subtext: 'Data',
-                            left: 'center'
-                          },
-                          tooltip: {
-                            trigger: 'item'
-                          },
-                          legend: {
-                            orient: 'vertical',
-                            left: 'left'
-                          },
-                          series: [{
-                            name: 'Access From',
-                            type: 'pie',
-                            radius: '50%',
-                            data: filteredData,
-                            emphasis: {
-                              itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                              }
-                            }
-                          }]
-                        });
-                      });
-                    </script>
-                    <!-- End ECharts Pie Chart 5 -->
-                  </div>
-                </div>
-              </div>
-              설명
-            </p>
-        </div>
-    </div>
-
-    <div class="modal" id="modal-나-위험">
-        <div class="modal-content">
-            <span class="close" id="closeModal-나-위험">&times;</span>
-            <p id="modalContent-나-위험">
-
-
-					<div class="col-lg-15">
-                <div class="card">
-                  <div class="card-body">
-                    <!-- ECharts Pie Chart 6 -->
-                    <div id="echartsPieChart6"
-									style="min-height: 400px;" class="echart"></div>
-                    <script>
-                      document.addEventListener("DOMContentLoaded", () => {
-                        const chartData = [
-                          { value: 60, name: 'us' },
-                          { value: 15, name: 'uk' },
-                          { value: 10, name: 'jp' },
-                          { value: 5, name: 'euro' },
-                          { value: 20, name: 'kor' },
-                          { value: 30, name: 'ind' },
-                          { value: 45, name: 'tw' },
-                          { value: 80, name: 'br' },
-                          { value: 90, name: 'kor3y' },
-                          { value: 14, name: 'kor10y' },
-                          { value: 19, name: 'us3y' },
-                          { value: 33, name: 'us10y' },
-                          { value: 14, name: 'gold' }
-                        ];
-
-                        // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
-                        const threshold = 5;
-                        let filteredData = [];
-                        let otherData = 0;
-
-                        chartData.forEach(item => {
-                          if ((item.value / chartData.reduce((acc, curr) => acc + curr.value, 0)) * 100 >= threshold) {
-                            filteredData.push(item);
-                          } else {
-                            otherData += item.value;
-                          }
-                        });
-
-                        // 남은 항목들을 더해서 "기타" 항목 생성
-                        if (otherData > 0) {
-                          filteredData.push({ value: otherData, name: '기타' });
-                        }
-
-                        // ECharts를 사용하여 Pie 차트 생성
-                        const chart6 = echarts.init(document.querySelector("#echartsPieChart6"));
-                        chart6.setOption({
-                          title: {
-                            text: '안전형',
-                            subtext: 'Data',
-                            left: 'center'
-                          },
-                          tooltip: {
-                            trigger: 'item'
-                          },
-                          legend: {
-                            orient: 'vertical',
-                            left: 'left'
-                          },
-                          series: [{
-                            name: 'Access From',
-                            type: 'pie',
-                            radius: '50%',
-                            data: filteredData,
-                            emphasis: {
-                              itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                              }
-                            }
-                          }]
-                        });
-                      });
-                    </script>
-                    <!-- End ECharts Pie Chart 6 -->
-                  </div>
-                </div>
-              </div>
-            </div>
-            설명
-            </p>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const chart = new ApexCharts(document.querySelector("#columnChart"), {
-                series: [{
-                    name: '주식',
-                    data: [100, 100, 100, 100, 100, 100]
-                }, {
-                    name: '채권',
-                    data: [76, 85, 101, 25, 90, 40]
-                }, {
-                    name: '안전자산',
-                    data: [35, 41, 36, 70, 30, 40]
-                }],
-                chart: {
-                    type: 'bar',
-                    height: 350
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded'
-                    },
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    show: true,
-                    width: 2,
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: ['블-안전', '블-위험', '알-안전', '알-위험', '나-안전', '나-위험']
-                },
-                yaxis: {
-                    title: {
-                        text: '$ (thousands)'
-                    }
-                },
-                fill: {
-                    opacity: 1
-                },
-                tooltip: {
-                    y: {
-                        formatter: function (val) {
-                            return "$ " + val + " thousands"
-                        }
-                    }
-                }
-            });
-
-            chart.render();
-
-            // "자세히보기" 버튼 클릭 시 해당 카테고리에 대한 모달 열기
-            const detailButtons = document.querySelectorAll(".detail-button");
-
-            detailButtons.forEach(button => {
-                button.addEventListener("click", function () {
-                    const category = this.getAttribute("data-category");
-                    const modal = document.getElementById(`modal-${category}`);
-                    const modalContent = document.getElementById(`modalContent-${category}`);
-                    modalContent.textContent = `${category} 입니다.`;
-                    modal.style.display = "block";
-                });
-            });
-
-            // 모달 닫기
-            const closeButtons = document.querySelectorAll(".close");
-
-            closeButtons.forEach(button => {
-                button.addEventListener("click", function () {
-                    const category = this.getAttribute("id").replace("closeModal-", "");
-                    const modal = document.getElementById(`modal-${category}`);
-                    modal.style.display = "none";
-                });
-            });
-
-            window.addEventListener("click", function (event) {
-                if (event.target.className === "modal") {
-                    const category = event.target.getAttribute("id").replace("modal-", "");
-                    const modal = document.getElementById(`modal-${category}`);
-                    modal.style.display = "none";
-                }
-            });
-        });
-    </script>
 </div>
 </div>
 </div>
@@ -1261,7 +1159,115 @@
     	<%@include file="/WEB-INF/view/include/footer.jsp"%>
 	<!-- End Footer -->
 
-					</body>
+	</body>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+		const chart = new ApexCharts(document.querySelector("#columnChart"), {
+			series: [{
+				name: '주식',
+				data: [100, 100, 100, 100, 100, 100]
+			}, {
+				name: '채권',
+				data: [76, 85, 101, 25, 90, 40]
+			}, {
+				name: '안전자산',
+				data: [35, 41, 36, 70, 30, 40]
+			}],
+			chart: {
+				type: 'bar',
+				height: 350
+			},
+			plotOptions: {
+				bar: {
+					horizontal: false,
+					columnWidth: '55%',
+					endingShape: 'rounded'
+				},
+			},
+			dataLabels: {
+				enabled: false
+			},
+			stroke: {
+				show: true,
+				width: 2,
+				colors: ['transparent']
+			},
+			xaxis: {
+				categories: ['블-안전', '블-위험', '알-안전', '알-위험', '나-안전', '나-위험']
+			},
+			yaxis: {
+				title: {
+					text: '$ (thousands)'
+				}
+			},
+			fill: {
+				opacity: 1
+			},
+			tooltip: {
+				y: {
+					formatter: function (val) {
+						return "$ " + val + " thousands"
+					}
+				}
+			}
+		});
+		chart.render();
+
+		// "자세히보기" 버튼 클릭 시 해당 카테고리에 대한 모달 열기
+		let detailButtons = document.querySelectorAll(".detail-button");
+
+		detailButtons.forEach(button => {
+			button.addEventListener("click", function () {
+				let category = this.getAttribute("data-category");
+				let modal = document.getElementById('modal-'+category);
+				let modalContent = document.getElementById('modalContent-'+category);
+				modalContent.textContent = category+' 입니다.';
+				modal.style.display = "block";
+			});
+		});
+
+		// 모달 닫기
+		let closeButtons = document.querySelectorAll(".close");
+
+		closeButtons.forEach(button => {
+			button.addEventListener("click", function () {
+				const category = this.getAttribute("id").replace("closeModal-", "");
+				const modal = document.getElementById('modal-'+category);
+				modal.style.display = "none";
+			});
+		});
+
+		window.addEventListener("click", function (event) {
+			if (event.target.className === "modal") {
+				const category = event.target.getAttribute("id").replace("modal-", "");
+				const modal = document.getElementById('modal-'+category);
+				modal.style.display = "none";
+			}
+		});
+
+
+	});
+
+	</script>
+<script
+		src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
+<script
+		src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script
+		src="${pageContext.request.contextPath}/vendor/chart.js/chart.umd.js"></script>
+<script
+		src="${pageContext.request.contextPath}/vendor/echarts/echarts.min.js"></script>
+<script
+		src="${pageContext.request.contextPath}/vendor/quill/quill.min.js"></script>
+<script
+		src="${pageContext.request.contextPath}/vendor/simple-datatables/simple-datatables.js"></script>
+<script
+		src="${pageContext.request.contextPath}/vendor/tinymce/tinymce.min.js"></script>
+<script
+		src="${pageContext.request.contextPath}/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="${pageContext.request.contextPath}/js/main.js"></script>
 </html>
 
 <!--

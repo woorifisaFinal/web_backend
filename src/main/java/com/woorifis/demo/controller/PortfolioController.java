@@ -1,5 +1,7 @@
 package com.woorifis.demo.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.List;
 
@@ -63,7 +65,13 @@ public class PortfolioController {
 	    }
 
 	@GetMapping("/dashboard")
-	public String showDashboard(){
+	public String showDashboard(Model model){
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String today = formatter.format(date);
+		List<Portfolio> list = portfolioService.getPortfoliosByDate(today);
+		model.addAttribute("list", list);
+
 		return "portfolio/dashboard";
 	}
 	
