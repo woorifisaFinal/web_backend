@@ -18,8 +18,8 @@ import lombok.Setter;
 public class Portfolio{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long no;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long no;
     @Column(nullable=false)
     private String date;
     @Column(nullable=false)

@@ -240,7 +240,7 @@
       <div class="survey-page page2 d-none">
         </br>
         <div style="border-bottom: 2px solid blue;">
-          <img class="mb-3 square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다."><h2 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" >   투자성향 설문조사 2/2</h2>
+          <img class="mb-3 square" src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다."><h2 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" >   투자성향 설문조사 2/2</h2>
         </div>
         <div class="survey-inside">
           <form>
@@ -306,37 +306,7 @@
             </p>
             </br>
             <button type="button" class="btn btn-outline-primary" onclick="showPage(1)">이전 페이지</button>
-            <c:if test="${sessionScope.loginUser != null}">
-              <a href="/portfolio/result" class="btn btn-outline-success">결과 보기</a>
-            </c:if>
-
-            <c:if test="${sessionScope.loginUser == null}">
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#loginModal">
-              결과 보기
-            </button>
-          </c:if>
-
-            <!-- 로그인 모달 -->
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">로그인 해주세요</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <!-- 모달 내용 -->
-                    <p>로그인이 필요한 서비스입니다. 로그인을 해주세요.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                    <a href="/user/login" class="btn btn-primary">로그인하기</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <button type="button" class="btn btn-outline-success" onclick="calculateScore()">결과 보기</button>
 
           </form>
         </div>

@@ -44,7 +44,7 @@
       .custom-button-group {
         display: flex;
         justify-content: flex-end;
-        margin-top: -30px; /* 버튼을 위로 올리는 여백 조정 */
+        margin-top: -30px; /* 버튼을 위로 올리는 여백 조정 */ 
       }
       body {
       	padding : 0 430px;
@@ -107,14 +107,14 @@
             </div>
           </div>
           <c:if test="${sessionScope.loginUser == null}">
-            <div class="d-flex custom-button-group">
-              <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
-                로그인
-              </a>
-              <a href="/user/signup" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
-                회원가입
-              </a>
-            </div>
+<div class="custom-button-group">
+    <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px; margin-left: 120px;">
+        로그인
+    </a>
+    <a href="/user/signup" class="btn btn" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;margin-right: 120px">
+        회원가입
+    </a>
+</div>
           </c:if>
         </div>
       </div>

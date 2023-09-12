@@ -549,8 +549,8 @@
     <button type="button" class="detail-button col" id="modal-블랙-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal2">블랙-위험형</button>
     <button type="button" class="detail-button col" id="modal-알파-안전형" data-bs-toggle="modal" data-bs-target="#exampleModal3">알파-안전형</button>
     <button type="button" class="detail-button col" id="modal-안파-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal4">알파-위험형</button>
-    <button type="button" class="detail-button col" id="modal-나누리-안전형" data-bs-toggle="modal" data-bs-target="#exampleModal5">나누리-안전형</button>
-    <button type="button" class="detail-button col" id="modal-나누리-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal6">나누리-위험형</button>
+    <button type="button" class="detail-button col" id="modal-나누리-안전형" data-bs-toggle="modal" data-bs-target="#exampleModal5">누리-안전형</button>
+    <button type="button" class="detail-button col" id="modal-나누리-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal6">누리-위험형</button>
 </div>
     <!-- 각각의 모달 -->
     
