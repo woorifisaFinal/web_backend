@@ -71,37 +71,15 @@
     </br>
     </br>
     <!-- 파이차트 -->
-    <div class="container">
-    	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		
-		<div>
-		  <canvas id="myChart"></canvas>
-		</div>
-    </div>
-		
-		
-		<script>
-		  const ctx = document.getElementById('myChart');
-		
-		  new Chart(ctx, {
-		    type: 'bar',
-		    data: {
-		      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-		      datasets: [{
-		        label: '# of Votes',
-		        data: [12, 19, 3, 5, 2, 3],
-		        borderWidth: 1
-		      }]
-		    },
-		    options: {
-		      scales: {
-		        y: {
-		          beginAtZero: true
-		        }
-		      }
-		    }
-		  });
-		</script>	
+	<!-- First Pie Chart (resultA) -->
+	<h2>type ${resultA.type}</h2>
+	<canvas id="chartA"></canvas> <!-- Container to draw the chart -->
+	
+	
+	<!-- Second pie chart (resultB) -->
+	<h2>type ${resultB.type}</h2>
+	<canvas id="chartB"></canvas> <!-- Container to draw the chart -->
+	
     <!-- 파이차트 끝 -->
     </br>
     </br>

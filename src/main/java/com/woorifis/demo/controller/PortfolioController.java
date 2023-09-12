@@ -54,11 +54,16 @@ public class PortfolioController {
 	        @RequestParam("typeB") String typeB,
 	        @RequestParam("dateB") String dateB,
 	        Model model) {
-
-	        
+		 	System.out.println("typeA: " + typeA);
+	        System.out.println("dateA: " + dateA);
+	        System.out.println("typeB: " + typeB);
+	        System.out.println("dateB: " + dateB);
+		 
 			Portfolio resultA = portfolioService.getComparisonResult(typeA, dateA);
 			Portfolio resultB = portfolioService.getComparisonResult(typeB, dateB);
-
+			
+//			System.out.println(resultB);
+			
 	        // Model에 데이터를 추가하여 뷰로 전달합니다.
 	        model.addAttribute("resultA", resultA);
 	        model.addAttribute("resultB", resultB);

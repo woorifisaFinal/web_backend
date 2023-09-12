@@ -124,21 +124,25 @@
         });
         
         function sendComparisonRequest(product1ID, product2ID) {
-            const DATEA = "2023-08-29";
-            const DATEB = "2023-08-29";
+            console.log("function Products:", product1ID, product2ID);
+            const DATEA = "2022-08-01";
+            const DATEB = "2022-08-01";
+            const url = "/portfolio/comparePortfolios?typeA=" + product1ID + "&dateA=" + DATEA + "&typeB=" + product2ID + "&dateB=" + DATEB;
             $.ajax({
-                url: `/portfolio/comparePortfolios?typeA=${product1ID}&dateA=${DATEA}&typeB=${product2ID}&dateB=${DATEB}`,
+                url: url,
                 type: 'GET',
                 success: function(data) {
-                    // 서버에서 받은 데이터를 처리하는 로직을 작성
-                    // 이 예제에서는 받은 데이터를 현재 페이지에 출력
+                    // Write logic to process data received from the server
+                    // In this example, the received data is printed on the current page.
                     document.body.innerHTML = data;
                 },
                 error: function() {
                     console.error('Error');
                 }
             });
+            console.log("Request URL:", url);
         }
+
         
         // Add click event listener to Compare button
         compareBtn.addEventListener("click", function () {
@@ -260,6 +264,36 @@
         </div>
     </div>
 </div>
+<!-- 파이차트 -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		
+		<div>
+		  <canvas id="myChart"></canvas>
+		</div>
+
+		<script>
+		  const ctx = document.getElementById('myChart');
+		
+		  new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+		      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+		      datasets: [{
+		        label: '# of Votes',
+		        data: [12, 19, 3, 5, 2, 3],
+		        borderWidth: 1
+		      }]
+		    },
+		    options: {
+		      scales: {
+		        y: {
+		          beginAtZero: true
+		        }
+		      }
+		    }
+		  });
+		</script>	
+    <!-- 파이차트 끝 -->
 <!-- Main (div id=main) 끝 -->
 
     <!-- ======= Footer ======= -->
@@ -270,9 +304,4 @@
 
 <!--
 ${pageContext.request.contextPath}
-
-
-
-
-
 -->
