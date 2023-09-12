@@ -121,14 +121,10 @@
 
 <!-- Main -->
     <div style="border-bottom: 2px solid blue;" class="d-flex align-items-center">
-<<<<<<< HEAD
+
       <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
       <h2 class="mb-4" style="display: inline-block; margin-left: 8px; font-weight: bold;"> 종목 </h2>
-=======
-        <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
-        <h2 class="mb-4" style="display: inline-block; margin-left: 8px; font-weight: bold;">${symbolDetail.name}</h2>
-        <p>${symbolDetail.detail}</p>
->>>>>>> a4d239b438ffc77e4c8e7cef01e4d3f956742474
+
     </div>
     
     <div class="card">
