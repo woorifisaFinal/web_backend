@@ -116,8 +116,8 @@
                 <input type="email" class="form-control" id="email" placeholder="Enter email">
             </div>
             <div class="form-group">
-                <label for="userEmail">변경 Email:</label>
-                <input type="email" class="form-control" id="userEmail" placeholder="Enter new email">
+                <label for="newEmail">변경 Email:</label>
+                <input type="email" class="form-control" id="newEmail" placeholder="Enter new email">
             </div>
             <div class="form-group">
                 <label for="newPassword">새 비밀번호:</label>

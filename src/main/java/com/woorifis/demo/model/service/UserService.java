@@ -85,7 +85,13 @@ public class UserService {
 	            userRepository.save(user);
 	        }
 	    }
-	    
+	    public void updateType(String userId, String type){
+		 User user = userRepository.findByUserId(userId).orElse(null);
+		 if(user != null){
+			 user.setType(type);
+			 userRepository.save(user);
+		 }
+		}
 	    // 사용자 삭제 함수
 	    public void deleteUser(Long userNo) {
 	        userRepository.deleteById(userNo);

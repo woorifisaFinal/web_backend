@@ -1,5 +1,7 @@
 package com.woorifis.demo.controller;
 
+import com.woorifis.demo.model.entity.User;
+import com.woorifis.demo.model.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -25,7 +27,7 @@ public class UserController {
 	
 	// 생성자 주입
 	private final UserService userService;
-	
+	private final UserRepository userRepository;
 	// 회원가입 페이지 출력 요청
 	@GetMapping("/signup")
 	public String signUpForm() {
@@ -54,7 +56,17 @@ public class UserController {
 	            // 로그인 페이지로 다시 이동		
 		}else {
 			// login 성공
-			 session.setAttribute("loginUser", loginResult); 
+			 session.setAttribute("loginUser", loginResult);
+			 if(session.getAttribute("type")!=null){
+
+				 UserDTO userdto = (UserDTO)session.getAttribute("loginUser");
+
+				 userdto.setType((String)session.getAttribute("type"));
+				 User user = User.toUser(userdto);
+				 userRepository.save(user);
+				 session.removeAttribute("type");
+				 return "redirect:/result";
+			 }
 			 // 로그인 유저 정보를 세션에 저장
 			// login이 성공을 했으면 login된 유저는99 session에 id 값을 넣어줘서 session을 종료할때까지 유지시켜준다
 				// 해서 맞으면 로그인 시켜주고
