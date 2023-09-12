@@ -1,6 +1,9 @@
 package com.woorifis.demo.model.dto;
 
 import com.woorifis.demo.model.entity.Symbol;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,22 +15,20 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SymbolDTO {
 
-    private Long id;
-    private String date;
-    private Float usclose;
-    private Float ukclose;
-    private Float jpclose;
-    private Float euroclose;
-    private Float korclose;
-    private Float indclose;
-    private Float twclose;
-    private Float brclose;
-    private Float kor3yclose;
-    private Float kor10yclose;
-    private Float us3yclose;
-    private Float us10yclose;
-    private Float goldclose;
 
+	    private String date;
+
+	    private double usopen;       // 미국 (US)
+
+	    private double ushigh;       // 미국 (US)
+
+	    private double uslow;        // 미국 (US)
+
+	    private double usclose;      // 미국 (US)
+
+	    private double usadjclose;   // 미국 (US)
+
+	    private long usvolume;       // 미국 (US)
 
  
 }

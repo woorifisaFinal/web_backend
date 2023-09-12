@@ -10,7 +10,7 @@ import lombok.Setter;
 public class PortfolioDTO {
 
 	
-    private Long no;
+//    private Long no;
     private String date;
     private String type;
     private Float us;

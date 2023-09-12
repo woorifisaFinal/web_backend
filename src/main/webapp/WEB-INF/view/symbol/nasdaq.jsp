@@ -133,32 +133,19 @@
         <div style="flex: 4;">
           <!-- Primary Color Bordered Table -->
           <table class="table table-bordered border-2 border-primary">
-            <thead>
-              <tr>
-                <th scope="col" style="background-color: lightblue; width: 150px">종목명</th>
-                <td><c:out value="${symbolDetail.name}" /></td>
-              </tr>
-  
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" style="background-color: lightblue;">운용사</th>
-                <td>함수</td>
-              </tr>
-              <tr>
-                <th scope="row" style="background-color: lightblue;">최초출시일</th>
-                <td>함수</td>
-              </tr>
-              <tr>
-                <th scope="row" style="background-color: lightblue;">시가총액</th>
-                <td>함수</td>
-              </tr>
-                 <tr>
-                <th scope="row" style="background-color: lightblue;">특징</th>
-               <td><c:out value="${symbolDetail.detail}" /></td>
-              </tr>
-            </tbody>
-          </table>
+        <tr>
+            <th>Date</th>
+            <th>US Open</th>
+            <!-- 다른 컬럼 추가 -->
+        </tr>
+        <c:forEach items="${nasdaqList}" var="nasdaq">
+            <tr>
+                <td>${nasdaq.date}</td>
+                <td>${nasdaq.usOpen}</td>
+                <!-- 다른 컬럼 추가 -->
+            </tr>
+        </c:forEach>
+    </table>
           <!-- End Primary Color Bordered Table -->
         </div>
         
