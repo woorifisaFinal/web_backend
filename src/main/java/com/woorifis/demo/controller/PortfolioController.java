@@ -44,24 +44,35 @@ public class PortfolioController {
 	}
 
 	// name, type에 따른 10가지 조합 중 2가지 선택
+	@GetMapping("/compare")
+	public String comparePage() {
+		return "portfolio/compare";
+	}
 	 @GetMapping("/comparePortfolios")
 	    public String comparePortfolios(
-	        @RequestParam("nameA") String nameA,
-	        @RequestParam("typeA") String typeA,
-	        @RequestParam("nameB") String nameB,
-	        @RequestParam("typeB") String typeB,
-	        Model model) {
+			 @RequestParam("typeA") String typeA,
+			 @RequestParam("dateA") String dateA,
+			 @RequestParam("typeB") String typeB,
+			 @RequestParam("dateB") String dateB,
+			 Model model) {
+			 System.out.println("typeA: " + typeA);
+			 System.out.println("dateA: " + dateA);
+			 System.out.println("typeB: " + typeB);
+			 System.out.println("dateB: " + dateB);
 
-	        
-			List<Portfolio> resultA = portfolioService.getComparisonResult(nameA, typeA);
-			List<Portfolio> resultB = portfolioService.getComparisonResult(nameB, typeB);
+			 Portfolio resultA = portfolioService.getComparisonResult(typeA, dateA);
+			 Portfolio resultB = portfolioService.getComparisonResult(typeB, dateB);
 
-	        // Model에 데이터를 추가하여 뷰로 전달합니다.
-	        model.addAttribute("resultA", resultA);
-	        model.addAttribute("resultB", resultB);
+			 System.out.println(resultA);
+			 System.out.println(resultB);
 
-	        // 뷰 페이지 이름을 반환합니다.
-	        return "portfolio/compare";
+			 // Model에 데이터를 추가하여 뷰로 전달합니다.
+			 model.addAttribute("resultA", resultA);
+			 model.addAttribute("resultB", resultB);
+
+			 // 뷰 페이지 이름을 반환합니다.
+	//	        return "portfolio/compare";
+			 return "portfolio/comparePortfolios";
 	    }
 
 	@GetMapping("/dashboard")

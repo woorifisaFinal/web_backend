@@ -26,8 +26,8 @@ public class PortfolioService {
     }
 	
     // name과 type을 기준으로 데이터를 조회 - 날짜 까지?
-    public List<Portfolio>  getComparisonResult(String type, String date) {
-    	List<Portfolio> searchResults = portfolioRepository.findByTypeAndDate(type, date);
+    public Portfolio  getComparisonResult(String type, String date) {
+    	Portfolio searchResults = portfolioRepository.findByTypeAndDate(type, date);
         return searchResults;
     }
     

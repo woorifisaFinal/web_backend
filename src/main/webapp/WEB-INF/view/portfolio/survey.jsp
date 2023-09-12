@@ -110,12 +110,12 @@
       });
 
       if (totalScore >= 0 && totalScore <= 20) {
-        window.location.href = `/result?type=stable`;
+        window.location.href = `/savetype?type=stable`;
         // localStorage.setItem("type", "안정형");
         // let type = "안정형";
 
       } else if (totalScore >= 21 && totalScore <= 50) {
-        window.location.href = `/result?type=adventurous`;
+        window.location.href = `/savetype?type=adventurous`;
         // localStorage.setItem("type", "공격형")
         // let type ="공격형";
       } else {
@@ -312,7 +312,7 @@
             </br>
             <button type="button" class="btn btn-outline-primary" onclick="showPage(1)">이전 페이지</button>
             <c:if test="${sessionScope.loginUser != null}">
-              <a href="/savetype" class="btn btn-outline-success" onclick="calculateScore();">결과 보기</a>
+              <a href="" class="btn btn-outline-success" onclick="calculateScore();">결과 보기</a>
             </c:if>
 
             <c:if test="${sessionScope.loginUser == null}">

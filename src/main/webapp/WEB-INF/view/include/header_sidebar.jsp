@@ -94,28 +94,29 @@
               <!-- End Search Bar -->
             </div>
             <div class="col-4 text-end"></div>
-            <!-- My Page Link -->
-            <c:if test="${sessionScope.loginUser != null}">
-            <div class="d-flex custom-button-group">
-              <a href="/user/mypage" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
-                마이페이지
-                <a href="/user/logout" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
-                  로그아웃
-              </a>
-              </c:if>
-              <!-- End My Page Link -->
-            </div>
           </div>
-          <c:if test="${sessionScope.loginUser == null}">
-            <div class="d-flex custom-button-group">
-              <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
-                로그인
-              </a>
-              <a href="/user/signup" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
-                회원가입
-              </a>
-            </div>
-          </c:if>
+            <!-- My Page Link -->
+              <c:if test="${sessionScope.loginUser != null}">
+                <div class="d-flex custom-button-group">
+                  <a href="/user/mypage" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
+                    마이페이지 </a>
+                    <a href="/user/logout" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
+                      로그아웃</a>
+                </div>
+              </c:if>
+                <!-- End My Page Link -->
+
+
+              <c:if test="${sessionScope.loginUser == null}">
+              <div class="d-flex custom-button-group">
+                <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
+                  로그인
+                </a>
+                <a href="/user/signup" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
+                  회원가입
+                </a>
+              </div>
+            </c:if>
         </div>
       </div>
     </header><!-- End Header -->

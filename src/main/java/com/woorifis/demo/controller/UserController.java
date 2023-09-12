@@ -139,13 +139,16 @@ public class UserController {
     }
 
     @PostMapping("/withdrawal")
-    public String withdrawal(@SessionAttribute(name = "userId", required = false) Long userNo, String userId, HttpSession session) {
+    public String withdrawal(HttpSession session) {
+		UserDTO userDTO = (UserDTO)session.getAttribute("loginUser");
+		String userId = userDTO.getUserId();
+		Long userNo = userDTO.getUserNo();
         if (userId != null) {
             // 사용자 정보를 삭제 (UserService를 통해 구현)
             userService.deleteUser(userNo);
 
             // 세션에서 사용자 정보 삭제
-            session.removeAttribute("userId");
+            session.removeAttribute("loginUser");
             return "redirect:/"; // 탈퇴 완료 후 홈 페이지로 리다이렉트
         } else {
             // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
