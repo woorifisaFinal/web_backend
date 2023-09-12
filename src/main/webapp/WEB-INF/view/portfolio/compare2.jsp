@@ -95,6 +95,7 @@
     document.addEventListener("DOMContentLoaded", function () {
         const productBoxes = document.querySelectorAll(".product-box");
         const compareBtn = document.getElementById("compareBtn");
+        const comparisonContent = document.getElementById("comparisonContent");
 
         let selectedProducts = [];
 
@@ -122,39 +123,47 @@
                 console.log("Selected Products:", selectedProducts);
             });
         });
+		
         
+
         function sendComparisonRequest(product1ID, product2ID) {
             const DATEA = "2023-08-29";
             const DATEB = "2023-08-29";
             $.ajax({
                 url: `/portfolio/comparePortfolios?typeA=${product1ID}&dateA=${DATEA}&typeB=${product2ID}&dateB=${DATEB}`,
-                type: 'GET',
+                type: 'POST', // or 'POST' depending on your server-side requirements
                 success: function(data) {
                     // 서버에서 받은 데이터를 처리하는 로직을 작성
-                    // 이 예제에서는 받은 데이터를 현재 페이지에 출력
-                    document.body.innerHTML = data;
+                    // 이 예제에서는 받은 데이터를 #comparisonResult 요소에 출력
+                    $("#comparisonResult").html(data);
+                    alert("Success");
                 },
                 error: function() {
                     console.error('Error');
                 }
             });
         }
+
         
         // Add click event listener to Compare button
         compareBtn.addEventListener("click", function () {
             if (selectedProducts.length === 2) {
+                // Display selected product names in the modal
                 const product1ID = selectedProducts[0];
-                const product2ID = selectedProducts[1];
-                sendComparisonRequest(product1ID, product2ID);
+		        const product2ID = selectedProducts[1];
+		        sendComparisonRequest(product1ID, product2ID);
+		        $("#comparisonModal").modal("show");
             } else if (selectedProducts.length > 2) {
-                alert("You must select 2 items.");
+                // Display an error modal if more than 2 products are selected
+                comparisonContent.innerHTML = '<p>You must select 2 items.</p>';
+                // Show the error modal
+                $("#comparisonModal").modal("show");
             } else {
+                // Inform the user to select exactly 2 products
                 alert("Please select exactly 2 products for comparison.");
             }
         });
-
-        
-    });
+      });
   </script>
 </head>
 

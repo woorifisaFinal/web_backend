@@ -47,7 +47,7 @@ public class PortfolioController {
 	    return "portfolio/compare";
 	}
 	    
-	 @PostMapping("/comparePortfolios")
+	 @GetMapping("/comparePortfolios")
 	    public String comparePortfolios(
 	        @RequestParam("typeA") String typeA,
 	        @RequestParam("dateA") String dateA,
@@ -56,15 +56,16 @@ public class PortfolioController {
 	        Model model) {
 
 	        
-			List<Portfolio> resultA = portfolioService.getComparisonResult(typeA, dateA);
-			List<Portfolio> resultB = portfolioService.getComparisonResult(typeB, dateB);
+			Portfolio resultA = portfolioService.getComparisonResult(typeA, dateA);
+			Portfolio resultB = portfolioService.getComparisonResult(typeB, dateB);
 
 	        // Model에 데이터를 추가하여 뷰로 전달합니다.
 	        model.addAttribute("resultA", resultA);
 	        model.addAttribute("resultB", resultB);
 
 	        // 뷰 페이지 이름을 반환합니다.
-	        return "portfolio/compare";
+//	        return "portfolio/compare";
+	        return "portfolio/comparePortfolios";
 	    }
 
 	@GetMapping("/dashboard")

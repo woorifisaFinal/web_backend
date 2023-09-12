@@ -21,13 +21,14 @@ public class PortfolioService {
 	
     // 특정 날짜(date)에 해당하는 포트폴리오 가져오기
     public List<Portfolio>  getPortfoliosByDate(String date) {
-    	List<Portfolio>  searchResults = portfolioRepository.findByDate(date);
+    	List<Portfolio> searchResults = portfolioRepository.findByDate(date);
         return searchResults;
     }
 	
     // name과 type을 기준으로 데이터를 조회 - 날짜 까지?
-    public List<Portfolio>  getComparisonResult(String type, String date) {
-    	List<Portfolio> searchResults = portfolioRepository.findByTypeAndDate(type, date);
+    public Portfolio  getComparisonResult(String type, String date) {
+    	Portfolio searchResults = portfolioRepository.findByTypeAndDate(type, date);
+    	System.out.println(searchResults);
         return searchResults;
     }
     

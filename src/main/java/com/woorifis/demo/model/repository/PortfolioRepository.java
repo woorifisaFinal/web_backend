@@ -12,7 +12,7 @@ public interface PortfolioRepository extends JpaRepository<Portfolio, Long> {
 
 	
     // 특정 날짜(date)에 해당하는 모든 포트폴리오 가져오기
-	List<Portfolio>  findByDate(String date);
+	List<Portfolio> findByDate(String date);
     
-	List<Portfolio> findByTypeAndDate(String type, String date);
+	Portfolio findByTypeAndDate(String type, String date);
 }
