@@ -19,18 +19,18 @@ import lombok.Setter;
 public class Symbol {
     @Id
     private String date;
-    @Column
-    private double usopen;       // 미국 (US)
-    @Column
-    private double ushigh;       // 미국 (US)
-    @Column
-    private double uslow;        // 미국 (US)
-    @Column
-    private double usclose;      // 미국 (US)
-    @Column
-    private double usadjclose;   // 미국 (US)
-    @Column
-    private long usvolume;       // 미국 (US)
+//    @Column
+//    private double usopen;       // 미국 (US)
+//    @Column
+//    private double ushigh;       // 미국 (US)
+//    @Column
+//    private double uslow;        // 미국 (US)
+//    @Column
+//    private double usclose;      // 미국 (US)
+//    @Column
+//    private double usadjclose;   // 미국 (US)
+//    @Column
+//    private long usvolume;       // 미국 (US)
     
 }
 

@@ -89,6 +89,29 @@
 
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
+
+    <script>
+        // Pie chart data example
+        var pieData = {
+            labels: ["주식", "채권", "안전자산"],
+            datasets: [{
+                data: [30, 40, 30], // 데이터 값 설정
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"], // 각 섹션의 색상
+                hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+            }]
+        };
+
+        // create pie chart
+        var ctx = document.getElementById("pie-chart").getContext("2d");
+        var pieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: pieData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -99,7 +122,7 @@
 <!-- Main -->
 <div class="container">
 
-    <div class="col-15">
+    <div class="col-10">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
             <div>
                 <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
@@ -107,12 +130,10 @@
             </div>
         </div>
     </div>
-    
     <div id="result-container" class="col-10" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="row">
             <div class="col-md-6">
                 <h3>투자유형:</h3>
-                <h3>${User.type}</h3>
                 <div id="result"></div>
             </div>
             <div class="col-md-6">
@@ -124,61 +145,14 @@
         </div>
         <div class="row mt-4">
             <div class="col-md-6">
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 <h3>파이차트:</h3>
-                	<div style="display: flex; justify-content: space-around;">
-				        <div>
-				            <h2>${portfolio.type}</h2>
-				            <canvas id="chartB" width="300" height="300"></canvas>
-				        </div>
-				    </div>
-				    <script>
-						  // Pie Chart Data
-						  const ctxB = document.getElementById('chartB');
-						  new Chart(ctxB, {
-						    type: 'pie',
-						    data: {
-						      labels: ['br', 'euro', 'gold', 'ind', 'jp', 'kor', 'kor10y', 'kor3y', 'tw', 'uk', 'us', 'us10y', 'us3y'],
-						      datasets: [{
-						        label: '# of Votes',
-						        data: [
-						          ${portfolio.br},
-						          ${portfolio.euro},
-						          ${portfolio.gold},
-						          ${portfolio.ind},
-						          ${portfolio.jp},
-						          ${portfolio.kor},
-						          ${portfolio.kor10y},
-						          ${portfolio.kor3y},
-						          ${portfolio.tw},
-						          ${portfolio.uk},
-						          ${portfolio.us},
-						          ${portfolio.us10y},
-						          ${portfolio.us3y}
-						        ],
-						        borderWidth: 1
-						      }]
-						    },
-						    options: {
-						      responsive: false,
-						      scales: {
-						        y: {
-						          beginAtZero: true
-						        }
-						      },
-						      plugins: {
-						        title: {
-						          display: true,
-						          text: 'Pie Chart B Title' // Second Pie Chart Title
-						        }
-						      }
-						    }
-						  });
-					</script>
+                <div class="chart-container">
+                    <canvas id="pie-chart" width="400" height="400"></canvas>
+                </div>
             </div>
             <div class="col-md-6">
                 <h3>상품비교해보기:</h3>
-                <a href="/portfolio/compare" class="btn btn-primary">비교하기</a>
+                <a href="/portfolio/comparePortfolios" class="btn btn-primary">비교하기</a>
             </div>
         </div>
     </div>

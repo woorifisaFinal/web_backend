@@ -339,7 +339,7 @@
        <!-- Website Traffic -->
        <div class="card">
       <div class="card-body pb-0">
-        <h5 class="card-title">3종목 수익률 <span>| </span></h5>
+        <h5 class="card-title">${firstPortfolio.type} <span>| </span></h5>
 
         <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 
@@ -373,17 +373,61 @@
                   show: false
                 },
                 data: [{
-                    value: 1048,
-                    name: '주식'
+                    value: ${firstPortfolio.br},
+                    name: '브라질'
                   },
 
                   {
-                    value: 484,
-                    name: '채권'
+                    value: ${firstPortfolio.euro},
+                    name: '유럽'
                   },
                   {
-                    value: 300,
-                    name: '안전자산'
+                    value: ${firstPortfolio.gold},
+                    name: '골드'
+                  },
+                  {
+                    value: ${firstPortfolio.ind},
+                    name: '인도'
+                  },
+                  ,
+                  {
+                    value: ${firstPortfolio.jp},
+                    name: '일본'
+                  },
+                  {
+                    value: ${firstPortfolio.kor},
+                    name: '한국'
+                  },
+                  ,
+                  {
+                    value: ${firstPortfolio.kor10y},
+                    name: '국채10년'
+                  },
+                  {
+                    value: ${firstPortfolio.kor3y},
+                    name: '국채3년'
+                  },
+                  ,
+                  {
+                    value: ${firstPortfolio.tw},
+                    name: '대만'
+                  },
+                  {
+                    value: ${firstPortfolio.uk},
+                    name: '영국'
+                  },
+                  {
+                    value: ${firstPortfolio.us},
+                    name: '미국'
+                  },
+                  ,
+                  {
+                    value: ${firstPortfolio.us10y},
+                    name: '미국10년'
+                  },
+                  {
+                    value: ${firstPortfolio.us3y},
+                    name: '미국3년'
                   }
                 ]
               }]
