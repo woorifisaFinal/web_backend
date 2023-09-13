@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%> <%@page import="java.util.*"%>
@@ -59,12 +58,12 @@
     />
 
     <!-- =======================================================
-* Template Name: NiceAdmin
-* Updated: May 30 2023 with Bootstrap v5.3.0
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-======================================================== -->
+  * Template Name: NiceAdmin
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -93,38 +92,21 @@
 </head>
 
 <body>
+<!-- ======= Header ======= -->
 <%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
-<div  class="container">
+<!-- End Sidebar-->
 
-    <div id="body" class="col-10" style="background-color: white">
-        <h3>"${keyword}"에 대한 검색결과입니다.</h3>
-        <c:if test="${not empty searchResults}">
+<!-- Main -->
+<div class="container">
 
-            <table>
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>종목명</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${searchResults}" var="symbol">
-                    <tr>
-                        <td><a href="/symbol/detail?id=${symbol.id}">${symbol.id}</a></td>
-                        <td><a href="/symbol/detail?id=${symbol.id}">${symbol.name}</a></td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </c:if>
-    </div>
-
-
-    <c:if test="${empty searchResults}">
-        <p>검색결과가 없습니다.</p>
-    </c:if>
-
-
+    <section
+            class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4"
+    >
+        <h3>탈퇴하시겠습니까?</h3>
+        <form action="" method="post">
+            <button type="submit" class="btn btn-danger" id="confirmWithdrawal" onClick="location.href='/user/withdrawal'">탈퇴하기</button>
+        </form>
+    </section>
 </div>
 <!-- Main (div id=main) 끝 -->
 
@@ -133,4 +115,5 @@
 <!-- End Footer -->
 </body>
 </html>
+
 

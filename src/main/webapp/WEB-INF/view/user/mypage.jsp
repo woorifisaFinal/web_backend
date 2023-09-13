@@ -155,31 +155,31 @@
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <button class="btn btn-info" style="margin-right: 10px" onClick="location.href='user/checkpw'">
+                                    <button class="btn btn-info" style="margin-right: 10px" onClick="location.href='/user/checkpw'">
                                         수정하기
                                     </button>
-                                    <button class="btn btn-secondary" id="withdrawButton" >
+                                    <button class="btn btn-secondary" id="withdrawButton"  onClick="location.href='/user/withdrawal'" >
                                         탈퇴하기</button>
 
                                     <!-- 확인 모달 -->
-                                    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="confirmationModalLabel">확인</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>정말 탈퇴하시겠습니까?</p>
-                                                    <input type="password" id="password" class="form-control" placeholder="비밀번호를 입력하세요">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                                                    <button type="button" class="btn btn-danger" id="confirmWithdrawal" onClick="location.href='user/withdrawal'">탈퇴하기</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+<%--                                    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">--%>
+<%--                                        <div class="modal-dialog" role="document">--%>
+<%--                                            <div class="modal-content">--%>
+<%--                                                <div class="modal-header">--%>
+<%--                                                    <h5 class="modal-title" id="confirmationModalLabel">확인</h5>--%>
+<%--                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>--%>
+<%--                                                </div>--%>
+<%--                                                <div class="modal-body">--%>
+<%--                                                    <p>정말 탈퇴하시겠습니까?</p>--%>
+<%--                                                    <input type="password" id="password" class="form-control" placeholder="비밀번호를 입력하세요">--%>
+<%--                                                </div>--%>
+<%--                                                <div class="modal-footer">--%>
+<%--                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
+<%--                                                    <button type="button" class="btn btn-danger" id="confirmWithdrawal" onClick="location.href='/user/withdrawal'">탈퇴하기</button>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
 
                                 </div>
 

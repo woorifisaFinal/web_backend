@@ -61,10 +61,8 @@
   </head>
 
   <body>
+   <%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
 
-    <!-- ======= Header ======= -->
-   	<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
-    <!-- End Sidebar-->
     <div class="container">
       <div id="body" class="col-10" style="background-color: white">
         <div
@@ -278,7 +276,7 @@
         </div>
       </div>
     </div>
-    <!-- div id=body 끝 -->
+    <!-- div id=body 끝 -->그럼 jsp의 자바스크립트 코드상에 존재하는 type을 세션에 저장하려면 어떻게 해?
 
     <!-- ======= Footer ======= -->
     	<%@include file = "/WEB-INF/view/include/footer.jsp" %>

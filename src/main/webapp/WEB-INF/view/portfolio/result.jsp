@@ -125,7 +125,7 @@
     <div class="col-10">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
             <div>
-                <img class="mb-3" id="square" src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다.">
+                <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
                 &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >투자성향 결과</h2>
             </div>
         </div>
@@ -152,7 +152,7 @@
             </div>
             <div class="col-md-6">
                 <h3>상품비교해보기:</h3>
-                <a href="portfolio/comparePortfolios" class="btn btn-primary">비교하기</a>
+                <a href="/portfolio/comparePortfolios" class="btn btn-primary">비교하기</a>
             </div>
         </div>
     </div>

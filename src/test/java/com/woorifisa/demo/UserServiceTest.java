@@ -52,21 +52,21 @@ public class UserServiceTest {
         user.setUserEmail("test@example.com");
         user.setPassword("testpassword");
 
-        when(userRepository.findByUserEmail("test@example.com")).thenReturn(Optional.of(user));
+        when(userRepository.findByUserId("testuser")).thenReturn(Optional.of(user));
 
         // userService에서 login 호출
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserEmail("test@example.com");
+        userDTO.setUserId("testuser");
         userDTO.setPassword("testpassword");
 
         UserDTO loginResult = userService.login(userDTO);
 
         // 로그인 결과가 null이 아니어야 함
         assertNotNull(loginResult);
-        assertEquals("test@example.com", loginResult.getUserEmail());
+        assertEquals("testuser", loginResult.getUserId());
 
         // verify를 사용하여 userRepository의 findByUserEmail 메서드가 1번 호출되었는지 검증
-        verify(userRepository, times(1)).findByUserEmail("test@example.com");
+        verify(userRepository, times(1)).findByUserId("testuser");
     }
     
     @Test

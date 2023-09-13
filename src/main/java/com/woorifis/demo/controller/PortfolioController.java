@@ -1,5 +1,7 @@
 package com.woorifis.demo.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.List;
 
@@ -44,38 +46,43 @@ public class PortfolioController {
 	// name, type에 따른 10가지 조합 중 2가지 선택
 	@GetMapping("/compare")
 	public String comparePage() {
-	    return "portfolio/compare";
+		return "portfolio/compare";
 	}
-	    
 	 @GetMapping("/comparePortfolios")
 	    public String comparePortfolios(
-	        @RequestParam("typeA") String typeA,
-	        @RequestParam("dateA") String dateA,
-	        @RequestParam("typeB") String typeB,
-	        @RequestParam("dateB") String dateB,
-	        Model model) {
-		 	System.out.println("typeA: " + typeA);
-	        System.out.println("dateA: " + dateA);
-	        System.out.println("typeB: " + typeB);
-	        System.out.println("dateB: " + dateB);
-		 
-			Portfolio resultA = portfolioService.getComparisonResult(typeA, dateA);
-			Portfolio resultB = portfolioService.getComparisonResult(typeB, dateB);
-			
-			System.out.println(resultA);
-			System.out.println(resultB);
-			
-	        // Model에 데이터를 추가하여 뷰로 전달합니다.
-	        model.addAttribute("resultA", resultA);
-	        model.addAttribute("resultB", resultB);
+			 @RequestParam("typeA") String typeA,
+			 @RequestParam("dateA") String dateA,
+			 @RequestParam("typeB") String typeB,
+			 @RequestParam("dateB") String dateB,
+			 Model model) {
+			 System.out.println("typeA: " + typeA);
+			 System.out.println("dateA: " + dateA);
+			 System.out.println("typeB: " + typeB);
+			 System.out.println("dateB: " + dateB);
 
-	        // 뷰 페이지 이름을 반환합니다.
-//	        return "portfolio/compare";
-	        return "portfolio/comparePortfolios";
+			 Portfolio resultA = portfolioService.getComparisonResult(typeA, dateA);
+			 Portfolio resultB = portfolioService.getComparisonResult(typeB, dateB);
+
+			 System.out.println(resultA);
+			 System.out.println(resultB);
+
+			 // Model에 데이터를 추가하여 뷰로 전달합니다.
+			 model.addAttribute("resultA", resultA);
+			 model.addAttribute("resultB", resultB);
+
+			 // 뷰 페이지 이름을 반환합니다.
+	//	        return "portfolio/compare";
+			 return "portfolio/comparePortfolios";
 	    }
 
 	@GetMapping("/dashboard")
-	public String showDashboard(){
+	public String showDashboard(Model model){
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String today = formatter.format(date);
+		List<Portfolio> list = portfolioService.getPortfoliosByDate(today);
+		model.addAttribute("list", list);
+
 		return "portfolio/dashboard";
 	}
 	

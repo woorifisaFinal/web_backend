@@ -1,5 +1,7 @@
 package com.woorifis.demo.controller;
 
+import com.woorifis.demo.model.entity.User;
+import com.woorifis.demo.model.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -25,7 +27,7 @@ public class UserController {
 	
 	// 생성자 주입
 	private final UserService userService;
-	
+	private final UserRepository userRepository;
 	// 회원가입 페이지 출력 요청
 	@GetMapping("/signup")
 	public String signUpForm() {
@@ -35,7 +37,7 @@ public class UserController {
 	@PostMapping("/signup")
 	public String signUp(@ModelAttribute UserDTO userDTO) {
 		userService.save(userDTO);
-		return "index";
+		return "redirect:/user/login";
 	}
 
 	// 로그인 페이지 출력 요청
@@ -44,7 +46,7 @@ public class UserController {
 
 	
 	@PostMapping("/login") 
-	public String logIn(@ModelAttribute UserDTO userDTO, HttpSession session) {
+	public String logIn(@ModelAttribute UserDTO userDTO, HttpSession session, Model model) {
 		// 유저서비스의 loginresult를 이용
 		UserDTO loginResult =  userService.login(userDTO);
 		if(loginResult == null) {
@@ -54,12 +56,22 @@ public class UserController {
 	            // 로그인 페이지로 다시 이동		
 		}else {
 			// login 성공
-			 session.setAttribute("loginUser", loginResult); 
+			 session.setAttribute("loginUser", loginResult);
+			 if(session.getAttribute("type")!=null){
+
+				 UserDTO userdto = (UserDTO)session.getAttribute("loginUser");
+
+				 userdto.setType((String)session.getAttribute("type"));
+				 User user = User.toUser(userdto);
+				 userRepository.save(user);
+				 session.removeAttribute("type");
+				 return "redirect:/result";
+			 }
 			 // 로그인 유저 정보를 세션에 저장
 			// login이 성공을 했으면 login된 유저는99 session에 id 값을 넣어줘서 session을 종료할때까지 유지시켜준다
 				// 해서 맞으면 로그인 시켜주고
 			 
-			 return "redirect:/";		
+			 return "redirect:/main";
 			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 		}
 	} 
@@ -69,22 +81,13 @@ public class UserController {
 	        // HttpSession을 사용하여 현재 로그인한 사용자의 정보를 가져옴
 	        
 	        // HttpSession에서 저장된 로그인 사용자의 ID를 가져옴
-	        String userId = (String) session.getAttribute("userId");
+	        UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
 
-	        if (userId != null) {
-	            // UserService를 통해 사용자 정보를 가져옴
-	            UserDTO userDTO = userService.getUserInfo(userId);
-
-	            if (userDTO != null) {
-	                // 사용자 정보를 모델에 추가해서 프론트 전달
-	                model.addAttribute("name", userDTO.getUserName());
-	                model.addAttribute("email", userDTO.getUserEmail());
-	                model.addAttribute("userType", userDTO.getType());
-	            } else {
-	                // 사용자 정보를 찾을 수 없는 경우에 대한 예외 처리
-	                // 예를 들어, 사용자가 존재하지 않는 경우 등
-	            	throw new RuntimeException("사용자 정보를 찾을 수 없습니다.");
-	            }
+	        if (loginUser != null) {
+	                model.addAttribute("name", loginUser.getUserName());
+	                model.addAttribute("email", loginUser.getUserEmail());
+	                model.addAttribute("userType", loginUser.getType());
+				return "user/mypage"; // 사용자 정보가 존재하는 경우 마이페이지 뷰로 이동
 	        } else {
 	            // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
 	            // 예를 들어, 로그인하지 않은 사용자가 접근한 경우 등
@@ -92,7 +95,7 @@ public class UserController {
 	        	throw new RuntimeException("사용자를 찾을 수 없습니다.");
 	        }
 
-	        return "user/mypage"; // 사용자 정보가 존재하는 경우 마이페이지 뷰로 이동
+
 	    }
 
 	
@@ -114,20 +117,20 @@ public class UserController {
 	                 return "redirect:/user/mypage";
 	             } else {
 	                 // 비밀번호가 올바르지 않은 경우
-	                 return "redirect:";
+	                 return "redirect:/";
 	             }
 	         } else {
 	             // userId가 세션에 없는 경우에 대한 예외 처리
-	             return "redirect:";
+	             return "redirect:/";
 	         }
 	     }
 
 	
 	
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/user/login"; 
+        return "redirect:/";
     }
     
     @GetMapping("/withdrawal")
@@ -136,13 +139,16 @@ public class UserController {
     }
 
     @PostMapping("/withdrawal")
-    public String withdrawal(@SessionAttribute(name = "userId", required = false) Long userNo, String userId, HttpSession session) {
+    public String withdrawal(HttpSession session) {
+		UserDTO userDTO = (UserDTO)session.getAttribute("loginUser");
+		String userId = userDTO.getUserId();
+		Long userNo = userDTO.getUserNo();
         if (userId != null) {
             // 사용자 정보를 삭제 (UserService를 통해 구현)
             userService.deleteUser(userNo);
 
             // 세션에서 사용자 정보 삭제
-            session.removeAttribute("userId");
+            session.removeAttribute("loginUser");
             return "redirect:/"; // 탈퇴 완료 후 홈 페이지로 리다이렉트
         } else {
             // 세션에 사용자 ID가 없는 경우에 대한 예외 처리

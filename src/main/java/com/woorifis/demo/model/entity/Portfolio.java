@@ -51,7 +51,5 @@ public class Portfolio{
     private Float us10y;
     @Column(nullable=false)
     private Float gold;
-    
 
- 
 }

@@ -101,12 +101,12 @@
 
     <div class="col-10">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
-            <div><img class="mb-3" id="square" src="${pageContext.request.contextPath}img\bluebox.jpg" alt="이미지 교체중입니다.">&nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >사용자 정보 수정</h2> </div>
+            <div><img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">&nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >사용자 정보 수정</h2> </div>
         </div>
     </div>
     <div id="body" class="conl" style="background-color: white; width: 30%;">
         </br>
-        <form id="passwordChangeForm">
+        <form id="passwordChangeForm" method="post" action="user/updateinfo">
             <div class="form-group">
                 <label for="userId"> ID </label> (수정 불가):</label>
                 <input type="text" class="form-control" id="userId" value="userID" readonly>
@@ -116,8 +116,8 @@
                 <input type="email" class="form-control" id="email" placeholder="Enter email">
             </div>
             <div class="form-group">
-                <label for="newemail">변경 Email:</label>
-                <input type="email" class="form-control" id="newemail" placeholder="Enter new email">
+                <label for="newEmail">변경 Email:</label>
+                <input type="email" class="form-control" id="newEmail" placeholder="Enter new email">
             </div>
             <div class="form-group">
                 <label for="newPassword">새 비밀번호:</label>

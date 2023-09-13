@@ -42,21 +42,22 @@ public class BoardController {
 			return "board/list";
 		}
 	}
-	
+
 	@GetMapping("/search")
-	public String searchBoard(@RequestParam(required = false) String keyword, Model model) {
+	public String searchBoard(@RequestParam(required = true) String keyword, Model model) {
 	    if (keyword != null && !keyword.isEmpty()) {
 	        // 검색어를 이용하여 검색 처리를 수행
 	        List<Board> searchResults = boardService.searchBoard(keyword);
 			// board 리스트로 반환
 	        model.addAttribute("searchResults", searchResults);
+			model.addAttribute("keyword", keyword);
 	    }
 	    return "board/search"; // 검색 결과를 보여줄 뷰 페이지 이름
 	}
 	
 	@GetMapping("/detail")
 	public String detailBoard(@RequestParam Long no, Model model)	{
-//  search()에서 no를 데려오고 그 no에 맞는 데이터를 가져옴
+	//  search()에서 no를 데려오고 그 no에 맞는 데이터를 가져옴
 	// db에서 공지사항 글별 no 이 있어야 함을 전제
 		log.debug("no: {}", no);
 		try{

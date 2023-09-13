@@ -98,7 +98,7 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div class="container">
+<div id="main" class="container">
   <h1>게시글 상세</h1>
   <form action="#" method="post">
     <input type="text" value="${board.no }" readonly="readonly" name="no">
