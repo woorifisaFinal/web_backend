@@ -566,7 +566,7 @@
                                <!-- ECharts Pie Chart 1 -->
         <div id="echartsPieChart1" style="min-height: 400px;" class="echart"></div>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+        $('#exampleModal').on('shown.bs.modal', function () {
                 const chartData = [
                     { value: 44, name: 'us' },
                     { value: 55, name: 'uk' },
@@ -653,7 +653,7 @@
                                <!-- ECharts Pie Chart 1 -->
         <div id="echartsPieChart12" style="min-height: 400px;" class="echart"></div>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+        $('#exampleModal2').on('shown.bs.modal', function () {
                 const chartData = [
                     { value: 44, name: 'us' },
                     { value: 55, name: 'uk' },
@@ -743,7 +743,7 @@
                                <!-- ECharts Pie Chart 1 -->
         <div id="echartsPieChart123" style="min-height: 400px;" class="echart"></div>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+        $('#exampleModal3').on('shown.bs.modal', function () {
                 const chartData = [
                     { value: 44, name: 'us' },
                     { value: 55, name: 'uk' },
@@ -831,7 +831,7 @@
                                <!-- ECharts Pie Chart 1 -->
         <div id="echartsPieChart1234" style="min-height: 400px;" class="echart"></div>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+        $('#exampleModal4').on('shown.bs.modal', function () {
                 const chartData = [
                     { value: 44, name: 'us' },
                     { value: 55, name: 'uk' },
@@ -921,7 +921,7 @@
                                <!-- ECharts Pie Chart 1 -->
         <div id="echartsPieChart12345" style="min-height: 400px;" class="echart"></div>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+        $('#exampleModal5').on('shown.bs.modal', function () {
                 const chartData = [
                     { value: 44, name: 'us' },
                     { value: 55, name: 'uk' },
@@ -1010,7 +1010,7 @@
                                <!-- ECharts Pie Chart 1 -->
         <div id="echartsPieChart123456" style="min-height: 400px;" class="echart"></div>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+        $('#exampleModal6').on('shown.bs.modal', function () {
                 const chartData = [
                     { value: 44, name: 'us' },
                     { value: 55, name: 'uk' },

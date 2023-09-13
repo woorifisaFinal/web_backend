@@ -122,7 +122,8 @@
                         </div>
 
                         <div class="col-12">
-                            <button class="btn btn-primary w-100" type="submit">정보수정</button>
+                       
+                            <button class="btn btn-primary w-100" type="submit" >정보수정</button>
                         </div>
 
                     </form>

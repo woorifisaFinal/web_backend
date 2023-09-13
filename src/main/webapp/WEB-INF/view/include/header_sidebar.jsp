@@ -85,7 +85,7 @@
   <%--            Search Bar--%>
               <div class="search-bar d-flex justify-content-start" >
 
-                <form class="search-form d-flex align-middle" method="get" action="/symbol/search">
+                <form class="search-form d-flex " method="get" action="/symbol/search">
 <%--                    name으로 준 keyword에 담아서 서버로 전달한다--%>
                     <input type="text" name="keyword" placeholder="종목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
                     <button type="submit" title="Search"><i class="bi bi-search"></i></button>
@@ -94,6 +94,7 @@
               <!-- End Search Bar -->
             </div>
           </div>
+          
             <!-- My Page Link -->
               <c:if test="${sessionScope.loginUser != null}">
       <div class="d-flex custom-button-group " >

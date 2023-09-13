@@ -97,7 +97,7 @@
 <!-- End Sidebar-->
 
 <!-- Main -->
-<div class="container">
+<div class="container" style="margin-top: -200px">
 
     <section
             class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4"
