@@ -186,14 +186,14 @@
         </a>
       </div><!-- End Logo -->
 
-      <div class="col-10">
-        <div class="container">
+      <div class="col-10" >
+        <div class="container ">
           <div class="row">
             <div class="col-8">
   <%--            Search Bar--%>
-              <div class="search-bar d-flex justify-content-start">
+              <div class="search-bar d-flex justify-content-start" >
 
-                <form class="search-form d-flex align-items-center" method="get" action="/symbol/search">
+                <form class="search-form d-flex align-middle" method="get" action="/symbol/search">
 <%--                    name으로 준 keyword에 담아서 서버로 전달한다--%>
                     <input type="text" name="keyword" placeholder="종목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
                     <button type="submit" title="Search"><i class="bi bi-search"></i></button>
@@ -201,13 +201,13 @@
               </div>
               <!-- End Search Bar -->
             </div>
-            <div class="col-4 text-end"></div>
+          </div>
             <!-- My Page Link -->
-            <c:if test="${sessionScope.loginUser != null}">
-            <div class="d-flex custom-button-group" style="margin-top: -20px">
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+              <c:if test="${sessionScope.loginUser != null}">
+      <div class="d-flex custom-button-group " >
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"  style="height: 45px; margin-right: 30px;" >
           <img src="${pageContext.request.contextPath}/img/04.png" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">김우리</span>
+          <span class="d-none d-md-block dropdown-toggle">김우리</span>
         </a><!-- End Profile Iamge Icon -->
   
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -233,9 +233,6 @@
           </li>
   
         </ul><!-- End Profile Dropdown Items -->
-      </li><!-- End Profile Nav -->
-  
-    </ul>
       </div>
               </c:if>
               <!-- End My Page Link -->

@@ -98,7 +98,7 @@
             <!-- My Page Link -->
               <c:if test="${sessionScope.loginUser != null}">
       <div class="d-flex custom-button-group " >
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"  style="height: 45px; margin-right: 30px;" >
           <img src="${pageContext.request.contextPath}/img/04.png" alt="Profile" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle">김우리</span>
         </a><!-- End Profile Iamge Icon -->
@@ -126,9 +126,6 @@
           </li>
   
         </ul><!-- End Profile Dropdown Items -->
-      </li><!-- End Profile Nav -->
-  
-    </ul>
       </div>
               </c:if>
                 <!-- End My Page Link -->
