@@ -12,4 +12,5 @@ public interface SymbolRepository extends JpaRepository<Symbol, String> {
 //    Optional<Symbol> findById(Long id);
 //    List<Symbol> findByContaining(String keyword);
 
+//	  List<Symbol> findBySymbolDetailId(Long symbolDetailId);
 }

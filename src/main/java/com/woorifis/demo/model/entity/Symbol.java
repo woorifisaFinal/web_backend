@@ -12,6 +12,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
 @Getter
 @Setter
@@ -19,49 +20,22 @@ import lombok.Setter;
 public class Symbol {
     @Id
     private String date;
-//    @Column
-//    private double usopen;       // 미국 (US)
-//    @Column
-//    private double ushigh;       // 미국 (US)
-//    @Column
-//    private double uslow;        // 미국 (US)
-//    @Column
-//    private double usclose;      // 미국 (US)
-////    @Column
-////    private double usadjclose;   // 미국 (US)
-//    @Column
-//    private long usvolume;       // 미국 (US)
-//
+    @Column
+    private double open;       // 미국 (US)
+    @Column
+    private double high;       // 미국 (US)
+    @Column
+    private double low;        // 미국 (US)
+    @Column
+    private double close;      // 미국 (US)
+    @Column
+    private double adjclose;   // 미국 (US)
+    @Column
+    private long volume;       // 미국 (US)
+
 }
 
-//    // Ftse 종목별 클래스
-//    @Entity
-//    @Table(name = "ftse")
-//    public static class Ftse {
-//        @Id
-//        private String date;
-//        private double ukopen;       // 영국 (UK)
-//        private double ukhigh;       // 영국 (UK)
-//        private double uklow;        // 영국 (UK)
-//        private double ukclose;      // 영국 (UK)
-//        private double ukadjclose;   // 영국 (UK)
-//        private long ukvolume;       // 영국 (UK)
-//    }
-//
-//    // Nikkei 종목별 클래스
-//    @Entity
-//    @Table(name = "nikkei")
-//    public static class Nikkei {
-//        @Id
-//        private String date;
-//        private double jpopen;       // 일본 (JP)
-//        private double jphigh;       // 일본 (JP)
-//        private double jplow;        // 일본 (JP)
-//        private double jpclose;      // 일본 (JP)
-//        private double jpadjclose;   // 일본 (JP)
-//        private long jpvolume;       // 일본 (JP)
-//    }
-//
+
 //    @Entity
 //    @Table(name = "kospi")
 //    public static class Kospi {
