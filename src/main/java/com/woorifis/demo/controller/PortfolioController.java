@@ -77,11 +77,35 @@ public class PortfolioController {
 
 	@GetMapping("/dashboard")
 	public String showDashboard(Model model){
+//		Date date = new Date();
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//		String today = formatter.format(date);
+//		List<Portfolio> list = portfolioService.getPortfoliosByDate(today);
+//		model.addAttribute("list", list);
 		Date date = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String today = formatter.format(date);
+//		System.out.println("date : "+ date);
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//		String today = formatter.format(date);
+//		System.out.println("today : "+ today);
+		String today = "2022-08-01";
 		List<Portfolio> list = portfolioService.getPortfoliosByDate(today);
 		model.addAttribute("list", list);
+		System.out.println("대시보드 list : "+ list);
+
+		Portfolio firstPortfolio = list.get(0);
+		Portfolio secondPortfolio = list.get(1);
+		Portfolio thirdPortfolio = list.get(2);
+		Portfolio fourthPortfolio = list.get(3);
+		Portfolio fifthPortfolio = list.get(4);
+		Portfolio sixthPortfolio = list.get(5);
+		model.addAttribute("firstPortfolio", firstPortfolio);
+		model.addAttribute("secondPortfolio", secondPortfolio);
+		model.addAttribute("thirdPortfolio", thirdPortfolio);
+		model.addAttribute("fourthPortfolio", fourthPortfolio);
+		model.addAttribute("fifthPortfolio", fifthPortfolio);
+		model.addAttribute("sixthPortfolio", sixthPortfolio);
+
+		System.out.println("두번째 list : "+ secondPortfolio);
 
 		return "portfolio/dashboard";
 	}
