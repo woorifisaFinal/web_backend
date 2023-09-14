@@ -89,6 +89,7 @@
 
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    
 </head>
 
 <body>
@@ -108,18 +109,44 @@
         </div>
     </div>
     
-    <div id="result-container" class="col-10" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div id="result-container" class="col-15" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="row">
-            <div class="col-md-6">
-                <h3>투자유형:</h3>
-                <h3>${User.type}</h3>
+            <div class="col-md-6" style="border-bottom: 3px solid rgb(240, 240,240);">
+            	<p style="display: inline-block;font-size: 30px">고객님은</p>
+                <p class="hanna-font">${User.type}</p>
+                </br>
+                </br>
+             
+                <!-- 안정형 일때 -->
+                <c:if test="${User.type == '안정형'}">
+				<p style="font-weight: normal; font-size: 15px">원금 손실 위험을 최소화하면서 이자, 배당소득 수준을 목표로 하는 포트폴리오입니다. </p>
+                </c:if>
+
+				<!-- 위험형 일때 -->
+	            <c:if test="${User.type == '공격형'}">
+				<p style="font-weight: normal; font-size: 15px">원금 보전보다는 위험을 감수하더라도 높은 투자수익을 추구하는 투자자를 위한 포트폴리오입니다.</p>
+	            </c:if>
+                   
                 <div id="result"></div>
-            </div>
-            <div class="col-md-6">
                 <h3>유형점수:</h3>
                 <p id="score-p"></p>
                 <script src="result.js"></script>
                 <div id="score"></div>
+            </div>
+            <div class="col-md-6" style="border-bottom: 3px solid rgb(240, 240,240);">
+    
+                <!-- 이미지 -->
+                <c:if test="${User.type == '안정형'}">
+				<img style="display: block;-webkit-user-select: none;margin: auto;" src="${pageContext.request.contextPath}/img/ferris_wheel.png" alt="이미지 교체중입니다.">
+                </c:if>
+
+				<!-- 위험형 일때 -->
+	            <c:if test="${User.type == '공격형'}">
+				<img style="display: block;-webkit-user-select: none;margin: auto;" src="${pageContext.request.contextPath}/img/roller.png" alt="이미지 교체중입니다.">
+	            </c:if>
+
+                <!-- 이미지 -->
+                
             </div>
         </div>
         <div class="row mt-4">
@@ -182,6 +209,11 @@
             </div>
         </div>
     </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
 </div>
 <!-- Main (div id=main) 끝 -->
 

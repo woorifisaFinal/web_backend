@@ -1483,3 +1483,13 @@ tr:nth-child(1) {
      height: 80vh; /* 80% of the viewport height */
  }
 
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
+.hanna-font{
+     font-family: 'Hanna', sans-serif, cursive;
+     font-size: 50px;
+     color: rgba(138, 43, 225);
+     display: inline-block;
+}
+
+

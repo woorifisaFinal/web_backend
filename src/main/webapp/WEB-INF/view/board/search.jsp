@@ -95,7 +95,7 @@
 <body>
 <%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
 <!-- Main -->
-<div id="main" class="container">
+<div class="container">
     <div class="col-30">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
             <div>
@@ -113,24 +113,31 @@
     </div>
     <h3>"${keyword}"에 대한 검색결과입니다.</h3>
     <c:if test="${not empty searchResults}">
-
-
-        <table>
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Title</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${searchResults}" var="board">
-                <tr>
-                    <td>${board.no}</td>
-                    <td><a href="/board/detail?no=${board.no}">${board.title}</a></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+		<div id="body" class="col-30" style="background-color: white">
+	
+		    <table class="table">
+		      <thead>
+		        <tr>
+		          <th scope="col">#</th>
+		          <th scope="col">Title</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <c:forEach items="${searchResults}" var ="board">
+		         <tr>
+		            <td><a href="/board/detail?no=${board.no }">${board.no}</a></td>
+		            <td><a href="/board/detail?no=${board.no }">${board.title }</a></td>
+		          </tr>
+		        </c:forEach>
+		
+		        </tr>
+		      </tbody>
+		    </table>
+		  <div style="display: flex; justify-content: space-between; align-items: center;">
+		    <form action="/board/list" method="get">
+		      <input type="text" name="page" value="${pageInfo.number+1 }" > / ${pageInfo.totalPages }
+		      <input type="submit" value="이동">
+		    </form>	  
     </c:if>
 
     <c:if test="${empty searchResults}">
@@ -138,7 +145,12 @@
     </c:if>
 
     <!-- Link to go back to the list page -->
-    <a href="/board/list">전체목록으로</a>
+    <div style="text-align: right;">
+     <a href="/board/list" class="btn btn-outline-primary">전체목록으로</a>
+	</div>
+  </div>	
+</div>	
+
 
 </div>
 <!-- Main (div id=main) 끝 -->
