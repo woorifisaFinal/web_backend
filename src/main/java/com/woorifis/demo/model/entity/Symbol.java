@@ -27,11 +27,11 @@ public class Symbol {
 //    private double uslow;        // 미국 (US)
 //    @Column
 //    private double usclose;      // 미국 (US)
-//    @Column
-//    private double usadjclose;   // 미국 (US)
+////    @Column
+////    private double usadjclose;   // 미국 (US)
 //    @Column
 //    private long usvolume;       // 미국 (US)
-
+//
 }
 
 //    // Ftse 종목별 클래스

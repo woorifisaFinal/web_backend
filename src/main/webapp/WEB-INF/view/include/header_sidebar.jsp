@@ -78,14 +78,14 @@
         </a>
       </div><!-- End Logo -->
 
-      <div class="col-10">
-        <div class="container">
+      <div class="col-10" >
+        <div class="container ">
           <div class="row">
             <div class="col-8">
   <%--            Search Bar--%>
-              <div class="search-bar d-flex justify-content-start">
+              <div class="search-bar d-flex justify-content-start" >
 
-                <form class="search-form d-flex align-items-center" method="get" action="/symbol/search">
+                <form class="search-form d-flex " method="get" action="/symbol/search">
 <%--                    name으로 준 keyword에 담아서 서버로 전달한다--%>
                     <input type="text" name="keyword" placeholder="종목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
                     <button type="submit" title="Search"><i class="bi bi-search"></i></button>
@@ -93,16 +93,40 @@
               </div>
               <!-- End Search Bar -->
             </div>
-            <div class="col-4 text-end"></div>
           </div>
+          
             <!-- My Page Link -->
               <c:if test="${sessionScope.loginUser != null}">
-                <div class="d-flex custom-button-group">
-                  <a href="/user/mypage" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
-                    마이페이지 </a>
-                    <a href="/user/logout" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
-                      로그아웃</a>
-                </div>
+      <div class="d-flex custom-button-group " >
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"  style="height: 45px; margin-right: 30px;" >
+          <img src="${pageContext.request.contextPath}/img/04.png" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle">김우리</span>
+        </a><!-- End Profile Iamge Icon -->
+  
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+            <h6>김우리</h6>
+            <span>AI Enginnerr</span>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+  
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="/user/mypage">
+              <i class="bi bi-person"></i>
+              <span>마이페이지</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="/user/logout">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>로그아웃</span>
+            </a>
+          </li>
+  
+        </ul><!-- End Profile Dropdown Items -->
+      </div>
               </c:if>
                 <!-- End My Page Link -->
 
