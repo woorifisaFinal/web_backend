@@ -89,8 +89,6 @@
 
   <!-- Template Main JS File -->
   <script src="${pageContext.request.contextPath}/js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <%--  Page function--%>
   <script>
     function showPage(pageNumber) {
@@ -134,11 +132,10 @@
       // Redirect to result -> 점수랑 유형은 어떻게 보내나??
       window.location.href = '/result';
     }
-
-
-
-
   </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function (){
       const submitBtn = document.getElementById("submitBtn");
@@ -152,10 +149,11 @@
             totalScore += value;
           }
         });
-        let type = "";
+        let type = "stable";
         if (totalScore >= 0 && totalScore <= 20) { type = "stable";}
         else { type ="adventurous";}
-        const url = "/savetype?type="+type+"&totalScore="+totalScore;
+        const url = "/portfolio/savetype?type="+type+"&totalScore="+totalScore;
+
         $.ajax({
           url: url,
           type: 'GET',
@@ -171,7 +169,10 @@
         });
         console.log("Request URL:", url);
       }
-      submitBtn.addEventListener("click", calculateScore)
+      submitBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        calculateScore();
+      });
     });
   </script>
 </head>
@@ -195,7 +196,7 @@
         </br>
         <p class="survey-inside" style="font-weight: bold;">응답시 버튼을 더블클릭하면 취소할 수 있습니다.</p>
         <div class="survey-inside">
-          <form action='user/survey'>
+          <form>
             <p>
             <h1 style="display: inline-block; color: blueviolet;">1.</h1>
             <p class="survey-title-inside">
@@ -342,7 +343,7 @@
 
             <p>
             <h1 style="display: inline-block; color: blueviolet;">10.</h1>
-            <p id="survey-title-inside">
+            <p class="survey-title-inside">
               고객님의 연 소득은 어떻게 되시나요?</p>
             </br>
             <input type="radio" name="q10" value="1" ondblclick="this.checked=false"> 2천만원 미만</br>
@@ -353,16 +354,16 @@
             </p>
             </br>
             <button type="button" class="btn btn-outline-primary" onclick="showPage(1)">이전 페이지</button>
-            <c:if test="${sessionScope.loginUser != null}">
-              <button id="submitBtn" class="btn btn-outline-success">결과 보기</button>
-            </c:if>
+<%--            <c:if test="${sessionScope.loginUser != null}">--%>
+            <button id="submitBtn" class="btn btn-outline-success">결과 보기</button>
+<%--            </c:if>--%>
 
-            <c:if test="${sessionScope.loginUser == null}">
-              <button id="submitBtn" class="btn btn-outline-success" >결과 보기</button>
+<%--            <c:if test="${sessionScope.loginUser == null}">--%>
+<%--              <button id="submitBtn" class="btn btn-outline-success" >결과 보기</button>--%>
 <%--            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#loginModal">--%>
 <%--              결과 보기--%>
 <%--            </button>--%>
-          </c:if>
+<%--          </c:if>--%>
 
             <!-- 로그인 모달 -->
 <%--            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">--%>

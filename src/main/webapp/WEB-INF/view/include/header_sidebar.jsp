@@ -95,52 +95,52 @@
             </div>
           </div>
           
-            <!-- My Page Link -->
-              <c:if test="${sessionScope.loginUser != null}">
-      <div class="d-flex custom-button-group " >
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"  style="height: 45px; margin-right: 30px;" >
-          <img src="${pageContext.request.contextPath}/img/04.png" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle">김우리</span>
-        </a><!-- End Profile Iamge Icon -->
-  
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-          <li class="dropdown-header">
-            <h6>김우리</h6>
-            <span>AI Enginnerr</span>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-  
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="/user/mypage">
-              <i class="bi bi-person"></i>
-              <span>마이페이지</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="/user/logout">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>로그아웃</span>
-            </a>
-          </li>
-  
-        </ul><!-- End Profile Dropdown Items -->
-      </div>
-              </c:if>
-                <!-- End My Page Link -->
+          <!-- My Page Link -->
+            <c:if test="${sessionScope.loginUser != null}">
+              <div class="d-flex custom-button-group " >
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"  style="height: 45px; margin-right: 30px;" >
+                  <img src="${pageContext.request.contextPath}/img/04.png" alt="Profile" class="rounded-circle">
+                  <span class="d-none d-md-block dropdown-toggle">${sessionScope.loginUser.getUserName()}</span>
+                </a><!-- End Profile Iamge Icon -->
 
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                  <li class="dropdown-header">
+                    <h6>${sessionScope.loginUser.getUserName()}</h6>
+                    <span>${sessionScope.loginUser.getUserId()}</span>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
 
-              <c:if test="${sessionScope.loginUser == null}">
-              <div class="d-flex custom-button-group">
-                <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
-                  로그인
-                </a>
-                <a href="/user/signup" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
-                  회원가입
-                </a>
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center" href="/user/mypage">
+                      <i class="bi bi-person"></i>
+                      <span>마이페이지</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item d-flex align-items-center" href="/user/logout">
+                      <i class="bi bi-box-arrow-right"></i>
+                      <span>로그아웃</span>
+                    </a>
+                  </li>
+
+                </ul><!-- End Profile Dropdown Items -->
               </div>
             </c:if>
+              <!-- End My Page Link -->
+
+
+            <c:if test="${sessionScope.loginUser == null}">
+            <div class="d-flex custom-button-group">
+              <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;">
+                로그인
+              </a>
+              <a href="/user/signup" class="btn btn" style="height: 45px; color: grey; font-size: 14px;">
+                회원가입
+              </a>
+            </div>
+          </c:if>
         </div>
       </div>
     </header><!-- End Header -->

@@ -90,39 +90,17 @@
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
 
-    <script>
-        // Pie chart data example
-        var pieData = {
-            labels: ["주식", "채권", "안전자산"],
-            datasets: [{
-                data: [30, 40, 30], // 데이터 값 설정
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"], // 각 섹션의 색상
-                hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
-            }]
-        };
-
-        // create pie chart
-        var ctx = document.getElementById("pie-chart").getContext("2d");
-        var pieChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: pieData,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
-    </script>
 </head>
 
 <body>
-   <!-- ======= Header ======= -->
-  	<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
-   <!-- End Sidebar-->
+<!-- ======= Header ======= -->
+<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
+<!-- End Sidebar-->
 
 <!-- Main -->
 <div class="container">
 
-    <div class="col-10">
+    <div class="col-15">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
             <div>
                 <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
@@ -130,38 +108,118 @@
             </div>
         </div>
     </div>
-    <div id="result-container" class="col-10" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+    <div id="result-container" class="col-15" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="row">
-            <div class="col-md-6">
-                <h3>투자유형:</h3>
+            <div class="col-md-6" style="border-bottom: 3px solid rgb(240, 240,240);">
+                <p style="display: inline-block;font-size: 30px">고객님은</p>
+                <p class="hanna-font">${User.type}</p>
+                </br>
+                </br>
+
+                <!-- 안정형 일때 -->
+                <c:if test="${User.type == '안정형'}">
+                    <p style="font-weight: normal; font-size: 15px">원금 손실 위험을 최소화하면서 이자, 배당소득 수준을 목표로 하는 포트폴리오입니다. </p>
+                </c:if>
+
+                <!-- 위험형 일때 -->
+                <c:if test="${User.type == '공격형'}">
+                    <p style="font-weight: normal; font-size: 15px">원금 보전보다는 위험을 감수하더라도 높은 투자수익을 추구하는 투자자를 위한 포트폴리오입니다.</p>
+                </c:if>
+
                 <div id="result"></div>
-            </div>
-            <div class="col-md-6">
                 <h3>유형점수:</h3>
                 <p id="score-p"></p>
                 <script src="result.js"></script>
                 <div id="score"></div>
             </div>
+            <div class="col-md-6" style="border-bottom: 3px solid rgb(240, 240,240);">
+
+                <!-- 이미지 -->
+                <c:if test="${User.type == '안정형'}">
+                    <img style="display: block;-webkit-user-select: none;margin: auto;" src="${pageContext.request.contextPath}/img/ferris_wheel.png" alt="이미지 교체중입니다.">
+                </c:if>
+
+                <!-- 위험형 일때 -->
+                <c:if test="${User.type == '공격형'}">
+                    <img style="display: block;-webkit-user-select: none;margin: auto;" src="${pageContext.request.contextPath}/img/roller.png" alt="이미지 교체중입니다.">
+                </c:if>
+
+                <!-- 이미지 -->
+
+            </div>
         </div>
         <div class="row mt-4">
             <div class="col-md-6">
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 <h3>파이차트:</h3>
-                <div class="chart-container">
-                    <canvas id="pie-chart" width="400" height="400"></canvas>
+                <div style="display: flex; justify-content: space-around;">
+                    <div>
+                        <h2>${portfolio.type}</h2>
+                        <canvas id="chartB" width="300" height="300"></canvas>
+                    </div>
                 </div>
+                <script>
+                    // Pie Chart Data
+                    const ctxB = document.getElementById('chartB');
+                    new Chart(ctxB, {
+                        type: 'pie',
+                        data: {
+                            labels: ['br', 'euro', 'gold', 'ind', 'jp', 'kor', 'kor10y', 'kor3y', 'tw', 'uk', 'us', 'us10y', 'us3y'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [
+                                    ${portfolio.br},
+                                    ${portfolio.euro},
+                                    ${portfolio.gold},
+                                    ${portfolio.ind},
+                                    ${portfolio.jp},
+                                    ${portfolio.kor},
+                                    ${portfolio.kor10y},
+                                    ${portfolio.kor3y},
+                                    ${portfolio.tw},
+                                    ${portfolio.uk},
+                                    ${portfolio.us},
+                                    ${portfolio.us10y},
+                                    ${portfolio.us3y}
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            },
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Pie Chart B Title' // Second Pie Chart Title
+                                }
+                            }
+                        }
+                    });
+                </script>
             </div>
             <div class="col-md-6">
                 <h3>상품비교해보기:</h3>
-                <a href="/portfolio/comparePortfolios" class="btn btn-primary">비교하기</a>
+                <a href="/portfolio/compare" class="btn btn-primary">비교하기</a>
             </div>
         </div>
     </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
 </div>
 <!-- Main (div id=main) 끝 -->
 
-    <!-- ======= Footer ======= -->
-    	<%@include file = "/WEB-INF/view/include/footer.jsp" %>
-	<!-- End Footer -->
+<!-- ======= Footer ======= -->
+<%@include file = "/WEB-INF/view/include/footer.jsp" %>
+<!-- End Footer -->
 </body>
 </html>
 
