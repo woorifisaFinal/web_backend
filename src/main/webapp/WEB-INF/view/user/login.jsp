@@ -109,11 +109,11 @@
           >
             <div class="d-flex justify-content-center py-4">
               <a
-                      href="main"
+                      href="/main"
                       class="logo d-flex align-items-center w-auto"
               >
                 <img src="${pageContext.request.contextPath}
-  img/logo.png" alt="" />
+  /img/logo.png" alt="" />
                 <span class="d-none d-lg-block">우리FISA</span>
               </a>
             </div>

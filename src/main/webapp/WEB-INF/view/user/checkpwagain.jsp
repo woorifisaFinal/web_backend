@@ -98,44 +98,42 @@
 
 <!-- Main -->
 <div class="container">
+    <section class="row justify-content-center">
+            <h3>잘못된 비밀번호입니다. 다시 입력해주세요.</h3>
 
-    <div class="col-10">
-        <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
-            <div><img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">&nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >사용자 정보 수정</h2> </div>
+        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <div class="d-flex justify-content-center py-4">
+                <a href="/main" class="logo d-flex align-items-center w-auto">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
+                    <span class="d-none d-lg-block">우리FISA</span>
+                </a>
+            </div>
+            <!-- End Logo -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="pt-4 pb-2">
+                        <h5 class="card-title text-center pb-0 fs-4">회원 확인</h5>
+                    </div>
+
+                    <form class="row g-3 needs-validation" novalidate action="/user/checkpw" method="post">
+
+                        <div class="col-12">
+                            <label for="yourPassword" class="form-label">비밀번호</label>
+                            <input type="password" name="password" class="form-control" id="yourPassword" required>
+                            <div class="invalid-feedback">비밀번호를 확인하세요</div>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100" type="submit">정보수정</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="body" class="conl" style="background-color: white; width: 30%;">
-        </br>
-        <form id="passwordChangeForm" method="post" action="/user/updateinfo">
-            <div class="form-group">
-                <label > ID </label> (수정 불가)</label>
-<%--                <input type="text" class="form-control" id="userId" value="${userId}" readonly>--%>
-            </div>
-<%--            <div class="form-group">--%>
-<%--                <label>현재 Email:</label>--%>
-<%--                <br>--%>
-<%--                <c:out value="${userEmail}" />--%>
-<%--            </div>--%>
-            <br>
-            <div class="form-group">
-                <label for="newEmail">변경 Email:</label>
-                <input type="email" name="newEmail" class="form-control" id="newEmail" placeholder="Enter new email">
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="newPassword">새 비밀번호:</label>
-                <input type="password" name="newPassword" class="form-control" id="newPassword" placeholder="새 비밀번호 입력" maxlength="14">
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="confirmPassword">비밀번호 확인:</label>
-                <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="새 비밀번호 확인" maxlength="14">
-                <small id="passwordMismatchMessage" class="form-text text-danger"></small>
-            </div>
-            <br />
-            <button type="submit" class="btn btn-primary">변경 저장</button>
-        </form>
-    </div>
+    </section>
+
+
 </div>
 <!-- Main (div id=main) 끝 -->
 

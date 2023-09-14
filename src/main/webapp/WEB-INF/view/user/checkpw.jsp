@@ -101,8 +101,8 @@
     <section class="row justify-content-center">
         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
             <div class="d-flex justify-content-center py-4">
-                <a href="main" class="logo d-flex align-items-center w-auto">
-                    <img src="${pageContext.request.contextPath}img/logo.png" alt="">
+                <a href="/main" class="logo d-flex align-items-center w-auto">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
                     <span class="d-none d-lg-block">우리FISA</span>
                 </a>
             </div>
@@ -113,7 +113,7 @@
                         <h5 class="card-title text-center pb-0 fs-4">회원 확인</h5>
                     </div>
 
-                    <form class="row g-3 needs-validation" novalidate action="user/checkpw" method="post">
+                    <form class="row g-3 needs-validation" novalidate action="/user/checkpw" method="post">
 
                         <div class="col-12">
                             <label for="yourPassword" class="form-label">비밀번호</label>

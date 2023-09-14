@@ -107,8 +107,8 @@
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                         <img src="${pageContext.request.contextPath}/img/03.png" alt="Profile" class="rounded-circle" style="width: 2000px;">
-                        <h2>김우리</h2>
-                        <h3>AI Enginner</h3>
+                        <h2>${userName}</h2>
+                        <h3>반갑습니다!</h3>
 
                     </div>
                 </div>
@@ -137,21 +137,21 @@
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label ">이름</div>
-                                    <div class="col-lg-9 col-md-8">김우리</div>
+                                    <div class="col-lg-9 col-md-8">${userName}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">ID</div>
-                                    <div class="col-lg-9 col-md-8">WOORI_KIM</div>
+                                    <div class="col-lg-9 col-md-8">${userId}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Email</div>
-                                    <div class="col-lg-9 col-md-8">	woorikim@woori.com</div>
+                                    <div class="col-lg-9 col-md-8">${userEmail}</div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">비밀번호</div>
-                                    <div class="col-lg-9 col-md-8">****</div>
+                                    <div class="col-lg-3 col-md-4 label">투자성향</div>
+                                    <div class="col-lg-9 col-md-8">${type}</div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
