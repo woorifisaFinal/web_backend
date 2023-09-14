@@ -106,26 +106,30 @@
     </div>
     <div id="body" class="conl" style="background-color: white; width: 30%;">
         </br>
-        <form id="passwordChangeForm" method="post" action="user/updateinfo">
+        <form id="passwordChangeForm" method="post" action="/user/updateinfo">
             <div class="form-group">
-                <label for="userId"> ID </label> (수정 불가):</label>
-                <input type="text" class="form-control" id="userId" value="userID" readonly>
+                <label > ID </label> (수정 불가)</label>
+<%--                <input type="text" class="form-control" id="userId" value="${userId}" readonly>--%>
             </div>
-            <div class="form-group">
-                <label for="email">현재 Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
-            </div>
+<%--            <div class="form-group">--%>
+<%--                <label>현재 Email:</label>--%>
+<%--                <br>--%>
+<%--                <c:out value="${userEmail}" />--%>
+<%--            </div>--%>
+            <br>
             <div class="form-group">
                 <label for="newEmail">변경 Email:</label>
-                <input type="email" class="form-control" id="newEmail" placeholder="Enter new email">
+                <input type="email" name="newEmail" class="form-control" id="newEmail" placeholder="Enter new email">
             </div>
+            <br>
             <div class="form-group">
                 <label for="newPassword">새 비밀번호:</label>
-                <input type="password" class="form-control" id="newPassword" placeholder="새 비밀번호 입력" maxlength="14">
+                <input type="password" name="newPassword" class="form-control" id="newPassword" placeholder="새 비밀번호 입력" maxlength="14">
             </div>
+            <br>
             <div class="form-group">
                 <label for="confirmPassword">비밀번호 확인:</label>
-                <input type="password" class="form-control" id="confirmPassword" placeholder="새 비밀번호 확인" maxlength="14">
+                <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="새 비밀번호 확인" maxlength="14">
                 <small id="passwordMismatchMessage" class="form-text text-danger"></small>
             </div>
             <br />

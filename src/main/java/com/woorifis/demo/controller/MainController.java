@@ -41,9 +41,9 @@ public class MainController {
         return "/user/requestlogin";
     }
     @GetMapping("/savetype")
-    public void saveTypeFromSurvey(@RequestParam("type")String type, HttpSession session, Model model){
+    public String saveTypeFromSurvey(@RequestParam("type")String type, @RequestParam("totalScore")String score, HttpSession session, Model model){
 //        login 된 상황 type 업데이트해요
-        if(type=="stable"){
+        if(type.equals("stable")){
             type ="안정형";
         }else{
             type="공격형";
@@ -54,13 +54,21 @@ public class MainController {
             userdto.setType(type);
             User user = User.toUser(userdto);
             userRepository.save(user);
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String today = formatter.format(date);
 
-//        return "portfolio/result";
-            showResultPortfolio(session, model);
+            String type_=userdto.getType();
+            Portfolio result = portfolioRepository.findByTypeAndDate(today, type_);
+            model.addAttribute("result", result);
+            model.addAttribute("type", type_);
+            return "portfolio/result";
+//            showResultPortfolio(session, model);
         }
         else{
             session.setAttribute("type", type);
-
+//            showResultPortfolio(session, model);
+            return "user/login";
         }
 
     }

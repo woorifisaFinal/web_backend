@@ -2,6 +2,7 @@ package com.woorifis.demo.controller;
 
 import com.woorifis.demo.model.entity.User;
 import com.woorifis.demo.model.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @Controller
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
@@ -42,17 +44,25 @@ public class UserController {
 
 	// 로그인 페이지 출력 요청
 	@GetMapping("/login")
-	public String logInForm() {return "user/login";}
+	public String logInForm(@RequestParam(required=false)String again) {
+		if(again=="true"){
+			return "user/loginagain";
+		}else{
+			return "user/login";
+		}
+	}
 
 	
 	@PostMapping("/login") 
 	public String logIn(@ModelAttribute UserDTO userDTO, HttpSession session, Model model) {
 		// 유저서비스의 loginresult를 이용
 		UserDTO loginResult =  userService.login(userDTO);
+		log.info("입력받은loginResult={}", loginResult);
 		if(loginResult == null) {
 			// login 실패
+			log.info("login 슈퍼탈락");
 			 session.setAttribute("msg", "로그인 실패");
-	         return "user/login"; 
+	         return logInForm("true");
 	            // 로그인 페이지로 다시 이동		
 		}else {
 			// login 성공
@@ -64,6 +74,7 @@ public class UserController {
 				 userdto.setType((String)session.getAttribute("type"));
 				 User user = User.toUser(userdto);
 				 userRepository.save(user);
+				 session.setAttribute("loginUser", userdto);
 				 session.removeAttribute("type");
 				 return "redirect:/result";
 			 }
@@ -84,9 +95,16 @@ public class UserController {
 	        UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
 
 	        if (loginUser != null) {
-	                model.addAttribute("name", loginUser.getUserName());
-	                model.addAttribute("email", loginUser.getUserEmail());
-	                model.addAttribute("userType", loginUser.getType());
+	                model.addAttribute("userName", loginUser.getUserName());
+					model.addAttribute("userId", loginUser.getUserId());
+	                model.addAttribute("userEmail", loginUser.getUserEmail());
+					if(loginUser.getType()==null){
+						model.addAttribute("type", "투자 성향 설문조사를 진행해주세요.");
+					}
+					else{
+						model.addAttribute("type", loginUser.getType());
+					}
+
 				return "user/mypage"; // 사용자 정보가 존재하는 경우 마이페이지 뷰로 이동
 	        } else {
 	            // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
@@ -100,29 +118,37 @@ public class UserController {
 
 	
 	    @GetMapping("/changeinfo")
-	    public String changeInfo() {
+	    public String changeInfo(Model model, HttpSession session) {
+			UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
+			model.addAttribute("userName", loginUser.getUserName());
+			model.addAttribute("userId", loginUser.getUserId());
+			model.addAttribute("userEmail", loginUser.getUserEmail());
 	        return "user/changeinfo"; // 사용자 정보 수정 페이지로 이동
 	    }
 
 	    @PostMapping("/updateinfo")
-	    public String updateInfo(@RequestParam("password") String password,
-	            @RequestParam("newName") String newName,
+	    public String updateInfo(
 	            @RequestParam("newEmail") String newEmail,
-	            @SessionAttribute(name = "userId", required = false) String userId) {
-	    	 if (userId != null) {
-	             // 비밀번호 검증을 수행 (비밀번호가 맞는지 확인하는 로직을 구현해야 함)
-	             if (userService.isPasswordCorrect(userId, password)) {
-	                 // 비밀번호가 올바른 경우, 사용자 정보를 수정
-	                 userService.updateInfo(userId, newName, newEmail);
-	                 return "redirect:/user/mypage";
-	             } else {
-	                 // 비밀번호가 올바르지 않은 경우
-	                 return "redirect:/";
-	             }
-	         } else {
-	             // userId가 세션에 없는 경우에 대한 예외 처리
-	             return "redirect:/";
-	         }
+				@RequestParam("newPassword") String newPassword,
+				@RequestParam("confirmPassword") String confirmPassword,
+	            HttpSession session) {
+			UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
+			String userId = loginUser.getUserId();
+	    	 if (newPassword.equals(confirmPassword)) {
+	             // 사용자 정보를 수정
+				 log.info("newPassword==confirmPassword");
+				 userService.updateInfo(userId, newEmail, newPassword);
+				 log.info("updateInfo완료");
+				 UserDTO updatedUser= userService.getUserInfo(userId);
+				 session.setAttribute("loginUser", updatedUser);
+
+				 return "redirect:/user/mypage";
+			 } else {
+				 // 비밀번호가 올바르지 않은 경우 - 일단 처리 안해놓음...쏘 힘듦
+				log.info("newPassword!=confirmPassword");
+				return "redirect:/user/changeinfo";
+			 }
+
 	     }
 
 	
@@ -135,7 +161,8 @@ public class UserController {
     
     @GetMapping("/withdrawal")
     public String showWithdrawalPage() {
-        return "user/withdrawal"; // 사용자 탈퇴 페이지로 이동
+        return "user/withdrawal";
+		// 사용자 탈퇴 페이지로 이동
     }
 
     @PostMapping("/withdrawal")
@@ -146,9 +173,12 @@ public class UserController {
         if (userId != null) {
             // 사용자 정보를 삭제 (UserService를 통해 구현)
             userService.deleteUser(userNo);
-
+			log.info("info log={}", userDTO);
+			log.info("info log={}", userId);
+			log.info("info log={}", userNo);
             // 세션에서 사용자 정보 삭제
             session.removeAttribute("loginUser");
+
             return "redirect:/"; // 탈퇴 완료 후 홈 페이지로 리다이렉트
         } else {
             // 세션에 사용자 ID가 없는 경우에 대한 예외 처리
@@ -160,7 +190,16 @@ public class UserController {
 		return "user/checkpw";
 	}
     @PostMapping("/checkpw")
-	public String checkPassword(String pw){
-		return "user/changeinfo";
+	public String checkPassword(String password, HttpSession session){
+		UserDTO userDTO = (UserDTO)session.getAttribute("loginUser");
+		boolean isPasswordCorrect=userService.isPasswordCorrect(userDTO.getUserId(), password	);
+		if(isPasswordCorrect){
+			return "user/changeinfo";
+		}
+		else{
+
+			return "user/checkpwagain";
+		}
+
 	}
 }

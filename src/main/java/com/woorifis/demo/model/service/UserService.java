@@ -1,5 +1,6 @@
 package com.woorifis.demo.model.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
@@ -10,7 +11,10 @@ import com.woorifis.demo.model.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Optional;
+
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class UserService {
 	
@@ -27,14 +31,21 @@ public class UserService {
 	public UserDTO login(UserDTO userDTO) {
 		// 1. 회원이 입력한 이메일(dto)로 DB(entity) 조회
 		// 2. DB 비밀번호가 사용자가 입력한 비밀번호와 일치하는지 판단해서 결과 리턴
-		User user = userRepository.findByUserId(userDTO.getUserId()).get();
-		 if (user != null && user.getPassword().equals(userDTO.getPassword())) 
+		log.info("enter userservice.login");
+		User user = userRepository.findByUserId(userDTO.getUserId()).orElse(null);
+		log.info("find userID userservice.login");
+		 if (user != null && user.getPassword().equals(userDTO.getPassword()))
 		 {
+
+			 userDTO = UserDTO.toUserDTO(user);
+			 log.info("return {} for userservice.login",userDTO);
 			 return userDTO;
-	} else{
-		return null;
+		 }
+		 else{
+			 log.info("return null for userservice.login");
+			return null;
+		 }
 	}
-}
 	/* save 하면 원래 값 바꿔주는지 확인 필요 
 	
 	@Transactional
@@ -75,15 +86,20 @@ public class UserService {
 	    } else{return false;}}
 
 	    // 사용자 정보 업데이트
-	    public void updateInfo(String userId, String newName, String newEmail) {
+	    public void updateInfo(String userId, String newEmail, String newPassword) {
+		 	log.info("userID: {}",userId);
 	        User user = userRepository.findByUserId(userId).orElse(null);
-
+			log.info("before: {}",user);
 	        if (user != null) {
 	            // 새로운 이름과 이메일로 사용자 정보 업데이트
-	            user.setUserName(newName);
+//	            user.setUserName(newName);
 	            user.setUserEmail(newEmail);
+				user.setPassword(newPassword);
+
 	            userRepository.save(user);
+				log.info("after:{}");
 	        }
+
 	    }
 	    public void updateType(String userId, String type){
 		 User user = userRepository.findByUserId(userId).orElse(null);

@@ -58,12 +58,12 @@
     />
 
     <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+* Template Name: NiceAdmin
+* Updated: May 30 2023 with Bootstrap v5.3.0
+* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+======================================================== -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -92,28 +92,53 @@
 </head>
 
 <body>
-<!-- ======= Header ======= -->
-<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
-<!-- End Sidebar-->
+   <!-- ======= Header ======= -->
+  	<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
+   <!-- End Sidebar-->
 
 <!-- Main -->
-<div class="container" style="margin-top: -200px">
+<div class="container">
+    <section class="row justify-content-center">
+            <h3>잘못된 비밀번호입니다. 다시 입력해주세요.</h3>
 
-    <section
-            class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4"
-    >
-        <h3>탈퇴하시겠습니까?</h3>
-        <form action="" method="post">
-            <button type="submit" class="btn btn-danger" id="confirmWithdrawal" onClick="location.href='/user/withdrawal'">탈퇴하기</button>
-        </form>
+        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <div class="d-flex justify-content-center py-4">
+                <a href="/main" class="logo d-flex align-items-center w-auto">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
+                    <span class="d-none d-lg-block">우리FISA</span>
+                </a>
+            </div>
+            <!-- End Logo -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="pt-4 pb-2">
+                        <h5 class="card-title text-center pb-0 fs-4">회원 확인</h5>
+                    </div>
+
+                    <form class="row g-3 needs-validation" novalidate action="/user/checkpw" method="post">
+
+                        <div class="col-12">
+                            <label for="yourPassword" class="form-label">비밀번호</label>
+                            <input type="password" name="password" class="form-control" id="yourPassword" required>
+                            <div class="invalid-feedback">비밀번호를 확인하세요</div>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100" type="submit">정보수정</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
+
+
 </div>
 <!-- Main (div id=main) 끝 -->
 
-<!-- ======= Footer ======= -->
-<%@include file = "/WEB-INF/view/include/footer.jsp" %>
-<!-- End Footer -->
+    <!-- ======= Footer ======= -->
+    	<%@include file = "/WEB-INF/view/include/footer.jsp" %>
+	<!-- End Footer -->
 </body>
 </html>
-
-

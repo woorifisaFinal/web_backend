@@ -37,6 +37,7 @@ public class User  {
 	
 	public static User toUser(UserDTO userDTO) {
 		User user = new User();
+		user.setUserNo(userDTO.getUserNo());
 		user.setUserId(userDTO.getUserId());
 		user.setUserName(userDTO.getUserName());
 		user.setUserEmail(userDTO.getUserEmail());
