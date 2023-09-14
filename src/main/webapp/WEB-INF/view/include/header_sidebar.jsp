@@ -98,7 +98,7 @@
             <!-- My Page Link -->
               <c:if test="${sessionScope.loginUser != null}">
       <div class="d-flex custom-button-group " >
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"  style="height: 45px; margin-right: 30px;" >
+       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" style="height: 45px; margin-right: 30px;" >
           <img src="${pageContext.request.contextPath}/img/04.png" alt="Profile" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle">김우리</span>
         </a><!-- End Profile Iamge Icon -->
@@ -106,7 +106,7 @@
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
             <h6>김우리</h6>
-            <span>AI Enginnerr</span>
+            <span>AI Engineer</span>
           </li>
           <li>
             <hr class="dropdown-divider">
@@ -168,7 +168,7 @@
           </a>
           <ul  id="components-nav" class=" nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-              <a href="/symbol/nasdaq">
+              <a href="/symbol/detail?id=100">
                 <i class="bi bi-circle"></i><span>NASDAQ</span>
               </a>
             </li>
