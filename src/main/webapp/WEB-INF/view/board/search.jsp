@@ -111,7 +111,7 @@
             <!-- End Search Bar -->
         </div>
     </div>
-    <h3>"${keyword}"에 대한 검색결과입니다.</h3>
+<!--     <h3>"${keyword}"에 대한 검색결과입니다.</h3> -->
     <c:if test="${not empty searchResults}">
 		<div id="body" class="col-30" style="background-color: white">
 	
