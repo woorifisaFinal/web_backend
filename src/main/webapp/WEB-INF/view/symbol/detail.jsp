@@ -135,7 +135,7 @@
         <th>MarketCap</th>
     </tr>
     <tr>
-        <td>${symbolDetail.Id}</td>
+        <td>${symbolDetail.id}</td>
         <td>${symbolDetail.name}</td>
         <td>${symbolDetail.detail}</td>
         <td>${symbolDetail.marketcap}</td>
@@ -222,7 +222,7 @@
       dates.push("${symbol.date}");
     </c:forEach>
     // symbolDetail을 JavaScript 객체로 사용
-    var symbolDetail = "<c:out value='${symbolDetail.name}' />";
+	    var symbolDetail = "<c:out value='${symbolDetail.name}' />";
 
     // 그래프 생성
     new ApexCharts(document.querySelector("#areaChart"), {
@@ -282,12 +282,12 @@
     <c:forEach items="${symbols}" var="symbol">
         <tr>
             <td>${symbol.date}</td>
-              <c:choose>
+            <c:choose>
                 <c:when test="${not empty symbol.open}">
                     <td>${symbol.open}</td>
                 </c:when>
                 <c:otherwise>
-                    <td></td>
+                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
                 </c:otherwise>
             </c:choose>
             <td>${symbol.close}</td>
@@ -296,7 +296,7 @@
                     <td>${symbol.high}</td>
                 </c:when>
                 <c:otherwise>
-                    <td></td>
+                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
                 </c:otherwise>
             </c:choose>
             <c:choose>
@@ -304,13 +304,14 @@
                     <td>${symbol.low}</td>
                 </c:when>
                 <c:otherwise>
-                    <td></td>
+                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
                 </c:otherwise>
             </c:choose>
             <!-- 다른 컬럼 추가 -->
         </tr>
     </c:forEach>
 </table>
+
           <!-- End Primary Color Bordered Table -->
         </div>
  

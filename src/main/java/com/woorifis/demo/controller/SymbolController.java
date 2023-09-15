@@ -84,7 +84,7 @@ public class SymbolController {
                 case 111: itemType = Us10y.class; break;
                 case 112: itemType = Gold.class; break;
 
-                // 다른 아이템에 대한 case 추가
+             
                 default: throw new IllegalArgumentException("Invalid ID");
             }
 
