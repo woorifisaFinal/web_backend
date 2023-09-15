@@ -16,8 +16,15 @@ public class Kor10y {
     @Id
     private String date;
 
+
     @Column
-    private double close;
+    private double open;     
+    @Column
+    private double high;       
+    @Column
+    private double low;       
+    @Column
+    private double close;     
 
 
 }
