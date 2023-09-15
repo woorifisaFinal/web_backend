@@ -26,6 +26,7 @@ import org.springframework.web.context.annotation.RequestScope;
 import com.woorifis.demo.model.dto.PortfolioDTO;
 import com.woorifis.demo.model.dto.UserDTO;
 import com.woorifis.demo.model.entity.Euro;
+import com.woorifis.demo.model.entity.Kor10y;
 import com.woorifis.demo.model.entity.Kospi;
 import com.woorifis.demo.model.entity.Portfolio;
 import com.woorifis.demo.model.entity.Symbol;
@@ -101,7 +102,7 @@ public class PortfolioController {
 //	}
 	
 	@GetMapping("/dashboard")
-	public String showDashboard(Model model){
+	public <T> String showDashboard(Model model){
 //		Date date = new Date();
 //		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 //		String today = formatter.format(date);
@@ -176,9 +177,19 @@ public class PortfolioController {
 		model.addAttribute("dangerTop3Value", dangerTop3Value);	
 		
 //		System.out.println("fifthPortfolio :" + fifthPortfolio.getType());
-//		System.out.println("코리아 10년 27이어야해 :" + stableTop1Name + stableTop1Value);
+		System.out.println("코리아 10년 27이어야해 :" + stableTop1Name + stableTop1Value);
 //		System.out.println("미국 10년 18이어야해 :" + stableTop2Name + stableTop2Value);
 //		System.out.println("나스닥 16이어야해 :" + stableTop3Name + stableTop3Value);
+		
+		
+		
+//		Class<Kor10y> itemType = Symbol.class;
+//		symbolService.getDataByItemId(id, itemType)
+		Class<?> itemType = portfolioService.getTopClose(stableTop1Name);
+		List<?> item = portfolioService.getClose(itemType);
+ 		System.out.println("이건 뭐가나오지? :" + item);
+		model.addAttribute("item", item);
+		
 		
 		
 		
