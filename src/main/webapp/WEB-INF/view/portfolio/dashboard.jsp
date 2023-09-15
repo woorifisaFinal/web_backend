@@ -373,61 +373,18 @@
                   show: false
                 },
                 data: [{
-                    value: ${firstPortfolio.br},
-                    name: '브라질'
+                    value: ${firstPortfolio.br}+${firstPortfolio.euro}+${firstPortfolio.ind}+
+                    ${firstPortfolio.jp}+${firstPortfolio.kor}+${firstPortfolio.uk}+${firstPortfolio.tw}+${firstPortfolio.us},
+                    name: '주식'
                   },
 
                   {
-                    value: ${firstPortfolio.euro},
-                    name: '유럽'
+                    value: ${firstPortfolio.kor10y}+${firstPortfolio.kor3y}+${firstPortfolio.us10y}+${firstPortfolio.us3y},
+                    name: '채권'
                   },
                   {
                     value: ${firstPortfolio.gold},
-                    name: '골드'
-                  },
-                  {
-                    value: ${firstPortfolio.ind},
-                    name: '인도'
-                  },
-                  ,
-                  {
-                    value: ${firstPortfolio.jp},
-                    name: '일본'
-                  },
-                  {
-                    value: ${firstPortfolio.kor},
-                    name: '한국'
-                  },
-                  ,
-                  {
-                    value: ${firstPortfolio.kor10y},
-                    name: '국채10년'
-                  },
-                  {
-                    value: ${firstPortfolio.kor3y},
-                    name: '국채3년'
-                  },
-                  ,
-                  {
-                    value: ${firstPortfolio.tw},
-                    name: '대만'
-                  },
-                  {
-                    value: ${firstPortfolio.uk},
-                    name: '영국'
-                  },
-                  {
-                    value: ${firstPortfolio.us},
-                    name: '미국'
-                  },
-                  ,
-                  {
-                    value: ${firstPortfolio.us10y},
-                    name: '미국10년'
-                  },
-                  {
-                    value: ${firstPortfolio.us3y},
-                    name: '미국3년'
+                    name: '안전자산'
                   }
                 ]
               }]
@@ -447,13 +404,14 @@
         <script>
           document.addEventListener("DOMContentLoaded", () => {
             // 원래 데이터
-            const originalData = [50,40,30,80,60,70,90,55,44,66,77,55,33,44];
+            const originalData = [${firstPortfolio.kor},${firstPortfolio.us}, ${firstPortfolio.euro},  ${firstPortfolio.uk}, ${firstPortfolio.jp},
+            ${firstPortfolio.kor3y}, ${firstPortfolio.kor10y}, ${firstPortfolio.us3y}, ${firstPortfolio.us10y},${firstPortfolio.gold}, ${firstPortfolio.br}, ${firstPortfolio.tw}, ${firstPortfolio.ind}];
 
             // 데이터의 합계 계산
             const total = originalData.reduce((acc, value) => acc + value, 0);
 
             // 데이터가 전체 비중의 10% 미만인 경우 기타로 묶음
-            const threshold = total * 0.08;
+            const threshold = total * 0.03;
             const data = originalData.map((value, index) => (value < threshold) ? 0 : value);
 
             // 기타 항목 추가
