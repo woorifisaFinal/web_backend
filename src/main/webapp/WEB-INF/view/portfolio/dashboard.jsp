@@ -87,11 +87,11 @@
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
-                <h5 class="card-title">주식 <span>| Today</span></h5>
+                <h5 class="card-title">Kospi <span>| Recent Close</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-currency-dollar"></i>
+                    <i class="fa-solid fa-won-sign"></i>
                   </div>
                   <div class="ps-3">
                     <h6>145</h6>
@@ -108,15 +108,15 @@
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card revenue-card">
               <div class="card-body">
-                <h5 class="card-title">채권 <span>| This Month</span></h5>
+                <h5 class="card-title">Nasdaq <span>| Recent Close</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bi bi-currency-dollar"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>$3,264</h6>
-                    <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                    <h6>$ ${nasdaq }</h6>
+                    <span class="text-success small pt-1 fw-bold">${nasdaqVariance }%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                   </div>
                 </div>
@@ -130,15 +130,15 @@
 
             <div class="card info-card customers-card">
               <div class="card-body">
-                <h5 class="card-title">안전자산 <span>| This Year</span></h5>
+                <h5 class="card-title">Euro <span>| Recent Close</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-currency-dollar"></i>
+                    <i class="bi bi-currency-euro"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>1244</h6>
-                    <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                    <h6>€ ${euro }</h6>
+                    <span class="text-danger small pt-1 fw-bold">${euroVariance }%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
 
                   </div>
                 </div>
