@@ -1,5 +1,6 @@
 package com.woorifis.demo.controller;
 
+import java.security.KeyStore.Entry;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -25,6 +26,7 @@ import org.springframework.web.context.annotation.RequestScope;
 import com.woorifis.demo.model.dto.PortfolioDTO;
 import com.woorifis.demo.model.dto.UserDTO;
 import com.woorifis.demo.model.entity.Euro;
+import com.woorifis.demo.model.entity.Kospi;
 import com.woorifis.demo.model.entity.Portfolio;
 import com.woorifis.demo.model.entity.Symbol;
 import com.woorifis.demo.model.service.PortfolioService;
@@ -125,8 +127,60 @@ public class PortfolioController {
 		model.addAttribute("fourthPortfolio", fourthPortfolio);
 		model.addAttribute("fifthPortfolio", fifthPortfolio);
 		model.addAttribute("sixthPortfolio", sixthPortfolio);
-
+		
 		System.out.println("두번째 list : "+ secondPortfolio);
+		
+////		Float nasdaq = secondPortfolio.getUs();
+//		Float ftse =secondPortfolio.getUk();
+//		Float nikkei =secondPortfolio.getJp();
+//		Float euro =secondPortfolio.getEuro();
+//		Float kospi =secondPortfolio.getKor();
+//		Float nifty =secondPortfolio.getInd();
+//		Float tw =secondPortfolio.getTw();
+//		Float brazil =secondPortfolio.getBr();
+//		Float kor3y =secondPortfolio.getKor3y();
+//		Float kor10y =secondPortfolio.getKor10y();
+//		Float us3y =secondPortfolio.getUs3y();
+//		Float us10y =secondPortfolio.getUs10y();
+//		Float gold =secondPortfolio.getGold();
+		
+		Map.Entry<String, Float>[] nanuristable = portfolioService.getTop3(fifthPortfolio);
+
+		String stableTop1Name = nanuristable[0].getKey();
+		Float stableTop1Value = nanuristable[0].getValue();
+		String stableTop2Name = nanuristable[1].getKey();
+		Float stableTop2Value = nanuristable[1].getValue();
+		String stableTop3Name = nanuristable[2].getKey();
+		Float  stableTop3Value = nanuristable[2].getValue();
+		
+		Map.Entry<String, Float>[] nanuridangerous = portfolioService.getTop3(sixthPortfolio);
+		
+		String dangerTop1Name = nanuridangerous[0].getKey();
+		Float dangerTop1Value = nanuridangerous[0].getValue();
+		String dangerTop2Name = nanuridangerous[1].getKey();
+		Float dangerTop2Value = nanuridangerous[1].getValue();
+		String dangerTop3Name = nanuridangerous[2].getKey();
+		Float  dangerTop3Value = nanuridangerous[2].getValue();
+		
+		model.addAttribute("stableTop1Name", stableTop1Name);	
+		model.addAttribute("stableTop1Value", stableTop1Value);	
+		model.addAttribute("stableTop2Name", stableTop2Name);	
+		model.addAttribute("stableTop2Value", stableTop2Value);	
+		model.addAttribute("stableTop3Name", stableTop3Name);	
+		model.addAttribute("stableTop3Value", stableTop3Value);	
+		model.addAttribute("dangerTop1Name", dangerTop1Name);	
+		model.addAttribute("dangerTop1Value", dangerTop1Value);	
+		model.addAttribute("dangerTop2Name", dangerTop2Name);	
+		model.addAttribute("dangerTop2Value", dangerTop2Value);	
+		model.addAttribute("dangerTop3Name", dangerTop3Name);	
+		model.addAttribute("dangerTop3Value", dangerTop3Value);	
+		
+//		System.out.println("fifthPortfolio :" + fifthPortfolio.getType());
+//		System.out.println("코리아 10년 27이어야해 :" + stableTop1Name + stableTop1Value);
+//		System.out.println("미국 10년 18이어야해 :" + stableTop2Name + stableTop2Value);
+//		System.out.println("나스닥 16이어야해 :" + stableTop3Name + stableTop3Value);
+		
+		
 		
 //-----------나스닥 종가-----------------------//
 		List<Symbol> nasdaqAll = symbolService.getAllNasdaqData();
@@ -143,12 +197,16 @@ public class PortfolioController {
 //-----------나스닥 종가 끝-----------------------//
 
 //-----------코스피 종가-----------------------//
-//  		List<????> kospiAll = symbolService.getAll????();
-//  		????? kospiClose = kospuAll.get(kospiAll.size() - 1);
-//  		????? kospiCloseBefore = kospuAll.get(kospiAll.size() - 2);
-//  		Integer kospiClosetoInt = (int) kospiClose.getClose();
-//  		//천자리수 컴마찍기
-//        String kospi = decimalFormat.format(kospiClosetoInt);
+  		List<Kospi> kospiAll = symbolService.getAllKospiData();
+  		Kospi kospiClose = kospiAll.get(kospiAll.size() - 1);
+  		Kospi kospiBefore = kospiAll.get(kospiAll.size() - 2);
+  		Integer kospiClosetoInt = (int) kospiClose.getClose();
+  		Integer kospiBeforetoInt = (int) kospiBefore.getClose();
+		//증감률 가져오기
+		Double kospiVariance_0 = (double) (kospiClosetoInt - kospiBeforetoInt)/kospiBeforetoInt*100;
+		Double kospiVariance = Math.round(kospiVariance_0 * 100.0) / 100.0;
+  		//천자리수 컴마찍기
+        String kospi = decimalFormat.format(kospiClosetoInt);
 //-----------코스피 종가 끝-----------------------//
               
 //-----------유로 종가-----------------------//
@@ -166,9 +224,11 @@ public class PortfolioController {
 		
 		model.addAttribute("nasdaq", nasdaq);
 		model.addAttribute("euro", euro);
+		model.addAttribute("kospi", kospi);
 		model.addAttribute("nasdaqVariance", nasdaqVariance);
 		model.addAttribute("euroVariance", euroVariance);
-		
+		model.addAttribute("kospiVariance", kospiVariance);
+
 		return "portfolio/dashboard";
 	}
 	

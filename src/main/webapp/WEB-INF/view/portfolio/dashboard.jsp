@@ -94,9 +94,19 @@
                     <i class="fa-solid fa-won-sign"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>145</h6>
-                    <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
+                    <h6>₩ ${kospi }</h6>
+                    <span class="text-success small pt-1 fw-bold">${kospiVariance }%</span> 
+					<span class="text-muted small pt-2 ps-1">
+				        <script>
+				            if (${kospiVariance} > 0) {
+				                document.write("increase");
+				            } else if (${kospiVariance} < 0) {
+				                document.write("decrease");
+				            } else {
+				                document.write("no change");
+				            }
+				        </script>
+				    </span>
                   </div>
                 </div>
               </div>
@@ -116,8 +126,20 @@
                   </div>
                   <div class="ps-3">
                     <h6>$ ${nasdaq }</h6>
-                    <span class="text-success small pt-1 fw-bold">${nasdaqVariance }%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
+                    <span class="text-success small pt-1 fw-bold">${nasdaqVariance }%</span> 
+                  					
+					<span class="text-muted small pt-2 ps-1">
+				        <script>
+				            if (${nasdaqVariance} > 0) {
+				                document.write("increase");
+				            } else if (${nasdaqVariance} < 0) {
+				                document.write("decrease");
+				            } else {
+				                document.write("no change");
+				            }
+				        </script>
+				    </span>
+					
                   </div>
                 </div>
               </div>
@@ -138,7 +160,19 @@
                   </div>
                   <div class="ps-3">
                     <h6>€ ${euro }</h6>
-                    <span class="text-danger small pt-1 fw-bold">${euroVariance }%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                    <span class="text-danger small pt-1 fw-bold">${euroVariance }%</span> 
+                    
+					<span class="text-muted small pt-2 ps-1">
+				        <script>
+				            if (${nasdaqVariance} > 0) {
+				                document.write("increase");
+				            } else if (${nasdaqVariance} < 0) {
+				                document.write("decrease");
+				            } else {
+				                document.write("no change");
+				            }
+				        </script>
+				    </span>
 
                   </div>
                 </div>
