@@ -127,7 +127,79 @@
       <h2 class="mb-4" style="display: inline-block; margin-left: 8px; font-weight: bold;"> 종목 </h2>
 
     </div>
-    
+    <table class="table table-bordered border-2 border-primary">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Detail</th>
+        <th>MarketCap</th>
+    </tr>
+    <tr>
+        <td>${symbolDetail.Id}</td>
+        <td>${symbolDetail.name}</td>
+        <td>${symbolDetail.detail}</td>
+        <td>${symbolDetail.marketcap}</td>
+    </tr>
+    </table>
+     <!-- Website Traffic Chart -->
+          <div class="card-body pb-0">
+            <h5 class="card-title">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ수익률 <span>|</span></h5>
+            <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                echarts.init(document.querySelector("#trafficChart")).setOption({
+                  tooltip: {
+                    trigger: 'item'
+                  },
+                  legend: {
+                    top: '5%',
+                    left: 'center'
+                  },
+                  series: [{
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                      show: false,
+                      position: 'center'
+                    },
+                    emphasis: {
+                      label: {
+                        show: true,
+                        fontSize: '18',
+                        fontWeight: 'bold'
+                      }
+                    },
+                    labelLine: {
+                      show: false
+                    },
+                    data: [{
+                      value: 1048,
+                      name: 'Search Engine'
+                    },
+                    {
+                      value: 735,
+                      name: 'Direct'
+                    },
+                    {
+                      value: 580,
+                      name: 'Email'
+                    },
+                    {
+                      value: 484,
+                      name: 'Union Ads'
+                    },
+                    {
+                      value: 300,
+                      name: 'Video Ads'
+                    }
+                    ]
+                  }]
+                });
+              });
+            </script>
+            </div>
     <div class="card">
     <div style="flex: 1;">
           <!-- End Website Traffic Chart -->
@@ -210,10 +282,31 @@
     <c:forEach items="${symbols}" var="symbol">
         <tr>
             <td>${symbol.date}</td>
-            <td>${symbol.open}</td>
+              <c:choose>
+                <c:when test="${not empty symbol.open}">
+                    <td>${symbol.open}</td>
+                </c:when>
+                <c:otherwise>
+                    <td></td>
+                </c:otherwise>
+            </c:choose>
             <td>${symbol.close}</td>
-            <td>${symbol.high}</td>
-            <td>${symbol.low}</td>
+            <c:choose>
+                <c:when test="${not empty symbol.high}">
+                    <td>${symbol.high}</td>
+                </c:when>
+                <c:otherwise>
+                    <td></td>
+                </c:otherwise>
+            </c:choose>
+            <c:choose>
+                <c:when test="${not empty symbol.low}">
+                    <td>${symbol.low}</td>
+                </c:when>
+                <c:otherwise>
+                    <td></td>
+                </c:otherwise>
+            </c:choose>
             <!-- 다른 컬럼 추가 -->
         </tr>
     </c:forEach>
@@ -221,65 +314,7 @@
           <!-- End Primary Color Bordered Table -->
         </div>
  
-          <!-- Website Traffic Chart -->
-          <div class="card-body pb-0">
-            <h5 class="card-title">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ수익률 <span>|</span></h5>
-            <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
-            <script>
-              document.addEventListener("DOMContentLoaded", () => {
-                echarts.init(document.querySelector("#trafficChart")).setOption({
-                  tooltip: {
-                    trigger: 'item'
-                  },
-                  legend: {
-                    top: '5%',
-                    left: 'center'
-                  },
-                  series: [{
-                    name: 'Access From',
-                    type: 'pie',
-                    radius: ['40%', '70%'],
-                    avoidLabelOverlap: false,
-                    label: {
-                      show: false,
-                      position: 'center'
-                    },
-                    emphasis: {
-                      label: {
-                        show: true,
-                        fontSize: '18',
-                        fontWeight: 'bold'
-                      }
-                    },
-                    labelLine: {
-                      show: false
-                    },
-                    data: [{
-                      value: 1048,
-                      name: 'Search Engine'
-                    },
-                    {
-                      value: 735,
-                      name: 'Direct'
-                    },
-                    {
-                      value: 580,
-                      name: 'Email'
-                    },
-                    {
-                      value: 484,
-                      name: 'Union Ads'
-                    },
-                    {
-                      value: 300,
-                      name: 'Video Ads'
-                    }
-                    ]
-                  }]
-                });
-              });
-            </script>
-            </div>
+         
           </div>
           
 
