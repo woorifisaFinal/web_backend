@@ -1,5 +1,6 @@
 package com.woorifis.demo.controller;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,8 +24,11 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import com.woorifis.demo.model.dto.PortfolioDTO;
 import com.woorifis.demo.model.dto.UserDTO;
+import com.woorifis.demo.model.entity.Euro;
 import com.woorifis.demo.model.entity.Portfolio;
+import com.woorifis.demo.model.entity.Symbol;
 import com.woorifis.demo.model.service.PortfolioService;
+import com.woorifis.demo.model.service.SymbolService;
 import com.woorifis.demo.model.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -38,6 +42,7 @@ public class PortfolioController {
 	
 	private final PortfolioService portfolioService;
 	private final UserService userService;
+	private final SymbolService symbolService;
 	
 	  // 각 종목의 비율을 가져와서 화면에 전달 - 특정 날짜 (오늘만)
 	@GetMapping("/getPortfolio")
@@ -122,7 +127,48 @@ public class PortfolioController {
 		model.addAttribute("sixthPortfolio", sixthPortfolio);
 
 		System.out.println("두번째 list : "+ secondPortfolio);
+		
+//-----------나스닥 종가-----------------------//
+		List<Symbol> nasdaqAll = symbolService.getAllNasdaqData();
+		Symbol nasdaqClose = nasdaqAll.get(nasdaqAll.size() - 1);
+		Symbol nasdaqBefore = nasdaqAll.get(nasdaqAll.size() - 2);	
+		Integer nasdaqClosetoInt = (int) nasdaqClose.getClose();
+		Integer nasdaqBeforetoInt = (int) nasdaqBefore.getClose();
+		//증감률 가져오기
+		Double nasdaqVariance_0 = (double) (nasdaqClosetoInt - nasdaqBeforetoInt)/nasdaqBeforetoInt*100;
+		Double nasdaqVariance = Math.round(nasdaqVariance_0 * 100.0) / 100.0;
+		//천자리수 컴마찍기
+		DecimalFormat decimalFormat = new DecimalFormat("#,###");
+		String nasdaq = decimalFormat.format(nasdaqClosetoInt);
+//-----------나스닥 종가 끝-----------------------//
 
+//-----------코스피 종가-----------------------//
+//  		List<????> kospiAll = symbolService.getAll????();
+//  		????? kospiClose = kospuAll.get(kospiAll.size() - 1);
+//  		????? kospiCloseBefore = kospuAll.get(kospiAll.size() - 2);
+//  		Integer kospiClosetoInt = (int) kospiClose.getClose();
+//  		//천자리수 컴마찍기
+//        String kospi = decimalFormat.format(kospiClosetoInt);
+//-----------코스피 종가 끝-----------------------//
+              
+//-----------유로 종가-----------------------//
+		List<Euro> euroAll = symbolService.getAllEuroData();
+		Euro euroClose = euroAll.get(euroAll.size() - 1);
+		Euro euroBefore = euroAll.get(euroAll.size() - 2);
+		Integer euroClosetoInt = (int) euroClose.getClose();
+		Integer euroBeforetoInt = (int) euroBefore.getClose();
+		//증감률 가져오기
+		Double euroVariance_0 = (double) (euroClosetoInt - euroBeforetoInt)/euroBeforetoInt*100;
+		Double euroVariance = Math.round(euroVariance_0 * 100.0) / 100.0;
+		//천자리수 컴마찍기
+        String euro = decimalFormat.format(euroClosetoInt);
+//-----------유로 종가 끝-----------------------//              
+		
+		model.addAttribute("nasdaq", nasdaq);
+		model.addAttribute("euro", euro);
+		model.addAttribute("nasdaqVariance", nasdaqVariance);
+		model.addAttribute("euroVariance", euroVariance);
+		
 		return "portfolio/dashboard";
 	}
 	
