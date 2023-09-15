@@ -170,7 +170,10 @@
 
 <!-- Main -->
 <div class="container">
-
+    <div style="border-bottom: 2px solid blue;">
+        <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
+        <h2 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" >   상품 비교하기</h2>
+    </div>
     <div class="container" id="productcompare-box">
         <div class="row">
             <div class=" col-md-4">
@@ -242,7 +245,11 @@
                 </div>
             </div>
         </div>
-        <button id="compareBtn" class="btn btn-primary" style="font-weight: bold;">상품 비교</button>
+
+
+    </div>
+    <div class="d-flex justify-content-center col-10 mx-auto">
+        <button id="compareBtn" class="btn btn-lg btn-primary" style="font-weight: bold;">상품 비교</button>
     </div>
 
     <!-- 제품 비교용 모달 -->

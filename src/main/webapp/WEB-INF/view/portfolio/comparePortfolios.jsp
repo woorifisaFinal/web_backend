@@ -66,7 +66,10 @@
     <!-- End Sidebar-->
     </br>
     </br>
-    </br>
+    <div style="border-bottom: 2px solid blue;">
+        <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
+        <h2 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" >   상품 비교 결과</h2>
+    </div>
     </br>
     </br>
 <!-- test pie chart -->
@@ -90,7 +93,7 @@
 		  new Chart(ctxA, {
 		    type: 'pie',
 		    data: {
-		      labels: ['br', 'euro', 'gold', 'ind', 'jp', 'kor', 'kor10y', 'kor3y', 'tw', 'uk', 'us', 'us10y', 'us3y'],
+		      labels: ['BOVESPA', 'EUROSTOXX', '금', 'NIFTY', 'NIKKEI', 'KOSPI', '한국10년채권', '한국3년채권', 'TWII', 'FTSE', 'NASDAQ', '미국10년채권', '미국3년채권'],
 		      datasets: [{
 		        label: '# of Votes',
 		        data: [
@@ -132,7 +135,7 @@
 		  new Chart(ctxB, {
 		    type: 'pie',
 		    data: {
-		      labels: ['br', 'euro', 'gold', 'ind', 'jp', 'kor', 'kor10y', 'kor3y', 'tw', 'uk', 'us', 'us10y', 'us3y'],
+		      labels: ['BOVESPA', 'EUROSTOXX', '금', 'NIFTY', 'NIKKEI', 'KOSPI', '한국10년채권', '한국3년채권', 'TWII', 'FTSE', 'NASDAQ', '미국10년채권', '미국3년채권'],
 		      datasets: [{
 		        label: '# of Votes',
 		        data: [
