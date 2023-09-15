@@ -5,12 +5,12 @@
 <%@page import="java.util.*"%>
 
 <html>
-  <head>
-  <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <script src="${pageContext.request.contextPath}/your-new-path/echarts.min.js"></script>
+<head>
+    <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/your-new-path/echarts.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
-        <script src="${pageContext.request.contextPath}/cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+    <script src="${pageContext.request.contextPath}/cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
     <!-- Favicons -->
     <link href="${pageContext.request.contextPath}/img/favicon.png" rel="icon">
     <link href="${pageContext.request.contextPath}/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -20,43 +20,43 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-      <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <link href="${pageContext.request.contextPath}/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-      <link href="${pageContext.request.contextPath}/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-      <link href="${pageContext.request.contextPath}/vendor/quill/quill.snow.css" rel="stylesheet">
-      <link href="${pageContext.request.contextPath}/vendor/quill/quill.bubble.css" rel="stylesheet">
-      <link href="${pageContext.request.contextPath}/vendor/remixicon/remixicon.css" rel="stylesheet">
-      <link href="${pageContext.request.contextPath}/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
 
- <!-- ECharts 라이브러리 스크립트 추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+    <!-- ECharts 라이브러리 스크립트 추가 -->
     <script src="${pageContext.request.contextPath}/cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
 
     <!-- 스타일 시트 및 다른 리소스 경로 추가 -->
@@ -162,92 +162,84 @@
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
       <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-    
-  </head>
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+</head>
 
-  <body>
+<body>
 
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
-      <div class="d-flex align-items-center justify-content-between">
-        <i class="bi bi-list toggle-sidebar-btn" style="float: left; margin-right: 30px;"></i>
-        <a href="/main" class="logo d-flex align-items-center">
-          <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
-          <span class="d-none d-lg-block">우리FISA</span>
-        </a>
-      </div><!-- End Logo -->
+        <div class="d-flex align-items-center justify-content-between">
+            <i class="bi bi-list toggle-sidebar-btn" style="float: left; margin-right: 30px;"></i>
+            <a href="/main" class="logo d-flex align-items-center">
+                <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
+                <span class="d-none d-lg-block">우리FISA</span>
+            </a>
+        </div><!-- End Logo -->
 
-      <div class="col-10" >
-        <div class="container ">
-          <div class="row">
-            <div class="col-8">
+        <div class="col-10" >
+            <div class="container ">
+                <div class="row">
+                    <div class="col-8">
   <%--            Search Bar--%>
-              <div class="search-bar d-flex justify-content-start" >
+                        <div class="search-bar d-flex justify-content-start" >
 
-                <form class="search-form d-flex align-middle" method="get" action="/symbol/search">
+                            <form class="search-form d-flex align-middle" method="get" action="/symbol/search">
 <%--                    name으로 준 keyword에 담아서 서버로 전달한다--%>
-                    <input type="text" name="keyword" placeholder="종목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
-                    <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-                </form>
-              </div>
-              <!-- End Search Bar -->
-            </div>
-          </div>
+                                <input type="text" name="keyword" placeholder="종목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
+                                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                            </form>
+                        </div>
+                        <!-- End Search Bar -->
+                    </div>
+                </div>
             <!-- My Page Link -->
-              <c:if test="${sessionScope.loginUser != null}">
-      <div class="d-flex custom-button-group " >
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"  style="height: 45px; margin-right: 30px;" >
-          <img src="${pageContext.request.contextPath}/img/04.png" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle">${sessionScope.loginUser.getUserName()}</span>
-        </a><!-- End Profile Iamge Icon -->
+                <c:if test="${sessionScope.loginUser != null}">
+                    <div class="d-flex custom-button-group " >
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"  style="height: 45px; margin-right: 30px;" >
+                            <img src="${pageContext.request.contextPath}/img/04.png" alt="Profile" class="rounded-circle">
+                            <span class="d-none d-md-block dropdown-toggle">${sessionScope.loginUser.getUserName()}</span>
+                        </a><!-- End Profile Iamge Icon -->
   
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-          <li class="dropdown-header">
-            <h6>${sessionScope.loginUser.getUserName()}</h6>
-            <span>${sessionScope.loginUser.getUserId()}</span>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-  
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="/user/mypage">
-              <i class="bi bi-person"></i>
-              <span>마이페이지</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="/user/logout">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>로그아웃</span>
-            </a>
-          </li>
-  
-        </ul><!-- End Profile Dropdown Items -->
-      </div>
-              </c:if>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                            <li class="dropdown-header">
+                                <h6>${sessionScope.loginUser.getUserName()}</h6>
+                                <span>${sessionScope.loginUser.getUserId()}</span>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="/user/mypage">
+                                    <i class="bi bi-person"></i>
+                                    <span>마이페이지</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="/user/logout">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>로그아웃</span>
+                                </a>
+                            </li>
+                        </ul><!-- End Profile Dropdown Items -->
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.loginUser == null}">
+                    <div class="custom-button-group">
+                        <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px; margin-left: 120px;">로그인</a>
+                        <a href="/user/signup" class="btn btn" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;margin-right: 120px">회원가입</a>
+                    </div>
+                </c:if>
               <!-- End My Page Link -->
             </div>
-          </div>
-          <c:if test="${sessionScope.loginUser == null}">
-<div class="custom-button-group">
-    <a href="/user/login" class="btn btn-custom" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px; margin-left: 120px;">
-        로그인
-    </a>
-    <a href="/user/signup" class="btn btn" style="height: 45px; margin-right: 10px; color: grey; font-size: 14px;margin-right: 120px">
-        회원가입
-    </a>
-</div>
-          </c:if>
         </div>
     </header><!-- End Header -->
 
@@ -261,7 +253,6 @@
             <span>대시보드</span>
           </a>
         </li><!-- End Dashboard Nav -->
-
         <li class="nav-item">
           <a
                   class="nav-link collapsed"
@@ -269,8 +260,7 @@
                   data-bs-toggle="collapse"
                   href="/symbol/list"
           >
-            <i class="bi bi-graph-up"></i><span>종목</span
-          ><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-graph-up"></i><span>종목</span><i class="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul  id="components-nav" class=" nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>

@@ -574,8 +574,10 @@
 
 <br /><br /><br /><br /><br />
 <div class="card-body">
-    <h5 class="card-title">비교</h5>
-
+        <div style="border-bottom: 2px solid blue;">
+          <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
+          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 비교 </h1>
+        </div>
     <!-- Column Chart -->
     <div id="columnChart"></div>
 
@@ -1225,6 +1227,450 @@
     });
 </script>
 </div>
+
+<!-- 차트 -->
+        <div style="border-bottom: 2px solid blue;">
+          <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
+          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 나누리 -안전형</h1>
+        </div>
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-lg-8">
+        <div class="row">
+
+          <!-- Sales Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title">Kospi <span>| Recent Close</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-won-sign"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>145</h6>
+                    <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Sales Card -->
+
+          <!-- Revenue Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+              <div class="card-body">
+                <h5 class="card-title">Nasdaq <span>| Recent Close</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-currency-dollar"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>$ ${nasdaq }</h6>
+                    <span class="text-success small pt-1 fw-bold">${nasdaqVariance }%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Revenue Card -->
+
+          <!-- Customers Card -->
+          <div class="col-xxl-4 col-xl-12">
+
+            <div class="card info-card customers-card">
+              <div class="card-body">
+                <h5 class="card-title">Euro <span>| Recent Close</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-currency-euro"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>€ ${euro }</h6>
+                    <span class="text-danger small pt-1 fw-bold">${euroVariance }%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- End Customers Card -->
+
+          <!-- Reports -->
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">종목 수익률 <span>/Today</span></h5>
+
+                <!-- Line Chart -->
+                <div id="reportsChart"></div>
+
+                <script>
+                  document.addEventListener("DOMContentLoaded", () => {
+                    new ApexCharts(document.querySelector("#reportsChart"), {
+                      series: [{
+                        name: '주식',
+                        data: [31, 40, 28, 51, 42, 82, 56],
+                      }, {
+                        name: '채권',
+                        data: [11, 32, 45, 32, 34, 52, 41]
+                      }, {
+                        name: '안전자산',
+                        data: [15, 11, 32, 18, 9, 24, 11]
+                      }],
+                      chart: {
+                        height: 350,
+                        type: 'area',
+                        toolbar: {
+                          show: false
+                        },
+                      },
+                      markers: {
+                        size: 4
+                      },
+                      colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                      fill: {
+                        type: "gradient",
+                        gradient: {
+                          shadeIntensity: 1,
+                          opacityFrom: 0.3,
+                          opacityTo: 0.4,
+                          stops: [0, 90, 100]
+                        }
+                      },
+                      dataLabels: {
+                        enabled: false
+                      },
+                      stroke: {
+                        curve: 'smooth',
+                        width: 2
+                      },
+                      xaxis: {
+                        type: 'datetime',
+                        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                      },
+                      tooltip: {
+                        x: {
+                          format: 'dd/MM/yy HH:mm'
+                        },
+                      }
+                    }).render();
+                  });
+                </script>
+                <!-- End Line Chart -->
+
+              </div>
+
+            </div>
+          </div><!-- End Reports -->
+
+          <!-- Top Selling -->
+        </div>
+      </div><!-- End Left side columns -->
+
+      <!-- Right side columns -->
+      <div class="col-lg-4">
+
+       <!-- Website Traffic -->
+       <div class="card">
+      <div class="card-body pb-0">
+        <h5 class="card-title">${firstPortfolio.type} <span>| </span></h5>
+
+        <div id="trafficChart" style="min-height: 570px;" class="echart"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            echarts.init(document.querySelector("#trafficChart")).setOption({
+              tooltip: {
+                trigger: 'item'
+              },
+              legend: {
+                top: '5%',
+                left: 'center'
+              },
+              series: [{
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: '18',
+                    fontWeight: 'bold'
+                  }
+                },
+                labelLine: {
+                  show: false
+                },
+                data: [{
+                    value: ${firstPortfolio.br}+${firstPortfolio.euro}+${firstPortfolio.ind}+
+                    ${firstPortfolio.jp}+${firstPortfolio.kor}+${firstPortfolio.uk}+${firstPortfolio.tw}+${firstPortfolio.us},
+                    name: '주식'
+                  },
+
+                  {
+                    value: ${firstPortfolio.kor10y}+${firstPortfolio.kor3y}+${firstPortfolio.us10y}+${firstPortfolio.us3y},
+                    name: '채권'
+                  },
+                  {
+                    value: ${firstPortfolio.gold},
+                    name: '안전자산'
+                  }
+                ]
+              }]
+            });
+          });
+        </script>
+
+      </div>
+      </div>
+    <!-- End Website Traffic -->
+      <br />
+    </div>
+ </div>
+        <div style="border-bottom: 2px solid blue;">
+          <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
+          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 나누리 - 위험형</h1>
+        </div>
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-lg-8">
+        <div class="row">
+
+          <!-- Sales Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title">Kospi <span>| Recent Close</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-won-sign"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>145</h6>
+                    <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Sales Card -->
+
+          <!-- Revenue Card -->
+          <br />
+          <div class="col-xxl-4 col-md-6">
+          
+            <div class="card info-card revenue-card">
+              <div class="card-body">
+                <h5 class="card-title">Nasdaq <span>| Recent Close</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-currency-dollar"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>$ ${nasdaq }</h6>
+                    <span class="text-success small pt-1 fw-bold">${nasdaqVariance }%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Revenue Card -->
+
+          <!-- Customers Card -->
+          <div class="col-xxl-4 col-xl-12">
+
+            <div class="card info-card customers-card">
+              <div class="card-body">
+                <h5 class="card-title">Euro <span>| Recent Close</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-currency-euro"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>€ ${euro }</h6>
+                    <span class="text-danger small pt-1 fw-bold">${euroVariance }%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- End Customers Card -->
+
+          <!-- Reports -->
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">종목 수익률 <span>/Today</span></h5>
+
+                <!-- Line Chart -->
+                <div id="reportsChart1"></div>
+
+                <script>
+                  document.addEventListener("DOMContentLoaded", () => {
+                    new ApexCharts(document.querySelector("#reportsChart1"), {
+                      series: [{
+                        name: '주식',
+                        data: [31, 40, 28, 51, 42, 82, 56],
+                      }, {
+                        name: '채권',
+                        data: [11, 32, 45, 32, 34, 52, 41]
+                      }, {
+                        name: '안전자산',
+                        data: [15, 11, 32, 18, 9, 24, 11]
+                      }],
+                      chart: {
+                        height: 350,
+                        type: 'area',
+                        toolbar: {
+                          show: false
+                        },
+                      },
+                      markers: {
+                        size: 4
+                      },
+                      colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                      fill: {
+                        type: "gradient",
+                        gradient: {
+                          shadeIntensity: 1,
+                          opacityFrom: 0.3,
+                          opacityTo: 0.4,
+                          stops: [0, 90, 100]
+                        }
+                      },
+                      dataLabels: {
+                        enabled: false
+                      },
+                      stroke: {
+                        curve: 'smooth',
+                        width: 2
+                      },
+                      xaxis: {
+                        type: 'datetime',
+                        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                      },
+                      tooltip: {
+                        x: {
+                          format: 'dd/MM/yy HH:mm'
+                        },
+                      }
+                    }).render();
+                  });
+                </script>
+                <!-- End Line Chart -->
+
+              </div>
+
+            </div>
+          </div><!-- End Reports -->
+
+          <!-- Top Selling -->
+        </div>
+      </div><!-- End Left side columns -->
+
+      <!-- Right side columns -->
+      <div class="col-lg-4">
+
+       <!-- Website Traffic -->
+       <div class="card">
+      <div class="card-body pb-0">
+        <h5 class="card-title">${firstPortfolio.type} <span>| </span></h5>
+
+        <div id="trafficChart1" style="min-height: 570px;" class="echart"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            echarts.init(document.querySelector("#trafficChart1")).setOption({
+              tooltip: {
+                trigger: 'item'
+              },
+              legend: {
+                top: '5%',
+                left: 'center'
+              },
+              series: [{
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: '18',
+                    fontWeight: 'bold'
+                  }
+                },
+                labelLine: {
+                  show: false
+                },
+                data: [{
+                    value: ${firstPortfolio.br}+${firstPortfolio.euro}+${firstPortfolio.ind}+
+                    ${firstPortfolio.jp}+${firstPortfolio.kor}+${firstPortfolio.uk}+${firstPortfolio.tw}+${firstPortfolio.us},
+                    name: '주식'
+                  },
+
+                  {
+                    value: ${firstPortfolio.kor10y}+${firstPortfolio.kor3y}+${firstPortfolio.us10y}+${firstPortfolio.us3y},
+                    name: '채권'
+                  },
+                  {
+                    value: ${firstPortfolio.gold},
+                    name: '안전자산'
+                  }
+                ]
+              }]
+            });
+          });
+        </script>
+
+      </div>
+      </div>
+    <!-- End Website Traffic -->
+      <br />
+    </div>
+ </div>
+
+<!-- 2qjs -->
+
+
+
+
+
+
+<br /><br /><br /><br /><br />
+  </section>
+</main>
+
 <br /><br /><br /><br /><br />
 <!-- Main (div id=main) 끝 -->
 

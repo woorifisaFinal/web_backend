@@ -187,7 +187,7 @@
 
   <div id="body" class="col-10" style="background-color: white; padding-bottom: 150px;">
     <div class="container mt-5">
-      <div class="survey-page page1"d>
+      <div class="survey-page page1">
         </br>
         <div style="border-bottom: 2px solid blue;">
           <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
