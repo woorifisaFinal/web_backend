@@ -119,18 +119,19 @@ public class UserServiceTest {
         user.setUserId("testuser");
         user.setUserName("Test User");
         user.setUserEmail("test@example.com");
-
+        user.setPassword("test");
         when(userRepository.findByUserId("testuser")).thenReturn(Optional.of(user));
 
         // userService에서 updateInfo 호출
-        userService.updateInfo("testuser", "New Name", "new@example.com");
+        userService.updateInfo("testuser", "new@example.com", "test2");
 
         // verify를 사용하여 userRepository의 save 메서드가 1번 호출되었는지 검증
         verify(userRepository, times(1)).save(any(User.class));
 
         // 업데이트된 사용자 정보 확인
-        assertEquals("New Name", user.getUserName());
+//        assertEquals("New Name", user.getUserName());
         assertEquals("new@example.com", user.getUserEmail());
+        assertEquals("test2", user.getPassword());
     }
 
 }

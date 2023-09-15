@@ -89,7 +89,6 @@
 
   <!-- Template Main JS File -->
   <script src="${pageContext.request.contextPath}/js/main.js"></script>
-
   <%--  Page function--%>
   <script>
     function showPage(pageNumber) {
@@ -98,30 +97,32 @@
       pages[pageNumber - 1].classList.remove('d-none');
     }
 
-    function calculateScore() {
-      let totalScore = 0;
+    <%--function calculateScore() {--%>
+    <%--  let totalScore = 0;--%>
 
-      const radioInputs = document.querySelectorAll('input[type="radio"]:checked');
-      radioInputs.forEach(input => {
-        const value = parseInt(input.value);
-        if (!isNaN(value)) {
-          totalScore += value;
-        }
-      });
+    <%--  const radioInputs = document.querySelectorAll('input[type="radio"]:checked');--%>
+    <%--  radioInputs.forEach(input => {--%>
+    <%--    const value = parseInt(input.value);--%>
+    <%--    if (!isNaN(value)) {--%>
+    <%--      totalScore += value;--%>
+    <%--    }--%>
+    <%--  });--%>
+    <%--  let type="";--%>
+    <%--  if (totalScore >= 0 && totalScore <= 20) {--%>
+    <%--    &lt;%&ndash;window.location.href = "/savetype?type=stable&totalScore=${totalScore}";&ndash;%&gt;--%>
+    <%--    // localStorage.setItem("type", "안정형");--%>
+    <%--    type = "stable";--%>
 
-      if (totalScore >= 0 && totalScore <= 20) {
-        window.location.href = `/savetype?type=stable`;
-        // localStorage.setItem("type", "안정형");
-        // let type = "안정형";
+    <%--  } else if (totalScore >= 21 && totalScore <= 50) {--%>
+    <%--    &lt;%&ndash;window.location.href = "/savetype?type=adventurous$totalScore=${totalScore}";&ndash;%&gt;--%>
+    <%--    // localStorage.setItem("type", "공격형")--%>
+    <%--    type ="adventurous";--%>
+    <%--  }--%>
 
-      } else if (totalScore >= 21 && totalScore <= 50) {
-        window.location.href = `/savetype?type=adventurous`;
-        // localStorage.setItem("type", "공격형")
-        // let type ="공격형";
-      } else {
-        alert('Invalid score range');
-      }
-    }
+
+
+
+    <%--}--%>
 
 
     function redirectToResult() {
@@ -131,6 +132,48 @@
       // Redirect to result -> 점수랑 유형은 어떻게 보내나??
       window.location.href = '/result';
     }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (){
+      const submitBtn = document.getElementById("submitBtn");
+
+      function calculateScore(){
+        let totalScore = 0;
+        const radioInputs = document.querySelectorAll('input[type="radio"]:checked');
+        radioInputs.forEach(input => {
+          const value = parseInt(input.value);
+          if (!isNaN(value)) {
+            totalScore += value;
+          }
+        });
+        let type = "stable";
+        if (totalScore >= 0 && totalScore <= 20) { type = "stable";}
+        else { type ="adventurous";}
+        const url = "/portfolio/savetype?type="+type+"&totalScore="+totalScore;
+
+        $.ajax({
+          url: url,
+          type: 'GET',
+          success: function() {
+            // Write logic to process data received from the server
+            // In this example, the received data is printed on the current page.
+            window.location.href = url;
+             // document.body.innerHTML = data;
+          },
+          error: function() {
+            console.error('Error');
+          }
+        });
+        console.log("Request URL:", url);
+      }
+      submitBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        calculateScore();
+      });
+    });
   </script>
 </head>
 
@@ -147,13 +190,13 @@
       <div class="survey-page page1"d>
         </br>
         <div style="border-bottom: 2px solid blue;">
-          <img class="mb-3 square"  src="${pageContext.request.contextPath}img/bluebox.jpg" alt="이미지 교체중입니다.">
+          <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
           <h2 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" >   투자성향 설문조사 1/2</h2>
         </div>
         </br>
         <p class="survey-inside" style="font-weight: bold;">응답시 버튼을 더블클릭하면 취소할 수 있습니다.</p>
         <div class="survey-inside">
-          <form action='user/survey'>
+          <form>
             <p>
             <h1 style="display: inline-block; color: blueviolet;">1.</h1>
             <p class="survey-title-inside">
@@ -300,7 +343,7 @@
 
             <p>
             <h1 style="display: inline-block; color: blueviolet;">10.</h1>
-            <p id="survey-title-inside">
+            <p class="survey-title-inside">
               고객님의 연 소득은 어떻게 되시나요?</p>
             </br>
             <input type="radio" name="q10" value="1" ondblclick="this.checked=false"> 2천만원 미만</br>
@@ -311,16 +354,16 @@
             </p>
             </br>
             <button type="button" class="btn btn-outline-primary" onclick="showPage(1)">이전 페이지</button>
-            <c:if test="${sessionScope.loginUser != null}">
-              <a href="" class="btn btn-outline-success" onclick="calculateScore();">결과 보기</a>
-            </c:if>
+<%--            <c:if test="${sessionScope.loginUser != null}">--%>
+            <button id="submitBtn" class="btn btn-outline-success">결과 보기</button>
+<%--            </c:if>--%>
 
-            <c:if test="${sessionScope.loginUser == null}">
-              <a href="/requestlogin" class="btn btn-outline-success" onclick="calculateScore();">결과 보기</a>
+<%--            <c:if test="${sessionScope.loginUser == null}">--%>
+<%--              <button id="submitBtn" class="btn btn-outline-success" >결과 보기</button>--%>
 <%--            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#loginModal">--%>
 <%--              결과 보기--%>
 <%--            </button>--%>
-          </c:if>
+<%--          </c:if>--%>
 
             <!-- 로그인 모달 -->
 <%--            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">--%>

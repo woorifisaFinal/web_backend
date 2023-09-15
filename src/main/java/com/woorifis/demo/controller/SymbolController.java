@@ -1,7 +1,11 @@
 
 package com.woorifis.demo.controller;
 
+import com.woorifis.demo.model.entity.Euro;
+import com.woorifis.demo.model.entity.Ftse;
+import com.woorifis.demo.model.entity.Nikkei;
 import com.woorifis.demo.model.entity.Symbol;
+
 import com.woorifis.demo.model.entity.SymbolDetail;
 import com.woorifis.demo.model.entity.SymbolKeyword;
 import com.woorifis.demo.model.service.SymbolDetailService;
@@ -47,23 +51,38 @@ public class SymbolController {
     }
 
     @GetMapping("/symbol/detail")
-    public String detailSymbol(@RequestParam Long id, Model model ){
-        log.debug("something: {}", id);
+    public String detailSymbol(@RequestParam Long id, Model model) {
+        log.debug("Received ID: {}", id);
+
+
         try {
             SymbolDetail symbolDetail = symbolDetailService.detailSymbol(id);
+            Class<?> itemType = null; // 아이템 타입 초기값 설정
+
+            // 아이템 타입 결정
+            switch (id.intValue()) {
+                case 100: itemType = Symbol.class; break;
+                case 101: itemType = Ftse.class; break;
+                case 102: itemType = Nikkei.class; break;
+                case 103: itemType = Euro.class; break;
+                // 다른 아이템에 대한 case 추가
+                default: throw new IllegalArgumentException("Invalid ID");
+            }
+
+            // itemType에 따라서 모델에 추가
+            if (itemType != null) {
+                // 아이템 타입에 따라 모델에 해당 타입의 데이터 추가
+                model.addAttribute("symbols", symbolService.getDataByItemId(id, itemType));
+            } 
+
             model.addAttribute("symbolDetail", symbolDetail);
             return "symbol/detail";
-        }
-        catch(RuntimeException e){
+        } catch (RuntimeException e) {
             return "symbol/list";
         }
     }
+
+
     
-    @GetMapping("/symbol/nasdaq")
-    public String nasdaqPage(Model model) {
-        List<Symbol> nasdaqList = symbolService.getAllNasdaqData();
-        model.addAttribute("nasdaqList", nasdaqList);
-        return "symbol/nasdaq"; 
-    }
 }
 

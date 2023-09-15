@@ -89,13 +89,13 @@
 
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
-    
+
 </head>
 
 <body>
-   <!-- ======= Header ======= -->
-  	<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
-   <!-- End Sidebar-->
+<!-- ======= Header ======= -->
+<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
+<!-- End Sidebar-->
 
 <!-- Main -->
 <div class="container">
@@ -108,25 +108,24 @@
             </div>
         </div>
     </div>
-    
+
     <div id="result-container" class="col-15" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="row">
             <div class="col-md-6" style="border-bottom: 3px solid rgb(240, 240,240);">
-            	<p style="display: inline-block;font-size: 30px">고객님은</p>
+                <p style="display: inline-block;font-size: 30px">고객님은</p>
                 <p class="hanna-font">${User.type}</p>
                 </br>
                 </br>
-             
+
                 <!-- 안정형 일때 -->
                 <c:if test="${User.type == '안정형'}">
-				<p style="font-weight: normal; font-size: 15px">원금 손실 위험을 최소화하면서 이자, 배당소득 수준을 목표로 하는 포트폴리오입니다. </p>
+                    <p style="font-weight: normal; font-size: 15px">원금 손실 위험을 최소화하면서 이자, 배당소득 수준을 목표로 하는 포트폴리오입니다. </p>
                 </c:if>
 
-				<!-- 위험형 일때 -->
-	            <c:if test="${User.type == '공격형'}">
-				<p style="font-weight: normal; font-size: 15px">원금 보전보다는 위험을 감수하더라도 높은 투자수익을 추구하는 투자자를 위한 포트폴리오입니다.</p>
-	            </c:if>
-                   
+                <!-- 위험형 일때 -->
+                <c:if test="${User.type == '공격형'}">
+                    <p style="font-weight: normal; font-size: 15px">원금 보전보다는 위험을 감수하더라도 높은 투자수익을 추구하는 투자자를 위한 포트폴리오입니다.</p>
+                </c:if>
                 <div id="result"></div>
                 <h3>유형점수:</h3>
                 <p id="score-p"></p>
@@ -134,74 +133,74 @@
                 <div id="score"></div>
             </div>
             <div class="col-md-6" style="border-bottom: 3px solid rgb(240, 240,240);">
-    
+
                 <!-- 이미지 -->
                 <c:if test="${User.type == '안정형'}">
-				<img style="display: block;-webkit-user-select: none;margin: auto;" src="${pageContext.request.contextPath}/img/ferris_wheel.png" alt="이미지 교체중입니다.">
+                    <img style="display: block;-webkit-user-select: none;margin: auto;" src="${pageContext.request.contextPath}/img/ferris_wheel.png" alt="이미지 교체중입니다.">
                 </c:if>
 
-				<!-- 위험형 일때 -->
-	            <c:if test="${User.type == '공격형'}">
-				<img style="display: block;-webkit-user-select: none;margin: auto;" src="${pageContext.request.contextPath}/img/roller.png" alt="이미지 교체중입니다.">
-	            </c:if>
+                <!-- 위험형 일때 -->
+                <c:if test="${User.type == '공격형'}">
+                    <img style="display: block;-webkit-user-select: none;margin: auto;" src="${pageContext.request.contextPath}/img/roller.png" alt="이미지 교체중입니다.">
+                </c:if>
 
                 <!-- 이미지 -->
-                
+
             </div>
         </div>
         <div class="row mt-4">
             <div class="col-md-6">
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 <h3>파이차트:</h3>
-                	<div style="display: flex; justify-content: space-around;">
-				        <div>
-				            <h2>${portfolio.type}</h2>
-				            <canvas id="chartB" width="300" height="300"></canvas>
-				        </div>
-				    </div>
-				    <script>
-						  // Pie Chart Data
-						  const ctxB = document.getElementById('chartB');
-						  new Chart(ctxB, {
-						    type: 'pie',
-						    data: {
-						      labels: ['br', 'euro', 'gold', 'ind', 'jp', 'kor', 'kor10y', 'kor3y', 'tw', 'uk', 'us', 'us10y', 'us3y'],
-						      datasets: [{
-						        label: '# of Votes',
-						        data: [
-						          ${portfolio.br},
-						          ${portfolio.euro},
-						          ${portfolio.gold},
-						          ${portfolio.ind},
-						          ${portfolio.jp},
-						          ${portfolio.kor},
-						          ${portfolio.kor10y},
-						          ${portfolio.kor3y},
-						          ${portfolio.tw},
-						          ${portfolio.uk},
-						          ${portfolio.us},
-						          ${portfolio.us10y},
-						          ${portfolio.us3y}
-						        ],
-						        borderWidth: 1
-						      }]
-						    },
-						    options: {
-						      responsive: false,
-						      scales: {
-						        y: {
-						          beginAtZero: true
-						        }
-						      },
-						      plugins: {
-						        title: {
-						          display: true,
-						          text: 'Pie Chart B Title' // Second Pie Chart Title
-						        }
-						      }
-						    }
-						  });
-					</script>
+                <div style="display: flex; justify-content: space-around;">
+                    <div>
+                        <h2>${portfolio.type}</h2>
+                        <canvas id="chartB" width="300" height="300"></canvas>
+                    </div>
+                </div>
+                <script>
+                    // Pie Chart Data
+                    const ctxB = document.getElementById('chartB');
+                    new Chart(ctxB, {
+                        type: 'pie',
+                        data: {
+                            labels: ['br', 'euro', 'gold', 'ind', 'jp', 'kor', 'kor10y', 'kor3y', 'tw', 'uk', 'us', 'us10y', 'us3y'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [
+                                    ${portfolio.br},
+                                    ${portfolio.euro},
+                                    ${portfolio.gold},
+                                    ${portfolio.ind},
+                                    ${portfolio.jp},
+                                    ${portfolio.kor},
+                                    ${portfolio.kor10y},
+                                    ${portfolio.kor3y},
+                                    ${portfolio.tw},
+                                    ${portfolio.uk},
+                                    ${portfolio.us},
+                                    ${portfolio.us10y},
+                                    ${portfolio.us3y}
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            },
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Pie Chart B Title' // Second Pie Chart Title
+                                }
+                            }
+                        }
+                    });
+                </script>
             </div>
             <div class="col-md-6">
                 <h3>상품비교해보기:</h3>
@@ -217,9 +216,9 @@
 </div>
 <!-- Main (div id=main) 끝 -->
 
-    <!-- ======= Footer ======= -->
-    	<%@include file = "/WEB-INF/view/include/footer.jsp" %>
-	<!-- End Footer -->
+<!-- ======= Footer ======= -->
+<%@include file = "/WEB-INF/view/include/footer.jsp" %>
+<!-- End Footer -->
 </body>
 </html>
 
