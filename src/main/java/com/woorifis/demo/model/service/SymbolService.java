@@ -1,16 +1,36 @@
 package com.woorifis.demo.model.service;
 
 
+import com.woorifis.demo.model.entity.Brazil;
 import com.woorifis.demo.model.entity.Euro;
+
 import com.woorifis.demo.model.entity.Ftse;
+import com.woorifis.demo.model.entity.Gold;
+import com.woorifis.demo.model.entity.India;
+import com.woorifis.demo.model.entity.Kor10y;
+import com.woorifis.demo.model.entity.Kor3y;
+import com.woorifis.demo.model.entity.Kospi;
 import com.woorifis.demo.model.entity.Nikkei;
 import com.woorifis.demo.model.entity.Symbol;
+import com.woorifis.demo.model.entity.Taiwan;
+import com.woorifis.demo.model.entity.Us10y;
+import com.woorifis.demo.model.entity.Us3y;
+import com.woorifis.demo.model.repository.BrazilRepository;
 import com.woorifis.demo.model.repository.EuroRepository;
 import com.woorifis.demo.model.repository.FtseRepository;
+import com.woorifis.demo.model.repository.GoldRepository;
+import com.woorifis.demo.model.repository.IndiaRepository;
+import com.woorifis.demo.model.repository.Kor10yRepository;
+import com.woorifis.demo.model.repository.Kor3yRepository;
+import com.woorifis.demo.model.repository.KospiRepository;
 import com.woorifis.demo.model.repository.NikkeiRepository;
 import com.woorifis.demo.model.repository.SymbolDetailRepository;
 import com.woorifis.demo.model.repository.SymbolKeywordRepository;
 import com.woorifis.demo.model.repository.SymbolRepository;
+import com.woorifis.demo.model.repository.TaiwanRepository;
+import com.woorifis.demo.model.repository.Us10yRepository;
+import com.woorifis.demo.model.repository.Us3yRepository;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -32,6 +52,15 @@ public class SymbolService {
     private final FtseRepository ftseRepository;
     private final NikkeiRepository nikkeiRepository;
     private final EuroRepository euroRepository;
+    private final KospiRepository kospiRepository;
+    private final IndiaRepository indiaRepository;
+    private final TaiwanRepository taiwanRepository;
+    private final BrazilRepository brazilRepository;
+    private final Kor3yRepository kor3yRepository;
+    private final Kor10yRepository kor10yRepository;
+    private final Us3yRepository us3yRepository;
+    private final Us10yRepository us10yRepository;
+    private final GoldRepository goldRepository;
 
     
     
@@ -99,9 +128,44 @@ public class SymbolService {
         return nikkeiRepository.findAll();
     }
 //
-
     
     public List<Euro> getAllEuroData() {
         return euroRepository.findAll();
     }
+    
+    public List<Kospi> getAllKospiData() {
+        return kospiRepository.findAll();
+    }
+    
+    public List<India> getAllIndiaData() {
+        return indiaRepository.findAll();
+    }
+    public List<Taiwan> getAllTaiwanData() {
+        return taiwanRepository.findAll();
+    }
+    
+    public List<Brazil> getAllBrazilData() {
+        return brazilRepository.findAll();
+    }
+    
+    public List<Kor3y> getAllKor3yData() {
+        return kor3yRepository.findAll();
+    }
+    
+    public List<Kor10y> getAllKor10yData() {
+        return kor10yRepository.findAll();
+    }
+    
+    public List<Us3y> getAllUs3yData() {
+        return us3yRepository.findAll();
+    }
+    
+    public List<Us10y> getAllUs10yData() {
+        return us10yRepository.findAll();
+    }
+    
+    public List<Gold> getAllGoldData() {
+        return goldRepository.findAll();
+    }
+    
 }

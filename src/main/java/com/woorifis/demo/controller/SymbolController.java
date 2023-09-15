@@ -1,13 +1,22 @@
 
 package com.woorifis.demo.controller;
 
+import com.woorifis.demo.model.entity.Brazil;
 import com.woorifis.demo.model.entity.Euro;
 import com.woorifis.demo.model.entity.Ftse;
+import com.woorifis.demo.model.entity.Gold;
+import com.woorifis.demo.model.entity.India;
+import com.woorifis.demo.model.entity.Kor10y;
+import com.woorifis.demo.model.entity.Kor3y;
+import com.woorifis.demo.model.entity.Kospi;
 import com.woorifis.demo.model.entity.Nikkei;
 import com.woorifis.demo.model.entity.Symbol;
 
 import com.woorifis.demo.model.entity.SymbolDetail;
 import com.woorifis.demo.model.entity.SymbolKeyword;
+import com.woorifis.demo.model.entity.Taiwan;
+import com.woorifis.demo.model.entity.Us10y;
+import com.woorifis.demo.model.entity.Us3y;
 import com.woorifis.demo.model.service.SymbolDetailService;
 import com.woorifis.demo.model.service.SymbolKeywordService;
 import com.woorifis.demo.model.service.SymbolService;
@@ -65,6 +74,16 @@ public class SymbolController {
                 case 101: itemType = Ftse.class; break;
                 case 102: itemType = Nikkei.class; break;
                 case 103: itemType = Euro.class; break;
+                case 104: itemType = Kospi.class; break;
+                case 105: itemType = India.class; break;
+                case 106: itemType = Taiwan.class; break;
+                case 107: itemType = Brazil.class; break;
+                case 108: itemType = Kor3y.class; break;
+                case 109: itemType = Kor10y.class; break;
+                case 110: itemType = Us3y.class; break;
+                case 111: itemType = Us10y.class; break;
+                case 112: itemType = Gold.class; break;
+
                 // 다른 아이템에 대한 case 추가
                 default: throw new IllegalArgumentException("Invalid ID");
             }
