@@ -44,7 +44,7 @@ public class MainController {
         return "/user/requestlogin";
     }
     @GetMapping("/portfolio/savetype")
-    public String saveTypeFromSurvey(@RequestParam("type")String type, @RequestParam("totalScore")String score, HttpSession session, Model model){
+    public String saveTypeFromSurvey(@RequestParam("type")String type, @RequestParam("totalScore")int score, HttpSession session, Model model){
         if(type.equals("stable")){
             type ="안정형";
         }else if(type.equals("adventurous")){
@@ -73,7 +73,7 @@ public class MainController {
 //            Portfolio result = portfolioRepository.findByTypeAndDate(today, type_);
 //            model.addAttribute("result", result);
 //            model.addAttribute("type", type_);
-            return "portfolio/result";
+            return "redirect: /portfolio/result";
 //            showResultPortfolio(session, model);
         }
         //로그인 안되어있으면 session에 저장해요
