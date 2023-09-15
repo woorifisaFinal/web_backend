@@ -339,7 +339,7 @@
        <!-- Website Traffic -->
        <div class="card">
       <div class="card-body pb-0">
-        <h5 class="card-title">3종목 수익률 <span>| </span></h5>
+        <h5 class="card-title">${firstPortfolio.type} <span>| </span></h5>
 
         <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 
@@ -373,16 +373,17 @@
                   show: false
                 },
                 data: [{
-                    value: 1048,
+                    value: ${firstPortfolio.br}+${firstPortfolio.euro}+${firstPortfolio.ind}+
+                    ${firstPortfolio.jp}+${firstPortfolio.kor}+${firstPortfolio.uk}+${firstPortfolio.tw}+${firstPortfolio.us},
                     name: '주식'
                   },
 
                   {
-                    value: 484,
+                    value: ${firstPortfolio.kor10y}+${firstPortfolio.kor3y}+${firstPortfolio.us10y}+${firstPortfolio.us3y},
                     name: '채권'
                   },
                   {
-                    value: 300,
+                    value: ${firstPortfolio.gold},
                     name: '안전자산'
                   }
                 ]
@@ -403,13 +404,14 @@
         <script>
           document.addEventListener("DOMContentLoaded", () => {
             // 원래 데이터
-            const originalData = [50,40,30,80,60,70,90,55,44,66,77,55,33,44];
+            const originalData = [${firstPortfolio.kor},${firstPortfolio.us}, ${firstPortfolio.euro},  ${firstPortfolio.uk}, ${firstPortfolio.jp},
+            ${firstPortfolio.kor3y}, ${firstPortfolio.kor10y}, ${firstPortfolio.us3y}, ${firstPortfolio.us10y},${firstPortfolio.gold}, ${firstPortfolio.br}, ${firstPortfolio.tw}, ${firstPortfolio.ind}];
 
             // 데이터의 합계 계산
             const total = originalData.reduce((acc, value) => acc + value, 0);
 
             // 데이터가 전체 비중의 10% 미만인 경우 기타로 묶음
-            const threshold = total * 0.08;
+            const threshold = total * 0.03;
             const data = originalData.map((value, index) => (value < threshold) ? 0 : value);
 
             // 기타 항목 추가

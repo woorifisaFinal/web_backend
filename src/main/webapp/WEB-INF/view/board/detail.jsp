@@ -98,14 +98,26 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div id="main" class="container">
-  <h1>게시글 상세</h1>
+<div class="container" style="border: 2px solid rgb(240, 240,240);">
+
+	<div class="d-flex justify-content-between" style="border-bottom: 2px solid blue; margin-top: 10px">
+      <div>
+        <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
+        &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >${board.title }</h2>
+      </div>
+      <div>
+        <p class="d-flex align-items-center" style="color: rgb(140,140,140)">
+          게시글 번호 : ${board.no }
+        </p]>
+      </div>
+      <!-- End Search Bar -->
+    </div>
   <form action="#" method="post">
-    <input type="text" value="${board.no }" readonly="readonly" name="no">
+    
+    </br>
     <br>
-    <input type="text" value="${board.title }" name="title">
-    <br>
-    <textarea rows="10" cols="100" name="content"> ${board.content }</textarea>
+    </br>
+    <textarea rows="10" cols="113" name="content"> ${board.content }</textarea>
     <br>
 
   </form>

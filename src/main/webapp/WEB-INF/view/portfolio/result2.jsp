@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%> <%@page import="java.util.*"%>
@@ -90,74 +89,87 @@
 
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
+
+    <script>
+        // Pie chart data example
+        var pieData = {
+            labels: ["주식", "채권", "안전자산"],
+            datasets: [{
+                data: [30, 40, 30], // 데이터 값 설정
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"], // 각 섹션의 색상
+                hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+            }]
+        };
+
+        // create pie chart
+        var ctx = document.getElementById("pie-chart").getContext("2d");
+        var pieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: pieData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
 </head>
 
 <body>
-<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
+   <!-- ======= Header ======= -->
+  	<%@include file = "/WEB-INF/view/include/header_sidebar.jsp" %>
+   <!-- End Sidebar-->
+
 <!-- Main -->
 <div class="container">
-    <div class="col-30">
+
+    <div class="col-10">
         <div class="d-flex justify-content-between" style="border-bottom: 2px solid blue;">
             <div>
                 <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
-                &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >공지사항</h2>
+                &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >투자성향 결과</h2>
             </div>
-            <div id="board-search" class="search-bar">
-                <form class="search-form d-flex align-items-center" method="get" action="/board/search">
-                    <input type="text" name="keyword" placeholder="제목을 검색하세요" title="Enter search keyword" class="form-control form-control-sm">
-                    <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-                </form>
-            </div>
-            <!-- End Search Bar -->
         </div>
     </div>
-<!--     <h3>"${keyword}"에 대한 검색결과입니다.</h3> -->
-    <c:if test="${not empty searchResults}">
-		<div id="body" class="col-30" style="background-color: white">
-	
-		    <table class="table">
-		      <thead>
-		        <tr>
-		          <th scope="col">#</th>
-		          <th scope="col">Title</th>
-		        </tr>
-		      </thead>
-		      <tbody>
-		        <c:forEach items="${searchResults}" var ="board">
-		         <tr>
-		            <td><a href="/board/detail?no=${board.no }">${board.no}</a></td>
-		            <td><a href="/board/detail?no=${board.no }">${board.title }</a></td>
-		          </tr>
-		        </c:forEach>
-		
-		        </tr>
-		      </tbody>
-		    </table>
-		  <div style="display: flex; justify-content: space-between; align-items: center;">
-		    <form action="/board/list" method="get">
-		      <input type="text" name="page" value="${pageInfo.number+1 }" > / ${pageInfo.totalPages }
-		      <input type="submit" value="이동">
-		    </form>	  
-    </c:if>
-
-    <c:if test="${empty searchResults}">
-        <p>검색결과가 없습니다.</p>
-    </c:if>
-
-    <!-- Link to go back to the list page -->
-    <div style="text-align: right;">
-     <a href="/board/list" class="btn btn-outline-primary">전체목록으로</a>
-	</div>
-  </div>	
-</div>	
-
-
+    <div id="result-container" class="col-10" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>투자유형:</h3>
+                <div id="result"></div>
+            </div>
+            <div class="col-md-6">
+                <h3>유형점수:</h3>
+                <p id="score-p"></p>
+                <script src="result.js"></script>
+                <div id="score"></div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>파이차트:</h3>
+                <div class="chart-container">
+                    <canvas id="pie-chart" width="400" height="400"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>상품비교해보기:</h3>
+                <a href="/portfolio/comparePortfolios" class="btn btn-primary">비교하기</a>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Main (div id=main) 끝 -->
 
-<!-- ======= Footer ======= -->
-<%@include file = "/WEB-INF/view/include/footer.jsp" %>
-<!-- End Footer -->
+    <!-- ======= Footer ======= -->
+    	<%@include file = "/WEB-INF/view/include/footer.jsp" %>
+	<!-- End Footer -->
 </body>
 </html>
 
+<!--
+
+
+
+
+
+
+-->

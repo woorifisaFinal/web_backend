@@ -20,6 +20,7 @@ import lombok.Setter;
 public class Symbol {
     @Id
     private String date;
+
     @Column
     private double open;       // 미국 (US)
     @Column

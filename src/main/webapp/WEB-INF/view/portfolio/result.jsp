@@ -126,7 +126,6 @@
                 <c:if test="${User.type == '공격형'}">
                     <p style="font-weight: normal; font-size: 15px">원금 보전보다는 위험을 감수하더라도 높은 투자수익을 추구하는 투자자를 위한 포트폴리오입니다.</p>
                 </c:if>
-
                 <div id="result"></div>
                 <h3>유형점수:</h3>
                 <p id="score-p"></p>
