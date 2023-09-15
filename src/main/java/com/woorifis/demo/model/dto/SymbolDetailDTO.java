@@ -22,7 +22,7 @@ public class SymbolDetailDTO {
     private Long Id;
     private String name;
     private String detail;
-
+    private Float marketcap;
 
     
     public static SymbolDetailDTO toSymbolDetailDTO(SymbolDetail symbolDetail){
@@ -30,6 +30,7 @@ public class SymbolDetailDTO {
         symbolDetailDTO.setId(symbolDetail.getId());
         symbolDetailDTO.setName(symbolDetail.getName());
         symbolDetailDTO.setDetail(symbolDetail.getDetail());
+        symbolDetailDTO.setMarketcap(symbolDetail.getMarketcap());
         return symbolDetailDTO;
     }
 }

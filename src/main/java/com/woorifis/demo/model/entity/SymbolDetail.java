@@ -19,7 +19,8 @@ public class SymbolDetail {
     private String name;
     @Column(nullable=false)
     private String detail;
-
+    @Column(nullable=false)
+    private Float marketcap;
 
 //    연관관계의 주인이 symbolDetail에 있음 -> mappedBy='symdetail'
     @OneToOne(mappedBy = "symid")
@@ -37,7 +38,7 @@ public class SymbolDetail {
         symbolDetail.setId(symbolDetailDTO.getId());
         symbolDetail.setName(symbolDetailDTO.getName());
         symbolDetail.setDetail(symbolDetailDTO.getDetail());
-
+        symbolDetail.setMarketcap(symbolDetailDTO.getMarketcap());
         return symbolDetail;
     }
 }
