@@ -157,6 +157,7 @@ public class PortfolioController {
         // 모델에 포트폴리오를 추가하여 뷰에서 렌더링합니다.
         model.addAttribute("portfolio", portfolio);
         model.addAttribute("User", User);
+//		model.addAttribute("score", score);
         
         return "portfolio/result";
     }
