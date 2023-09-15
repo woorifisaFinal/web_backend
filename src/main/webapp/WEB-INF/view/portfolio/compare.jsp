@@ -173,8 +173,8 @@
 
     <div class="container" id="productcompare-box">
         <div class="row">
-            <div class="col-md-3">
-                <div class="product-box" id="A/안정형">
+            <div class=" col-md-4">
+                <div class="product-box container" id="A/안정형">
                     <div class="top-section">
                         <p>블랙 리터만 / 안정형</p>
                     </div>
@@ -184,8 +184,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="product-box" id="A/공격형">
+            <div class=" col-md-4">
+                <div class="product-box container" id="A/공격형">
                     <div class="top-section">
                         <p>블랙 리터만 / 위험형</p>
                     </div>
@@ -195,8 +195,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="product-box" id="B/안정형">
+            <div class="col-md-4">
+                <div class="product-box container" id="B/안정형">
                     <div class="top-section">
                         <p>블랙 리터만 알파 / 안정형</p>
                     </div>
@@ -208,8 +208,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
-                <div class="product-box" id="B/공격형">
+            <div class="col-md-4">
+                <div class="card-body   product-box" id="B/공격형">
                     <div class="top-section">
                         <p>블랙 리터만 알파 / 위험형</p>
                     </div>
@@ -219,8 +219,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="product-box" id="C/안정형">
+            <div class="col-md-4">
+                <div class="card-body product-box" id="C/안정형">
                     <div class="top-section">
                         <p>금융 '나누리' 상품 / 안정형</p>
                     </div>
@@ -230,8 +230,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="product-box" id="C/공격형">
+            <div class=" col-md-4">
+                <div class=" card-body product-box" id="C/공격형">
                     <div class="top-section">
                         <p>금융 '나누리' 상품 / 위험형</p>
                     </div>

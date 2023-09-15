@@ -44,7 +44,7 @@ public class MainController {
         return "/user/requestlogin";
     }
     @GetMapping("/portfolio/savetype")
-    public String saveTypeFromSurvey(@RequestParam("type")String type, @RequestParam("totalScore")String score, HttpSession session, Model model){
+    public String saveTypeFromSurvey(@RequestParam("type")String type, @RequestParam("totalScore")int score, HttpSession session, Model model){
         if(type.equals("stable")){
             type ="안정형";
         }else if(type.equals("adventurous")){
@@ -69,15 +69,17 @@ public class MainController {
             Portfolio portfolio = portfolioService.getComparisonResult(type_, today);
             model.addAttribute("portfolio", portfolio);
             model.addAttribute("User", userdto);
+            session.setAttribute("score", score);
 //            Portfolio result = portfolioRepository.findByTypeAndDate(today, type_);
 //            model.addAttribute("result", result);
 //            model.addAttribute("type", type_);
-            return "portfolio/result";
+            return "redirect: /portfolio/result";
 //            showResultPortfolio(session, model);
         }
         //로그인 안되어있으면 session에 저장해요
         else{
             session.setAttribute("type", type);
+            session.setAttribute("score", score);
 //            showResultPortfolio(session, model);
             return "user/login";
         }
@@ -102,19 +104,18 @@ public class MainController {
 //	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Define your desired date format
 //	    String date = currentDate.format(formatter);
         String date = "2022-08-01";
-
-
         System.out.println("type,date : "+ type + date);
 
         // 사용자 유형에 기반하여 포트폴리오를 가져옵니다.
         Portfolio portfolio = portfolioService.getComparisonResult(type, date);
-
         System.out.println("result : "+ portfolio);
 
+        int score = (int) session.getAttribute("score");
+        session.removeAttribute("score");
         // 모델에 포트폴리오를 추가하여 뷰에서 렌더링합니다.
         model.addAttribute("portfolio", portfolio);
         model.addAttribute("User", User);
-
+        model.addAttribute("score", score);
         return "portfolio/result";
     }
 

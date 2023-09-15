@@ -112,11 +112,10 @@
     <div id="result-container" class="col-15" style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <div class="row">
             <div class="col-md-6" style="border-bottom: 3px solid rgb(240, 240,240);">
-                <p style="display: inline-block;font-size: 30px">고객님은</p>
-                <p class="hanna-font">${User.type}</p>
-                </br>
-                </br>
 
+                <p style="display: inline-block;font-size: 30px">${User.userName}님의 투자성향은 </p>
+                <p class="hanna-font">${User.type}입니다.</p>
+                </br>
                 <!-- 안정형 일때 -->
                 <c:if test="${User.type == '안정형'}">
                     <p style="font-weight: normal; font-size: 15px">원금 손실 위험을 최소화하면서 이자, 배당소득 수준을 목표로 하는 포트폴리오입니다. </p>
@@ -126,11 +125,11 @@
                 <c:if test="${User.type == '공격형'}">
                     <p style="font-weight: normal; font-size: 15px">원금 보전보다는 위험을 감수하더라도 높은 투자수익을 추구하는 투자자를 위한 포트폴리오입니다.</p>
                 </c:if>
-                <div id="result"></div>
-                <h3>유형점수:</h3>
-                <p id="score-p"></p>
-                <script src="result.js"></script>
-                <div id="score"></div>
+<%--                <div id="result"></div>--%>
+                <h3>유형점수 : ${score}</h3>
+<%--                <p id="score-p">${score}</p>--%>
+<%--                <script src="${pageContext.request.contextPath}/js/result.js"></script>--%>
+<%--                <div id="score"></div>--%>
             </div>
             <div class="col-md-6" style="border-bottom: 3px solid rgb(240, 240,240);">
 
@@ -203,6 +202,12 @@
                 </script>
             </div>
             <div class="col-md-6">
+                <h3>표로 보여주기</h3>
+
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
                 <h3>상품비교해보기:</h3>
                 <a href="/portfolio/compare" class="btn btn-primary">비교하기</a>
             </div>

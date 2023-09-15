@@ -1344,8 +1344,9 @@ h6 {
 }
 /* 박스 레이아웃 */
 .product-box {
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
   background-color: white;
   border: 2px solid blueviolet;
   margin-bottom: 10px;
