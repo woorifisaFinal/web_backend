@@ -187,7 +187,7 @@
       </div>
       <div class="modal-body">
                                <!-- ECharts Pie Chart 1 -->
-        <div id="echartsPieChart12" style="min-height: 400px;" class="echart"></div>
+        <div id="echartsPieChart12" style="min-height: 800px;" class="echart"></div>
         <script>
         $('#exampleModal2').on('shown.bs.modal', function () {
                 const chartData = [
