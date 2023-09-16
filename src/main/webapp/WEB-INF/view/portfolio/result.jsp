@@ -76,14 +76,15 @@
             justify-content: flex-end;
             margin-top: -40px; /* 버튼을 위로 올리는 여백 조정 */
         }
-        @charset "UTF-8";
+      @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   line-height: 1.42em;
   color:#A7A1AE;
-  background-color:#1F2739;
+  background-color:white;
 }
 
 h1 {
@@ -91,7 +92,7 @@ h1 {
   font-weight: 300;
   line-height:1em;
   text-align: center;
-  color: #4DC3FA;
+  color: black;
 }
 
 h2 {
@@ -111,22 +112,22 @@ h2 a {
   text-decoration: none;
 }
 
-.blue { color: #185875; }
+.blue { color: #0879d4; }
 .yellow { color: #FFF842; }
 
 .container th h1 {
     font-weight: bold;
     font-size: 1em;
   text-align: left;
-  color: #185875;
+  color: black;
 }
 
 .container td {
     font-weight: normal;
     font-size: 1em;
-  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-     -moz-box-shadow: 0 2px 2px -2px #0E1119;
-          box-shadow: 0 2px 2px -2px #0E1119;
+  -webkit-box-shadow: 0 2px 2px -2px white;
+     -moz-box-shadow: 0 2px 2px -2px white;
+          box-shadow: 0 2px 2px -2px white;
 }
 
 .container {
@@ -146,7 +147,7 @@ h2 a {
 
 /* Background-color of the odd rows */
 .container tr:nth-child(odd) {
-    background-color: #solid blue;
+    background-color: white;
 }
 
 /* Background-color of the even rows */
@@ -155,20 +156,20 @@ h2 a {
 }
 
 .container th {
-    background-color: #1F2739;
+    background-color:white;
 }
 
-.container td:first-child { color: #FB667A; }
+.container td{ color: black; }
 
 .container tr:hover {
-   background-color: #464A52;
--webkit-box-shadow: 0 6px 6px -6px #0E1119;
-     -moz-box-shadow: 0 6px 6px -6px #0E1119;
-          box-shadow: 0 6px 6px -6px #0E1119;
+   background-color: white;
+-webkit-box-shadow: 0 6px 6px -6px white;
+     -moz-box-shadow: 0 6px 6px -6px white;
+          box-shadow: 0 6px 6px -6px white;
 }
 
 .container td:hover {
-  background-color: #FFF842;
+  background-color: #0879d4;
   color: #403E10;
   font-weight: bold;
   
@@ -181,9 +182,54 @@ h2 a {
   transition-timing-function: line;
 }
 
-@media (max-width: 800px) {
-.container td:nth-child(4),
-.container th:nth-child(4) { display: none; }
+
+
+
+.btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.buttons {
+    margin: 10%;
+    text-align: center;
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
 }
     </style>
     <!-- Vendor JS Files -->
@@ -311,7 +357,7 @@ h2 a {
                 </script>
             </div>
             <div class="col-md-6">
-<h1><span class="blue">&lt;</span>표<span class="blue">&gt;</span>
+<h3>표:</h3>
 
 <table class="container">
   <thead>
@@ -358,40 +404,26 @@ h2 a {
       <td>${portfolio.us}</td>
       <td>us3y</td>
       <td>${portfolio.us3y}</td>
-      <td>us10y</td>
-      <td>${portfolio.us10y}</td>
     </tr>
+    <tr>
+         <td>us10y</td>
+      <td>${portfolio.us10y}</td>
+      </tr>
   </tbody>
 </table>
             </div>
-        </div>
-        
-                  <div class="col-xxl-4 col-md-6">
-          
-            <div class="card info-card revenue-card">
-              <div class="card-body">
-                <h5 class="card-title" href="/portfolio/compare" class="btn btn-primary" >상품비교하기</h5>
+        </div>   
 
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-currency-dollar"></i>
-                  </div>
-                  <div class="ps-3">
-                    <h6>$ ${nasdaq }</h6>
-                    <span class="text-success small pt-1 fw-bold">${nasdaqVariance }%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div><!-- End Revenue Card -->
-        <div class="row mt-4">
-            <div class="col-md-12 text-center">
-                <h3>상품비교해보기:</h3>
-                <a href="/portfolio/compare" class="btn btn-primary">비교하기</a>
-            </div>
-        </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12 text-center">
+                            <br />
+                            <div class="d-flex align-items-center justify-content-center">
+ 
+                                <h1 style="margin-right: 30px;"></h1> <!-- 여기에 margin-right 추가 -->
+                                <button class="btn-hover color-9" onclick="window.location.href='/portfolio/compare'">비교하기</button>
+                            </div>
+                        </div>
+                    </div>
     </div>
     </br>
     </br>

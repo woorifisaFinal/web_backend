@@ -100,6 +100,7 @@
     text-align: center;
   }
         }
+        
     </style>
     <!-- Vendor JS Files -->
     <script src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
@@ -129,10 +130,10 @@
     </div>
     <table class="table table-bordered border-2 border-primary">
         <tr >
-            <th class="text-center">종목ID</th>
-            <th class="text-center">종목이름</th>
+            <th class="text-center">ID</th>
+            <th class="text-center">이름</th>
             <th class="text-center">상세설명</th>
-            <th class="text-center">시가총액</th>
+            <th class="text-center">총액</th>
         </tr>
         <tr>
             <td>${symbolDetail.id}</td>
@@ -264,55 +265,6 @@
                 </div>
        
             </div>
-        </div>
-        <div class="card-body d-flex">
-            <div style="flex: 4;">
-          <!-- Primary Color Bordered Table -->
-                 <table class="table table-bordered border-2 border-primary">
-                    <tr>
-                        <th>Date</th>
-                        <th>Open</th>
-                        <th>Close</th>
-                        <th>High</th>
-                        <th>Low</th>
-                    </tr>
-                    <c:forEach items="${symbols}" var="symbol">
-                        <tr>
-                            <td>${symbol.date}</td>
-                            <c:choose>
-                                <c:when test="${not empty symbol.open}">
-                                    <td>${symbol.open}</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
-                                </c:otherwise>
-                            </c:choose>
-                            <td>${symbol.close}</td>
-                            <c:choose>
-                                <c:when test="${not empty symbol.high}">
-                                    <td>${symbol.high}</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
-                                </c:otherwise>
-                            </c:choose>
-                            <c:choose>
-                                <c:when test="${not empty symbol.low}">
-                                    <td>${symbol.low}</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
-                                </c:otherwise>
-                            </c:choose>
-                            <!-- 다른 컬럼 추가 -->
-                        </tr>
-                    </c:forEach>
-                </table>
-
-          <!-- End Primary Color Bordered Table -->
-            </div>
- 
-         
         </div>
           
 

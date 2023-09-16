@@ -101,6 +101,7 @@
 <!-- 메인자리임 -->
 <p></p>
 <div class="card-body" style="padding: 0px">
+
         <div style="border-bottom: 2px solid blue;">
           <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
           <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 비교 </h1>
@@ -216,7 +217,7 @@
       </div>
       <div class="modal-body">
                                <!-- ECharts Pie Chart 1 -->
-        <div id="echartsPieChart12" style="min-height: 400px;" class="echart"></div>
+        <div id="echartsPieChart12" style="min-height: 800px;" class="echart"></div>
         <script>
         $('#exampleModal2').on('shown.bs.modal', function () {
                 const chartData = [

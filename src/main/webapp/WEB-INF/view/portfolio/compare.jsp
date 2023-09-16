@@ -76,6 +76,52 @@
             justify-content: flex-end;
             margin-top: -40px; /* 버튼을 위로 올리는 여백 조정 */
         }
+        .btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.buttons {
+    margin: 10%;
+    text-align: center;
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
     </style>
     <!-- Vendor JS Files -->
     <script src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
@@ -249,7 +295,9 @@
 
     </div>
     <div class="d-flex justify-content-center col-10 mx-auto">
-        <button id="compareBtn" class="btn btn-lg btn-primary" style="font-weight: bold;">상품 비교</button>
+        <button id="compareBtn" class="btn-hover color-9">비교하기</button>
+
+        
     </div>
 
     <!-- 제품 비교용 모달 -->
