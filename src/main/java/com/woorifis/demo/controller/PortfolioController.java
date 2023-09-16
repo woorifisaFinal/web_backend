@@ -1,10 +1,12 @@
 package com.woorifis.demo.controller;
 
+import java.lang.reflect.Field;
 import java.security.KeyStore.Entry;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import java.util.List;
@@ -114,7 +116,6 @@ public class PortfolioController {
 		String today = "2022-08-01";
 		List<Portfolio> list = portfolioService.getPortfoliosByDate(today);
 		model.addAttribute("list", list);
-		System.out.println("대시보드 list : "+ list);
 
 		Portfolio firstPortfolio = list.get(0);
 		Portfolio secondPortfolio = list.get(1);
@@ -129,7 +130,6 @@ public class PortfolioController {
 		model.addAttribute("fifthPortfolio", fifthPortfolio);
 		model.addAttribute("sixthPortfolio", sixthPortfolio);
 		
-		System.out.println("두번째 list : "+ secondPortfolio);
 		
 ////		Float nasdaq = secondPortfolio.getUs();
 //		Float ftse =secondPortfolio.getUk();
@@ -162,13 +162,14 @@ public class PortfolioController {
 		Float dangerTop2Value = nanuridangerous[1].getValue();
 		String dangerTop3Name = nanuridangerous[2].getKey();
 		Float  dangerTop3Value = nanuridangerous[2].getValue();
-		
+//		안정형
 		model.addAttribute("stableTop1Name", stableTop1Name);	
-		model.addAttribute("stableTop1Value", stableTop1Value);	
+		model.addAttribute("stableTop1Value", stableTop1Value);
 		model.addAttribute("stableTop2Name", stableTop2Name);	
 		model.addAttribute("stableTop2Value", stableTop2Value);	
 		model.addAttribute("stableTop3Name", stableTop3Name);	
 		model.addAttribute("stableTop3Value", stableTop3Value);	
+//		공격형
 		model.addAttribute("dangerTop1Name", dangerTop1Name);	
 		model.addAttribute("dangerTop1Value", dangerTop1Value);	
 		model.addAttribute("dangerTop2Name", dangerTop2Name);	
@@ -177,20 +178,86 @@ public class PortfolioController {
 		model.addAttribute("dangerTop3Value", dangerTop3Value);	
 		
 //		System.out.println("fifthPortfolio :" + fifthPortfolio.getType());
-		System.out.println("코리아 10년 27이어야해 :" + stableTop1Name + stableTop1Value);
+//		System.out.println("코리아 10년 27이어야해 :" + stableTop1Name + stableTop1Value);
 //		System.out.println("미국 10년 18이어야해 :" + stableTop2Name + stableTop2Value);
 //		System.out.println("나스닥 16이어야해 :" + stableTop3Name + stableTop3Value);
 		
+//		안정형  top1,2,3
+		Class<?> stable1 = portfolioService.getTopClass(stableTop1Name);
+		Class<?> stable2 = portfolioService.getTopClass(stableTop2Name);
+		Class<?> stable3 = portfolioService.getTopClass(stableTop3Name);
+		List<?> stableList1 = portfolioService.getsymboldata(stable1);
+		List<?> stableList2 = portfolioService.getsymboldata(stable2);
+		List<?> stableList3 = portfolioService.getsymboldata(stable3);
+		List<Object> stableclose1 = portfolioService.getclosedata(stableList1);
+		List<Object> stabledate1 = portfolioService.getdatedata(stableList1);
+		List<Object> stableclose2 = portfolioService.getclosedata(stableList2);
+		List<Object> stabledate2 = portfolioService.getdatedata(stableList2);
+		List<Object> stableclose3 = portfolioService.getclosedata(stableList3);
+		List<Object> stabledate3 = portfolioService.getdatedata(stableList3);
 		
+		model.addAttribute("stableclose1", stableclose1);
+		model.addAttribute("stabledate1", stabledate1);
+		model.addAttribute("stableclose2", stableclose2);
+		model.addAttribute("stabledate2", stabledate2);
+		model.addAttribute("stableclose3", stableclose3);
+		model.addAttribute("stabledate3", stabledate3);
 		
-//		Class<Kor10y> itemType = Symbol.class;
-//		symbolService.getDataByItemId(id, itemType)
-		Class<?> itemType = portfolioService.getTopClose(stableTop1Name);
-		List<?> item = portfolioService.getClose(itemType);
- 		System.out.println("이건 뭐가나오지? :" + item);
-		model.addAttribute("item", item);
+//		공격형 top1,2,3
 		
+		Class<?> danger1 = portfolioService.getTopClass(dangerTop1Name);
+		Class<?> danger2 = portfolioService.getTopClass(dangerTop2Name);
+		Class<?> danger3 = portfolioService.getTopClass(dangerTop3Name);
+		List<?> dangerList1 = portfolioService.getsymboldata(danger1);
+		List<?> dangerList2 = portfolioService.getsymboldata(danger2);
+		List<?> dangerList3 = portfolioService.getsymboldata(danger3);
+		List<Object> dangerclose1 = portfolioService.getclosedata(dangerList1);
+		List<Object> dangerdate1 = portfolioService.getdatedata(dangerList1);
+		List<Object> dangerclose2 = portfolioService.getclosedata(dangerList2);
+		List<Object> dangerdate2 = portfolioService.getdatedata(dangerList2);
+		List<Object> dangerclose3 = portfolioService.getclosedata(dangerList3);
+		List<Object> dangerdate3 = portfolioService.getdatedata(dangerList3);
 		
+		model.addAttribute("dangerclose1", dangerclose1);
+		model.addAttribute("dangerdate1", dangerdate1);
+		model.addAttribute("dangerclose2", dangerclose2);
+		model.addAttribute("dangerdate2", dangerdate2);
+		model.addAttribute("dangerclose3", dangerclose3);
+		model.addAttribute("dangerdate3", dangerdate3);
+//		안정형 top3 종가
+	    Object stableLastClose1 = stableclose1.get(stableclose1.size() - 1);
+	    Object stableLastClose2 = stableclose2.get(stableclose2.size() - 1);
+	    Object stableLastClose3 = stableclose3.get(stableclose3.size() - 1);
+	    Object stableLastClose1before = stableclose1.get(stableclose1.size() - 2);
+	    Object stableLastClose2before = stableclose2.get(stableclose2.size() - 2);
+	    Object stableLastClose3before = stableclose3.get(stableclose3.size() - 2);
+
+		
+//		공격형 top3 종가
+	    Object dangerLastClose1 = dangerclose1.get(dangerclose1.size() - 1);
+	    Object dangerLastClose2 = dangerclose2.get(dangerclose2.size() - 1);
+	    Object dangerLastClose3 = dangerclose3.get(dangerclose3.size() - 1);
+	    
+	    Object dangerLastClose1before = dangerclose1.get(dangerclose1.size() - 2);
+	    Object dangerLastClose2before = dangerclose2.get(dangerclose2.size() - 2);
+	    Object dangerLastClose3before = dangerclose3.get(dangerclose3.size() - 2);
+	    
+//		증감률 가져오기
+	  
+		model.addAttribute("stableLastClose1", stableLastClose1);
+		model.addAttribute("stableLastClose2", stableLastClose2);
+		model.addAttribute("stableLastClose3", stableLastClose3);
+		model.addAttribute("dangerLastClose1", dangerLastClose1);
+		model.addAttribute("dangerLastClose2", dangerLastClose2);
+		model.addAttribute("dangerLastClose3", dangerLastClose3);
+		
+		model.addAttribute("stableLastClose1before", stableLastClose1before);
+		model.addAttribute("stableLastClose2before", stableLastClose2before);
+		model.addAttribute("stableLastClose3before", stableLastClose3before);
+		model.addAttribute("dangerLastClose1before", dangerLastClose1before);
+		model.addAttribute("dangerLastClose2before", dangerLastClose2before);
+		model.addAttribute("dangerLastClose3before", dangerLastClose3before);
+
 		
 		
 //-----------나스닥 종가-----------------------//

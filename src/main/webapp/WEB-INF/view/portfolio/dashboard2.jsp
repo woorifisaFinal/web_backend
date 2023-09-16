@@ -1113,95 +1113,103 @@
       <!-- Right side columns -->
       <div class="col-lg-4">
 
-	       <!-- Website Traffic -->
-	   <div class="card">
-	    <div class="card-body pb-0">
-	        <h5 class="card-title">나누리 안정형<span>| </span></h5>
-	      
-	        <!-- Doughnut Chart -->
-	        <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
-	        <script>
-	          document.addEventListener("DOMContentLoaded", () => {
-	            // 원래 데이터
-	            const originalData = 
-	            	[${fifthPortfolio.kor},
-	            	${fifthPortfolio.us},
-	            	${fifthPortfolio.euro},
-	            	${fifthPortfolio.uk},
-	            	${fifthPortfolio.jp},
-	            	${fifthPortfolio.kor3y},
-	            	${fifthPortfolio.kor10y},
-	            	${fifthPortfolio.us3y},
-	            	${fifthPortfolio.us10y},
-	            	${fifthPortfolio.gold},
-	            	${fifthPortfolio.br},
-	            	${fifthPortfolio.tw},
-	            	${fifthPortfolio.ind}];
-	      
-	            // 데이터의 합계 계산
-	            const total = originalData.reduce((acc, value) => acc + value, 0);
-	      
-	            // 데이터가 전체 비중의 10% 미만인 경우 기타로 묶음
-	            const threshold = total * 0.04;
-	            const data = originalData.map((value, index) => (value < threshold) ? 0 : value);
-	      
-	            // 기타 항목 추가
-	            const other = total - data.reduce((acc, value) => acc + value, 0);
-	            data.push(other);
-	      
-	            new Chart(document.querySelector('#doughnutChart'), {
-	              type: 'doughnut',
-	              data: {
-	                labels: [
-	                  '코스피',
-	                  '나스닥',
-	                  '유료스탁스',
-	                  '영국',
-	                  '니케이',
-	                  '국채 3년',
-	                  '국채 10년',
-	                  '미국채 3년',
-	                  '미국채 10년',
-	                  '금',
-	                  '브라질',
-	                  '대만',
-	                  '인도',
-	                  
-	
-	                ],
-	                datasets: [{
-	                  label: '기타',
-	                  data: data,
-	                  backgroundColor: [
-	                  'rgb(255, 99, 132)',
-	        'rgb(54, 162, 235)',
-	        'rgb(255, 205, 86)',
-	        'rgb(192, 192, 192)',
-	        'rgb(75, 192, 192)',
-	        'rgb(153, 102, 255)',
-	        'rgb(255, 159, 64)',
-	        'rgb(255, 77, 148)',
-	        'rgb(106, 168, 79)',
-	        'rgb(33, 150, 243)',
-	        'rgb(255, 235, 59)',
-	        'rgb(233, 30, 99)',
-	        'rgb(0, 188, 212)',
-	        'rgb(205, 220, 57)'// 기타 항목의 색상
-	                  ],
-	                  hoverOffset: 4
-	                }]
-	              }
-	            });
-	          });
-	        </script>
-	        <!-- End Doughnut CHart -->
-	        <br />
-	        <br />
-	        <br />
-	        <br />
-			<br />
-	      </div>
-	      </div>
+       <!-- Website Traffic -->
+       <div class="card">
+      <div class="card-body pb-0">
+        <h5 class="card-title">${fifthPortfolio.type} <span>| </span></h5>
+
+        <div id="trafficChart" style="min-height: 570px;" class="echart"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            echarts.init(document.querySelector("#trafficChart")).setOption({
+              tooltip: {
+                trigger: 'item'
+              },
+              legend: {
+                top: '5%',
+                left: 'center'
+              },
+              series: [{
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: '18',
+                    fontWeight: 'bold'
+                  }
+                },
+                labelLine: {
+                  show: false
+                },
+                data: [
+                  {
+                    value: ${fifthPortfolio.us},
+                    name: 'us'
+                  },
+                  {
+                    value: ${fifthPortfolio.uk},
+                    name: 'uk'
+                  },
+                  {
+                    value: ${fifthPortfolio.jp},
+                    name: 'jp'
+                  },
+                  {
+                    value: ${fifthPortfolio.euro},
+                    name: 'euro'
+                  },
+                  {
+                    value: ${fifthPortfolio.kor},
+                    name: 'kor'
+                  },
+                  {
+                    value: ${fifthPortfolio.ind},
+                    name: 'ind'
+                  },
+                  {
+                    value: ${fifthPortfolio.tw},
+                    name: 'tw'
+                  },
+                  {
+                    value: ${fifthPortfolio.br},
+                    name: 'br'
+                  },
+                  {
+                    value: ${fifthPortfolio.kor3y},
+                    name: 'kor3y'
+                  },
+                  {
+                    value: ${fifthPortfolio.kor10y},
+                    name: 'kor10y'
+                  },
+                  {
+                    value: ${fifthPortfolio.us3y},
+                    name: 'us3y'
+                  },
+                  {
+                    value: ${fifthPortfolio.us10y},
+                    name: 'us10y'
+                  },
+                  {
+                    value: ${fifthPortfolio.gold},
+                    name: 'gold'
+                  }
+                ]
+              }]
+            });
+          });
+        </script>
+
+      </div>
+      </div>
     <!-- End Website Traffic -->
       <br />
     </div>
@@ -1517,94 +1525,63 @@
       <div class="col-lg-4">
 
        <!-- Website Traffic -->
-	   <div class="card">
-	    <div class="card-body pb-0">
-	        <h5 class="card-title">나누리 위험형<span>| </span></h5>
-	      
-	        <!-- Doughnut Chart -->
-	        <canvas id="doughnutChart2" style="max-height: 400px;"></canvas>
-	        <script>
-	          document.addEventListener("DOMContentLoaded", () => {
-	            // 원래 데이터
-	            const originalData = 
-	            	[${sixthPortfolio.kor},
-	            	${sixthPortfolio.us},
-	            	${sixthPortfolio.euro},
-	            	${sixthPortfolio.uk},
-	            	${sixthPortfolio.jp},
-	            	${sixthPortfolio.kor3y},
-	            	${sixthPortfolio.kor10y},
-	            	${sixthPortfolio.us3y},
-	            	${sixthPortfolio.us10y},
-	            	${sixthPortfolio.gold},
-	            	${sixthPortfolio.br},
-	            	${sixthPortfolio.tw},
-	            	${sixthPortfolio.ind}];
-	      
-	            // 데이터의 합계 계산
-	            const total = originalData.reduce((acc, value) => acc + value, 0);
-	      
-	            // 데이터가 전체 비중의 10% 미만인 경우 기타로 묶음
-	            const threshold = total * 0.04;
-	            const data = originalData.map((value, index) => (value < threshold) ? 0 : value);
-	      
-	            // 기타 항목 추가
-	            const other = total - data.reduce((acc, value) => acc + value, 0);
-	            data.push(other);
-	      
-	            new Chart(document.querySelector('#doughnutChart2'), {
-	              type: 'doughnut',
-	              data: {
-	                labels: [
-	                  '코스피',
-	                  '나스닥',
-	                  '유료스탁스',
-	                  '영국',
-	                  '니케이',
-	                  '국채 3년',
-	                  '국채 10년',
-	                  '미국채 3년',
-	                  '미국채 10년',
-	                  '금',
-	                  '브라질',
-	                  '대만',
-	                  '인도',
-	                  
-	
-	                ],
-	                datasets: [{
-	                  label: '기타',
-	                  data: data,
-	                  backgroundColor: [
-	                  'rgb(255, 99, 132)',
-	        'rgb(54, 162, 235)',
-	        'rgb(255, 205, 86)',
-	        'rgb(192, 192, 192)',
-	        'rgb(75, 192, 192)',
-	        'rgb(153, 102, 255)',
-	        'rgb(255, 159, 64)',
-	        'rgb(255, 77, 148)',
-	        'rgb(106, 168, 79)',
-	        'rgb(33, 150, 243)',
-	        'rgb(255, 235, 59)',
-	        'rgb(233, 30, 99)',
-	        'rgb(0, 188, 212)',
-	        'rgb(205, 220, 57)'// 기타 항목의 색상
-	                  ],
-	                  hoverOffset: 4
-	                }]
-	              }
-	            });
-	          });
-	        </script>
-	        <!-- End Doughnut CHart -->
-	        <br />
-	        <br />
-	        <br />
-	        <br />
-			<br />
-	      </div>
-	      </div>
+       <div class="card">
+      <div class="card-body pb-0">
+        <h5 class="card-title">${firstPortfolio.type} <span>| </span></h5>
+
+        <div id="trafficChart" style="min-height: 570px;" class="echart"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            echarts.init(document.querySelector("#trafficChart")).setOption({
+              tooltip: {
+                trigger: 'item'
+              },
+              legend: {
+                top: '5%',
+                left: 'center'
+              },
+              series: [{
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: '18',
+                    fontWeight: 'bold'
+                  }
+                },
+                labelLine: {
+                  show: false
+                },
+                data: [{
+                    value: ${firstPortfolio.br}+${firstPortfolio.euro}+${firstPortfolio.ind}+
+                    ${firstPortfolio.jp}+${firstPortfolio.kor}+${firstPortfolio.uk}+${firstPortfolio.tw}+${firstPortfolio.us},
+                    name: '주식'
+                  },
+
+                  {
+                    value: ${firstPortfolio.kor10y}+${firstPortfolio.kor3y}+${firstPortfolio.us10y}+${firstPortfolio.us3y},
+                    name: '채권'
+                  },
+                  {
+                    value: ${firstPortfolio.gold},
+                    name: '안전자산'
+                  }
+                ]
+              }]
+            });
+          });
+        </script>
+
+      </div>
+      </div>
     <!-- End Website Traffic -->
       <br />
     </div>

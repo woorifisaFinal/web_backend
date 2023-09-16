@@ -1,6 +1,8 @@
 package com.woorifis.demo.model.service;
 
 
+import java.lang.reflect.Field;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -77,14 +79,14 @@ public class PortfolioService {
     public Map.Entry<String, Float>[] getTop3(Portfolio portfolio){
         // 주어진 변수들을 맵에 저장합니다.
         Map<String, Float> portfolioMap = new HashMap<>();
-        portfolioMap.put("nasdaq", portfolio.getUs());
-        portfolioMap.put("ftse", portfolio.getUk());
-        portfolioMap.put("nikkei", portfolio.getJp());
+        portfolioMap.put("us", portfolio.getUs());
+        portfolioMap.put("uk", portfolio.getUk());
+        portfolioMap.put("jp", portfolio.getJp());
         portfolioMap.put("euro", portfolio.getEuro());
-        portfolioMap.put("kospi", portfolio.getKor());
-        portfolioMap.put("nifty", portfolio.getInd());
+        portfolioMap.put("kor", portfolio.getKor());
+        portfolioMap.put("ind", portfolio.getInd());
         portfolioMap.put("tw", portfolio.getTw());
-        portfolioMap.put("brazil", portfolio.getBr());
+        portfolioMap.put("br", portfolio.getBr());
         portfolioMap.put("kor3y", portfolio.getKor3y());
         portfolioMap.put("kor10y", portfolio.getKor10y());
         portfolioMap.put("us3y", portfolio.getUs3y());
@@ -111,7 +113,7 @@ public class PortfolioService {
 
     }
     
-    public Class<?> getTopClose(String portfolio){
+    public Class<?> getTopClass(String portfolio){
     	
     	String className = null;
 
@@ -176,7 +178,7 @@ public class PortfolioService {
     	
     }
 
-    public <T> List<T> getClose(Class<?> itemType) {
+    public <T> List<T> getsymboldata(Class<?> itemType) {
         if (Kor10y.class.isAssignableFrom(itemType)) {
             List<Kor10y> kor10yList = kor10yRepository.findAll();
             return (List<T>) kor10yList;
@@ -218,6 +220,51 @@ public class PortfolioService {
             return (List<T>) goldList;
         }
         return null;
+    }
+    
+    public List<Object> getclosedata(List<?> itemList){
+    	
+    	List<Object> closeValues = new ArrayList<>();
+
+		for (Object item : itemList) {
+		    try {
+		        Field closeField = item.getClass().getDeclaredField("close");
+		        closeField.setAccessible(true); // private 필드에 접근하기 위해 필요할 수 있음
+		        Object closeValue = closeField.get(item);
+		        closeValues.add(closeValue);
+		    } catch (NoSuchFieldException | IllegalAccessException e) {
+		        e.printStackTrace();
+		    }
+		}
+		
+		// 새로운 List 생성하여 원래 List의 요소를 소수점 세 자리로 제한하고 4자리에서 반올림
+        List<Object> roundValues = new ArrayList<>();
+        
+        DecimalFormat df = new DecimalFormat("#.###"); // 소수점 세 자리로 제한
+        
+        for (Object value : closeValues) {
+            Object roundedValue = df.format(value); // 소수점 제한 적용
+            roundValues.add(roundedValue);
+        }
+
+		return roundValues;
+	}
+    
+    public List<Object> getdatedata(List<?> itemList){
+    	
+    	List<Object> dateValues = new ArrayList<>();
+		
+		for (Object item : itemList) {
+		    try {
+		        Field dateField = item.getClass().getDeclaredField("date");
+		        dateField.setAccessible(true); // private 필드에 접근하기 위해 필요할 수 있음
+		        Object dateValue = dateField.get(item);
+		        dateValues.add(dateValue);
+		    } catch (NoSuchFieldException | IllegalAccessException e) {
+		        e.printStackTrace();
+		    }
+		}
+    	return dateValues;
     }
 		
 	}
