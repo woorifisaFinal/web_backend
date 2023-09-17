@@ -71,9 +71,22 @@ public class PortfolioService {
 	
     // name과 type을 기준으로 데이터를 조회 - 날짜 까지?
     public Portfolio  getComparisonResult(String type, String date) {
-    	Portfolio searchResults = portfolioRepository.findByTypeAndDate(type, date);
-//    	System.out.println("service : "+searchResults);
-        return searchResults;
+    	Portfolio searchResult = portfolioRepository.findByTypeAndDate(type, date);
+    	System.out.println("service : "+searchResult);
+        searchResult.setUs(Float.valueOf(String.format("%.3f",searchResult.getUs())));
+        searchResult.setUk(Float.valueOf(String.format("%.3f",searchResult.getUk())));
+        searchResult.setJp(Float.valueOf(String.format("%.3f",searchResult.getJp())));
+        searchResult.setEuro(Float.valueOf(String.format("%.3f",searchResult.getEuro())));
+        searchResult.setKor(Float.valueOf(String.format("%.3f",searchResult.getKor())));
+        searchResult.setInd(Float.valueOf(String.format("%.3f",searchResult.getInd())));
+        searchResult.setTw(Float.valueOf(String.format("%.3f",searchResult.getTw())));
+        searchResult.setBr(Float.valueOf(String.format("%.3f",searchResult.getBr())));
+        searchResult.setKor3y(Float.valueOf(String.format("%.3f",searchResult.getKor3y())));
+        searchResult.setKor10y(Float.valueOf(String.format("%.3f",searchResult.getKor10y())));
+        searchResult.setUs3y(Float.valueOf(String.format("%.3f",searchResult.getUs3y())));
+        searchResult.setUs10y(Float.valueOf(String.format("%.3f",searchResult.getUs10y())));
+        searchResult.setGold(Float.valueOf(String.format("%.3f",searchResult.getGold())));
+        return searchResult;
     }
     
     public Map.Entry<String, Float>[] getTop3(Portfolio portfolio){

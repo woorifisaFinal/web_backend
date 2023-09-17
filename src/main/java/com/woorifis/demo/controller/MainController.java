@@ -73,51 +73,51 @@ public class MainController {
 //            Portfolio result = portfolioRepository.findByTypeAndDate(today, type_);
 //            model.addAttribute("result", result);
 //            model.addAttribute("type", type_);
-            return "redirect: /portfolio/result";
-//            showResultPortfolio(session, model);
+            return "redirect:/portfolio/result";
+
         }
         //로그인 안되어있으면 session에 저장해요
         else{
             session.setAttribute("type", type);
             session.setAttribute("score", score);
 //            showResultPortfolio(session, model);
-            return "user/login";
+            return "redirect:/user/login";
         }
 
     }
-    @GetMapping("/result")
-    public String resultPage(Model model, HttpSession session) {
-        // 현재 로그인한 사용자 또는 UserDTO를 가져오는 방법이 있다고 가정합니다.
-        // 데모 목적으로 UserDTO 객체가 있다고 가정합니다.
-        UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
-        System.out.println("loginUser포트폴리오 : "+ loginUser);
-
-        String UserId = loginUser.getUserId();
-
-        UserDTO User = userService.getUserInfo(UserId);
-
-        String type = "C/"+User.getType();
-        System.out.println("user type : "+ type);
-
-        // 오늘 날짜 가져오기
-//	    LocalDate currentDate = LocalDate.now();
-//	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Define your desired date format
-//	    String date = currentDate.format(formatter);
-        String date = "2022-08-01";
-        System.out.println("type,date : "+ type + date);
-
-        // 사용자 유형에 기반하여 포트폴리오를 가져옵니다.
-        Portfolio portfolio = portfolioService.getComparisonResult(type, date);
-        System.out.println("result : "+ portfolio);
-
-        int score = (int) session.getAttribute("score");
-        session.removeAttribute("score");
-        // 모델에 포트폴리오를 추가하여 뷰에서 렌더링합니다.
-        model.addAttribute("portfolio", portfolio);
-        model.addAttribute("User", User);
-        model.addAttribute("score", score);
-        return "portfolio/result";
-    }
+//    @GetMapping("/result")
+//    public String resultPage(Model model, HttpSession session) {
+//        // 현재 로그인한 사용자 또는 UserDTO를 가져오는 방법이 있다고 가정합니다.
+//        // 데모 목적으로 UserDTO 객체가 있다고 가정합니다.
+//        UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
+//        System.out.println("loginUser포트폴리오 : "+ loginUser);
+//
+//        String UserId = loginUser.getUserId();
+//
+//        UserDTO User = userService.getUserInfo(UserId);
+//
+//        String type = "C/"+User.getType();
+//        System.out.println("user type : "+ type);
+//
+//        // 오늘 날짜 가져오기
+////	    LocalDate currentDate = LocalDate.now();
+////	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Define your desired date format
+////	    String date = currentDate.format(formatter);
+//        String date = "2022-08-01";
+//        System.out.println("type,date : "+ type + date);
+//
+//        // 사용자 유형에 기반하여 포트폴리오를 가져옵니다.
+//        Portfolio portfolio = portfolioService.getComparisonResult(type, date);
+//        System.out.println("result : "+ portfolio);
+//
+//        int score = (int) session.getAttribute("score");
+//        session.removeAttribute("score");
+//        // 모델에 포트폴리오를 추가하여 뷰에서 렌더링합니다.
+//        model.addAttribute("portfolio", portfolio);
+//        model.addAttribute("User", User);
+//        model.addAttribute("score", score);
+//        return "portfolio/result";
+//    }
 
 
 

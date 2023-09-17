@@ -84,7 +84,7 @@
 	          >
 	            <div class="carousel-inner">
 	              <div class="carousel-item active">
-	                <a href="survey">
+	                <a href="/survey">
 	                  <img
 	                          src="${pageContext.request.contextPath}/img/아이유_캐러셀_큰파일.png"
 	                          class="d-block w-100"
@@ -93,7 +93,7 @@
 	                </a>
 	              </div>
 	              <div class="carousel-item">
-	                <a href="symbol/list">
+	                <a href="/symbol/list">
 	                  <img
 	                          src="${pageContext.request.contextPath}/img/searchstock.png"
 	                          class="d-block w-100"
@@ -130,10 +130,10 @@
 
           <!-- 실험2 -->
           <div class="container" id="mid_cont_menu">
-            <a href="survey">포트폴리오</a>
-            <a href="portfolio/dashboard">대시보드</a>
-            <a href="portfolio/comparePortfolios">상품비교</a>
-            <a href="board/list">공지사항</a>
+            <a href="/survey">포트폴리오</a>
+            <a href="/portfolio/dashboard">대시보드</a>
+            <a href="/portfolio/compare">상품비교</a>
+            <a href="/board/list">공지사항</a>
           </div>
 
           <table>
@@ -144,7 +144,7 @@
             </tr>
             <tr>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=104">
                   <img
                           src="${pageContext.request.contextPath}/img/freepik_korea.png"
                           alt="이미지 수정 중"
@@ -154,7 +154,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=100">
                   <img
                           src="${pageContext.request.contextPath}/img/freepik_usa.png"
                           alt="이미지 수정 중"
@@ -164,7 +164,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=103">
                   <img
                           src="${pageContext.request.contextPath}/img/Flat_Icon_euro.png"
                           alt="이미지 수정 중"
@@ -174,7 +174,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=101">
                   <img
                           src="${pageContext.request.contextPath}/img/By surang_UK.png"
                           alt="이미지 수정 중"
@@ -184,7 +184,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=102">
                   <img
                           src="${pageContext.request.contextPath}/img/surang-japan-4482862.png"
                           alt="이미지 수정 중"
@@ -194,7 +194,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=107">
                   <img
                           src="${pageContext.request.contextPath}/img/freepik_brazil-4087498.png"
                           alt="이미지 수정 중"
@@ -204,7 +204,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=106">
                   <img
                           src="${pageContext.request.contextPath}/img/pim-mip-taiwan-8451326.png"
                           alt="이미지 수정 중"
@@ -214,7 +214,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=105">
                   <img
                           src="${pageContext.request.contextPath}/img/free-icon-india-706256 (1).png"
                           alt="이미지 수정 중"
@@ -224,7 +224,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=108">
                   <img
                           src="${pageContext.request.contextPath}/img/국채 3.png"
                           alt="이미지 수정 중"
@@ -234,7 +234,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=109">
                   <img
                           src="${pageContext.request.contextPath}/img/국채 10.png"
                           alt="이미지 수정 중"
@@ -244,7 +244,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=110">
                   <img
                           src="${pageContext.request.contextPath}/img/미국 3.png"
                           alt="이미지 수정 중"
@@ -254,7 +254,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=111">
                   <img
                           src="${pageContext.request.contextPath}/img/미국 10.png"
                           alt="이미지 수정 중"
@@ -264,7 +264,7 @@
                 </a>
               </td>
               <td>
-                <a href="#">
+                <a href="/symbol/detail?id=112">
                   <img
                           src="${pageContext.request.contextPath}/img/freepik_gold.png"
                           alt="이미지 수정 중"

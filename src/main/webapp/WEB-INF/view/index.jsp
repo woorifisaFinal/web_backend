@@ -178,9 +178,12 @@
             <li><i class="ri-check-line"></i> 향후 은행권 상품 추천 서비스와 연계할 수 있는 확장된 서비스</li>
           </ul>
           <div class="mt-3">
-            <a href="/survey" class="btn-get-started scrollto">나누리 시작하기</a>
-            <a href="/main" class="btn-get-started scrollto">홈페이지</a>
+            <a href="/survey" class="btn btn-lg btn-get-started scrollto">나누리 시작하기</a>
 
+
+          </div>
+          <div class="mt-3">
+            <a href="/main" class=" btn btn-light scrollto">홈페이지</a>
           </div>
 
         </div>

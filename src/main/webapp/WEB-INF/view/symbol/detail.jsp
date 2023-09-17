@@ -133,7 +133,7 @@
             <th class="text-center">ID</th>
             <th class="text-center">이름</th>
             <th class="text-center">상세설명</th>
-            <th class="text-center">총액</th>
+            <th class="text-center">시가총액</th>
         </tr>
         <tr>
             <td>${symbolDetail.id}</td>

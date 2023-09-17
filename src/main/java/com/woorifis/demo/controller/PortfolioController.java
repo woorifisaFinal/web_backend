@@ -89,20 +89,6 @@ public class PortfolioController {
 			 return "portfolio/comparePortfolios";
 	    }
 
-//	@GetMapping("/dashboard")
-//	public String showDashboard(Model model){
-//		Date date = new Date();
-//		System.out.println("date : "+ date);
-//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//		String today = formatter.format(date);
-//		System.out.println("today : "+ today);
-//
-//		List<Portfolio> list = portfolioService.getPortfoliosByDate(today);
-//		model.addAttribute("list", list);
-//		System.out.println("대시보드 list : "+ list);
-//		return "portfolio/dashboard";
-//	}
-	
 	@GetMapping("/dashboard")
 	public <T> String showDashboard(Model model){
 //		Date date = new Date();
