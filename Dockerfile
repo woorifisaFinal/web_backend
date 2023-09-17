@@ -1,4 +1,10 @@
-FROM ubuntu:latest
-LABEL authors="soo"
+FROM openjdk:17-jdk
 
-ENTRYPOINT ["top", "-b"]
+ARG JAR_FILE=*.jar
+COPY ${JAR_VILE} app.jar
+
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+#LABEL authors="soo"
+
+#ENTRYPOINT ["top", "-b"]
