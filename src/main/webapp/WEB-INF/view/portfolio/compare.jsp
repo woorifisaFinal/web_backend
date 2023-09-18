@@ -171,8 +171,14 @@
         
         function sendComparisonRequest(product1ID, product2ID) {
             console.log("function Products:", product1ID, product2ID);
-            const DATEA = "2022-08-01";
-            const DATEB = "2022-08-01";
+            const today = new Date();
+            const year=today.getFullYear();
+            const month = ('0'+(today.getMonth()+1)).slice(-2);
+            const day =('0'+today.getDate()).slice(-2);
+            const date_ = year+'-'+month+'-'+day;
+
+            const DATEA = date_;
+            const DATEB = date_;
             const url = "/portfolio/comparePortfolios?typeA=" + product1ID + "&dateA=" + DATEA + "&typeB=" + product2ID + "&dateB=" + DATEB;
             $.ajax({
                 url: url,
@@ -223,7 +229,7 @@
     <div class="container" id="productcompare-box">
         <div class="row">
             <div class="col-md-4">
-                <div class="product-box container" id="A/안정형">
+                <div class="product-box container" id="B/안정형">
                     <div class="top-section">
                         <p>블랙 리터만 / 안정형</p>
                     </div>
@@ -234,7 +240,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="product-box container" id="B/안정형">
+                <div class="product-box container" id="A/안정형">
                     <div class="top-section">
                         <p>블랙 리터만 알파 / 안정형</p>
                     </div>
@@ -258,7 +264,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="product-box container" id="A/공격형">
+                <div class="product-box container" id="B/공격형">
                     <div class="top-section">
                         <p>블랙 리터만 / 공격형</p>
                     </div>
@@ -269,9 +275,9 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card-body   product-box" id="B/공격형">
+                <div class="card-body   product-box" id="A/공격형">
                     <div class="top-section">
-                        <p>블랙 리터만 알파 / 위험형</p>
+                        <p>블랙 리터만 알파 / 공격형</p>
                     </div>
                     <div class="bottom-section">
                         </br>
@@ -283,7 +289,7 @@
             <div class=" col-md-4">
                 <div class=" card-body product-box" id="C/공격형">
                     <div class="top-section">
-                        <p>'나누리 커스텀' 상품 / 위험형</p>
+                        <p>'나누리 커스텀' 상품 / 공격형</p>
                     </div>
                     <div class="bottom-section">
                         </br>
@@ -330,6 +336,4 @@
 </body>
 </html>
 
-<!--
-${pageContext.request.contextPath}
--->
+
