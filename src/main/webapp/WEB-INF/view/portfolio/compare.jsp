@@ -222,7 +222,7 @@
     </div>
     <div class="container" id="productcompare-box">
         <div class="row">
-            <div class=" col-md-4">
+            <div class="col-md-4">
                 <div class="product-box container" id="A/안정형">
                     <div class="top-section">
                         <p>블랙 리터만 / 안정형</p>
@@ -230,17 +230,6 @@
                     <div class="bottom-section">
                         </br>
                         <p>전통적인 방식을 통해서 안정적인 포트폴리오를 </br>추천하는 상품</p>
-                    </div>
-                </div>
-            </div>
-            <div class=" col-md-4">
-                <div class="product-box container" id="A/공격형">
-                    <div class="top-section">
-                        <p>블랙 리터만 / 위험형</p>
-                    </div>
-                    <div class="bottom-section">
-                        </br>
-                        <p>전통적인 방식을 통해서 모험적인 포트폴리오를 </br>추천하는 상품</p>
                     </div>
                 </div>
             </div>
@@ -255,8 +244,30 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card-body product-box" id="C/안정형">
+                    <div class="top-section">
+                        <p>'나누리 커스텀' 상품 / 안정형</p>
+                    </div>
+                    <div class="bottom-section">
+                        </br>
+                        <p>나누리만의 방식으로 안정적인 포트폴리오를 추천하는 상품</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
+            <div class="col-md-4">
+                <div class="product-box container" id="A/공격형">
+                    <div class="top-section">
+                        <p>블랙 리터만 / 위험형</p>
+                    </div>
+                    <div class="bottom-section">
+                        </br>
+                        <p>전통적인 방식을 통해서 모험적인 포트폴리오를 </br>추천하는 상품</p>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-4">
                 <div class="card-body   product-box" id="B/공격형">
                     <div class="top-section">
@@ -268,21 +279,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card-body product-box" id="C/안정형">
-                    <div class="top-section">
-                        <p>금융 '나누리' 상품 / 안정형</p>
-                    </div>
-                    <div class="bottom-section">
-                        </br>
-                        <p>나누리만의 방식으로 안정적인 포트폴리오를 추천하는 상품</p>
-                    </div>
-                </div>
-            </div>
+
             <div class=" col-md-4">
                 <div class=" card-body product-box" id="C/공격형">
                     <div class="top-section">
-                        <p>금융 '나누리' 상품 / 위험형</p>
+                        <p>'나누리 커스텀' 상품 / 위험형</p>
                     </div>
                     <div class="bottom-section">
                         </br>

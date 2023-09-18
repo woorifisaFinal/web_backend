@@ -104,7 +104,7 @@
 
         <div style="border-bottom: 2px solid blue;">
           <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
-          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 비교 </h1>
+          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 오늘의 포트폴리오 </h1>
         </div>
     <!-- Column Chart -->
     <div id="columnChart"></div>
@@ -112,11 +112,11 @@
     <!-- "자세히보기" 버튼 추가 -->
 <div class="details-button row align-items-center">
     <button type="button" class="detail-button col"  id="modal-블랙-안전형" data-bs-toggle="modal" data-bs-target="#exampleModal">블랙-안전형</button>
-    <button type="button" class="detail-button col" id="modal-블랙-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal2">블랙-위험형</button>
+    <button type="button" class="detail-button col" id="modal-블랙-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal2">블랙-공격형</button>
     <button type="button" class="detail-button col" id="modal-알파-안전형" data-bs-toggle="modal" data-bs-target="#exampleModal3">알파-안전형</button>
-    <button type="button" class="detail-button col" id="modal-안파-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal4">알파-위험형</button>
-    <button type="button" class="detail-button col" id="modal-나누리-안전형" data-bs-toggle="modal" data-bs-target="#exampleModal5">누리-안전형</button>
-    <button type="button" class="detail-button col" id="modal-나누리-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal6">누리-위험형</button>
+    <button type="button" class="detail-button col" id="modal-안파-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal4">알파-공격형</button>
+    <button type="button" class="detail-button col" id="modal-나누리-안전형" data-bs-toggle="modal" data-bs-target="#exampleModal5">나누리-안전형</button>
+    <button type="button" class="detail-button col" id="modal-나누리-위험형" data-bs-toggle="modal" data-bs-target="#exampleModal6">나누리-공격형</button>
 </div>
     <!-- 각각의 모달 -->
 
@@ -134,18 +134,18 @@
         <script>
         $('#exampleModal').on('shown.bs.modal', function () {
                 const chartData = [
-                    { value: ${firstPortfolio.us}, name: '나스닥' },
-                    { value: ${firstPortfolio.uk}, name: '영국' },
-                    { value: ${firstPortfolio.jp}, name: '니케이' },
-                    { value: ${firstPortfolio.euro}, name: '유료스탁스' },
-                    { value: ${firstPortfolio.kor}, name: '코스피' },
-                    { value: ${firstPortfolio.ind}, name: '인도' },
-                    { value: ${firstPortfolio.tw}, name: '대만' },
-                    { value: ${firstPortfolio.br}, name: '브라질' },
-                    { value: ${firstPortfolio.kor3y}, name: '국채 3년' },
-                    { value: ${firstPortfolio.kor10y}, name: '국채 10년' },
-                    { value: ${firstPortfolio.us3y}, name: '미국채 3년' },
-                    { value: ${firstPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${firstPortfolio.us}, name: 'NASDAQ' },
+                    { value: ${firstPortfolio.uk}, name: 'FTSE' },
+                    { value: ${firstPortfolio.jp}, name: 'NIKKEI' },
+                    { value: ${firstPortfolio.euro}, name: 'EUROSTOXX' },
+                    { value: ${firstPortfolio.kor}, name: 'KOSPI' },
+                    { value: ${firstPortfolio.ind}, name: 'NIFTY' },
+                    { value: ${firstPortfolio.tw}, name: 'TWII' },
+                    { value: ${firstPortfolio.br}, name: 'BOVESPA' },
+                    { value: ${firstPortfolio.kor3y}, name: '한국채권3년물' },
+                    { value: ${firstPortfolio.kor10y}, name: '한국채권10년물' },
+                    { value: ${firstPortfolio.us3y}, name: '미국채권3년물' },
+                    { value: ${firstPortfolio.us10y}, name: '미국채권10년물' },
                     { value: ${firstPortfolio.gold}, name: '금' }
                 ];
 
@@ -212,7 +212,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">블랙-위험형</h5>
+        <h5 class="modal-title" id="exampleModalLabel">블랙-공격형</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -221,18 +221,18 @@
         <script>
         $('#exampleModal2').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${secondPortfolio.us}, name: '나스닥' },
-                    { value: ${secondPortfolio.uk}, name: '영국' },
-                    { value: ${secondPortfolio.jp}, name: '니케이' },
-                    { value: ${secondPortfolio.euro}, name: '유료스탁스' },
-                    { value: ${secondPortfolio.kor}, name: '코스피' },
-                    { value: ${secondPortfolio.ind}, name: '인도' },
-                    { value: ${secondPortfolio.tw}, name: '대만' },
-                    { value: ${secondPortfolio.br}, name: '브라질' },
-                    { value: ${secondPortfolio.kor3y}, name: '국채 3년' },
-                    { value: ${secondPortfolio.kor10y}, name: '국채 10년' },
-                    { value: ${secondPortfolio.us3y}, name: '미국채 3년' },
-                    { value: ${secondPortfolio.us10y}, name: '미국채 10년' },
+                	{ value: ${secondPortfolio.us}, name: 'NASDAQ' },
+                    { value: ${secondPortfolio.uk}, name: 'FTSE' },
+                    { value: ${secondPortfolio.jp}, name: 'NIKKEI' },
+                    { value: ${secondPortfolio.euro}, name: 'EUROSTOXX' },
+                    { value: ${secondPortfolio.kor}, name: 'KOSPI' },
+                    { value: ${secondPortfolio.ind}, name: 'NIFTY' },
+                    { value: ${secondPortfolio.tw}, name: 'TWII' },
+                    { value: ${secondPortfolio.br}, name: 'BOVESPA' },
+                    { value: ${secondPortfolio.kor3y}, name: '한국채권3년물' },
+                    { value: ${secondPortfolio.kor10y}, name: '한국채권10년물' },
+                    { value: ${secondPortfolio.us3y}, name: '미국채권3년물' },
+                    { value: ${secondPortfolio.us10y}, name: '미국채권10년물' },
                     { value: ${secondPortfolio.gold}, name: '금' }
                 ];
 
@@ -311,18 +311,18 @@
         <script>
         $('#exampleModal3').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${thirdPortfolio.us}, name: '나스닥' },
-                    { value: ${thirdPortfolio.uk}, name: '영국' },
-                    { value: ${thirdPortfolio.jp}, name: '니케이' },
-                    { value: ${thirdPortfolio.euro}, name: '유료스탁스' },
-                    { value: ${thirdPortfolio.kor}, name: '코스피' },
-                    { value: ${thirdPortfolio.ind}, name: '인도' },
-                    { value: ${thirdPortfolio.tw}, name: '대만' },
-                    { value: ${thirdPortfolio.br}, name: '브라질' },
-                    { value: ${thirdPortfolio.kor3y}, name: '국채 3년' },
-                    { value: ${thirdPortfolio.kor10y}, name: '국채 10년' },
-                    { value: ${thirdPortfolio.us3y}, name: '미국채 3년' },
-                    { value: ${thirdPortfolio.us10y}, name: '미국채 10년' },
+                	{ value: ${thirdPortfolio.us}, name: 'NASDAQ' },
+                    { value: ${thirdPortfolio.uk}, name: 'FTSE' },
+                    { value: ${thirdPortfolio.jp}, name: 'NIKKEI' },
+                    { value: ${thirdPortfolio.euro}, name: 'EUROSTOXX' },
+                    { value: ${thirdPortfolio.kor}, name: 'KOSPI' },
+                    { value: ${thirdPortfolio.ind}, name: 'NIFTY' },
+                    { value: ${thirdPortfolio.tw}, name: 'TWII' },
+                    { value: ${thirdPortfolio.br}, name: 'BOVESPA' },
+                    { value: ${thirdPortfolio.kor3y}, name: '한국채권3년물' },
+                    { value: ${thirdPortfolio.kor10y}, name: '한국채권10년물' },
+                    { value: ${thirdPortfolio.us3y}, name: '미국채권3년물' },
+                    { value: ${thirdPortfolio.us10y}, name: '미국채권10년물' },
                     { value: ${thirdPortfolio.gold}, name: '금' }
                 ];
 
@@ -390,7 +390,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">알파-위험형</h5>
+        <h5 class="modal-title" id="exampleModalLabel">알파-공격형</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -399,18 +399,18 @@
         <script>
         $('#exampleModal4').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${fourthPortfolio.us}, name: '나스닥' },
-                    { value: ${fourthPortfolio.uk}, name: '영국' },
-                    { value: ${fourthPortfolio.jp}, name: '니케이' },
-                    { value: ${fourthPortfolio.euro}, name: '유료스탁스' },
-                    { value: ${fourthPortfolio.kor}, name: '코스피' },
-                    { value: ${fourthPortfolio.ind}, name: '인도' },
-                    { value: ${fourthPortfolio.tw}, name: '대만' },
-                    { value: ${fourthPortfolio.br}, name: '브라질' },
-                    { value: ${fourthPortfolio.kor3y}, name: '국채 3년' },
-                    { value: ${fourthPortfolio.kor10y}, name: '국채 10년' },
-                    { value: ${fourthPortfolio.us3y}, name: '미국채 3년' },
-                    { value: ${fourthPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${fourthPortfolio.us}, name: 'NASDAQ' },
+                    { value: ${fourthPortfolio.uk}, name: 'FTSE' },
+                    { value: ${fourthPortfolio.jp}, name: 'NIKKEI' },
+                    { value: ${fourthPortfolio.euro}, name: 'EUROSTOXX' },
+                    { value: ${fourthPortfolio.kor}, name: 'KOSPI' },
+                    { value: ${fourthPortfolio.ind}, name: 'NIFTY' },
+                    { value: ${fourthPortfolio.tw}, name: 'TWII' },
+                    { value: ${fourthPortfolio.br}, name: 'BOVESPA' },
+                    { value: ${fourthPortfolio.kor3y}, name: '한국채권3년물' },
+                    { value: ${fourthPortfolio.kor10y}, name: '한국채권10년물' },
+                    { value: ${fourthPortfolio.us3y}, name: '미국채권3년물' },
+                    { value: ${fourthPortfolio.us10y}, name: '미국채권10년물' },
                     { value: ${fourthPortfolio.gold}, name: '금' }
                 ];
 
@@ -489,18 +489,18 @@
         <script>
         $('#exampleModal5').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${fifthPortfolio.us}, name: '나스닥' },
-                    { value: ${fifthPortfolio.uk}, name: '영국' },
-                    { value: ${fifthPortfolio.jp}, name: '니케이' },
-                    { value: ${fifthPortfolio.euro}, name: '유료스탁스' },
-                    { value: ${fifthPortfolio.kor}, name: '코스피' },
-                    { value: ${fifthPortfolio.ind}, name: '인도' },
-                    { value: ${fifthPortfolio.tw}, name: '대만' },
-                    { value: ${fifthPortfolio.br}, name: '브라질' },
-                    { value: ${fifthPortfolio.kor3y}, name: '국채 3년' },
-                    { value: ${fifthPortfolio.kor10y}, name: '국채 10년' },
-                    { value: ${fifthPortfolio.us3y}, name: '미국채 3년' },
-                    { value: ${fifthPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${fifthPortfolio.us}, name: 'NASDAQ' },
+                    { value: ${fifthPortfolio.uk}, name: 'FTSE' },
+                    { value: ${fifthPortfolio.jp}, name: 'NIKKEI' },
+                    { value: ${fifthPortfolio.euro}, name: 'EUROSTOXX' },
+                    { value: ${fifthPortfolio.kor}, name: 'KOSPI' },
+                    { value: ${fifthPortfolio.ind}, name: 'NIFTY' },
+                    { value: ${fifthPortfolio.tw}, name: 'TWII' },
+                    { value: ${fifthPortfolio.br}, name: 'BOVESPA' },
+                    { value: ${fifthPortfolio.kor3y}, name: '한국채권3년물' },
+                    { value: ${fifthPortfolio.kor10y}, name: '한국채권10년물' },
+                    { value: ${fifthPortfolio.us3y}, name: '미국채권3년물' },
+                    { value: ${fifthPortfolio.us10y}, name: '미국채권10년물' },
                     { value: ${fifthPortfolio.gold}, name: '금' }
                 ];
 
@@ -569,7 +569,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">나누리-위험형</h5>
+        <h5 class="modal-title" id="exampleModalLabel">나누리-공격형</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -578,18 +578,18 @@
         <script>
         $('#exampleModal6').on('shown.bs.modal', function () {
                 const chartData = [
-                   	{ value: ${sixthPortfolio.us}, name: '나스닥' },
-                    { value: ${sixthPortfolio.uk}, name: '영국' },
-                    { value: ${sixthPortfolio.jp}, name: '니케이' },
-                    { value: ${sixthPortfolio.euro}, name: '유료스탁스' },
-                    { value: ${sixthPortfolio.kor}, name: '코스피' },
-                    { value: ${sixthPortfolio.ind}, name: '인도' },
-                    { value: ${sixthPortfolio.tw}, name: '대만' },
-                    { value: ${sixthPortfolio.br}, name: '브라질' },
-                    { value: ${sixthPortfolio.kor3y}, name: '국채 3년' },
-                    { value: ${sixthPortfolio.kor10y}, name: '국채 10년' },
-                    { value: ${sixthPortfolio.us3y}, name: '미국채 3년' },
-                    { value: ${sixthPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${sixthPortfolio.us}, name: 'NASDAQ' },
+                    { value: ${sixthPortfolio.uk}, name: 'FTSE' },
+                    { value: ${sixthPortfolio.jp}, name: 'NIKKEI' },
+                    { value: ${sixthPortfolio.euro}, name: 'EUROSTOXX' },
+                    { value: ${sixthPortfolio.kor}, name: 'KOSPI' },
+                    { value: ${sixthPortfolio.ind}, name: 'NIFTY' },
+                    { value: ${sixthPortfolio.tw}, name: 'TWII' },
+                    { value: ${sixthPortfolio.br}, name: 'BOVESPA' },
+                    { value: ${sixthPortfolio.kor3y}, name: '한국채권3년물' },
+                    { value: ${sixthPortfolio.kor10y}, name: '한국채권10년물' },
+                    { value: ${sixthPortfolio.us3y}, name: '미국채권3년물' },
+                    { value: ${sixthPortfolio.us10y}, name: '미국채권10년물' },
                     { value: ${sixthPortfolio.gold}, name: '금' }
                 ];
 
@@ -750,7 +750,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['블랙-안전형', '블랙-위험형', '알파-안전형', '알파-위험형', '나누리-안전형', '나누리-위험형']
+                categories: ['블랙-안전형', '블랙-공형', '알파-안전형', '알파-공격형', '나누리커스텀-안전형', '나누리커스텀-공격형']
             },
             yaxis: {
             	min : 0.00,
@@ -810,7 +810,7 @@
 <!-- 차트 -->
         <div style="border-bottom: 2px solid blue;">
           <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
-          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 나누리 -안전형</h1>
+          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 나누리 커스텀 -안전형</h1>
         </div>
 
   <section class="section dashboard">
@@ -1117,7 +1117,7 @@
 	       <!-- Website Traffic -->
 	   <div class="card">
 	    <div class="card-body pb-0">
-	        <h5 class="card-title">나누리 안정형<span>| </span></h5>
+	        <h5 class="card-title">나누리 커스텀 안정형 <span>| </span></h5>
 	      
 	        <!-- Doughnut Chart -->
 	        <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
@@ -1154,21 +1154,19 @@
 	              type: 'doughnut',
 	              data: {
 	                labels: [
-	                  '코스피',
-	                  '나스닥',
-	                  '유료스탁스',
-	                  '영국',
-	                  '니케이',
-	                  '국채 3년',
-	                  '국채 10년',
-	                  '미국채 3년',
-	                  '미국채 10년',
+	                  'KOSPI',
+	                  'NASDAQ',
+	                  'EUROSTOXX',
+	                  'FTSE',
+	                  'NIKKEI',
+	                  '한국채권3년물',
+	                  '한국채권10년물',
+	                  '미국채권3년물',
+	                  '미국채권10년물',
 	                  '금',
-	                  '브라질',
-	                  '대만',
-	                  '인도',
-	                  
-	
+	                  'BOVESPA',
+	                  'TWII',
+	                  'NIFTY',
 	                ],
 	                datasets: [{
 	                  label: '기타',
@@ -1213,7 +1211,7 @@
 <!-- 차트 -->
         <div style="border-bottom: 2px solid blue;">
           <img class="mb-3 square"  src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
-          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 나누리 -위험형</h1>
+          <h1 class="mb-4" style="display: inline-block; margin-left:8px; font-weight: bold" > 나누리 커스텀 -공격형</h1>
         </div>
 
   <section class="section dashboard">
@@ -1252,12 +1250,13 @@
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card revenue-card">
               <div class="card-body">
-                <h5 class="card-title">${dangerTop2Name} <span>| Recent Close</span></h5>
+                <h5 class="card-title">${dangerTop2Name} <span>| Recent Close</span>
+                </h5>
 
                 <div class="d-flex align-items-center">
-               <!--<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+               <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bi bi-currency-dollar"></i>
-                  </div>-->
+                  </div> -->
                   <div class="ps-3">
 					    <h6>${dangerLastClose2}</h6>
 					    <span class="text-success small pt-1 fw-bold" id="percentageValue5">%</span>
@@ -1266,7 +1265,7 @@
 					        // 두 번째 div에 대한 함수 호출
 					        updatePercentageInfo(${dangerLastClose2}, ${dangerLastClose2before}, "percentageValue5", "changeText5");
 					    </script>
-					</div>
+                  </div>
                 </div>
               </div>
 
@@ -1292,13 +1291,14 @@
 					        // 세 번째 div에 대한 함수 호출
 					        updatePercentageInfo(${dangerLastClose3}, ${dangerLastClose3before}, "percentageValue6", "changeText6");
 					    </script>
-					</div>
+                  </div>
                 </div>
 
               </div>
             </div>
 
-          </div><!-- End Customers Card -->
+          </div>
+            <!-- End Customers Card -->
 
           <!-- Reports -->
           <div class="col-12">
@@ -1520,7 +1520,7 @@
        <!-- Website Traffic -->
 	   <div class="card">
 	    <div class="card-body pb-0">
-	        <h5 class="card-title">나누리 위험형<span>| </span></h5>
+	        <h5 class="card-title">나누리 커스텀 공격형 <span>| </span></h5>
 	      
 	        <!-- Doughnut Chart -->
 	        <canvas id="doughnutChart2" style="max-height: 400px;"></canvas>
@@ -1557,19 +1557,19 @@
 	              type: 'doughnut',
 	              data: {
 	                labels: [
-	                  '코스피',
-	                  '나스닥',
-	                  '유료스탁스',
-	                  '영국',
-	                  '니케이',
-	                  '국채 3년',
-	                  '국채 10년',
-	                  '미국채 3년',
-	                  '미국채 10년',
+	                  'KOSPI',
+	                  'NASDAQ',
+	                  'EUROSTOXX',
+	                  'FTSE',
+	                  'NIKKEI',
+	                  '한국채권3년물',
+	                  '한국채권10년물',
+	                  '미국채권3년물',
+	                  '미국채권10년물',
 	                  '금',
-	                  '브라질',
-	                  '대만',
-	                  '인도',
+	                  'BOVESPA',
+	                  'TWII',
+	                  'NIFTY',
 	                  
 	
 	                ],
@@ -1578,19 +1578,19 @@
 	                  data: data,
 	                  backgroundColor: [
 	                  'rgb(255, 99, 132)',
-	        'rgb(54, 162, 235)',
-	        'rgb(255, 205, 86)',
-	        'rgb(192, 192, 192)',
-	        'rgb(75, 192, 192)',
-	        'rgb(153, 102, 255)',
-	        'rgb(255, 159, 64)',
-	        'rgb(255, 77, 148)',
-	        'rgb(106, 168, 79)',
-	        'rgb(33, 150, 243)',
-	        'rgb(255, 235, 59)',
-	        'rgb(233, 30, 99)',
-	        'rgb(0, 188, 212)',
-	        'rgb(205, 220, 57)'// 기타 항목의 색상
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)',
+                        'rgb(192, 192, 192)',
+                        'rgb(75, 192, 192)',
+                        'rgb(153, 102, 255)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 77, 148)',
+                        'rgb(106, 168, 79)',
+                        'rgb(33, 150, 243)',
+                        'rgb(255, 235, 59)',
+                        'rgb(233, 30, 99)',
+                        'rgb(0, 188, 212)',
+                        'rgb(205, 220, 57)'// 기타 항목의 색상
 	                  ],
 	                  hoverOffset: 4
 	                }]
@@ -1631,11 +1631,3 @@
 </body>
 </html>
 
-<!--
-${pageContext.request.contextPath}
-
-
-
-
-
--->

@@ -11,6 +11,7 @@
 	<groupId>com.woorifis</groupId>
 	<artifactId>finalProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging> <!-- war -->
 	<name>finalProject</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

@@ -48,7 +48,71 @@ public class PortfolioController {
 	private final PortfolioService portfolioService;
 	private final UserService userService;
 	private final SymbolService symbolService;
-	
+	public String changeColName(String col){
+		if (col.equals("us")){
+			return "NASDAQ";
+		}
+		else if (col.equals("uk")){
+			return "FTSE";
+		}
+		else if (col.equals("jp")){
+			return "NIKKEI";
+		}
+		else if (col.equals("euro")){
+			return "EUROSTOXX";
+		}
+		else if (col.equals("kor")){
+			return "KOSPI";
+		}
+		else if (col.equals("ind")){
+			return "NIFTY";
+		}
+		else if (col.equals("tw")){
+			return "TWII";
+		}
+		else if (col.equals("br")){
+			return "BOVESPA";
+		}
+		else if (col.equals("kor3y")){
+			return "한국국채3년물";
+		}
+		else if (col.equals("kor10y")){
+			return "한국국채10년물";
+		}
+		else if (col.equals("us3y")){
+			return "미국국채3년물";
+		}
+		else if (col.equals("us10y")){
+			return "미국국채10년물";
+		}
+		else if (col.equals("gold")){
+			return "금";
+		}
+		else{
+			return "찾을 수 없습니다.";
+		}
+	}
+	public String changeType(String type){
+		if(type.equals("A/안정형")){
+			return "블랙리터만알파/안전형";
+		}
+		else if(type.equals("A/공격형")){
+			return "블랙리터만알파/공격형";
+		}
+		else if(type.equals("B/안정형")){
+			return "블랙리터만/공격형";
+		}
+		else if(type.equals("B/공격형")){
+			return "블랙리터만/공격형";
+		}
+		else if(type.equals("C/안정형")){
+			return "나누리커스텀/공격형";
+		}
+		else if(type.equals("C/공격형")) {
+			return "나누리커스텀/공격형";
+		}
+		return "";
+	}
 	  // 각 종목의 비율을 가져와서 화면에 전달 - 특정 날짜 (오늘만)
 	@GetMapping("/getPortfolio")
 	public String getPortfolio(@RequestParam("date") String date, Model model) {
@@ -76,6 +140,8 @@ public class PortfolioController {
 
 			 Portfolio resultA = portfolioService.getComparisonResult(typeA, dateA);
 			 Portfolio resultB = portfolioService.getComparisonResult(typeB, dateB);
+			 resultA.setType(changeType(resultA.getType()));
+			 resultB.setType(changeType(resultB.getType()));
 
 			 System.out.println(resultA);
 			 System.out.println(resultB);
@@ -134,6 +200,7 @@ public class PortfolioController {
 		Map.Entry<String, Float>[] nanuristable = portfolioService.getTop3(fifthPortfolio);
 
 		String stableTop1Name = nanuristable[0].getKey();
+
 		Float stableTop1Value = nanuristable[0].getValue();
 		String stableTop2Name = nanuristable[1].getKey();
 		Float stableTop2Value = nanuristable[1].getValue();
@@ -149,18 +216,18 @@ public class PortfolioController {
 		String dangerTop3Name = nanuridangerous[2].getKey();
 		Float  dangerTop3Value = nanuridangerous[2].getValue();
 //		안정형
-		model.addAttribute("stableTop1Name", stableTop1Name);	
+		model.addAttribute("stableTop1Name", changeColName(stableTop1Name));
 		model.addAttribute("stableTop1Value", stableTop1Value);
-		model.addAttribute("stableTop2Name", stableTop2Name);	
-		model.addAttribute("stableTop2Value", stableTop2Value);	
-		model.addAttribute("stableTop3Name", stableTop3Name);	
-		model.addAttribute("stableTop3Value", stableTop3Value);	
+		model.addAttribute("stableTop2Name", changeColName(stableTop2Name));
+		model.addAttribute("stableTop2Value", stableTop2Value);
+		model.addAttribute("stableTop3Name", changeColName(stableTop3Name));
+		model.addAttribute("stableTop3Value", stableTop3Value);
 //		공격형
-		model.addAttribute("dangerTop1Name", dangerTop1Name);	
-		model.addAttribute("dangerTop1Value", dangerTop1Value);	
-		model.addAttribute("dangerTop2Name", dangerTop2Name);	
-		model.addAttribute("dangerTop2Value", dangerTop2Value);	
-		model.addAttribute("dangerTop3Name", dangerTop3Name);	
+		model.addAttribute("dangerTop1Name", changeColName(dangerTop1Name));
+		model.addAttribute("dangerTop1Value", dangerTop1Value);
+		model.addAttribute("dangerTop2Name", changeColName(dangerTop2Name));
+		model.addAttribute("dangerTop2Value", dangerTop2Value);
+		model.addAttribute("dangerTop3Name", changeColName(dangerTop3Name));
 		model.addAttribute("dangerTop3Value", dangerTop3Value);	
 		
 //		System.out.println("fifthPortfolio :" + fifthPortfolio.getType());
@@ -321,7 +388,7 @@ public class PortfolioController {
 
         // 사용자 유형에 기반하여 포트폴리오를 가져옵니다.
         Portfolio portfolio = portfolioService.getComparisonResult(type, date);
-        
+        portfolio.setType(changeType(portfolio.getType()));
     	System.out.println("result : "+ portfolio);
     	
         // 모델에 포트폴리오를 추가하여 뷰에서 렌더링합니다.

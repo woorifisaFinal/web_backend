@@ -230,7 +230,7 @@ table.dataTable td {
           <!-- End Website Traffic Chart -->
             <div class="card">
                 <div class="card-body pb-1">
-                  <h5 class="card-title">수익률 차트</h5>
+                  <h5 class="card-title">종가 차트</h5>
 
                   <!-- Area Chart -->
                   <div id="areaChart" style="width: 100%;"></div>

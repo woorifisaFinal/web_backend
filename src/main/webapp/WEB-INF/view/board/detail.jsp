@@ -98,29 +98,33 @@
    <!-- End Sidebar-->
 
 <!-- Main -->
-<div class="container" style="border: 2px solid rgb(240, 240,240);">
+<div class="container" >
 
 	<div class="d-flex justify-content-between" style="border-bottom: 2px solid blue; margin-top: 10px">
       <div>
         <img class="mb-3" id="square" src="${pageContext.request.contextPath}/img/bluebox.jpg" alt="이미지 교체중입니다.">
-        &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >${board.title }</h2>
+        &nbsp;<h2 style="display: inline-block" class="fs-2 fw-bold" >공지사항</h2>
       </div>
-      <div>
-        <p class="d-flex align-items-center" style="color: rgb(140,140,140)">
-          게시글 번호 : ${board.no }
-        </p]>
-      </div>
-      <!-- End Search Bar -->
-    </div>
-  <form action="#" method="post">
-    
-    </br>
-    <br>
-    </br>
-    <textarea rows="10" cols="113" name="content"> ${board.content }</textarea>
-    <br>
 
-  </form>
+    </div>
+  <br>
+  <div style="border: 2px solid rgb(240, 240,240);">
+    <br>
+    <h3 class="fw-bold" style="padding-left:80px;">&nbsp;&nbsp;${board.title }</h3>
+    <div class="d-flex justify-content-end">
+      <p class="d-flex align-items-end" style="color: rgb(140,140,140); margin-right:100px">
+        게시글 번호 : ${board.no }
+      </p>
+
+    </div>
+
+    <br>
+    <br>
+    <p class="h6" style="padding-left:100px;padding-right:100px;font-size:20px">${board.content}</p>
+    </br>
+    <br>
+  </div>
+
 
 </div>
 <!-- Main (div id=main) 끝 -->

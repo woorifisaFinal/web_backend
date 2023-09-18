@@ -225,11 +225,10 @@
             <p>
             <h1 style="display: inline-block; color: blueviolet;">3.</h1>
             <p class="survey-title-inside">
-              투자한 경험이 있는 항목을 모두 선택해주세요.(중복 가능, 더블클릭=취소)</p>
+              투자한 경험이 있는 항목을 모두 선택해주세요. 경험하신 금융투자상품과 기간을 함께 선택해주세요. <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(중복 선택 가능, 더블클릭하시면 취소됩니다.)</p>
             </br>
             3-1</br>
-            <input type="radio" name="q3" value="0" ondblclick="this.checked=false"> 금융투자상품에 투자해 본 경험이 없음 </br>
-            3-2</br>
             <a>
               <input type="radio" name="q3" value="6" ondblclick="this.checked=false">
               주식신용거래, 선물/옵션, ELW, 원금비보장형 ELS/DLS/ELF</br>
@@ -237,7 +236,7 @@
               <input type="radio" name="q3-2-1" value="3" ondblclick="this.checked=false"> 1년이상 3년미만 </br>
               <input type="radio" name="q3-2-1" value="5" ondblclick="this.checked=false"> 3년이상 </br>
             </a>
-            3-3</br>
+            3-2</br>
             <a>
               <input type="radio" name="q3-3" value="3" ondblclick="this.checked=false">
               주식, 주식형펀드, 해외펀드, 원금보장형 ELS/DLS/ELF,투자자문/일임(Wrap), 외화증권</br>
@@ -245,7 +244,7 @@
               <input type="radio" name="q3-3-1" value="3" ondblclick="this.checked=false"> 1년이상 3년미만 </br>
               <input type="radio" name="q3-3-1" value="5" ondblclick="this.checked=false"> 3년이상 </br>
             </a>
-            3-4</br>
+            3-3</br>
             <a>
               <input type="radio" name="q3-4" value="1" ondblclick="this.checked=false">
               채권/혼합형 펀드, 신탁, 채권</br>
@@ -253,7 +252,9 @@
               <input type="radio" name="q3-4-1" value="3" ondblclick="this.checked=false"> 1년이상 3년미만 </br>
               <input type="radio" name="q3-4-1" value="5" ondblclick="this.checked=false"> 3년이상 </br>
             </a>
-            </br>
+
+            3-4</br>
+            <input type="radio" name="q3" value="0" ondblclick="this.checked=false"> 금융투자상품에 투자해 본 경험이 없음 </br>
             </p>
             <p>
             <h1 style="display: inline-block; color: blueviolet;">4.</h1>

@@ -27,7 +27,6 @@ public class MainController {
     private final PortfolioService portfolioService;
     @GetMapping("/main")
     public String goMain(){
-
         return "mainpage/main";
     }
 
@@ -39,8 +38,6 @@ public class MainController {
 
     @GetMapping("/requestlogin")
     public String requestLogin(HttpSession session){
-//        session.setAttribute("type", type);
-
         return "/user/requestlogin";
     }
     @GetMapping("/portfolio/savetype")

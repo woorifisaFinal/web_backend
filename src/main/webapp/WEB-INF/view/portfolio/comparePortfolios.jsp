@@ -77,13 +77,13 @@
 	<div style="display: flex; justify-content: space-around;">
         <!-- First Pie Chart -->
         <div>
-            <h2>Type ${resultA.type}</h2>
+            <h2>[ ${resultA.type} ]</h2>
             <canvas id="chartA" width="500" height="500"></canvas>
         </div>
 
         <!-- Second Pie Chart -->
         <div>
-            <h2>Type ${resultB.type}</h2>
+            <h2>[ ${resultB.type} ]</h2>
             <canvas id="chartB" width="500" height="500"></canvas>
         </div>
     </div>
