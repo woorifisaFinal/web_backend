@@ -101,6 +101,30 @@
   }
         }
         
+        
+        body { 
+  font-size: 140%; 
+}
+
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+table caption {
+  padding: .5em 0;
+}
+
+table.dataTable th,
+table.dataTable td {
+  white-space: nowrap;
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
     </style>
     <!-- Vendor JS Files -->
     <script src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
@@ -266,10 +290,68 @@
        
             </div>
         </div>
-          
-
     </div>
    
+   
+   
+               <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+                <div class="card-body">
+                  <h5 class="card-title">DataTables</h5>
+
+                  <table class="table table-borderless datatable">
+        <thead>
+          <tr>
+                        <th>Date</th>
+                        <th>Open</th>
+                        <th>Close</th>
+                        <th>High</th>
+                        <th>Low</th>
+          </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${symbols}" var="symbol">
+                        <tr>
+                            <td>${symbol.date}</td>
+                            <c:choose>
+                                <c:when test="${not empty symbol.open}">
+                                    <td>${symbol.open}</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
+                                </c:otherwise>
+                            </c:choose>
+                            <td>${symbol.close}</td>
+                            <c:choose>
+                                <c:when test="${not empty symbol.high}">
+                                    <td>${symbol.high}</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
+                                </c:otherwise>
+                            </c:choose>
+                            <c:choose>
+                                <c:when test="${not empty symbol.low}">
+                                    <td>${symbol.low}</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td>N/A</td> <!-- 또는 다른 기본값 설정 -->
+                                </c:otherwise>
+                            </c:choose>
+                            <!-- 다른 컬럼 추가 -->
+                        </tr>
+                    </c:forEach>
+                     <script>$('table').DataTable();</script>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
+   
+   
+
     
     <br /><br /><br />
 <!-- Main (div id=main) 끝 -->

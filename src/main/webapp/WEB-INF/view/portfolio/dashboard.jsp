@@ -130,23 +130,23 @@
       </div>
       <div class="modal-body">
                                <!-- ECharts Pie Chart 1 -->
-        <div id="echartsPieChart1" style="min-height: 400px;" class="echart"></div>
+        <div id="echartsPieChart1" style="min-height: 550px;" class="echart"></div>
         <script>
         $('#exampleModal').on('shown.bs.modal', function () {
                 const chartData = [
-                    { value: ${firstPortfolio.us}, name: 'us' },
-                    { value: ${firstPortfolio.uk}, name: 'uk' },
-                    { value: ${firstPortfolio.jp}, name: 'jp' },
-                    { value: ${firstPortfolio.euro}, name: 'euro' },
-                    { value: ${firstPortfolio.kor}, name: 'kor' },
-                    { value: ${firstPortfolio.ind}, name: 'ind' },
-                    { value: ${firstPortfolio.tw}, name: 'tw' },
-                    { value: ${firstPortfolio.br}, name: 'br' },
-                    { value: ${firstPortfolio.kor3y}, name: 'kor3y' },
-                    { value: ${firstPortfolio.kor10y}, name: 'kor10y' },
-                    { value: ${firstPortfolio.us3y}, name: 'us3y' },
-                    { value: ${firstPortfolio.us10y}, name: 'us10y' },
-                    { value: ${firstPortfolio.gold}, name: 'gold' }
+                    { value: ${firstPortfolio.us}, name: '나스닥' },
+                    { value: ${firstPortfolio.uk}, name: '영국' },
+                    { value: ${firstPortfolio.jp}, name: '니케이' },
+                    { value: ${firstPortfolio.euro}, name: '유료스탁스' },
+                    { value: ${firstPortfolio.kor}, name: '코스피' },
+                    { value: ${firstPortfolio.ind}, name: '인도' },
+                    { value: ${firstPortfolio.tw}, name: '대만' },
+                    { value: ${firstPortfolio.br}, name: '브라질' },
+                    { value: ${firstPortfolio.kor3y}, name: '국채 3년' },
+                    { value: ${firstPortfolio.kor10y}, name: '국채 10년' },
+                    { value: ${firstPortfolio.us3y}, name: '미국채 3년' },
+                    { value: ${firstPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${firstPortfolio.gold}, name: '금' }
                 ];
 
                 // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
@@ -217,23 +217,23 @@
       </div>
       <div class="modal-body">
                                <!-- ECharts Pie Chart 1 -->
-        <div id="echartsPieChart12" style="min-height: 800px;" class="echart"></div>
+        <div id="echartsPieChart12" style="min-height: 550px;" class="echart"></div>
         <script>
         $('#exampleModal2').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${secondPortfolio.us}, name: 'us' },
-                    { value: ${secondPortfolio.uk}, name: 'uk' },
-                    { value: ${secondPortfolio.jp}, name: 'jp' },
-                    { value: ${secondPortfolio.euro}, name: 'euro' },
-                    { value: ${secondPortfolio.kor}, name: 'kor' },
-                    { value: ${secondPortfolio.ind}, name: 'ind' },
-                    { value: ${secondPortfolio.tw}, name: 'tw' },
-                    { value: ${secondPortfolio.br}, name: 'br' },
-                    { value: ${secondPortfolio.kor3y}, name: 'kor3y' },
-                    { value: ${secondPortfolio.kor10y}, name: 'kor10y' },
-                    { value: ${secondPortfolio.us3y}, name: 'us3y' },
-                    { value: ${secondPortfolio.us10y}, name: 'us10y' },
-                    { value: ${secondPortfolio.gold}, name: 'gold' }
+                	{ value: ${secondPortfolio.us}, name: '나스닥' },
+                    { value: ${secondPortfolio.uk}, name: '영국' },
+                    { value: ${secondPortfolio.jp}, name: '니케이' },
+                    { value: ${secondPortfolio.euro}, name: '유료스탁스' },
+                    { value: ${secondPortfolio.kor}, name: '코스피' },
+                    { value: ${secondPortfolio.ind}, name: '인도' },
+                    { value: ${secondPortfolio.tw}, name: '대만' },
+                    { value: ${secondPortfolio.br}, name: '브라질' },
+                    { value: ${secondPortfolio.kor3y}, name: '국채 3년' },
+                    { value: ${secondPortfolio.kor10y}, name: '국채 10년' },
+                    { value: ${secondPortfolio.us3y}, name: '미국채 3년' },
+                    { value: ${secondPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${secondPortfolio.gold}, name: '금' }
                 ];
 
                 // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
@@ -307,23 +307,23 @@
       </div>
       <div class="modal-body">
                                <!-- ECharts Pie Chart 1 -->
-        <div id="echartsPieChart123" style="min-height: 400px;" class="echart"></div>
+        <div id="echartsPieChart123" style="min-height: 550px;" class="echart"></div>
         <script>
         $('#exampleModal3').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${thirdPortfolio.us}, name: 'us' },
-                    { value: ${thirdPortfolio.uk}, name: 'uk' },
-                    { value: ${thirdPortfolio.jp}, name: 'jp' },
-                    { value: ${thirdPortfolio.euro}, name: 'euro' },
-                    { value: ${thirdPortfolio.kor}, name: 'kor' },
-                    { value: ${thirdPortfolio.ind}, name: 'ind' },
-                    { value: ${thirdPortfolio.tw}, name: 'tw' },
-                    { value: ${thirdPortfolio.br}, name: 'br' },
-                    { value: ${thirdPortfolio.kor3y}, name: 'kor3y' },
-                    { value: ${thirdPortfolio.kor10y}, name: 'kor10y' },
-                    { value: ${thirdPortfolio.us3y}, name: 'us3y' },
-                    { value: ${thirdPortfolio.us10y}, name: 'us10y' },
-                    { value: ${thirdPortfolio.gold}, name: 'gold' }
+                	{ value: ${thirdPortfolio.us}, name: '나스닥' },
+                    { value: ${thirdPortfolio.uk}, name: '영국' },
+                    { value: ${thirdPortfolio.jp}, name: '니케이' },
+                    { value: ${thirdPortfolio.euro}, name: '유료스탁스' },
+                    { value: ${thirdPortfolio.kor}, name: '코스피' },
+                    { value: ${thirdPortfolio.ind}, name: '인도' },
+                    { value: ${thirdPortfolio.tw}, name: '대만' },
+                    { value: ${thirdPortfolio.br}, name: '브라질' },
+                    { value: ${thirdPortfolio.kor3y}, name: '국채 3년' },
+                    { value: ${thirdPortfolio.kor10y}, name: '국채 10년' },
+                    { value: ${thirdPortfolio.us3y}, name: '미국채 3년' },
+                    { value: ${thirdPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${thirdPortfolio.gold}, name: '금' }
                 ];
 
                 // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
@@ -395,23 +395,23 @@
       </div>
       <div class="modal-body">
                                <!-- ECharts Pie Chart 1 -->
-        <div id="echartsPieChart1234" style="min-height: 400px;" class="echart"></div>
+        <div id="echartsPieChart1234" style="min-height: 550px;" class="echart"></div>
         <script>
         $('#exampleModal4').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${fourthPortfolio.us}, name: 'us' },
-                    { value: ${fourthPortfolio.uk}, name: 'uk' },
-                    { value: ${fourthPortfolio.jp}, name: 'jp' },
-                    { value: ${fourthPortfolio.euro}, name: 'euro' },
-                    { value: ${fourthPortfolio.kor}, name: 'kor' },
-                    { value: ${fourthPortfolio.ind}, name: 'ind' },
-                    { value: ${fourthPortfolio.tw}, name: 'tw' },
-                    { value: ${fourthPortfolio.br}, name: 'br' },
-                    { value: ${fourthPortfolio.kor3y}, name: 'kor3y' },
-                    { value: ${fourthPortfolio.kor10y}, name: 'kor10y' },
-                    { value: ${fourthPortfolio.us3y}, name: 'us3y' },
-                    { value: ${fourthPortfolio.us10y}, name: 'us10y' },
-                    { value: ${fourthPortfolio.gold}, name: 'gold' }
+                	{ value: ${fourthPortfolio.us}, name: '나스닥' },
+                    { value: ${fourthPortfolio.uk}, name: '영국' },
+                    { value: ${fourthPortfolio.jp}, name: '니케이' },
+                    { value: ${fourthPortfolio.euro}, name: '유료스탁스' },
+                    { value: ${fourthPortfolio.kor}, name: '코스피' },
+                    { value: ${fourthPortfolio.ind}, name: '인도' },
+                    { value: ${fourthPortfolio.tw}, name: '대만' },
+                    { value: ${fourthPortfolio.br}, name: '브라질' },
+                    { value: ${fourthPortfolio.kor3y}, name: '국채 3년' },
+                    { value: ${fourthPortfolio.kor10y}, name: '국채 10년' },
+                    { value: ${fourthPortfolio.us3y}, name: '미국채 3년' },
+                    { value: ${fourthPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${fourthPortfolio.gold}, name: '금' }
                 ];
 
                 // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
@@ -485,23 +485,23 @@
       </div>
       <div class="modal-body">
                                <!-- ECharts Pie Chart 1 -->
-        <div id="echartsPieChart12345" style="min-height: 400px;" class="echart"></div>
+        <div id="echartsPieChart12345" style="min-height: 550px;" class="echart"></div>
         <script>
         $('#exampleModal5').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${fifthPortfolio.us}, name: 'us' },
-                    { value: ${fifthPortfolio.uk}, name: 'uk' },
-                    { value: ${fifthPortfolio.jp}, name: 'jp' },
-                    { value: ${fifthPortfolio.euro}, name: 'euro' },
-                    { value: ${fifthPortfolio.kor}, name: 'kor' },
-                    { value: ${fifthPortfolio.ind}, name: 'ind' },
-                    { value: ${fifthPortfolio.tw}, name: 'tw' },
-                    { value: ${fifthPortfolio.br}, name: 'br' },
-                    { value: ${fifthPortfolio.kor3y}, name: 'kor3y' },
-                    { value: ${fifthPortfolio.kor10y}, name: 'kor10y' },
-                    { value: ${fifthPortfolio.us3y}, name: 'us3y' },
-                    { value: ${fifthPortfolio.us10y}, name: 'us10y' },
-                    { value: ${fifthPortfolio.gold}, name: 'gold' }
+                	{ value: ${fifthPortfolio.us}, name: '나스닥' },
+                    { value: ${fifthPortfolio.uk}, name: '영국' },
+                    { value: ${fifthPortfolio.jp}, name: '니케이' },
+                    { value: ${fifthPortfolio.euro}, name: '유료스탁스' },
+                    { value: ${fifthPortfolio.kor}, name: '코스피' },
+                    { value: ${fifthPortfolio.ind}, name: '인도' },
+                    { value: ${fifthPortfolio.tw}, name: '대만' },
+                    { value: ${fifthPortfolio.br}, name: '브라질' },
+                    { value: ${fifthPortfolio.kor3y}, name: '국채 3년' },
+                    { value: ${fifthPortfolio.kor10y}, name: '국채 10년' },
+                    { value: ${fifthPortfolio.us3y}, name: '미국채 3년' },
+                    { value: ${fifthPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${fifthPortfolio.gold}, name: '금' }
                 ];
 
                 // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
@@ -574,23 +574,23 @@
       </div>
       <div class="modal-body">
                                <!-- ECharts Pie Chart 1 -->
-        <div id="echartsPieChart123456" style="min-height: 400px;" class="echart"></div>
+        <div id="echartsPieChart123456" style="min-height: 550px;" class="echart"></div>
         <script>
         $('#exampleModal6').on('shown.bs.modal', function () {
                 const chartData = [
-                	{ value: ${sixthPortfolio.us}, name: 'us' },
-                    { value: ${sixthPortfolio.uk}, name: 'uk' },
-                    { value: ${sixthPortfolio.jp}, name: 'jp' },
-                    { value: ${sixthPortfolio.euro}, name: 'euro' },
-                    { value: ${sixthPortfolio.kor}, name: 'kor' },
-                    { value: ${sixthPortfolio.ind}, name: 'ind' },
-                    { value: ${sixthPortfolio.tw}, name: 'tw' },
-                    { value: ${sixthPortfolio.br}, name: 'br' },
-                    { value: ${sixthPortfolio.kor3y}, name: 'kor3y' },
-                    { value: ${sixthPortfolio.kor10y}, name: 'kor10y' },
-                    { value: ${sixthPortfolio.us3y}, name: 'us3y' },
-                    { value: ${sixthPortfolio.us10y}, name: 'us10y' },
-                    { value: ${sixthPortfolio.gold}, name: 'gold' }
+                   	{ value: ${sixthPortfolio.us}, name: '나스닥' },
+                    { value: ${sixthPortfolio.uk}, name: '영국' },
+                    { value: ${sixthPortfolio.jp}, name: '니케이' },
+                    { value: ${sixthPortfolio.euro}, name: '유료스탁스' },
+                    { value: ${sixthPortfolio.kor}, name: '코스피' },
+                    { value: ${sixthPortfolio.ind}, name: '인도' },
+                    { value: ${sixthPortfolio.tw}, name: '대만' },
+                    { value: ${sixthPortfolio.br}, name: '브라질' },
+                    { value: ${sixthPortfolio.kor3y}, name: '국채 3년' },
+                    { value: ${sixthPortfolio.kor10y}, name: '국채 10년' },
+                    { value: ${sixthPortfolio.us3y}, name: '미국채 3년' },
+                    { value: ${sixthPortfolio.us10y}, name: '미국채 10년' },
+                    { value: ${sixthPortfolio.gold}, name: '금' }
                 ];
 
                 // 비중이 5% 미만인 항목을 필터링하여 새로운 항목 생성
@@ -805,7 +805,7 @@
         });
     });
 </script>
-</div>
+</div><br /><br />
 <!-- 나누리 안전형 시작문병근 -->
 <!-- 차트 -->
         <div style="border-bottom: 2px solid blue;">

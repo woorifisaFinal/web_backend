@@ -80,13 +80,14 @@
         }
 
 
-        body {
-          font-family: 'Open Sans', sans-serif;
-          font-weight: 300;
-          line-height: 1.42em;
-          color:#A7A1AE;
-          background-color:white;
-        }
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700; /* 기본 텍스트를 두껍게 설정 */
+    line-height: 1.42em;
+    color: #A7A1AE;
+    background-color: white;
+}
+
 
         h1 {
           font-size:3em;
@@ -169,20 +170,30 @@
                   box-shadow: 0 6px 6px -6px white;
         }
 
-        .container_ td:hover {
-          background-color: #0879d4;
-          color: #403E10;
-          font-weight: bold;
+.container_ td:hover {
+    background-color: #0879d4;
+    color: #FFFFFF;
+    font-weight: bold;
 
-          box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-          transform: translate3d(6px, -6px, 0);
+    box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+    transform: translate3d(6px, -6px, 0);
 
-          transition-delay: 0s;
-            transition-duration: 0.4s;
-            transition-property: all;
-          transition-timing-function: line;
-        }
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: linear;
+}
+.container_ table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid black;
+}
 
+.container_ th, .container_ td {
+    border: 1px solid black;
+    padding: 2%;
+    transition: background-color 0.4s, color 0.4s;
+}
 
 
 
@@ -232,6 +243,24 @@
         .btn-hover:focus {
             outline: none;
         }
+        
+        
+        :root {
+  /* Inline size */
+  --page-max-inline-size: 100%;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  padding-block: var(--padding-lg);
+}
+
+caption {
+  text-align: start;
+}
     </style>
     <!-- Vendor JS Files -->
     <script src="${pageContext.request.contextPath}/vendor/apexcharts/apexcharts.min.js"></script>
@@ -304,15 +333,16 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-md-6">
+            <div class="col-md-15">
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 <h3>파이차트:</h3>
                 <div style="display: flex; justify-content: space-around;">
                     <div>
                         <h2>${portfolio.type}</h2>
-                        <canvas id="chartB" width="300" height="300"></canvas>
+                        <canvas id="chartB" width="500" height="500"></canvas>
                     </div>
                 </div>
+                 <br /> <br />
                 <script>
                     // Pie Chart Data
                     const ctxB = document.getElementById('chartB');
@@ -350,26 +380,25 @@
                             plugins: {
                                 title: {
                                     display: true,
-                                    text: 'Pie Chart B Title' // Second Pie Chart Title
+                                 // Second Pie Chart Title
                                 }
                             }
                         }
                     });
                 </script>
             </div>
-            <div class="col-md-6">
-                <h3>표:</h3>
 
-                <table class="container_">
-                  <thead>
-                    <tr>
-                      <th><h1>종목</h1></th>
-                      <th><h1>비율</h1></th>
-                      <th><h1>종목</h1></th>
-                      <th><h1>비율</h1></th>
-                    </tr>
-                  </thead>
-                  <tbody>
+<table border="1">
+ <h3>비율:</h3>
+    <thead>
+      <tr>
+        <th scope="col">종목</th>
+        <th scope="col">비율</th>
+        <th scope="col">종목</th>
+        <th scope="col">비율</th>
+      </tr>
+    </thead>
+    <tbody>
                     <tr>
                         <td>NASDAQ</td>
                         <td>${portfolio.us}</td>
@@ -411,9 +440,15 @@
                         <td>${portfolio.gold}</td>
                       </tr>
                   </tbody>
-                </table>
-            </div>
-        </div>   
+    <tfoot>
+      <tr>
+        <th scope="row" colspan="3">SUM</th>
+        <td>1</td>
+      </tr>
+    </tfoot>
+  </table>
+
+
 
         <div class="row mt-4">
             <div class="col-md-12 text-center">

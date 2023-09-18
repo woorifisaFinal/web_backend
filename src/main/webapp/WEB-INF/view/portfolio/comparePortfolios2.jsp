@@ -74,13 +74,13 @@
 		<!-- First Pie Chart -->
 		<h2>type ${resultA.type}</h2>
 		<div>
-		  <canvas id="chartA" width="300" height="300"></canvas>
+		  <canvas id="chartA" width="500" height="500"></canvas>
 		</div>
 		
 		<!-- Second Pie Chart -->
 		<h2>type ${resultB.type}</h2>
 		<div>
-		  <canvas id="chartB" width="300" height="300"></canvas>
+		  <canvas id="chartB" width="500" height="500"></canvas>
 		</div>
 		
 		<script>
@@ -120,7 +120,7 @@
 		      plugins: {
 		        title: {
 		          display: true,
-		          text: 'Pie Chart A Title' // First Pie Chart Title
+		        // First Pie Chart Title
 		        }
 		      }
 		    }
@@ -162,7 +162,7 @@
 		      plugins: {
 		        title: {
 		          display: true,
-		          text: 'Pie Chart B Title' // Second Pie Chart Title
+		          // Second Pie Chart Title
 		        }
 		      }
 		    }

@@ -47,7 +47,7 @@
         margin-top: -30px; /* 버튼을 위로 올리는 여백 조정 */
       }
       body {
-      	padding : 0 430px;
+      	padding : 0 350px;
       <!-- 	min-width: 200px; -->
       }
     </style>
