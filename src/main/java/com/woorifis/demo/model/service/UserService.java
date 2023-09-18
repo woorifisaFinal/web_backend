@@ -46,18 +46,6 @@ public class UserService {
 			return null;
 		 }
 	}
-	/* save 하면 원래 값 바꿔주는지 확인 필요 
-	
-	@Transactional
-	public void update(String userId, String type) {
-		// 1. 회원 아이디(기본 키) 가져오기 -> session 값
-		String loggedInUserId = (String) session.getAttribute("loginUser");
-		// 2. 회원의 성향 테이블에 update
-		
-	    User user = userRepository.findById(userId).get();
-	    user.setType(type);
-	}*/
-
 
 	 public UserDTO getUserInfo(String userId) {
 	        // 여기서는 예시로 UserRepository를 사용하여 사용자 정보를 조회합니다.
@@ -91,23 +79,15 @@ public class UserService {
 	        User user = userRepository.findByUserId(userId).orElse(null);
 			log.info("before: {}",user);
 	        if (user != null) {
-	            // 새로운 이름과 이메일로 사용자 정보 업데이트
-//	            user.setUserName(newName);
+	            // 새로운 이메일과 비밀번호로 사용자 정보 업데이트
 	            user.setUserEmail(newEmail);
 				user.setPassword(newPassword);
-
 	            userRepository.save(user);
 				log.info("after:{}");
 	        }
 
 	    }
-	    public void updateType(String userId, String type){
-		 User user = userRepository.findByUserId(userId).orElse(null);
-		 if(user != null){
-			 user.setType(type);
-			 userRepository.save(user);
-		 }
-		}
+
 	    // 사용자 삭제 함수
 	    public void deleteUser(Long userNo) {
 	        userRepository.deleteById(userNo);

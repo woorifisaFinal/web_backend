@@ -260,7 +260,7 @@
             <div class="col-md-4">
                 <div class="product-box container" id="A/공격형">
                     <div class="top-section">
-                        <p>블랙 리터만 / 위험형</p>
+                        <p>블랙 리터만 / 공격형</p>
                     </div>
                     <div class="bottom-section">
                         </br>

@@ -100,13 +100,13 @@ public class PortfolioController {
 			return "블랙리터만알파/공격형";
 		}
 		else if(type.equals("B/안정형")){
-			return "블랙리터만/공격형";
+			return "블랙리터만/안정형";
 		}
 		else if(type.equals("B/공격형")){
 			return "블랙리터만/공격형";
 		}
 		else if(type.equals("C/안정형")){
-			return "나누리커스텀/공격형";
+			return "나누리커스텀/안정형";
 		}
 		else if(type.equals("C/공격형")) {
 			return "나누리커스텀/공격형";
@@ -376,12 +376,13 @@ public class PortfolioController {
 		
 		String type = "C/"+User.getType();
 		System.out.println("user type : "+ type);
-		
+//		FOR REAL
 		// 오늘 날짜 가져오기
-//	    LocalDate currentDate = LocalDate.now();
-//	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Define your desired date format
-//	    String date = currentDate.format(formatter);
-	    String date = "2022-08-01";
+	    LocalDate currentDate = LocalDate.now();
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Define your desired date format
+	    String date = currentDate.format(formatter);
+//		FOR LOCAL
+//	    String date = "2022-08-01";
 
 	    
     	System.out.println("type,date : "+ type + date);
